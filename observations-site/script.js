@@ -1,5 +1,21 @@
 (function () {
   const body = document.body;
+  const signalLabels = {
+    givenchy: "Signal 028",
+    1903: "Signal 029",
+    brandstorm: "Signal 021",
+    seo: "Signal 017",
+    personalization: "Signal 002",
+  };
+  const activeSignalName = document.querySelector(".active-signal-name");
+  let activeDossier = body.dataset.signal || "givenchy";
+
+  function setSignalMood(key) {
+    body.dataset.signal = key;
+    if (activeSignalName && signalLabels[key]) {
+      activeSignalName.textContent = signalLabels[key];
+    }
+  }
 
   const revealElements = document.querySelectorAll(".reveal");
   if (revealElements.length) {
@@ -32,6 +48,9 @@
   const scrollBehavior = prefersReducedMotion ? "auto" : "smooth";
 
   function activateDossier(key, options = {}) {
+    activeDossier = key;
+    setSignalMood(key);
+
     tabs.forEach((tab) => {
       const isActive = tab.dataset.dossier === key;
       tab.classList.toggle("is-active", isActive);
@@ -54,7 +73,6 @@
       }
     });
 
-    body.dataset.signal = key;
   }
 
   tabs.forEach((tab) => {
@@ -78,6 +96,26 @@
 
       event.preventDefault();
       activateDossier(tabs[nextIndex].dataset.dossier, { focus: true });
+    });
+  });
+
+  const moodTargets = document.querySelectorAll("[data-mood]");
+  moodTargets.forEach((target) => {
+    target.addEventListener("mouseenter", () => {
+      const key = target.getAttribute("data-mood");
+      if (key) setSignalMood(key);
+    });
+
+    target.addEventListener("mouseleave", () => setSignalMood(activeDossier));
+
+    target.addEventListener("focusin", () => {
+      const key = target.getAttribute("data-mood");
+      if (key) setSignalMood(key);
+    });
+
+    target.addEventListener("focusout", (event) => {
+      if (target.contains(event.relatedTarget)) return;
+      setSignalMood(activeDossier);
     });
   });
 
