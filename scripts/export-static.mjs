@@ -59,7 +59,7 @@ await mkdir(outputRoot, { recursive: true });
 await cp(path.join(projectRoot, "dist/client"), outputRoot, { recursive: true });
 await rm(path.join(outputRoot, "_headers"), { force: true });
 
-const server = spawn("npm", ["run", "start"], {
+const server = spawn(path.join(projectRoot, "node_modules/.bin/vinext"), ["start"], {
   cwd: projectRoot,
   env: { ...process.env, NO_COLOR: "1" },
   stdio: ["ignore", "pipe", "pipe"],
@@ -93,4 +93,12 @@ try {
   throw error;
 } finally {
   server.kill("SIGTERM");
+  await new Promise((resolve) => {
+    if (server.exitCode !== null) {
+      resolve();
+      return;
+    }
+    server.once("exit", resolve);
+    setTimeout(resolve, 2_000);
+  });
 }
