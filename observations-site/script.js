@@ -7,13 +7,24 @@
     seo: "Signal 017",
     personalization: "Signal 002",
   };
+  const signalObservations = {
+    givenchy: "Couture was being cited, not operationalized.",
+    1903: "The first drink marks a change of state.",
+    brandstorm: "Dupes copy cues, not memory.",
+    seo: "Search results have become a style surface.",
+    personalization: "Prediction is being mistaken for intimacy.",
+  };
   const activeSignalName = document.querySelector(".active-signal-name");
+  const currentObservation = document.querySelector(".current-observation");
   let activeDossier = body.dataset.signal || "givenchy";
 
   function setSignalMood(key) {
     body.dataset.signal = key;
     if (activeSignalName && signalLabels[key]) {
       activeSignalName.textContent = signalLabels[key];
+    }
+    if (currentObservation && signalObservations[key]) {
+      currentObservation.textContent = signalObservations[key];
     }
   }
 

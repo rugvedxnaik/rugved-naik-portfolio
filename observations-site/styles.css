@@ -1997,3 +1997,678 @@ body.living-home[data-signal="personalization"] {
     grid-template-columns: 1fr;
   }
 }
+
+/* Living Signal System: theme-led homepage */
+
+body.signal-system-home {
+  --paper: #fff7eb;
+  --ink: #14110e;
+  --ink-soft: #4c4740;
+  --ink-faint: #766c61;
+  --signal-accent: #ff4d5e;
+  --signal-accent-strong: #841d2c;
+  --signal-secondary: #1f74ff;
+  --signal-third: #b7ff3c;
+  --signal-wash: #ffe1cb;
+  --signal-panel: rgba(255, 252, 245, 0.76);
+  --signal-line: rgba(20, 17, 14, 0.13);
+  --shell: min(1240px, calc(100vw - 2rem));
+  background:
+    radial-gradient(circle at 15% 18%, color-mix(in srgb, var(--signal-accent) 24%, transparent), transparent 18rem),
+    radial-gradient(circle at 82% 12%, color-mix(in srgb, var(--signal-secondary) 18%, transparent), transparent 20rem),
+    radial-gradient(circle at 74% 82%, color-mix(in srgb, var(--signal-third) 22%, transparent), transparent 22rem),
+    linear-gradient(135deg, #fff7eb, #f7fbf3 48%, #fff2e1);
+  color: var(--ink);
+}
+
+body.signal-system-home[data-signal="givenchy"] {
+  --signal-accent: #ff4056;
+  --signal-accent-strong: #8b1f2d;
+  --signal-secondary: #252525;
+  --signal-third: #f2d3b8;
+  --signal-wash: #ffd8d3;
+}
+
+body.signal-system-home[data-signal="1903"] {
+  --signal-accent: #0dbb9f;
+  --signal-accent-strong: #096255;
+  --signal-secondary: #ff8a2a;
+  --signal-third: #f3c74a;
+  --signal-wash: #d8f2e9;
+}
+
+body.signal-system-home[data-signal="brandstorm"] {
+  --signal-accent: #ff2d79;
+  --signal-accent-strong: #8e1644;
+  --signal-secondary: #ff9fbf;
+  --signal-third: #1e1d24;
+  --signal-wash: #ffd9e7;
+}
+
+body.signal-system-home[data-signal="seo"] {
+  --signal-accent: #2478ff;
+  --signal-accent-strong: #164a9e;
+  --signal-secondary: #39d353;
+  --signal-third: #ffe95c;
+  --signal-wash: #dcecff;
+}
+
+body.signal-system-home[data-signal="personalization"] {
+  --signal-accent: #8657ff;
+  --signal-accent-strong: #45229f;
+  --signal-secondary: #ff6fa7;
+  --signal-third: #6df2c4;
+  --signal-wash: #eadfff;
+}
+
+.signal-system-home *,
+.signal-system-home h1,
+.signal-system-home h2,
+.signal-system-home h3,
+.signal-system-home blockquote {
+  letter-spacing: 0;
+}
+
+.signal-system-home::before,
+.signal-system-home .grain {
+  display: none;
+}
+
+.signal-field-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -2;
+}
+
+.signal-field-bg span {
+  position: absolute;
+  width: 34rem;
+  height: 34rem;
+  border: 1px solid color-mix(in srgb, var(--signal-accent) 22%, transparent);
+  border-radius: 50%;
+  opacity: 0.42;
+  animation: signalDrift 18s linear infinite;
+}
+
+.signal-field-bg span:nth-child(1) {
+  left: -12rem;
+  top: 8rem;
+}
+
+.signal-field-bg span:nth-child(2) {
+  right: -12rem;
+  top: -8rem;
+  width: 28rem;
+  height: 28rem;
+  border-color: color-mix(in srgb, var(--signal-secondary) 24%, transparent);
+  animation-duration: 22s;
+}
+
+.signal-field-bg span:nth-child(3) {
+  right: 18%;
+  bottom: -15rem;
+  border-color: color-mix(in srgb, var(--signal-third) 38%, transparent);
+  animation-duration: 26s;
+}
+
+.signal-field-bg span:nth-child(4),
+.signal-field-bg span:nth-child(5) {
+  width: 0.8rem;
+  height: 0.8rem;
+  background: var(--signal-accent);
+  border: 0;
+  box-shadow: 0 0 2rem var(--signal-accent);
+}
+
+.signal-field-bg span:nth-child(4) {
+  left: 64%;
+  top: 18%;
+}
+
+.signal-field-bg span:nth-child(5) {
+  left: 22%;
+  bottom: 18%;
+  background: var(--signal-secondary);
+}
+
+@keyframes signalDrift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(1.6rem, -1rem, 0) scale(1.04);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.signal-header {
+  background: rgba(255, 248, 237, 0.72);
+  border-color: var(--signal-line);
+}
+
+.signal-header .header-status,
+.signal-header .site-nav {
+  color: var(--ink-soft);
+}
+
+.signal-hero {
+  min-height: calc(100vh - 4.5rem);
+  display: grid;
+  align-items: center;
+  padding: 5rem 0 2.5rem;
+}
+
+.signal-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(20rem, 0.72fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.signal-hero-copy h1 {
+  font-size: clamp(4rem, 10vw, 8rem);
+  line-height: 0.9;
+  font-weight: 300;
+}
+
+.signal-thesis {
+  max-width: 55rem;
+  margin: 1.1rem 0 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.3rem, 4.6vw, 4.4rem);
+  line-height: 0.98;
+}
+
+.signal-subcopy {
+  max-width: 46rem;
+  margin: 1.4rem 0 0;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.signal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.signal-system-home .primary-link {
+  background: var(--ink);
+  color: #fff7eb;
+}
+
+.signal-system-home .secondary-link {
+  border-color: color-mix(in srgb, var(--signal-accent) 45%, var(--signal-line));
+  background: color-mix(in srgb, var(--signal-accent) 12%, rgba(255, 255, 255, 0.75));
+  color: var(--ink);
+}
+
+.signal-console {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--signal-line);
+  border-radius: 8px;
+  padding: 1.2rem;
+  min-height: 34rem;
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.48)),
+    color-mix(in srgb, var(--signal-wash) 68%, transparent);
+  box-shadow: 0 2rem 6rem rgba(30, 22, 14, 0.11);
+}
+
+.console-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.active-signal-name {
+  color: var(--signal-accent-strong);
+}
+
+.console-orbit {
+  position: relative;
+  height: 18rem;
+  margin: 2rem 0 1.2rem;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--signal-accent) 30%, transparent);
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--signal-accent) 15%, transparent) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(20, 17, 14, 0.08) 1px, transparent 1px);
+  background-size: 3.4rem 3.4rem;
+}
+
+.console-orbit i,
+.console-orbit b {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+}
+
+.console-orbit i {
+  border: 1px solid color-mix(in srgb, var(--signal-accent) 58%, transparent);
+}
+
+.console-orbit i:nth-child(1) {
+  inset: 2rem;
+}
+
+.console-orbit i:nth-child(2) {
+  inset: 4.6rem;
+  border-color: color-mix(in srgb, var(--signal-secondary) 58%, transparent);
+}
+
+.console-orbit i:nth-child(3) {
+  width: 4.2rem;
+  height: 4.2rem;
+  left: 16%;
+  top: 18%;
+  background: color-mix(in srgb, var(--signal-accent) 24%, transparent);
+}
+
+.console-orbit i:nth-child(4) {
+  width: 3rem;
+  height: 3rem;
+  right: 18%;
+  bottom: 20%;
+  background: color-mix(in srgb, var(--signal-secondary) 22%, transparent);
+}
+
+.console-orbit b {
+  width: 0.9rem;
+  height: 0.9rem;
+  left: 50%;
+  top: 50%;
+  background: var(--signal-accent);
+  box-shadow: 0 0 2.2rem var(--signal-accent);
+  animation: pulseDot 1.8s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.35);
+  }
+}
+
+.current-observation {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.25rem;
+  line-height: 1.05;
+}
+
+.console-metrics,
+.conversion-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.console-metrics {
+  margin-top: 1.4rem;
+}
+
+.console-metrics span,
+.conversion-strip span {
+  border: 1px solid var(--signal-line);
+  border-radius: 999px;
+  padding: 0.5rem 0.68rem;
+  background: rgba(255, 255, 255, 0.55);
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+
+.conversion-strip {
+  margin-top: 2rem;
+}
+
+.signal-section {
+  padding: 5.5rem 0;
+}
+
+.clarity-grid,
+.operating-grid,
+.seo-grid,
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.signal-system-home h2 {
+  font-size: clamp(2.5rem, 5vw, 4.6rem);
+  line-height: 0.98;
+}
+
+.clarity-points,
+.seo-cards,
+.dossier-fields {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.clarity-points {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.clarity-points article,
+.seo-cards article,
+.contact-panel,
+.signal-system-home .signal-dossier {
+  border: 1px solid var(--signal-line);
+  border-radius: 8px;
+  background: rgba(255, 252, 245, 0.72);
+  box-shadow: 0 1.2rem 3rem rgba(30, 22, 14, 0.07);
+}
+
+.clarity-points article,
+.seo-cards article {
+  padding: 1rem;
+}
+
+.clarity-points span,
+.seo-cards span,
+.dossier-fields span,
+.operating-steps span {
+  font-family: "DM Mono", monospace;
+  font-size: 0.72rem;
+  color: var(--signal-accent-strong);
+  text-transform: uppercase;
+}
+
+.clarity-points h3 {
+  margin-top: 0.7rem;
+  font-size: 1.75rem;
+}
+
+.clarity-points p,
+.seo-cards p,
+.operating-grid p,
+.contact-grid p,
+.dossier-fields p {
+  color: var(--ink-soft);
+  line-height: 1.62;
+}
+
+.system-room-grid {
+  margin-top: 2rem;
+}
+
+.signal-system-home .signal-index::before {
+  background: linear-gradient(180deg, transparent, var(--signal-accent), transparent);
+}
+
+.signal-system-home .signal-chip {
+  border-radius: 8px;
+  background: rgba(255, 252, 245, 0.66);
+  box-shadow: none;
+}
+
+.signal-system-home .signal-chip:hover,
+.signal-system-home .signal-chip:focus-visible,
+.signal-system-home .signal-chip.is-active {
+  border-color: var(--signal-accent);
+  background: color-mix(in srgb, var(--signal-wash) 36%, rgba(255, 255, 255, 0.86));
+}
+
+.signal-system-home .signal-chip.is-active::after {
+  color: var(--signal-accent-strong);
+}
+
+.signal-system-home .signal-title {
+  letter-spacing: 0;
+}
+
+.signal-system-home .signal-dossier {
+  padding: 1.35rem;
+}
+
+.signal-system-home .dossier-meta,
+.signal-system-home .signal-number,
+.signal-system-home .signal-field,
+.signal-system-home .signal-note-label {
+  color: var(--signal-accent-strong);
+}
+
+.signal-system-home .dossier-kicker {
+  max-width: 48rem;
+}
+
+.system-visual {
+  position: relative;
+  min-height: 13rem;
+  margin: 1.2rem 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--signal-accent) 34%, var(--signal-line));
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 30% 44%, color-mix(in srgb, var(--signal-accent) 24%, transparent), transparent 8rem),
+    radial-gradient(circle at 72% 55%, color-mix(in srgb, var(--signal-secondary) 20%, transparent), transparent 7rem),
+    rgba(255, 255, 255, 0.46);
+}
+
+.system-visual .node,
+.system-visual i {
+  position: absolute;
+  display: block;
+}
+
+.system-visual .node {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background: var(--signal-accent);
+  box-shadow: 0 0 1.6rem var(--signal-accent);
+}
+
+.node-one {
+  left: 20%;
+  top: 28%;
+}
+
+.node-two {
+  left: 42%;
+  top: 52%;
+}
+
+.node-three {
+  right: 20%;
+  top: 34%;
+}
+
+.node-four {
+  right: 34%;
+  bottom: 24%;
+}
+
+.system-visual i {
+  left: 15%;
+  right: 15%;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--signal-accent), var(--signal-secondary), transparent);
+}
+
+.time-visual-lite,
+.search-visual,
+.ladder-visual {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  align-content: center;
+  padding: 1rem;
+}
+
+.time-visual-lite span,
+.search-visual span,
+.ladder-visual span {
+  display: grid;
+  place-items: center;
+  min-height: 4rem;
+  border: 1px solid var(--signal-line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.58);
+  font-family: "DM Mono", monospace;
+  color: var(--ink);
+}
+
+.ladder-visual {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.memory-visual {
+  display: grid;
+  place-items: center;
+}
+
+.memory-visual span {
+  position: absolute;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--signal-accent) 50%, transparent);
+}
+
+.memory-visual span:nth-child(2) {
+  width: 10rem;
+  height: 10rem;
+  border-color: color-mix(in srgb, var(--signal-secondary) 50%, transparent);
+}
+
+.memory-visual span:nth-child(3) {
+  width: 13rem;
+  height: 13rem;
+}
+
+.memory-visual b {
+  position: relative;
+  z-index: 1;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.dossier-fields {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 1rem 0 1.2rem;
+}
+
+.dossier-fields div {
+  border-top: 1px solid var(--signal-line);
+  padding-top: 0.75rem;
+}
+
+.dossier-fields p {
+  margin: 0.35rem 0 0;
+}
+
+.operating-section {
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.38), color-mix(in srgb, var(--signal-wash) 56%, transparent));
+}
+
+.operating-steps {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.operating-steps li {
+  display: grid;
+  grid-template-columns: 3rem 9rem 1fr;
+  gap: 1rem;
+  align-items: baseline;
+  border-top: 1px solid var(--signal-line);
+  padding: 0.9rem 0 0;
+}
+
+.operating-steps strong {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.65rem;
+  font-weight: 400;
+}
+
+.operating-steps p {
+  margin: 0;
+}
+
+.seo-cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.contact-panel {
+  padding: 1.3rem;
+}
+
+.contact-panel blockquote {
+  font-size: clamp(2.1rem, 4vw, 4rem);
+  line-height: 1;
+}
+
+.signal-system-home .contact-stack {
+  margin-top: 1.4rem;
+}
+
+@media (max-width: 1050px) {
+  .signal-hero-grid,
+  .clarity-grid,
+  .operating-grid,
+  .seo-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .clarity-points {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  body.signal-system-home {
+    --shell: min(100vw - 1.2rem, 1240px);
+  }
+
+  .signal-hero {
+    min-height: auto;
+    padding: 3.8rem 0 2rem;
+  }
+
+  .signal-console {
+    min-height: 27rem;
+  }
+
+  .console-orbit {
+    height: 13rem;
+  }
+
+  .dossier-fields,
+  .seo-cards,
+  .time-visual-lite,
+  .search-visual,
+  .ladder-visual {
+    grid-template-columns: 1fr;
+  }
+
+  .operating-steps li {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+}
