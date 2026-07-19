@@ -15,6 +15,11 @@
     "category evidence",
     "marketing systems"
   ],
+  "signalSystem": {
+    "label": "Signal room",
+    "headline": "A project is useful when the signal can travel from evidence to product, brand, and marketing decisions.",
+    "lanes": ["Behavior", "Evidence", "Tension", "Move", "System"]
+  },
   "lenses": [
     {
       "id": "collection",
@@ -104,6 +109,14 @@
       "hoverDetail": "A rule set for separating adaptive utility from stable brand cues.",
       "actionLabel": "Preview",
       "theme": "theme-loreal",
+      "signalWeight": 76,
+      "signature": {
+        "behavior": "Consumers accept adaptive help, but still look for cues that feel recognizably L'Oréal.",
+        "evidence": "Personalization patterns, beauty journey examples, and recognizable code mapping.",
+        "tension": "If every touchpoint changes for the individual, the brand can become useful but forgettable.",
+        "move": "Personalize utility. Protect memory.",
+        "system": "A rule set separating adaptive surfaces from stable brand cues."
+      },
       "detail": {
         "meta": ["Applied to target house", "Active inquiry", "Beauty AI and recognizable codes"],
         "heading": "What AI Can't Personalize",
@@ -144,6 +157,14 @@
       "caseLink": "case-miutine.html",
       "caseLinkLabel": "Open the case",
       "theme": "theme-miutine",
+      "signalWeight": 94,
+      "signature": {
+        "behavior": "Consumers admired the object and collected the brand world, even when identity attachment was weaker.",
+        "evidence": "4,700+ reviews, competitive benchmarks, attribute mining, and social listening.",
+        "tension": "A fragrance can be visible and desirable without becoming a signature scent.",
+        "move": "Separate object value from identity value.",
+        "system": "A framework for deciding whether to build collectibility, loyalty, or both."
+      },
       "detail": {
         "meta": ["Market and data reading", "Academic validation", "Fragrance benchmark"],
         "heading": "Collectibility Over Loyalty",
@@ -203,6 +224,14 @@
       "hoverDetail": "Next proof: category map, claim audit, shelf examples, and behavior gaps.",
       "actionLabel": "Preview",
       "theme": "theme-danone",
+      "signalWeight": 72,
+      "signature": {
+        "behavior": "Consumers say they want the same health benefits every brand now knows how to claim.",
+        "evidence": "Category trend reading, claim convergence, shelf language, and behavior-gap mapping.",
+        "tension": "Research can start measuring category noise instead of useful differentiation.",
+        "move": "Look for the behavior that contradicts the claim.",
+        "system": "A prioritization model for deciding which claims deserve product and marketing weight."
+      },
       "detail": {
         "meta": ["Applied to target house", "Active inquiry", "Category strategy"],
         "heading": "Claim Saturation",
@@ -262,6 +291,14 @@
       "hoverDetail": "A group-level CRM question that keeps house codes as a design constraint.",
       "actionLabel": "Preview",
       "theme": "theme-lvmh",
+      "signalWeight": 68,
+      "signature": {
+        "behavior": "Luxury customers can benefit from better memory across houses, but still expect each house to behave distinctly.",
+        "evidence": "Luxury service moments, house code mapping, CRM use cases, and portfolio logic.",
+        "tension": "Shared intelligence can improve relevance while flattening the houses it is meant to support.",
+        "move": "Share infrastructure. Preserve expression.",
+        "system": "A group-level CRM logic with house-specific rules at the customer-facing layer."
+      },
       "detail": {
         "meta": ["Applied to target house", "Active inquiry", "Luxury group customer intelligence"],
         "heading": "Shared Infrastructure, House-Specific Expression",
@@ -303,6 +340,14 @@
       "caseLink": "case-givenchy.html",
       "caseLinkLabel": "Open the dossier",
       "theme": "theme-givenchy",
+      "signalWeight": 86,
+      "signature": {
+        "behavior": "Beauty consumers assemble identity through planes, colors, edges, and permission.",
+        "evidence": "Couture codes, competitive beauty territories, product architecture, and presented concept work.",
+        "tension": "Couture authority is strong, but beauty needs a repeatable house logic beyond fashion adjacency.",
+        "move": "Turn the face into architecture.",
+        "system": "A territory that organizes product, service, ritual, and seasonal expression."
+      },
       "detail": {
         "meta": ["Luxury beauty strategy", "Two-week concept sprint", "Presented work"],
         "heading": "Face Architecture",
@@ -363,6 +408,14 @@
       "caseLink": "case-19h03.html",
       "caseLinkLabel": "Open the dossier",
       "theme": "theme-1903",
+      "signalWeight": 81,
+      "signature": {
+        "behavior": "People use the first drink to mark a change of state before they think about flavor.",
+        "evidence": "Occasion reading, ritual analysis, category gaps, and concept development.",
+        "tension": "Non-alcoholic and functional drinks often define themselves by what is missing.",
+        "move": "Own the third hour instead of the substitute category.",
+        "system": "A product ritual that connects benefit, occasion, visual code, and brand world."
+      },
       "detail": {
         "meta": ["Brand creation", "Product concept", "Ritual design"],
         "heading": "19h03",

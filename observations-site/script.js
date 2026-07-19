@@ -46,6 +46,25 @@
     return highlightCases().find((item) => item.dossierKey === key);
   }
 
+  function signalStrength(item) {
+    if (typeof item?.signalWeight === "number") return item.signalWeight;
+    if (item?.status?.includes("Finished")) return 82;
+    if (item?.status?.includes("Framework")) return 70;
+    if (item?.status?.includes("Active")) return 64;
+    return 56;
+  }
+
+  function signatureRows(item) {
+    const signature = item?.signature || {};
+    return [
+      ["Behavior", signature.behavior],
+      ["Evidence", signature.evidence],
+      ["Tension", signature.tension],
+      ["Move", signature.move],
+      ["System", signature.system],
+    ].filter(([, value]) => value);
+  }
+
   function setSignalMood(key) {
     body.dataset.signal = key;
     const currentCase = caseForDossier(key);
@@ -60,6 +79,8 @@
     if (currentObservation && currentCase) {
       currentObservation.textContent = currentCase.note;
     }
+
+    updateSignalConsole(key);
   }
 
   function renderCurrentFocus(data) {
@@ -95,6 +116,7 @@
       const row = textElement("div", "proof-row");
       row.dataset.mood = targetKey(item);
       row.tabIndex = 0;
+      row.style.setProperty("--signal-strength", `${signalStrength(item)}%`);
 
       row.append(
         textElement("span", "", item.proofName || item.company || displayTitle(item)),
@@ -102,6 +124,64 @@
         textElement("small", "proof-detail", `${item.validation} / Updated ${item.lastUpdatedLabel}`),
       );
       ledger.append(row);
+    });
+  }
+
+  function renderSignalConsole(data) {
+    const consoleCard = qs("[data-signal-console]");
+    if (!consoleCard) return;
+
+    const bars = qs("[data-signal-bars]", consoleCard);
+    if (bars) {
+      bars.replaceChildren();
+      highlightCases().forEach((item, index) => {
+        const button = textElement("button", "signal-track");
+        button.type = "button";
+        button.dataset.consoleSignal = item.dossierKey;
+        button.dataset.mood = item.dossierKey;
+        button.style.setProperty("--signal-strength", `${signalStrength(item)}%`);
+        button.setAttribute("aria-label", `Open signal ${displayTitle(item)}`);
+        button.append(
+          textElement("span", "", padNumber(index + 1)),
+          textElement("strong", "", displayTitle(item)),
+          textElement("em", "", item.label),
+        );
+        bars.append(button);
+      });
+    }
+
+    const headline = data.signalSystem?.headline;
+    const subtitle = qs("[data-active-signal-subtitle]", consoleCard);
+    if (subtitle && headline) subtitle.textContent = headline;
+  }
+
+  function updateSignalConsole(key) {
+    const consoleCard = qs("[data-signal-console]");
+    const currentCase = caseForDossier(key);
+    if (!consoleCard || !currentCase) return;
+
+    const title = qs("[data-active-signal-title]", consoleCard);
+    const subtitle = qs("[data-active-signal-subtitle]", consoleCard);
+    const readout = qs("[data-active-readout]", consoleCard);
+
+    if (title) title.textContent = displayTitle(currentCase);
+    if (subtitle) subtitle.textContent = currentCase.note || currentCase.hook;
+
+    if (readout) {
+      const rows = signatureRows(currentCase).slice(0, 4);
+      readout.replaceChildren(
+        ...rows.map(([label, value]) => {
+          const row = document.createElement("div");
+          row.append(textElement("span", "", label), textElement("p", "", value));
+          return row;
+        }),
+      );
+    }
+
+    qsa("[data-console-signal]").forEach((track) => {
+      const isActive = track.dataset.consoleSignal === key;
+      track.classList.toggle("is-active", isActive);
+      track.setAttribute("aria-pressed", String(isActive));
     });
   }
 
@@ -231,6 +311,8 @@
       row.dataset.company = item.company || "";
       row.dataset.capabilities = (item.capabilities || []).join(" ");
       row.dataset.dossier = targetKey(item) || "";
+      row.dataset.mood = targetKey(item) || "";
+      row.style.setProperty("--signal-strength", `${signalStrength(item)}%`);
 
       const main = textElement("div", "case-row-main");
       main.append(
@@ -259,6 +341,7 @@
         tags,
         button,
       );
+      row.append(textElement("span", "case-signal-meter", ""));
       grid.append(row);
     });
   }
@@ -325,6 +408,17 @@
         const link = textElement("a", "dossier-link", item.caseLinkLabel || "Open the dossier");
         link.href = item.caseLink;
         panel.append(link);
+      }
+
+      const signature = signatureRows(item);
+      if (signature.length) {
+        const trace = textElement("div", "dossier-signal-trace");
+        signature.forEach(([label, value]) => {
+          const traceRow = document.createElement("div");
+          traceRow.append(textElement("span", "", label), textElement("p", "", value));
+          trace.append(traceRow);
+        });
+        panel.insertBefore(trace, fields);
       }
 
       panels.append(panel);
@@ -422,7 +516,7 @@
   }
 
   function setupTabs() {
-    const tabs = qsa("[data-dossier]");
+    const tabs = qsa("[role='tab'][data-dossier]");
     tabs.forEach((tab) => {
       tab.addEventListener("click", () => {
         activateDossier(tab.dataset.dossier);
@@ -495,6 +589,15 @@
     });
   }
 
+  function setupSignalConsole() {
+    qsa("[data-console-signal]").forEach((track) => {
+      track.addEventListener("click", () => {
+        const key = track.dataset.consoleSignal;
+        if (key) activateDossier(key);
+      });
+    });
+  }
+
   function setupReveal() {
     const revealElements = qsa(".reveal");
     if (!revealElements.length) return;
@@ -546,7 +649,7 @@
       dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
     });
 
-    qsa("a, button, .signal-chip, .archive-entry, .case-archive-row, .proof-row").forEach((target) => {
+    qsa("a, button, .signal-chip, .signal-track, .archive-entry, .case-archive-row, .proof-row").forEach((target) => {
       target.addEventListener("mouseenter", () => body.classList.add("cursor-hover"));
       target.addEventListener("mouseleave", () => body.classList.remove("cursor-hover"));
     });
@@ -565,6 +668,7 @@
     setupArchiveFilters();
     setupTabs();
     setupJumpLinks();
+    setupSignalConsole();
     setupMoodTargets();
     setupReveal();
     setupCursor();
@@ -581,7 +685,9 @@
     renderArchiveControls(data);
     renderArchiveRows(data);
     renderHighlightTabs(data);
+    renderSignalConsole(data);
     renderSiteUpdated(data);
+    setSignalMood(activeDossier);
     body.classList.add("is-data-ready");
   }
 

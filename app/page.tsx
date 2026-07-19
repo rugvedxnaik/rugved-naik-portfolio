@@ -1,10 +1,12 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import portfolioData from "../observations-site/data/portfolio.json";
 
 const cases = portfolioData.cases;
 const proofRows = cases.filter((item) => item.isProofSignal);
 const reads = cases.filter((item) => item.isHighlight && item.detail);
 const archiveCases = cases;
+const primaryRead = reads.find((item) => item.dossierKey === "miutine") ?? reads[0]!;
 
 const method = [
   ["Observe", "Find the behavior, ritual, review pattern, search language, claim, or moment of choice."],
@@ -16,6 +18,27 @@ const method = [
 
 function displayTitle(item: (typeof cases)[number]) {
   return item.displayTitle ?? item.title;
+}
+
+function signalStrength(item: (typeof cases)[number]) {
+  if ("signalWeight" in item && typeof item.signalWeight === "number") return item.signalWeight;
+  if (item.status.includes("Finished")) return 82;
+  if (item.status.includes("Framework")) return 70;
+  if (item.status.includes("Active")) return 64;
+  return 56;
+}
+
+function signatureRows(item: (typeof reads)[number]) {
+  const signature = "signature" in item ? item.signature : null;
+  if (!signature) return [];
+
+  return [
+    ["Behavior", signature.behavior],
+    ["Evidence", signature.evidence],
+    ["Tension", signature.tension],
+    ["Move", signature.move],
+    ["System", signature.system],
+  ].filter((entry): entry is [string, string] => Boolean(entry[1]));
 }
 
 export default function Home() {
@@ -58,17 +81,50 @@ export default function Home() {
           </div>
         </div>
 
-        <aside className="consumer-app-ledger" aria-label="Portfolio proof">
-          <p>Proof signals</p>
-          {proofRows.map((row) => (
-            <article key={row.id}>
-              <span>{row.proofName ?? row.company ?? displayTitle(row)}</span>
-              <small>
-                {row.validation} / Updated {row.lastUpdatedLabel}
-              </small>
-              <p>{row.proof}</p>
-            </article>
-          ))}
+        <aside className="consumer-app-side" aria-label="Portfolio proof and signal system">
+          <div className="consumer-app-signal-console">
+            <div className="consumer-app-console-topline">
+              <p>Active signal</p>
+              <span aria-hidden="true" />
+            </div>
+            <strong>{displayTitle(primaryRead)}</strong>
+            <p>{primaryRead.note}</p>
+            <div className="consumer-app-signal-readout">
+              {signatureRows(primaryRead)
+                .slice(0, 4)
+                .map(([label, value]) => (
+                  <div key={label}>
+                    <span>{label}</span>
+                    <p>{value}</p>
+                  </div>
+                ))}
+            </div>
+            <div className="consumer-app-signal-bars">
+              {reads.map((read, index) => (
+                <div
+                  key={read.id}
+                  style={{ "--signal-strength": `${signalStrength(read)}%` } as CSSProperties}
+                >
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <strong>{displayTitle(read)}</strong>
+                  <em>{read.label}</em>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="consumer-app-ledger" aria-label="Portfolio proof">
+            <p>Proof signals</p>
+            {proofRows.map((row) => (
+              <article key={row.id}>
+                <span>{row.proofName ?? row.company ?? displayTitle(row)}</span>
+                <small>
+                  {row.validation} / Updated {row.lastUpdatedLabel}
+                </small>
+                <p>{row.proof}</p>
+              </article>
+            ))}
+          </div>
         </aside>
       </section>
 
@@ -108,11 +164,11 @@ export default function Home() {
       <section className="consumer-app-work" id="work">
         <div className="consumer-app-section-heading">
           <p className="consumer-app-eyebrow">Case system</p>
-          <h2>A living project system for consumer-led product and marketing strategy.</h2>
+          <h2>A signal room for consumer-led product and marketing strategy.</h2>
           <p>
-            One data source feeds the proof signals, archive, highlights, and field notes.
-            The archive is the full system. The expanded reads are selected openings into
-            that same system, not a competing index.
+            One data source feeds the proof signals, archive, highlights, field notes, and
+            signal logic. The archive is the full system. The expanded reads are selected
+            openings into that same system, not a competing index.
           </p>
         </div>
         <div className="consumer-app-depth">
@@ -150,8 +206,11 @@ export default function Home() {
           </div>
         </div>
         <div className="consumer-app-section-heading consumer-app-highlight-heading">
-          <p className="consumer-app-eyebrow">Highlighted reads</p>
-          <p>Expanded views from the archive, generated from the same case data.</p>
+          <p className="consumer-app-eyebrow">Signal room</p>
+          <p>
+            Expanded views from the archive, generated from the same case data and organized
+            by behavior, evidence, tension, move, and system.
+          </p>
         </div>
         <div className="consumer-app-read-grid">
           {reads.map((read, index) => (
@@ -162,6 +221,16 @@ export default function Home() {
               <small>{read.field}</small>
               <b>{read.label}</b>
               <p>{read.note}</p>
+              <div className="consumer-app-trace">
+                {signatureRows(read)
+                  .slice(0, 3)
+                  .map(([label, value]) => (
+                    <div key={label}>
+                      <small>{label}</small>
+                      <p>{value}</p>
+                    </div>
+                  ))}
+              </div>
               <p>{read.hoverDetail}</p>
             </article>
           ))}
