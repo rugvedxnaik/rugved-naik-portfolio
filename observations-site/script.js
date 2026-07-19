@@ -1,18 +1,18 @@
 (function () {
   const body = document.body;
   const signalLabels = {
-    givenchy: "Signal 028",
-    1903: "Signal 029",
-    brandstorm: "Signal 021",
-    seo: "Signal 017",
-    personalization: "Signal 002",
+    givenchy: "Read 01",
+    1903: "Read 02",
+    brandstorm: "Read 03",
+    seo: "Read 04",
+    personalization: "Read 05",
   };
   const signalObservations = {
-    givenchy: "Couture was being cited, not operationalized.",
+    givenchy: "Beauty consumers construct identity in layers.",
     1903: "The first drink marks a change of state.",
-    brandstorm: "Dupes copy cues, not memory.",
-    seo: "Search results have become a style surface.",
-    personalization: "Prediction is being mistaken for intimacy.",
+    brandstorm: "Memory is harder to copy than a product cue.",
+    seo: "Search reveals what consumers are learning to want.",
+    personalization: "Recognition creates more meaning than prediction.",
   };
   const activeSignalName = document.querySelector(".active-signal-name");
   const currentObservation = document.querySelector(".current-observation");
