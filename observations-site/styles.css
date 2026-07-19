@@ -3673,6 +3673,7 @@ body.consumer-read-home {
 .consumer-read-home .consumer-fit-strip span,
 .consumer-read-home .read-notes span,
 .consumer-read-home .signal-number,
+.consumer-read-home .signal-status,
 .consumer-read-home .signal-field,
 .consumer-read-home .signal-note-label,
 .consumer-read-home .dossier-meta,
@@ -3961,6 +3962,32 @@ body.consumer-read-home {
   align-items: start;
 }
 
+.depth-ledger {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.2rem;
+}
+
+.depth-ledger article {
+  padding: 1rem;
+  border: 1px solid var(--consumer-line);
+  background: rgba(255, 249, 238, 0.62);
+}
+
+.depth-ledger span {
+  display: block;
+  color: var(--consumer-red);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.depth-ledger p {
+  margin: 0.65rem 0 0;
+  color: var(--ink-soft);
+  line-height: 1.58;
+}
+
 .consumer-read-home .signal-index {
   display: grid;
   gap: 0.45rem;
@@ -3997,10 +4024,21 @@ body.consumer-read-home {
 }
 
 .consumer-read-home .signal-number,
+.consumer-read-home .signal-status,
 .consumer-read-home .signal-field,
 .consumer-read-home .signal-note-label {
   color: var(--ink-faint);
   font-size: 0.7rem;
+}
+
+.consumer-read-home .signal-status {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 0.45rem;
+  padding: 0.18rem 0.38rem;
+  border: 1px solid var(--consumer-line);
+  background: rgba(20, 16, 12, 0.035);
+  color: var(--ink-soft);
 }
 
 .consumer-read-home .signal-title {
@@ -4093,6 +4131,14 @@ body.consumer-read-home {
   color: var(--ink);
   font-size: 1.55rem;
   line-height: 1.08;
+}
+
+.consumer-read-home .dossier-context {
+  max-width: 48rem;
+  margin: 0 0 1.25rem;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  line-height: 1.68;
 }
 
 .consumer-read-home .dossier-fields {
@@ -4303,6 +4349,7 @@ body.consumer-read-home {
 
   .consumer-fit-strip,
   .read-notes,
+  .depth-ledger,
   .help-cards,
   .consumer-read-home .dossier-fields {
     grid-template-columns: 1fr;

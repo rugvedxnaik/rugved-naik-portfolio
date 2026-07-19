@@ -2166,6 +2166,7 @@ blockquote {
 .consumer-app-ledger span,
 .consumer-app-ledger small,
 .consumer-app-read-grid span,
+.consumer-app-read-grid em,
 .consumer-app-read-grid small,
 .consumer-app-read-grid b,
 .consumer-app-method span,
@@ -2342,6 +2343,31 @@ blockquote {
   max-width: 56rem;
 }
 
+.consumer-app-depth {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 2rem;
+}
+
+.consumer-app-depth article {
+  background: rgba(255, 249, 238, 0.62);
+  border: 1px solid var(--consumer-line);
+  padding: 1rem;
+}
+
+.consumer-app-depth span {
+  color: var(--consumer-red);
+  display: block;
+  font-family: var(--consumer-mono);
+  font-size: 0.72rem;
+}
+
+.consumer-app-depth p {
+  line-height: 1.58;
+  margin: 0.65rem 0 0;
+}
+
 .consumer-app-read-grid {
   display: grid;
   gap: 0.65rem;
@@ -2352,7 +2378,7 @@ blockquote {
 .consumer-app-read-grid article {
   background: rgba(255, 249, 238, 0.68);
   border: 1px solid var(--consumer-line);
-  min-height: 18rem;
+  min-height: 22rem;
   padding: 1rem;
 }
 
@@ -2372,12 +2398,22 @@ blockquote {
 }
 
 .consumer-app-read-grid span,
+.consumer-app-read-grid em,
 .consumer-app-read-grid small,
 .consumer-app-read-grid b {
   color: var(--consumer-faint);
   display: block;
   font-size: 0.72rem;
   font-weight: 400;
+}
+
+.consumer-app-read-grid em {
+  border: 1px solid var(--consumer-line);
+  color: var(--consumer-soft);
+  font-style: normal;
+  margin-top: 0.45rem;
+  padding: 0.18rem 0.38rem;
+  width: fit-content;
 }
 
 .consumer-app-read-grid b {
@@ -2437,6 +2473,10 @@ blockquote {
 
   .consumer-app-read-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .consumer-app-depth {
+    grid-template-columns: 1fr;
   }
 
   .consumer-app-method li {

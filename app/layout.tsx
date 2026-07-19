@@ -30,7 +30,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: "The Consumer Read | Rugved Naik",
       description:
-        "Consumer behavior translated into product logic, brand memory, and marketing systems.",
+        "Consumer behavior translated into product logic, recognizable brand cues, and marketing systems.",
       type: "website",
       locale: "en_US",
       images: [{ url: `${origin}/og.png`, width: 1200, height: 630, alt: "The Consumer Read | Rugved Naik" }],
@@ -39,7 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title: "The Consumer Read | Rugved Naik",
       description:
-        "Consumer behavior translated into product logic, brand memory, and marketing systems.",
+        "Consumer behavior translated into product logic, recognizable brand cues, and marketing systems.",
       images: [`${origin}/og.png`],
     },
   };

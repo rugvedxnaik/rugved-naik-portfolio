@@ -12,8 +12,8 @@
     miutine: "Collectibility is not the same as loyalty.",
     givenchy: "Beauty consumers construct identity in layers.",
     danone: "Category noise can hide the signals worth researching.",
-    loreal: "Personalization needs stable brand memory.",
-    lvmh: "Shared intelligence should not flatten house meaning.",
+    loreal: "Personalization still needs recognizable brand cues.",
+    lvmh: "Shared intelligence should not make every house behave the same.",
     1903: "The first drink marks a change of state.",
   };
   const activeSignalName = document.querySelector(".active-signal-name");

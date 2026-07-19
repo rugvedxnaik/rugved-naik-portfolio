@@ -23,52 +23,76 @@ const proofRows = [
     name: "L'Oréal",
     status: "Active inquiry",
     detail:
-      "A brand memory architecture for deciding what AI should personalize and what beauty brands must keep stable.",
+      "A rule set for what should stay recognizable when AI adapts the beauty journey.",
+  },
+  {
+    name: "LVMH",
+    status: "Active inquiry",
+    detail:
+      "A group-level question about sharing customer intelligence without making every house behave the same.",
   },
 ];
 
 const reads = [
   {
     number: "01",
+    status: "Finished dossier",
     title: "Collectibility Over Loyalty",
     field: "Market reading / fragrance benchmark",
     label: "Evidence",
     note: "4,700+ reviews revealed strong object value and weaker identity attachment.",
+    detail:
+      "The evidence anchor: review mining, benchmarking, and social listening separate being admired, being collected, and being personally adopted.",
   },
   {
     number: "02",
+    status: "Finished dossier",
     title: "Face Architecture",
     field: "Luxury beauty / brand territory",
     label: "Move",
     note: "Makeup became identity construction, not surface decoration.",
+    detail:
+      "A concept sprint that asked what Givenchy could own in beauty: the construction of the face as a repeatable house logic.",
   },
   {
     number: "03",
+    status: "Active inquiry",
     title: "Claim Saturation",
     field: "Danone / category insight",
     label: "Question",
     note: "When everyone has the same insight, which signals still matter?",
+    detail:
+      "Next proof: category map, claim audit, shelf examples, and evidence on where stated preference diverges from buying behavior.",
   },
   {
     number: "04",
+    status: "Active inquiry",
     title: "What AI Can't Personalize",
-    field: "L'Oréal / beauty CRM and brand memory",
+    field: "L'Oréal / AI and recognizable beauty codes",
     label: "Rule",
     note: "Personalize utility. Protect memory.",
+    detail:
+      "An inquiry about restraint: what should adapt to the individual, and what brand cues need to stay stable enough to recognize.",
   },
   {
     number: "05",
+    status: "Active inquiry",
     title: "Shared Infrastructure, House-Specific Expression",
-    field: "LVMH / portfolio CRM strategy",
+    field: "LVMH / luxury group customer intelligence",
     label: "Tension",
     note: "Scale the intelligence without flattening the house.",
+    detail:
+      "Next proof: house code map, service moments, and customer use cases that show where shared data should stop.",
   },
   {
     number: "06",
+    status: "Finished concept",
     title: "19h03",
     field: "Product concept / ritual design",
     label: "Ritual",
     note: "People use the first drink to mark a change of state.",
+    detail:
+      "A finished concept dossier showing how one occasion can organize product benefit, social meaning, visual codes, and brand world.",
   },
 ];
 
@@ -103,7 +127,7 @@ export default function Home() {
           <p className="consumer-app-eyebrow">Consumer insight for product and marketing</p>
           <h1>The best strategy makes the consumer feel obvious without making them feel simplified.</h1>
           <p>
-            I turn consumer behavior into product logic, brand memory, and marketing
+            I turn consumer behavior into product logic, recognizable brand cues, and marketing
             systems. The work starts with what people choose, repeat, search, collect,
             imitate, and remember, then turns that reading into decisions teams can use.
           </p>
@@ -147,19 +171,37 @@ export default function Home() {
           <p className="consumer-app-eyebrow">Selected reads</p>
           <h2>A living project system for consumer-led product and marketing strategy.</h2>
           <p>
-            Finished dossiers open as evidence. Active inquiries show where the thinking is
-            going next, so new Danone, L&apos;Oréal, LVMH, beauty, food, and retail work can keep
-            joining the same system.
+            The portfolio is intentionally split into finished dossiers and active
+            inquiries. Finished work opens as evidence. Active inquiries show the next
+            problems I am building, with the proof still being assembled.
           </p>
+        </div>
+        <div className="consumer-app-depth">
+          <article>
+            <span>Finished dossiers</span>
+            <p>
+              Miutine, Givenchy, and 19h03 are developed enough to show the strategic move,
+              the system, and the output.
+            </p>
+          </article>
+          <article>
+            <span>Active inquiries</span>
+            <p>
+              Danone, L&apos;Oréal, and LVMH stay visible because they show the business
+              questions I am currently sharpening.
+            </p>
+          </article>
         </div>
         <div className="consumer-app-read-grid">
           {reads.map((read) => (
             <article key={read.title}>
               <span>Read {read.number}</span>
+              <em>{read.status}</em>
               <h3>{read.title}</h3>
               <small>{read.field}</small>
               <b>{read.label}</b>
               <p>{read.note}</p>
+              <p>{read.detail}</p>
             </article>
           ))}
         </div>
@@ -184,8 +226,9 @@ export default function Home() {
           <p className="consumer-app-eyebrow">Contact</p>
           <h2>If consumer understanding needs to shape the decision, send me the problem.</h2>
           <p>
-            Based in Paris, studying at ESCP. Interested in consumer insight, product
-            strategy, brand marketing, CRM, category strategy, and product storytelling.
+            Email me with the role, project, or business question. I can reply with the
+            most relevant dossier, a short written take, or a 20-minute call if the fit
+            is clear.
           </p>
         </div>
         <aside>
