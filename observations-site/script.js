@@ -1,22 +1,24 @@
 (function () {
   const body = document.body;
   const signalLabels = {
-    givenchy: "Read 01",
-    1903: "Read 02",
-    brandstorm: "Read 03",
-    seo: "Read 04",
-    personalization: "Read 05",
+    miutine: "Read 01",
+    givenchy: "Read 02",
+    danone: "Read 03",
+    loreal: "Read 04",
+    lvmh: "Read 05",
+    1903: "Read 06",
   };
   const signalObservations = {
+    miutine: "Collectibility is not the same as loyalty.",
     givenchy: "Beauty consumers construct identity in layers.",
+    danone: "Category noise can hide the signals worth researching.",
+    loreal: "Personalization needs stable brand memory.",
+    lvmh: "Shared intelligence should not flatten house meaning.",
     1903: "The first drink marks a change of state.",
-    brandstorm: "Memory is harder to copy than a product cue.",
-    seo: "Search reveals what consumers are learning to want.",
-    personalization: "Recognition creates more meaning than prediction.",
   };
   const activeSignalName = document.querySelector(".active-signal-name");
   const currentObservation = document.querySelector(".current-observation");
-  let activeDossier = body.dataset.signal || "givenchy";
+  let activeDossier = body.dataset.signal || "miutine";
 
   function setSignalMood(key) {
     body.dataset.signal = key;

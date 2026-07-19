@@ -34,7 +34,7 @@ export function SiteHeader({ inverted = false }: { inverted?: boolean }) {
 export function ContactLinks({ inverted = false }: { inverted?: boolean }) {
   return (
     <div className={`contact-links${inverted ? " contact-links--inverted" : ""}`}>
-      <a href="mailto:hello@rugvednaik.com">Email</a>
+      <a href="mailto:rugved.naik@edu.escp.eu">Email</a>
       <a href="https://www.linkedin.com/in/rugvednaik" target="_blank" rel="noreferrer">
         LinkedIn
       </a>

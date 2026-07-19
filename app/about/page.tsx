@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ContactLinks, PageIntro, SectionLabel, SiteFooter, SiteHeader } from "../site-components";
 
 export const metadata: Metadata = {
-  title: "About — Rugved Naik",
+  title: "About | Rugved Naik",
   description: "Consumer insight, brand strategy, and product thinking from Paris.",
 };
 

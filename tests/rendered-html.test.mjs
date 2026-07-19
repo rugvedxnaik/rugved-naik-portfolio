@@ -3,7 +3,7 @@ import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
 const routes = [
-  ["/", /Rugved Naik — Strategy Archive/],
+  ["/", /The Consumer Read \| Rugved Naik/],
   ["/personalization", /On Personalization/],
   ["/givenchy", /Givenchy Face Architecture/],
   ["/19h03", /The first drink is not about alcohol/],
@@ -41,7 +41,7 @@ test("ships finished metadata and removes starter preview code", async () => {
     readFile(new URL("../package.json", import.meta.url), "utf8"),
   ]);
 
-  assert.match(layout, /Rugved Naik — Strategy Archive/);
+  assert.match(layout, /The Consumer Read \| Rugved Naik/);
   assert.match(layout, /og\.png/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
   await assert.rejects(access(new URL("../app/_sites-preview", import.meta.url)));

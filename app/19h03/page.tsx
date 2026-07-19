@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import { ArrowLink, PageIntro, SectionLabel, SiteFooter, SiteHeader } from "../site-components";
 
 export const metadata: Metadata = {
-  title: "19h03 — Rugved Naik",
+  title: "19h03 | Rugved Naik",
   description: "A ritual-driven aperitif concept built around the transition into evening.",
 };
 
 const story = [
   ["01", "Signal", "Across cities, the evening does not begin in the same way. Paris marks the shift: work recedes, attention softens, and the first drink announces a different mode."],
-  ["02", "Observation", "People are not only choosing a beverage. They are choosing a threshold—a small act that makes the evening feel as though it has properly begun."],
+  ["02", "Observation", "People are not only choosing a beverage. They are choosing a threshold, a small act that makes the evening feel as though it has properly begun."],
   ["03", "Tension", "Most alternatives define themselves by what they remove. But a substitute for alcohol is not automatically a substitute for transition, symbolism, or social ease."],
   ["04", "Concept", "19h03 is a functional sparkling aperitif for composed sociability: calm clarity without sedation, and participation without intoxication."],
 ];

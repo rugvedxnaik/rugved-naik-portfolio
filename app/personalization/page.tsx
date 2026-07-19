@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ArrowLink, PageIntro, SectionLabel, SiteFooter, SiteHeader } from "../site-components";
 
 export const metadata: Metadata = {
-  title: "On Personalization — Rugved Naik",
+  title: "On Personalization | Rugved Naik",
   description: "An essay on the difference between prediction, relevance, recognition, and identity.",
 };
 
@@ -48,7 +48,7 @@ export default function PersonalizationPage() {
             <p>
               We describe the system as intelligent when it predicts the song, film, route, meal, or
               message a person is likely to choose. The better the prediction, the more personal the
-              experience is assumed to be. But prediction is only one kind of knowledge—and often
+              experience is assumed to be. But prediction is only one kind of knowledge, and often
               the least intimate one.
             </p>
           </div>

@@ -1,4 +1,4 @@
-# Rugved Naik — Strategy Archive
+# The Consumer Read | Rugved Naik
 
 A multi-page portfolio for Rugved Naik, presenting essays and case studies on consumer insight, product thinking, and brand strategy.
 

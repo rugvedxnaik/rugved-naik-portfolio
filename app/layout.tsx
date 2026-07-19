@@ -11,24 +11,35 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(origin),
     title: {
-      default: "Rugved Naik — Strategy Archive",
+      default: "The Consumer Read | Rugved Naik",
       template: "%s",
     },
-    description: "Essays and case studies on the hidden purpose of products, brands, and experiences.",
-    applicationName: "Rugved Naik — Strategy Archive",
-    keywords: ["brand strategy", "product thinking", "consumer insight", "luxury strategy", "Paris"],
+    description:
+      "A consumer centric product and marketing strategy portfolio by Rugved Naik.",
+    applicationName: "The Consumer Read",
+    keywords: [
+      "consumer insight",
+      "product strategy",
+      "marketing strategy",
+      "brand strategy",
+      "CRM strategy",
+      "category analysis",
+      "Paris",
+    ],
     authors: [{ name: "Rugved Naik" }],
     openGraph: {
-      title: "Rugved Naik — Strategy Archive",
-      description: "I explore what products, brands, and experiences are actually for.",
+      title: "The Consumer Read | Rugved Naik",
+      description:
+        "Consumer behavior translated into product logic, brand memory, and marketing systems.",
       type: "website",
       locale: "en_US",
-      images: [{ url: `${origin}/og.png`, width: 1732, height: 900, alt: "Rugved Naik — Strategy Archive" }],
+      images: [{ url: `${origin}/og.png`, width: 1200, height: 630, alt: "The Consumer Read | Rugved Naik" }],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Rugved Naik — Strategy Archive",
-      description: "I explore what products, brands, and experiences are actually for.",
+      title: "The Consumer Read | Rugved Naik",
+      description:
+        "Consumer behavior translated into product logic, brand memory, and marketing systems.",
       images: [`${origin}/og.png`],
     },
   };

@@ -24,6 +24,9 @@
   --shadow-soft: 0 18px 60px rgba(33, 24, 14, 0.08);
   --shadow-card: 0 20px 70px rgba(25, 21, 18, 0.1);
   --shell: min(1380px, calc(100vw - 3rem));
+  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif-display: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 }
 
 * {
@@ -39,7 +42,7 @@ body {
   min-height: 100vh;
   background: var(--paper);
   color: var(--ink);
-  font-family: "Tenor Sans", sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
@@ -176,7 +179,7 @@ body.cursor-hover .cursor-ring {
 .dossier-meta,
 .case-step-number,
 .contact-stack a {
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono);
 }
 
 .wordmark {
@@ -293,7 +296,7 @@ body.cursor-hover .cursor-ring {
 }
 
 .threshold-line {
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.8rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -305,7 +308,7 @@ h2,
 h3,
 blockquote {
   margin: 0;
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-serif-display);
   font-weight: 400;
   letter-spacing: -0.04em;
   line-height: 0.94;
@@ -542,7 +545,7 @@ body[data-signal="seo"] .room-signal {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -552,7 +555,7 @@ body[data-signal="seo"] .room-signal {
 .signal-title {
   display: block;
   margin: 0.6rem 0;
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-serif-display);
   font-size: 1.8rem;
   line-height: 1.06;
   letter-spacing: -0.03em;
@@ -569,7 +572,7 @@ body[data-signal="seo"] .room-signal {
 .signal-note-label,
 .signal-open {
   display: block;
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -709,7 +712,7 @@ body[data-signal="seo"] .room-signal {
 
 .dossier-pull p {
   margin: 0.45rem 0 0;
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-serif-display);
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   line-height: 1.02;
   color: var(--ink);
@@ -840,14 +843,14 @@ body[data-signal="seo"] .room-signal {
 }
 
 .text-card-label {
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.74rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 .text-card-frame p {
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-serif-display);
   font-size: clamp(2rem, 4vw, 3.1rem);
   line-height: 0.95;
   margin: 0;
@@ -870,7 +873,7 @@ body[data-signal="seo"] .room-signal {
 .dossier-link,
 .archive-link,
 .case-footer a {
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.8rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -947,7 +950,7 @@ body[data-signal="seo"] .room-signal {
 .case-facts p,
 .case-step-number,
 .comparison-card h3 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-serif-display);
 }
 
 .method-card h3 {
@@ -1077,6 +1080,15 @@ body[data-signal="seo"] .room-signal {
   --case-accent: #7d6650;
 }
 
+.case-miutine {
+  background:
+    radial-gradient(circle at 82% 10%, rgba(40, 116, 86, 0.12), transparent 18%),
+    radial-gradient(circle at 12% 26%, rgba(143, 107, 59, 0.12), transparent 20%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent 18%),
+    var(--paper);
+  --case-accent: var(--consumer-green, #287456);
+}
+
 .case-1903 {
   background:
     radial-gradient(circle at 85% 12%, rgba(176, 140, 87, 0.14), transparent 18%),
@@ -1127,7 +1139,7 @@ body[data-signal="seo"] .room-signal {
 
 .case-note-card p {
   margin: 0.45rem 0 0;
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-serif-display);
   font-size: 1.55rem;
   line-height: 1.05;
   color: var(--ink);
@@ -1153,7 +1165,7 @@ body[data-signal="seo"] .room-signal {
   color: var(--ink-soft);
   font-size: 0.98rem;
   line-height: 1.7;
-  font-family: "Tenor Sans", sans-serif;
+  font-family: var(--font-sans);
 }
 
 .case-hero-media,
@@ -1253,7 +1265,7 @@ body[data-signal="seo"] .room-signal {
 
 .case-quote p {
   margin: 0;
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-serif-display);
   font-size: 2rem;
   line-height: 1.12;
   color: var(--ink);
@@ -1520,7 +1532,7 @@ body.living-home[data-signal="personalization"] {
 .living-thesis {
   max-width: 49rem;
   margin: 1.1rem 0 0;
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-serif-display);
   font-size: 2.8rem;
   line-height: 1.02;
 }
@@ -1553,7 +1565,7 @@ body.living-home[data-signal="personalization"] {
   min-height: 2.9rem;
   padding: 0.8rem 1rem;
   border-radius: 8px;
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.78rem;
   text-transform: uppercase;
   text-decoration: none;
@@ -1589,7 +1601,7 @@ body.living-home[data-signal="personalization"] {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -1622,7 +1634,7 @@ body.living-home[data-signal="personalization"] {
 
 .readout-card li span,
 .recognition-ladder span {
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono);
   color: var(--signal-accent);
 }
 
@@ -1643,7 +1655,7 @@ body.living-home[data-signal="personalization"] {
 .schema-grid span {
   border-radius: 999px;
   padding: 0.55rem 0.75rem;
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
   text-transform: uppercase;
   color: var(--signal-accent-strong);
@@ -1732,7 +1744,7 @@ body.living-home[data-signal="personalization"] {
 .work-facts dt,
 .dossier-proof-grid span {
   margin: 0;
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
   text-transform: uppercase;
   color: var(--signal-accent);
@@ -1787,7 +1799,7 @@ body.living-home[data-signal="personalization"] {
   border-radius: 8px;
   padding: 0.9rem 1rem;
   background: rgba(255, 255, 255, 0.46);
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono);
   text-transform: uppercase;
   color: var(--signal-accent-strong);
 }
@@ -2178,7 +2190,7 @@ body.signal-system-home[data-signal="personalization"] {
 .signal-thesis {
   max-width: 55rem;
   margin: 1.1rem 0 0;
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-serif-display);
   font-size: clamp(2.3rem, 4.6vw, 4.4rem);
   line-height: 0.98;
 }
@@ -2226,7 +2238,7 @@ body.signal-system-home[data-signal="personalization"] {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.74rem;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -2306,7 +2318,7 @@ body.signal-system-home[data-signal="personalization"] {
 
 .current-observation {
   margin: 0;
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-serif-display);
   font-size: 2.25rem;
   line-height: 1.05;
 }
@@ -2328,7 +2340,7 @@ body.signal-system-home[data-signal="personalization"] {
   border-radius: 999px;
   padding: 0.5rem 0.68rem;
   background: rgba(255, 255, 255, 0.55);
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.68rem;
   text-transform: uppercase;
 }
@@ -2386,7 +2398,7 @@ body.signal-system-home[data-signal="personalization"] {
 .seo-cards span,
 .dossier-fields span,
 .operating-steps span {
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
   color: var(--signal-accent-strong);
   text-transform: uppercase;
@@ -2524,7 +2536,7 @@ body.signal-system-home[data-signal="personalization"] {
   border: 1px solid var(--signal-line);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.58);
-  font-family: "DM Mono", monospace;
+  font-family: var(--font-mono);
   color: var(--ink);
 }
 
@@ -2559,7 +2571,7 @@ body.signal-system-home[data-signal="personalization"] {
 .memory-visual b {
   position: relative;
   z-index: 1;
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-serif-display);
   font-size: 2rem;
   font-weight: 400;
 }
@@ -2601,7 +2613,7 @@ body.signal-system-home[data-signal="personalization"] {
 }
 
 .operating-steps strong {
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-serif-display);
   font-size: 1.65rem;
   font-weight: 400;
 }
@@ -2699,7 +2711,7 @@ body.signal-system-home {
 .signal-system-home .conversion-strip span,
 .signal-system-home .seo-cards span,
 .signal-system-home .clarity-points span {
-  font-family: "Azeret Mono", ui-monospace, monospace;
+  font-family: var(--font-mono);
 }
 
 .signal-system-home h2,
@@ -2708,12 +2720,11 @@ body.signal-system-home {
 .signal-thesis,
 .current-observation,
 .memory-visual b {
-  font-family: "Fraunces", Georgia, serif;
-  font-variation-settings: "SOFT" 72, "WONK" 1;
+  font-family: var(--font-serif-display);
 }
 
 .signal-hero-copy h1 {
-  font-family: "Fraunces", Georgia, serif;
+  font-family: var(--font-serif-display);
   font-size: clamp(3.8rem, 9.5vw, 8.4rem);
   font-weight: 800;
   line-height: 0.86;
@@ -2892,7 +2903,7 @@ body.signal-system-home {
 }
 
 .signal-system-home .signal-title {
-  font-family: "Fraunces", Georgia, serif;
+  font-family: var(--font-serif-display);
   font-size: 1.55rem;
   line-height: 1;
 }
@@ -3160,7 +3171,7 @@ body.signal-system-home[data-signal="personalization"] {
 .signal-system-home .conversion-strip span,
 .signal-system-home .seo-cards span,
 .signal-system-home .clarity-points span {
-  font-family: "Azeret Mono", ui-monospace, monospace;
+  font-family: var(--font-mono);
   letter-spacing: 0;
   text-transform: none;
 }
@@ -3171,8 +3182,7 @@ body.signal-system-home[data-signal="personalization"] {
 .signal-thesis,
 .current-observation,
 .memory-visual b {
-  font-family: "Fraunces", Georgia, serif;
-  font-variation-settings: "SOFT" 42, "WONK" 1;
+  font-family: var(--font-serif-display);
 }
 
 .signal-hero {
@@ -3189,7 +3199,7 @@ body.signal-system-home[data-signal="personalization"] {
   position: absolute;
   left: max(1rem, calc((100vw - 1240px) / 2));
   bottom: 1.2rem;
-  font-family: "Azeret Mono", ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: 0.7rem;
   color: var(--ink-faint);
 }
@@ -3207,10 +3217,9 @@ body.signal-system-home[data-signal="personalization"] {
   display: grid;
   gap: 0;
   max-width: 52rem;
-  font-family: "Fraunces", Georgia, serif;
+  font-family: var(--font-serif-display);
   font-size: 8.15rem;
   font-weight: 760;
-  font-variation-settings: "SOFT" 20, "WONK" 1;
   line-height: 0.78;
 }
 
@@ -3251,7 +3260,7 @@ body.signal-system-home[data-signal="personalization"] {
   padding: 0.62rem 0.78rem;
   border-right: 1px solid var(--signal-line);
   color: var(--ink-soft);
-  font-family: "Azeret Mono", ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
 }
 
@@ -3473,9 +3482,8 @@ body.signal-system-home[data-signal="personalization"] {
 }
 
 .operating-steps strong {
-  font-family: "Fraunces", Georgia, serif;
+  font-family: var(--font-serif-display);
   font-size: 1.54rem;
-  font-variation-settings: "SOFT" 42, "WONK" 1;
 }
 
 .seo-cards article {
@@ -3626,7 +3634,7 @@ body.consumer-read-home {
     var(--paper);
   background-size: 4.8rem 4.8rem, 4.8rem 4.8rem, auto, auto, auto;
   color: var(--ink);
-  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-sans);
   overflow-x: clip;
 }
 
@@ -3672,7 +3680,7 @@ body.consumer-read-home {
 .consumer-read-home .method-list span,
 .consumer-read-home .help-cards span,
 .consumer-read-home .contact-stack a {
-  font-family: "Azeret Mono", ui-monospace, monospace;
+  font-family: var(--font-mono);
   text-transform: none;
 }
 
@@ -3682,8 +3690,7 @@ body.consumer-read-home {
 .consumer-read-home blockquote,
 .consumer-read-home .signal-title,
 .consumer-read-home .dossier-kicker {
-  font-family: "Fraunces", Georgia, serif;
-  font-variation-settings: "SOFT" 38, "WONK" 1;
+  font-family: var(--font-serif-display);
 }
 
 .consumer-read-home .wordmark {
@@ -3713,7 +3720,7 @@ body.consumer-read-home {
   right: max(1rem, calc((100vw - 1240px) / 2));
   bottom: 1rem;
   color: var(--ink-faint);
-  font-family: "Azeret Mono", ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: 0.68rem;
 }
 
@@ -3751,7 +3758,7 @@ body.consumer-read-home {
 .consumer-read-home .dossier-link {
   border-radius: 0;
   box-shadow: none;
-  font-family: "Azeret Mono", ui-monospace, monospace;
+  font-family: var(--font-mono);
 }
 
 .consumer-read-home .primary-link {
@@ -3930,9 +3937,8 @@ body.consumer-read-home {
 
 .read-notes p {
   margin: 0.85rem 0 0;
-  font-family: "Fraunces", Georgia, serif;
+  font-family: var(--font-serif-display);
   font-size: 2rem;
-  font-variation-settings: "SOFT" 38, "WONK" 1;
   line-height: 1.05;
 }
 
@@ -4031,6 +4037,22 @@ body.consumer-read-home {
   background: var(--consumer-red);
 }
 
+.consumer-read-home .theme-miutine::before {
+  background: var(--consumer-green);
+}
+
+.consumer-read-home .theme-danone::before {
+  background: var(--consumer-yellow);
+}
+
+.consumer-read-home .theme-loreal::before {
+  background: var(--consumer-blue);
+}
+
+.consumer-read-home .theme-lvmh::before {
+  background: var(--bronze);
+}
+
 .consumer-read-home .dossier-meta {
   display: flex;
   flex-wrap: wrap;
@@ -4043,9 +4065,26 @@ body.consumer-read-home {
 .consumer-read-home .signal-dossier h3 {
   max-width: 44rem;
   margin-top: 1.5rem;
-  font-size: 5.1rem;
+  font-size: clamp(3.6rem, 6.5vw, 5.1rem);
   font-weight: 700;
   line-height: 0.88;
+}
+
+.consumer-read-home .theme-lvmh h3 {
+  font-size: clamp(3rem, 5.2vw, 4.35rem);
+  line-height: 0.92;
+}
+
+.case-miutine .text-card-frame {
+  background:
+    linear-gradient(90deg, rgba(40, 116, 86, 0.12) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(40, 116, 86, 0.1) 1px, transparent 1px),
+    rgba(255, 255, 255, 0.42);
+  background-size: 1.25rem 1.25rem;
+}
+
+.case-miutine .text-card-label {
+  color: var(--case-accent);
 }
 
 .consumer-read-home .dossier-kicker {
@@ -4135,7 +4174,7 @@ body.consumer-read-home {
 }
 
 .method-list strong {
-  font-family: "Fraunces", Georgia, serif;
+  font-family: var(--font-serif-display);
   font-size: 1.72rem;
   font-weight: 620;
 }

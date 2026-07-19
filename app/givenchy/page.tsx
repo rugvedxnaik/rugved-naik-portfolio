@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ArrowLink, PageIntro, SectionLabel, SiteFooter, SiteHeader } from "../site-components";
 
 export const metadata: Metadata = {
-  title: "Givenchy Face Architecture — Rugved Naik",
+  title: "Givenchy Face Architecture | Rugved Naik",
   description: "A luxury strategy dossier translating couture logic into facial architecture.",
 };
 
@@ -37,7 +37,7 @@ export default function GivenchyPage() {
         <div className="dossier-section__copy">
           <p className="lead-copy">Givenchy owned couture. It did not yet own beauty as a territory.</p>
           <p>
-            The house had authority, symbolism, and a powerful design grammar—but the beauty offer
+            The house had authority, symbolism, and a powerful design grammar, but the beauty offer
             risked behaving like a collection of products adjacent to fashion. The question was not
             how to add another look. It was how to make beauty feel structurally Givenchy.
           </p>
