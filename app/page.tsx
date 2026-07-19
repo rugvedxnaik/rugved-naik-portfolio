@@ -96,6 +96,79 @@ const reads = [
   },
 ];
 
+const archiveCases = [
+  {
+    number: "003",
+    category: "Applied to Target House",
+    title: "What AI Can't Personalize",
+    question: "What must stay recognizable when AI adapts beauty discovery?",
+    tags: ["L'Oréal", "Strategy", "CRM", "Independent inquiry"],
+  },
+  {
+    number: "009",
+    category: "Market & Data Reading",
+    title: "Collectibility Over Loyalty",
+    question: "Why some fragrances become identity while others become collection.",
+    tags: ["Miutine", "Analysis", "Strategy", "Academic validated"],
+  },
+  {
+    number: "010",
+    category: "Applied to Target House",
+    title: "Attention vs Meaning",
+    question: "Can beauty brands measure durable meaning as well as engagement?",
+    tags: ["L'Oréal", "Strategy", "CRM", "Independent inquiry"],
+  },
+  {
+    number: "011",
+    category: "Applied to Target House",
+    title: "Claim Saturation",
+    question: "Which signals matter after every brand learns the same nutrition claims?",
+    tags: ["Danone", "Analysis", "Strategy", "Independent inquiry"],
+  },
+  {
+    number: "012",
+    category: "Strategic Frameworks",
+    title: "Claim Saturation Framework",
+    question: "A reusable model for finding signal after category language converges.",
+    tags: ["Framework", "Strategy", "Analysis", "Independent inquiry"],
+  },
+  {
+    number: "013",
+    category: "Applied to Target House",
+    title: "Shared Infrastructure, House-Specific Expression",
+    question: "Can luxury groups share intelligence without flattening the houses?",
+    tags: ["LVMH", "Strategy", "CRM", "Independent inquiry"],
+  },
+  {
+    number: "014",
+    category: "Brand & Product Architecture",
+    title: "Givenchy Face Architecture",
+    question: "How couture construction became a defensible beauty territory.",
+    tags: ["LVMH", "Strategy", "Design", "Competition validated"],
+  },
+  {
+    number: "019",
+    category: "Strategic Frameworks",
+    title: "The Permanence Paradox",
+    question: "What remains defensible when scent itself becomes easy to copy?",
+    tags: ["Fragrance", "Strategy", "Competition validated"],
+  },
+  {
+    number: "022",
+    category: "Brand & Product Architecture",
+    title: "19h03: The Third Hour",
+    question: "Can the overlooked hour after work become a branded ritual?",
+    tags: ["Aperitif", "Strategy", "Design", "Independent inquiry"],
+  },
+  {
+    number: "025",
+    category: "Brand & Product Architecture",
+    title: "SIARA House",
+    question: "Where is the least crowded position in contemporary Indian jewellery?",
+    tags: ["Jewellery", "Strategy", "Design", "Independent inquiry"],
+  },
+];
+
 const method = [
   ["Observe", "Find the behavior, ritual, review pattern, search language, claim, or moment of choice."],
   ["Separate", "Distinguish useful evidence from category noise, polished claims, and obvious preferences."],
@@ -191,6 +264,30 @@ export default function Home() {
               questions I am currently sharpening.
             </p>
           </article>
+        </div>
+        <div className="consumer-app-archive" aria-label="Case archive">
+          <div className="consumer-app-archive-head">
+            <span>Case log</span>
+            <strong>10 cases</strong>
+            <p>Category, capability, and target-house structure from the living archive.</p>
+          </div>
+          <div className="consumer-app-archive-grid">
+            {archiveCases.map((archiveCase) => (
+              <article key={archiveCase.number}>
+                <span>{archiveCase.number}</span>
+                <div>
+                  <small>{archiveCase.category}</small>
+                  <h3>{archiveCase.title}</h3>
+                  <p>{archiveCase.question}</p>
+                </div>
+                <ul>
+                  {archiveCase.tags.map((tag) => (
+                    <li key={tag}>{tag}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
         </div>
         <div className="consumer-app-read-grid">
           {reads.map((read) => (

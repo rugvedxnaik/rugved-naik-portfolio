@@ -146,6 +146,70 @@
     });
   });
 
+  const archiveRoot = document.querySelector("[data-case-archive]");
+  if (archiveRoot) {
+    const archiveFilters = {
+      category: "all",
+      company: "all",
+      capability: "all",
+    };
+    const archiveButtons = archiveRoot.querySelectorAll("[data-archive-filter]");
+    const archiveRows = archiveRoot.querySelectorAll("[data-case-row]");
+    const caseCount = archiveRoot.querySelector("[data-case-count]");
+    const emptyState = archiveRoot.querySelector("[data-archive-empty]");
+
+    function updateArchive() {
+      let visible = 0;
+
+      archiveRows.forEach((row) => {
+        const categoryMatch =
+          archiveFilters.category === "all" || row.dataset.category === archiveFilters.category;
+        const companyMatch =
+          archiveFilters.company === "all" || row.dataset.company === archiveFilters.company;
+        const capabilities = (row.dataset.capabilities || "").split(/\s+/).filter(Boolean);
+        const capabilityMatch =
+          archiveFilters.capability === "all" ||
+          capabilities.includes(archiveFilters.capability);
+        const isVisible = categoryMatch && companyMatch && capabilityMatch;
+
+        row.hidden = !isVisible;
+        if (isVisible) visible += 1;
+      });
+
+      if (caseCount) {
+        caseCount.textContent = String(visible);
+      }
+
+      if (emptyState) {
+        emptyState.hidden = visible !== 0;
+      }
+    }
+
+    archiveButtons.forEach((button) => {
+      button.setAttribute("aria-pressed", String(button.classList.contains("is-active")));
+
+      button.addEventListener("click", () => {
+        const group = button.dataset.archiveFilter;
+        const value = button.dataset.filterValue || "all";
+        if (!group) return;
+
+        archiveFilters[group] = value;
+
+        archiveButtons.forEach((peer) => {
+          if (peer.dataset.archiveFilter === group) {
+            const isActive = peer === button;
+            peer.classList.toggle("is-active", isActive);
+            peer.setAttribute("aria-pressed", String(isActive));
+          }
+        });
+
+        updateArchive();
+      });
+    });
+
+    updateArchive();
+  }
+
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       if (window.innerWidth <= 1100) {
