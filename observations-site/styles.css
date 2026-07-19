@@ -94,6 +94,109 @@ body.consumer-switchboard-home[data-signal="siara"] {
   --active-accent-strong: #613650;
 }
 
+/* Consumer Switchboard visual polish */
+
+.consumer-switchboard-home .switchboard-hero {
+  min-height: calc(100svh - 3.25rem);
+  padding: clamp(4.2rem, 7vh, 5.4rem) 0 2.15rem;
+}
+
+.consumer-switchboard-home .switchboard-hero-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(23rem, 0.64fr);
+  gap: clamp(2rem, 5vw, 4.8rem);
+  align-items: center;
+}
+
+.consumer-switchboard-home .switchboard-hero-copy h1 {
+  max-width: 50rem;
+  font-size: clamp(3.25rem, 6.05vw, 5.75rem);
+  line-height: 0.96;
+  letter-spacing: -0.052em;
+}
+
+.consumer-switchboard-home .hero-lede {
+  max-width: 41rem;
+  font-size: clamp(1.02rem, 1.45vw, 1.22rem);
+}
+
+.consumer-switchboard-home .hero-route-panel {
+  width: min(100%, 30.25rem);
+  justify-self: end;
+  padding: clamp(0.95rem, 1.4vw, 1.2rem);
+}
+
+.consumer-switchboard-home .hero-route-panel blockquote {
+  max-width: 22rem;
+  font-size: clamp(2.05rem, 3.55vw, 3.45rem);
+  line-height: 0.99;
+}
+
+.consumer-switchboard-home .hero-route-grid div {
+  grid-template-columns: 5.95rem 1fr;
+  padding: 0.62rem 0.68rem;
+}
+
+.consumer-switchboard-home .hero-route-grid p {
+  font-size: 0.95rem;
+  line-height: 1.42;
+}
+
+.consumer-switchboard-home .current-focus {
+  margin-top: clamp(1.2rem, 2.4vh, 1.85rem);
+}
+
+.consumer-switchboard-home .consumer-fit-strip {
+  margin-top: 1rem;
+}
+
+.consumer-switchboard-home .switchboard-console {
+  align-items: stretch;
+}
+
+.consumer-switchboard-home .switchboard-row {
+  min-height: 4.6rem;
+}
+
+@media (max-width: 1050px) {
+  .consumer-switchboard-home .switchboard-hero {
+    min-height: auto;
+  }
+
+  .consumer-switchboard-home .switchboard-hero-grid {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .consumer-switchboard-home .hero-route-panel {
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  .consumer-switchboard-home .hero-route-panel blockquote {
+    max-width: 34rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .consumer-switchboard-home .switchboard-hero {
+    padding: 3.55rem 0 1.6rem;
+  }
+
+  .consumer-switchboard-home .switchboard-hero-copy h1 {
+    font-size: clamp(3rem, 14vw, 4.1rem);
+    line-height: 0.98;
+  }
+
+  .consumer-switchboard-home .hero-route-panel blockquote {
+    font-size: clamp(2.15rem, 11vw, 3.1rem);
+  }
+
+  .consumer-switchboard-home .hero-route-grid div {
+    grid-template-columns: 1fr;
+    gap: 0.24rem;
+  }
+}
+
 .consumer-switchboard-home .switchboard-hero-copy h1,
 .consumer-switchboard-home .hero-route-panel blockquote,
 .consumer-switchboard-home .switchboard-row-quote,
