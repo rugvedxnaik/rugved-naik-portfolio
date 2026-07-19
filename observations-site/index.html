@@ -64,7 +64,7 @@
     </script>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="site-home consumer-read-home signal-room-home" data-signal="miutine">
+  <body class="site-home consumer-read-home consumer-switchboard-home" data-signal="miutine">
     <header class="site-header consumer-header">
       <a class="wordmark" href="index.html">Rugved Naik</a>
       <div class="header-status">
@@ -73,51 +73,50 @@
       </div>
       <nav class="site-nav" aria-label="Primary">
         <a href="#fit">Fit</a>
-        <a href="#reads">Lens</a>
-        <a href="#notes">Notes</a>
-        <a href="#work">Work</a>
+        <a href="#lens">Lens</a>
+        <a href="#switchboard">Switchboard</a>
+        <a href="#unrouted">Unrouted</a>
         <a href="#method">Method</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
 
     <main>
-      <section class="consumer-hero">
-        <div class="shell consumer-hero-grid">
-          <div class="consumer-hero-copy reveal">
+      <section class="switchboard-hero">
+        <div class="shell switchboard-hero-grid">
+          <div class="switchboard-hero-copy reveal">
             <p class="eyebrow">Consumer insight for product and marketing</p>
+            <p class="switchboard-thesis" data-switchboard-thesis>Start with the person. End with the system.</p>
             <h1>The best strategy makes the consumer feel obvious without making them feel simplified.</h1>
             <p class="hero-lede">
-              I turn consumer behavior into product logic, recognizable brand cues, and marketing
-              systems. The work starts with what people choose, repeat, search, collect,
-              imitate, and remember, then turns that reading into decisions teams can use.
+              I read what people are trying to signal, protect, repeat, or become, then
+              translate that behavior into product logic, brand cues, and marketing systems.
             </p>
             <div class="hero-actions">
-              <a class="primary-link" href="#work">See the evidence</a>
+              <a class="primary-link" href="#switchboard">Route a signal</a>
               <a class="secondary-link" href="mailto:rugved.naik@edu.escp.eu">Email Rugved</a>
             </div>
           </div>
 
-          <aside class="hero-signal-stack reveal delay-1" aria-label="Portfolio signal system">
-            <div class="signal-console-card" data-signal-console>
-              <div class="console-topline">
-                <p class="ledger-label">Active signal</p>
-                <span class="signal-pulse" aria-hidden="true"></span>
-              </div>
-              <strong data-active-signal-title>Collectibility Over Loyalty</strong>
-              <p data-active-signal-subtitle>
-                Reading the archive as connected signals, not separate portfolio cards.
-              </p>
-              <div class="signal-readout" data-active-readout>
-                <div><span>Tension</span><p>Loading the signal.</p></div>
-                <div><span>Move</span><p>Loading the system.</p></div>
-              </div>
-              <div class="signal-bars" data-signal-bars aria-label="Highlighted signal tracks"></div>
+          <aside class="hero-route-panel reveal delay-1" aria-label="Active consumer signal" data-hero-route>
+            <div class="route-panel-topline">
+              <p class="eyebrow">Consumer signal</p>
+              <button
+                class="sound-toggle"
+                type="button"
+                data-sound-toggle
+                aria-pressed="false"
+                aria-label="Turn route tone on"
+              >
+                Sound off
+              </button>
             </div>
-
-            <div class="proof-ledger" aria-label="Portfolio proof" data-proof-ledger>
-              <p class="ledger-label">Proof signals</p>
-              <p class="data-loading">Loading the case system.</p>
+            <blockquote data-hero-quote>Loading the consumer signal.</blockquote>
+            <div class="hero-route-grid">
+              <div><span>Evidence</span><p data-hero-evidence>Loading evidence.</p></div>
+              <div><span>Tension</span><p data-hero-tension>Loading tension.</p></div>
+              <div><span>Translation</span><p data-hero-translation>Loading translation.</p></div>
+              <div><span>Project</span><p data-hero-project>Loading project.</p></div>
             </div>
           </aside>
         </div>
@@ -149,661 +148,111 @@
               touchpoint disappears.
             </p>
             <p>
-              I work in that space between the person and the system: the behavior that
-              explains the opportunity, the tension that makes the strategy necessary,
-              and the structure that lets product, brand, and marketing move together.
+              The case matters, but the consumer signal comes first. The company appears
+              only after the behavior has been read and routed into a usable system.
             </p>
           </div>
         </div>
       </section>
 
-      <section class="consumer-section reads-section" id="reads">
+      <section class="consumer-section reads-section" id="lens">
         <div class="shell section-kicker-row">
           <p class="eyebrow">What I read</p>
-          <h2>A lens before the case studies.</h2>
+          <h2>A lens before the switchboard.</h2>
         </div>
         <div class="shell read-notes" data-lens-notes>
           <p class="data-loading">Loading the reading lens.</p>
         </div>
       </section>
 
-      <section class="consumer-section field-notes-section" id="notes">
-        <div class="shell section-kicker-row">
-          <p class="eyebrow">Field notes</p>
-          <h2>Short observations before they become full cases.</h2>
+      <section class="consumer-section switchboard-section" id="switchboard">
+        <div class="shell room-intro">
+          <p class="eyebrow">Consumer Switchboard</p>
+          <div class="section-heading">
+            <h2>One archive. Ten consumer signals. One routing mechanic.</h2>
+            <p data-switchboard-instruction>
+              Select a consumer signal. The switchboard routes it into evidence, tension,
+              translation, and output.
+            </p>
+          </div>
         </div>
-        <div class="shell field-notes" data-field-notes>
-          <p class="data-loading">Loading field notes.</p>
+
+        <div class="shell switchboard-console" data-switchboard aria-label="Consumer switchboard">
+          <div class="switchboard-list-panel">
+            <div class="switchboard-panel-head">
+              <span>Signal list</span>
+              <strong data-signal-count>10</strong>
+            </div>
+            <div
+              class="switchboard-list"
+              role="listbox"
+              aria-label="Consumer signals"
+              data-switchboard-list
+            >
+              <p class="data-loading">Loading consumer signals.</p>
+            </div>
+          </div>
+
+          <section class="switchboard-read-panel" aria-live="polite">
+            <div class="switchboard-panel-head">
+              <span>Evidence and tension</span>
+              <strong data-selected-status>Routed</strong>
+            </div>
+            <div class="route-block">
+              <span>Evidence</span>
+              <p data-panel-evidence>Loading evidence.</p>
+            </div>
+            <div class="route-block">
+              <span>Tension</span>
+              <p data-panel-tension>Loading tension.</p>
+            </div>
+            <div class="validation-strip" data-validation-strip></div>
+          </section>
+
+          <section class="switchboard-output-panel">
+            <div class="switchboard-panel-head">
+              <span>Translation and output</span>
+              <strong data-evidence-strength>0%</strong>
+            </div>
+            <div class="route-block route-block-large">
+              <span>Translation</span>
+              <p data-panel-translation>Loading translation.</p>
+            </div>
+            <div class="route-block">
+              <span>Output</span>
+              <p data-panel-output>Loading output.</p>
+            </div>
+            <div class="project-line">
+              <span>Project</span>
+              <p data-panel-project>Loading project.</p>
+            </div>
+            <a class="dossier-link" data-panel-link href="#" hidden>Open dossier</a>
+          </section>
         </div>
       </section>
 
-      <section class="consumer-section work-section" id="work">
-        <div class="shell room-intro">
-          <p class="eyebrow">Case system</p>
-          <div class="section-heading">
-            <h2>A signal room for consumer-led product and marketing strategy.</h2>
-            <p>
-              One data source feeds the proof signals, archive, highlights, field notes,
-              and active signal readout. The archive is the full system. The expanded
-              reads below are selected openings into that same system, not a competing index.
-            </p>
-          </div>
+      <section class="consumer-section unrouted-section" id="unrouted">
+        <div class="shell section-kicker-row">
+          <p class="eyebrow">Unrouted signals</p>
+          <h2>Observations before they become full systems.</h2>
         </div>
-
-        <div class="shell depth-ledger" aria-label="Case depth map" data-depth-ledger>
-          <article>
-            <span>Finished dossiers</span>
-            <p>
-              Miutine, Givenchy, and 19h03 are developed enough to show the strategic move,
-              the system, and the output. Miutine carries the strongest research proof;
-              Givenchy and 19h03 carry concept and territory proof.
-            </p>
-          </article>
-          <article>
-            <span>Active inquiries</span>
-            <p>
-              Danone, L'Oréal, and LVMH are live thinking tracks. They stay visible because
-              they show the kind of business questions I am currently sharpening, but they
-              are marked as in progress until the evidence base is complete.
-            </p>
-          </article>
-        </div>
-
-        <div class="shell archive-console" data-case-archive aria-label="Case archive">
-          <div class="archive-console-head">
-            <div>
-              <p class="eyebrow">Case log</p>
-              <h3>The archive is the source of truth.</h3>
-            </div>
-            <p>
-              Filter by the type of thinking, the capability it proves, or the company it
-              was built around. Target-house work stays in the same archive, so L'Oréal,
-              Danone, and LVMH feel like serious inquiry tracks, not separate fan pages.
-            </p>
-          </div>
-
-          <div class="archive-controls" aria-label="Archive filters" data-archive-controls>
-            <div class="archive-control-group">
-              <span>Category</span>
-              <div>
-                <button class="is-active" data-archive-filter="category" data-filter-value="all" type="button">All</button>
-                <button data-archive-filter="category" data-filter-value="Strategic Frameworks" type="button">Frameworks</button>
-                <button data-archive-filter="category" data-filter-value="Brand & Product Architecture" type="button">Brand and product</button>
-                <button data-archive-filter="category" data-filter-value="Market & Data Reading" type="button">Market and data</button>
-                <button data-archive-filter="category" data-filter-value="Applied to Target House" type="button">Target house</button>
-              </div>
-            </div>
-
-            <div class="archive-control-group">
-              <span>Company</span>
-              <div>
-                <button class="is-active" data-archive-filter="company" data-filter-value="all" type="button">All</button>
-                <button data-archive-filter="company" data-filter-value="L'Oréal" type="button">L'Oréal</button>
-                <button data-archive-filter="company" data-filter-value="Danone" type="button">Danone</button>
-                <button data-archive-filter="company" data-filter-value="LVMH" type="button">LVMH</button>
-              </div>
-            </div>
-
-            <div class="archive-control-group">
-              <span>Capability</span>
-              <div>
-                <button class="is-active" data-archive-filter="capability" data-filter-value="all" type="button">All</button>
-                <button data-archive-filter="capability" data-filter-value="Strategy" type="button">Strategy</button>
-                <button data-archive-filter="capability" data-filter-value="Analysis" type="button">Analysis</button>
-                <button data-archive-filter="capability" data-filter-value="CRM" type="button">CRM</button>
-                <button data-archive-filter="capability" data-filter-value="Design" type="button">Design</button>
-              </div>
-            </div>
-
-            <div class="archive-count">
-              <strong data-case-count>10</strong>
-              <span>visible cases</span>
-            </div>
-          </div>
-
-          <div class="case-archive-grid" data-case-grid>
-            <article
-              class="case-archive-row"
-              data-case-row
-              data-category="Applied to Target House"
-              data-company="L'Oréal"
-              data-capabilities="Strategy Analysis CRM"
-            >
-              <span class="case-id">003</span>
-              <div class="case-row-main">
-                <span>Applied to Target House</span>
-                <h4>What AI Can't Personalize</h4>
-                <p>What must stay recognizable when AI adapts beauty discovery?</p>
-              </div>
-              <div class="case-row-tags">
-                <span>L'Oréal</span>
-                <span>Strategy</span>
-                <span>CRM</span>
-                <span>Independent inquiry</span>
-              </div>
-              <button data-open-signal="loreal" type="button">Preview</button>
-            </article>
-
-            <article
-              class="case-archive-row"
-              data-case-row
-              data-category="Market & Data Reading"
-              data-company=""
-              data-capabilities="Analysis Strategy"
-            >
-              <span class="case-id">009</span>
-              <div class="case-row-main">
-                <span>Market & Data Reading</span>
-                <h4>Collectibility Over Loyalty</h4>
-                <p>Why some fragrances become identity while others become collection.</p>
-              </div>
-              <div class="case-row-tags">
-                <span>Miutine</span>
-                <span>Analysis</span>
-                <span>Strategy</span>
-                <span>Academic validated</span>
-              </div>
-              <button data-open-signal="miutine" type="button">Preview</button>
-            </article>
-
-            <article
-              class="case-archive-row"
-              data-case-row
-              data-category="Applied to Target House"
-              data-company="L'Oréal"
-              data-capabilities="Strategy CRM"
-            >
-              <span class="case-id">010</span>
-              <div class="case-row-main">
-                <span>Applied to Target House</span>
-                <h4>Attention vs Meaning</h4>
-                <p>Can beauty brands measure durable meaning as well as engagement?</p>
-              </div>
-              <div class="case-row-tags">
-                <span>L'Oréal</span>
-                <span>Strategy</span>
-                <span>CRM</span>
-                <span>Independent inquiry</span>
-              </div>
-              <button data-open-signal="loreal" type="button">Preview</button>
-            </article>
-
-            <article
-              class="case-archive-row"
-              data-case-row
-              data-category="Applied to Target House"
-              data-company="Danone"
-              data-capabilities="Analysis Strategy"
-            >
-              <span class="case-id">011</span>
-              <div class="case-row-main">
-                <span>Applied to Target House</span>
-                <h4>Claim Saturation</h4>
-                <p>Which signals matter after every brand learns the same nutrition claims?</p>
-              </div>
-              <div class="case-row-tags">
-                <span>Danone</span>
-                <span>Analysis</span>
-                <span>Strategy</span>
-                <span>Independent inquiry</span>
-              </div>
-              <button data-open-signal="danone" type="button">Preview</button>
-            </article>
-
-            <article
-              class="case-archive-row"
-              data-case-row
-              data-category="Strategic Frameworks"
-              data-company=""
-              data-capabilities="Strategy Analysis"
-            >
-              <span class="case-id">012</span>
-              <div class="case-row-main">
-                <span>Strategic Frameworks</span>
-                <h4>Claim Saturation Framework</h4>
-                <p>A reusable model for finding signal after category language converges.</p>
-              </div>
-              <div class="case-row-tags">
-                <span>Framework</span>
-                <span>Strategy</span>
-                <span>Analysis</span>
-                <span>Independent inquiry</span>
-              </div>
-              <button data-open-signal="danone" type="button">Preview</button>
-            </article>
-
-            <article
-              class="case-archive-row"
-              data-case-row
-              data-category="Applied to Target House"
-              data-company="LVMH"
-              data-capabilities="Strategy CRM"
-            >
-              <span class="case-id">013</span>
-              <div class="case-row-main">
-                <span>Applied to Target House</span>
-                <h4>Shared Infrastructure, House-Specific Expression</h4>
-                <p>Can luxury groups share intelligence without flattening the houses?</p>
-              </div>
-              <div class="case-row-tags">
-                <span>LVMH</span>
-                <span>Strategy</span>
-                <span>CRM</span>
-                <span>Independent inquiry</span>
-              </div>
-              <button data-open-signal="lvmh" type="button">Preview</button>
-            </article>
-
-            <article
-              class="case-archive-row"
-              data-case-row
-              data-category="Brand & Product Architecture"
-              data-company="LVMH"
-              data-capabilities="Strategy Design"
-            >
-              <span class="case-id">014</span>
-              <div class="case-row-main">
-                <span>Brand & Product Architecture</span>
-                <h4>Givenchy Face Architecture</h4>
-                <p>How couture construction became a defensible beauty territory.</p>
-              </div>
-              <div class="case-row-tags">
-                <span>LVMH</span>
-                <span>Strategy</span>
-                <span>Design</span>
-                <span>Competition validated</span>
-              </div>
-              <button data-open-signal="givenchy" type="button">Preview</button>
-            </article>
-
-            <article
-              class="case-archive-row"
-              data-case-row
-              data-category="Strategic Frameworks"
-              data-company=""
-              data-capabilities="Strategy"
-            >
-              <span class="case-id">019</span>
-              <div class="case-row-main">
-                <span>Strategic Frameworks</span>
-                <h4>The Permanence Paradox</h4>
-                <p>What remains defensible when scent itself becomes easy to copy?</p>
-              </div>
-              <div class="case-row-tags">
-                <span>Fragrance</span>
-                <span>Strategy</span>
-                <span>Competition validated</span>
-              </div>
-              <button data-open-signal="miutine" type="button">Related</button>
-            </article>
-
-            <article
-              class="case-archive-row"
-              data-case-row
-              data-category="Brand & Product Architecture"
-              data-company=""
-              data-capabilities="Strategy Design"
-            >
-              <span class="case-id">022</span>
-              <div class="case-row-main">
-                <span>Brand & Product Architecture</span>
-                <h4>19h03: The Third Hour</h4>
-                <p>Can the overlooked hour after work become a branded ritual?</p>
-              </div>
-              <div class="case-row-tags">
-                <span>Aperitif</span>
-                <span>Strategy</span>
-                <span>Design</span>
-                <span>Independent inquiry</span>
-              </div>
-              <button data-open-signal="1903" type="button">Preview</button>
-            </article>
-
-            <article
-              class="case-archive-row"
-              data-case-row
-              data-category="Brand & Product Architecture"
-              data-company=""
-              data-capabilities="Strategy Design"
-            >
-              <span class="case-id">025</span>
-              <div class="case-row-main">
-                <span>Brand & Product Architecture</span>
-                <h4>SIARA House</h4>
-                <p>Where is the least crowded position in contemporary Indian jewellery?</p>
-              </div>
-              <div class="case-row-tags">
-                <span>Jewellery</span>
-                <span>Strategy</span>
-                <span>Design</span>
-                <span>Independent inquiry</span>
-              </div>
-              <button data-open-signal="givenchy" type="button">Related</button>
-            </article>
-          </div>
-
-          <p class="archive-empty" data-archive-empty hidden>
-            No case matches this filter set yet.
-          </p>
-        </div>
-
-        <div class="shell highlight-intro">
-          <p class="eyebrow">Signal room</p>
-          <p>
-            Click any active signal. Each panel shows the same pattern: what the consumer
-            is doing, what evidence makes it credible, and what system the insight can become.
-          </p>
-        </div>
-
-        <div class="shell consumer-work-grid" id="signal-room">
-          <div class="signal-index consumer-index" role="tablist" aria-label="Highlighted reads" data-highlight-tabs>
-            <button
-              class="signal-chip is-active"
-              data-dossier="miutine"
-              id="tab-miutine"
-              role="tab"
-              aria-selected="true"
-              aria-controls="dossier-miutine"
-            >
-              <span class="signal-number">Read 01</span>
-              <span class="signal-status">Finished dossier</span>
-              <span class="signal-title">Collectibility Over Loyalty</span>
-              <span class="signal-field">Market reading / fragrance benchmark</span>
-              <span class="signal-note-label">Evidence</span>
-              <span class="signal-note">4,700+ reviews revealed strong object value and weaker identity attachment.</span>
-            </button>
-
-            <button
-              class="signal-chip"
-              data-dossier="givenchy"
-              id="tab-givenchy"
-              role="tab"
-              aria-selected="false"
-              aria-controls="dossier-givenchy"
-            >
-              <span class="signal-number">Read 02</span>
-              <span class="signal-status">Finished dossier</span>
-              <span class="signal-title">Face Architecture</span>
-              <span class="signal-field">Luxury beauty / brand territory</span>
-              <span class="signal-note-label">Move</span>
-              <span class="signal-note">Makeup became identity construction, not surface decoration.</span>
-            </button>
-
-            <button
-              class="signal-chip"
-              data-dossier="danone"
-              id="tab-danone"
-              role="tab"
-              aria-selected="false"
-              aria-controls="dossier-danone"
-            >
-              <span class="signal-number">Read 03</span>
-              <span class="signal-status">Active inquiry</span>
-              <span class="signal-title">Claim Saturation</span>
-              <span class="signal-field">Danone / category insight</span>
-              <span class="signal-note-label">Question</span>
-              <span class="signal-note">When everyone has the same insight, which signals still matter?</span>
-            </button>
-
-            <button
-              class="signal-chip"
-              data-dossier="loreal"
-              id="tab-loreal"
-              role="tab"
-              aria-selected="false"
-              aria-controls="dossier-loreal"
-            >
-              <span class="signal-number">Read 04</span>
-              <span class="signal-status">Active inquiry</span>
-              <span class="signal-title">What AI Can't Personalize</span>
-              <span class="signal-field">L'Oréal / AI and recognizable beauty codes</span>
-              <span class="signal-note-label">Rule</span>
-              <span class="signal-note">Personalize utility. Protect memory.</span>
-            </button>
-
-            <button
-              class="signal-chip"
-              data-dossier="lvmh"
-              id="tab-lvmh"
-              role="tab"
-              aria-selected="false"
-              aria-controls="dossier-lvmh"
-            >
-              <span class="signal-number">Read 05</span>
-              <span class="signal-status">Active inquiry</span>
-              <span class="signal-title">Shared Infrastructure, House-Specific Expression</span>
-              <span class="signal-field">LVMH / luxury group customer intelligence</span>
-              <span class="signal-note-label">Tension</span>
-              <span class="signal-note">Scale the intelligence without flattening the house.</span>
-            </button>
-
-            <button
-              class="signal-chip"
-              data-dossier="1903"
-              id="tab-1903"
-              role="tab"
-              aria-selected="false"
-              aria-controls="dossier-1903"
-            >
-              <span class="signal-number">Read 06</span>
-              <span class="signal-status">Finished concept</span>
-              <span class="signal-title">19h03</span>
-              <span class="signal-field">Product concept / ritual design</span>
-              <span class="signal-note-label">Ritual</span>
-              <span class="signal-note">People use the first drink to mark a change of state.</span>
-            </button>
-          </div>
-
-          <div class="signal-stage consumer-stage" data-highlight-panels>
-            <article
-              class="signal-dossier theme-miutine is-active"
-              id="dossier-miutine"
-              role="tabpanel"
-              aria-labelledby="tab-miutine"
-            >
-              <div class="dossier-meta">
-                <span>Market and data reading</span>
-                <span>Academic validation</span>
-                <span>Fragrance benchmark</span>
-              </div>
-              <h3>Collectibility Over Loyalty</h3>
-              <p class="dossier-kicker">
-                Why Miutine behaves more like a luxury object than a signature fragrance.
-              </p>
-              <p class="dossier-context">
-                This is the evidence anchor of the portfolio. The work started with a
-                concrete dataset and used consumer language to separate being admired,
-                being collected, and being personally adopted.
-              </p>
-              <div class="dossier-fields">
-                <div><span>Evidence base</span><p>4,700+ reviews, competitive benchmarks, attribute-level review mining, and Instagram plus TikTok social listening.</p></div>
-                <div><span>Behavior</span><p>Consumers praised the bottle and object codes even when longevity weakened attachment.</p></div>
-                <div><span>Tension</span><p>Visibility and satisfaction were present, but identity drivers like confidence, sex appeal, and compliments were weaker.</p></div>
-                <div><span>Framework</span><p>Identity Value x Object Value separated collectible appeal from signature-fragrance attachment.</p></div>
-                <div><span>Output</span><p>Review mining, competitive read, social listening, framework, and recommendations.</p></div>
-                <div><span>Status</span><p>Full evidence-backed case now in the portfolio.</p></div>
-              </div>
-              <a class="dossier-link" href="case-miutine.html">Open the case</a>
-            </article>
-
-            <article
-              class="signal-dossier theme-givenchy"
-              id="dossier-givenchy"
-              role="tabpanel"
-              aria-labelledby="tab-givenchy"
-              hidden
-            >
-              <div class="dossier-meta">
-                <span>Luxury beauty strategy</span>
-                <span>Two-week concept sprint</span>
-                <span>Presented work</span>
-              </div>
-              <h3>Face Architecture</h3>
-              <p class="dossier-kicker">
-                A beauty territory that translates couture construction into product,
-                service, ritual, and seasonal expression.
-              </p>
-              <p class="dossier-context">
-                The point was not simply to say couture can inspire makeup. The work asked
-                what Givenchy could own in beauty that competitors could not borrow as
-                easily: the construction of the face as a repeatable house logic.
-              </p>
-              <div class="dossier-fields">
-                <div><span>Behavior</span><p>Beauty consumers use the face to construct identity through plane, line, volume, and accent.</p></div>
-                <div><span>Tension</span><p>Couture had authority, but beauty needed a repeatable meaning beyond fashion adjacency.</p></div>
-                <div><span>Move</span><p>Turn the face into architecture and make construction the organizing idea.</p></div>
-                <div><span>Output</span><p>Positioning, concept system, experience logic, and service cues.</p></div>
-                <div><span>Proof level</span><p>Finished concept dossier, presented as a sprint to the Givenchy beauty team.</p></div>
-                <div><span>What it shows</span><p>Consumer identity can become a product and brand system.</p></div>
-              </div>
-              <a class="dossier-link" href="case-givenchy.html">Open the dossier</a>
-            </article>
-
-            <article
-              class="signal-dossier theme-danone"
-              id="dossier-danone"
-              role="tabpanel"
-              aria-labelledby="tab-danone"
-              hidden
-            >
-              <div class="dossier-meta">
-                <span>Applied to target house</span>
-                <span>Active inquiry</span>
-                <span>Category strategy</span>
-              </div>
-              <h3>Claim Saturation</h3>
-              <p class="dossier-kicker">
-                When every competitor learns the same nutrition insight, which signals are
-                still worth researching?
-              </p>
-              <p class="dossier-context">
-                This is deliberately marked as an inquiry, not a finished case. The open
-                question is how a food brand can avoid chasing the same claims everyone
-                else has already learned to make.
-              </p>
-              <div class="dossier-fields">
-                <div><span>Category signal</span><p>Protein, probiotics, reformulation, and better-for-you benefits are converging across dairy and adjacent nutrition.</p></div>
-                <div><span>Research risk</span><p>Consumer work can start measuring category-wide noise instead of useful differentiation.</p></div>
-                <div><span>Lens</span><p>Look for where behavior contradicts stated preference: what people buy, repeat, trade off, or ignore.</p></div>
-                <div><span>Output</span><p>Framework outline for consumer insight, category reading, and claim-space prioritization.</p></div>
-                <div><span>Next proof</span><p>Category map, claim audit, shelf examples, and sharper evidence on where stated preference and buying behavior diverge.</p></div>
-                <div><span>What it shows</span><p>Category saturation can become a research question, not just a positioning problem.</p></div>
-              </div>
-            </article>
-
-            <article
-              class="signal-dossier theme-loreal"
-              id="dossier-loreal"
-              role="tabpanel"
-              aria-labelledby="tab-loreal"
-              hidden
-            >
-              <div class="dossier-meta">
-                <span>Applied to target house</span>
-                <span>Active inquiry</span>
-                <span>Beauty AI and recognizable codes</span>
-              </div>
-              <h3>What AI Can't Personalize</h3>
-              <p class="dossier-kicker">
-                As AI personalizes discovery, beauty brands still need cues that stay
-                recognizable.
-              </p>
-              <p class="dossier-context">
-                This is an inquiry about restraint. If every message, recommendation, and
-                journey adapts to the individual, the brand still needs fixed cues people
-                can recognize without thinking too hard.
-              </p>
-              <div class="dossier-fields">
-                <div><span>Question</span><p>What must remain consistent for a beauty brand to stay recognizable across personalized journeys?</p></div>
-                <div><span>Rule</span><p>The closer something is to memory, the less it should be personalized. The closer something is to utility, the more it can adapt.</p></div>
-                <div><span>Behavior</span><p>Consumers want recognition without being reduced to past clicks.</p></div>
-                <div><span>Output</span><p>A rule set for separating adaptive utility from stable brand cues.</p></div>
-                <div><span>Next proof</span><p>Beauty examples where personalization improves usefulness, plus examples where it weakens recognition.</p></div>
-                <div><span>What it shows</span><p>Personalization strategy needs memory cues, not just targeting accuracy.</p></div>
-              </div>
-            </article>
-
-            <article
-              class="signal-dossier theme-lvmh"
-              id="dossier-lvmh"
-              role="tabpanel"
-              aria-labelledby="tab-lvmh"
-              hidden
-            >
-              <div class="dossier-meta">
-                <span>Applied to target house</span>
-                <span>Active inquiry</span>
-                <span>Luxury group customer intelligence</span>
-              </div>
-              <h3>Shared Infrastructure, House-Specific Expression</h3>
-              <p class="dossier-kicker">
-                Can luxury groups share customer intelligence without making every house
-                feel the same?
-              </p>
-              <p class="dossier-context">
-                This stays separate from Givenchy. Givenchy is a house-level product and
-                identity territory. LVMH is a group-level question about what can be shared
-                behind the scenes while each house keeps its own behavior in front of the
-                customer.
-              </p>
-              <div class="dossier-fields">
-                <div><span>Group question</span><p>Shared data can improve CRM, service, and relevance across a luxury portfolio.</p></div>
-                <div><span>Luxury risk</span><p>The same efficiency can flatten house memory if every brand starts behaving alike.</p></div>
-                <div><span>Distinction</span><p>This is group-level infrastructure thinking, distinct from Givenchy's house-level product territory.</p></div>
-                <div><span>System</span><p>Shared intelligence, house-specific expression.</p></div>
-                <div><span>Next proof</span><p>House code map, service moments, and customer use cases that show where shared data should stop.</p></div>
-                <div><span>What it shows</span><p>Good data architecture has to protect meaning, not just increase efficiency.</p></div>
-              </div>
-            </article>
-
-            <article
-              class="signal-dossier theme-1903"
-              id="dossier-1903"
-              role="tabpanel"
-              aria-labelledby="tab-1903"
-              hidden
-            >
-              <div class="dossier-meta">
-                <span>Brand creation</span>
-                <span>Product concept</span>
-                <span>Ritual design</span>
-              </div>
-              <h3>19h03</h3>
-              <p class="dossier-kicker">
-                A functional sparkling aperitif built around the precise moment the day
-                becomes evening.
-              </p>
-              <p class="dossier-context">
-                This is a finished concept dossier rather than a research-heavy case. It
-                shows how one occasion, the first evening drink, can organize product
-                benefit, social meaning, visual codes, and brand world.
-              </p>
-              <div class="dossier-fields">
-                <div><span>Behavior</span><p>People use the first drink as a social and emotional transition.</p></div>
-                <div><span>Tension</span><p>Non-alcoholic and functional drinks often define themselves by what is missing.</p></div>
-                <div><span>Move</span><p>Own the moment of transition rather than the substitute category.</p></div>
-                <div><span>Output</span><p>Occasion insight, product concept, positioning, and brand atmosphere.</p></div>
-                <div><span>Proof level</span><p>Finished concept dossier showing how a behavior becomes product logic and brand world.</p></div>
-                <div><span>What it shows</span><p>Consumer ritual can become a product proposition.</p></div>
-              </div>
-              <a class="dossier-link" href="case-19h03.html">Open the dossier</a>
-            </article>
-          </div>
+        <div class="shell unrouted-grid" data-unrouted-signals>
+          <p class="data-loading">Loading unrouted signals.</p>
         </div>
       </section>
 
       <section class="consumer-section method-section" id="method">
-        <div class="shell method-grid">
+        <div class="shell method-grid switchboard-method-grid">
           <div>
             <p class="eyebrow">Method</p>
-            <h2>The work moves from signal to system.</h2>
+            <h2>The method maps to the switchboard.</h2>
           </div>
           <ol class="method-list">
             <li><span>01</span><strong>Observe</strong><p>Find the behavior, ritual, review pattern, search language, claim, or moment of choice.</p></li>
-            <li><span>02</span><strong>Separate</strong><p>Distinguish useful evidence from category noise, polished claims, and obvious preferences.</p></li>
-            <li><span>03</span><strong>Name</strong><p>Turn the pattern into language a team can remember and challenge.</p></li>
-            <li><span>04</span><strong>Translate</strong><p>Move the insight into product logic, positioning, messaging, CRM, or experience design.</p></li>
-            <li><span>05</span><strong>Make it travel</strong><p>Build the deck, dossier, framework, or phrase that lets the work keep moving.</p></li>
+            <li><span>02</span><strong>Separate</strong><p>Evidence and tension: separate useful signals from category noise, polished claims, and obvious preferences.</p></li>
+            <li><span>03</span><strong>Name</strong><p>Translation: turn the pattern into language a team can remember and challenge.</p></li>
+            <li><span>04</span><strong>Translate</strong><p>Output: move the insight into product logic, positioning, messaging, CRM, or experience design.</p></li>
+            <li><span>05</span><strong>Make it travel</strong><p>Dossier: build the deck, framework, or phrase that lets the work keep moving.</p></li>
           </ol>
         </div>
       </section>

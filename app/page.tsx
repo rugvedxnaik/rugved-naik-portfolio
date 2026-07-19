@@ -3,47 +3,28 @@ import type { CSSProperties } from "react";
 import portfolioData from "../observations-site/data/portfolio.json";
 
 const cases = portfolioData.cases;
-const proofRows = cases.filter((item) => item.isProofSignal);
-const reads = cases.filter((item) => item.isHighlight && item.detail);
-const archiveCases = cases;
-const primaryRead = reads.find((item) => item.dossierKey === "miutine") ?? reads[0]!;
+const defaultCase =
+  cases.find((item) => item.id === portfolioData.switchboard.defaultCaseId) ?? cases[0]!;
 
 const method = [
   ["Observe", "Find the behavior, ritual, review pattern, search language, claim, or moment of choice."],
-  ["Separate", "Distinguish useful evidence from category noise, polished claims, and obvious preferences."],
-  ["Name", "Turn the pattern into language a team can remember and challenge."],
-  ["Translate", "Move the insight into product logic, positioning, messaging, CRM, or experience design."],
-  ["Make it travel", "Build the deck, dossier, framework, or phrase that lets the work keep moving."],
+  ["Separate", "Evidence and tension: separate useful signals from category noise, polished claims, and obvious preferences."],
+  ["Name", "Translation: turn the pattern into language a team can remember and challenge."],
+  ["Translate", "Output: move the insight into product logic, positioning, messaging, CRM, or experience design."],
+  ["Make it travel", "Dossier: build the deck, framework, or phrase that lets the work keep moving."],
 ];
 
-function displayTitle(item: (typeof cases)[number]) {
-  return item.displayTitle ?? item.title;
+function projectLine(item: (typeof cases)[number]) {
+  return item.project || item.company || item.caseTitle;
 }
 
-function signalStrength(item: (typeof cases)[number]) {
-  if ("signalWeight" in item && typeof item.signalWeight === "number") return item.signalWeight;
-  if (item.status.includes("Finished")) return 82;
-  if (item.status.includes("Framework")) return 70;
-  if (item.status.includes("Active")) return 64;
-  return 56;
-}
-
-function signatureRows(item: (typeof reads)[number]) {
-  const signature = "signature" in item ? item.signature : null;
-  if (!signature) return [];
-
-  return [
-    ["Behavior", signature.behavior],
-    ["Evidence", signature.evidence],
-    ["Tension", signature.tension],
-    ["Move", signature.move],
-    ["System", signature.system],
-  ].filter((entry): entry is [string, string] => Boolean(entry[1]));
+function validationClass(item: (typeof cases)[number]) {
+  return `consumer-app-validation-${item.validationType}`;
 }
 
 export default function Home() {
   return (
-    <main className="consumer-app-page">
+    <main className="consumer-app-page consumer-app-switchboard">
       <header className="consumer-app-header">
         <Link href="/" className="consumer-app-wordmark">
           Rugved Naik
@@ -53,21 +34,22 @@ export default function Home() {
           <span>Paris / ESCP</span>
         </div>
         <nav aria-label="Primary navigation">
-          <a href="#notes">Notes</a>
-          <a href="#work">Work</a>
+          <a href="#lens">Lens</a>
+          <a href="#switchboard">Switchboard</a>
+          <a href="#unrouted">Unrouted</a>
           <a href="#method">Method</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
 
-      <section className="consumer-app-hero">
+      <section className="consumer-app-hero consumer-app-switchboard-hero">
         <div>
           <p className="consumer-app-eyebrow">Consumer insight for product and marketing</p>
+          <p className="consumer-app-thesis">{portfolioData.switchboard.thesis}</p>
           <h1>The best strategy makes the consumer feel obvious without making them feel simplified.</h1>
           <p>
-            I turn consumer behavior into product logic, recognizable brand cues, and marketing
-            systems. The work starts with what people choose, repeat, search, collect,
-            imitate, and remember, then turns that reading into decisions teams can use.
+            I read what people are trying to signal, protect, repeat, or become, then
+            translate that behavior into product logic, brand cues, and marketing systems.
           </p>
           <div className="consumer-app-current">
             <span>
@@ -76,54 +58,34 @@ export default function Home() {
             <p>{portfolioData.currentFocus.text}</p>
           </div>
           <div className="consumer-app-actions">
-            <a href="#work">See the evidence</a>
+            <a href="#switchboard">Route a signal</a>
             <a href="mailto:rugved.naik@edu.escp.eu">Email Rugved</a>
           </div>
         </div>
 
-        <aside className="consumer-app-side" aria-label="Portfolio proof and signal system">
-          <div className="consumer-app-signal-console">
-            <div className="consumer-app-console-topline">
-              <p>Active signal</p>
-              <span aria-hidden="true" />
-            </div>
-            <strong>{displayTitle(primaryRead)}</strong>
-            <p>{primaryRead.note}</p>
-            <div className="consumer-app-signal-readout">
-              {signatureRows(primaryRead)
-                .slice(0, 4)
-                .map(([label, value]) => (
-                  <div key={label}>
-                    <span>{label}</span>
-                    <p>{value}</p>
-                  </div>
-                ))}
-            </div>
-            <div className="consumer-app-signal-bars">
-              {reads.map((read, index) => (
-                <div
-                  key={read.id}
-                  style={{ "--signal-strength": `${signalStrength(read)}%` } as CSSProperties}
-                >
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <strong>{displayTitle(read)}</strong>
-                  <em>{read.label}</em>
-                </div>
-              ))}
-            </div>
+        <aside className="consumer-app-route-panel" aria-label="Active consumer signal">
+          <div className="consumer-app-route-topline">
+            <p>Consumer signal</p>
+            <span>Sound optional</span>
           </div>
-
-          <div className="consumer-app-ledger" aria-label="Portfolio proof">
-            <p>Proof signals</p>
-            {proofRows.map((row) => (
-              <article key={row.id}>
-                <span>{row.proofName ?? row.company ?? displayTitle(row)}</span>
-                <small>
-                  {row.validation} / Updated {row.lastUpdatedLabel}
-                </small>
-                <p>{row.proof}</p>
-              </article>
-            ))}
+          <blockquote>{defaultCase.signalQuote}</blockquote>
+          <div className="consumer-app-route-grid">
+            <div>
+              <span>Evidence</span>
+              <p>{defaultCase.signal.evidence}</p>
+            </div>
+            <div>
+              <span>Tension</span>
+              <p>{defaultCase.signal.tension}</p>
+            </div>
+            <div>
+              <span>Translation</span>
+              <p>{defaultCase.signal.translation}</p>
+            </div>
+            <div>
+              <span>Project</span>
+              <p>{projectLine(defaultCase)}</p>
+            </div>
           </div>
         </aside>
       </section>
@@ -138,100 +100,107 @@ export default function Home() {
             disappears.
           </p>
           <p>
-            I work in the space between the person and the system: the behavior that
-            explains the opportunity, the tension that makes the strategy necessary, and the
-            structure that lets product, brand, and marketing move together.
+            The case matters, but the consumer signal comes first. The company appears only
+            after the behavior has been read and routed into a usable system.
           </p>
         </div>
       </section>
 
-      <section className="consumer-app-notes" id="notes">
+      <section className="consumer-app-notes" id="lens">
         <div className="consumer-app-section-heading">
-          <p className="consumer-app-eyebrow">Field notes</p>
-          <h2>Short observations before they become full cases.</h2>
+          <p className="consumer-app-eyebrow">What I read</p>
+          <h2>A lens before the switchboard.</h2>
         </div>
-        <div className="consumer-app-note-grid">
-          {portfolioData.fieldNotes.map((note) => (
-            <article key={`${note.date}-${note.title}`}>
-              <span>{note.date}</span>
-              <h3>{note.title}</h3>
-              <p>{note.text}</p>
+        <div className="consumer-app-lens-grid">
+          {portfolioData.lenses.map((lens, index) => (
+            <article key={lens.id}>
+              <span>{String(index + 1).padStart(2, "0")} / {lens.label}</span>
+              <p>{lens.text}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="consumer-app-work" id="work">
+      <section className="consumer-app-work" id="switchboard">
         <div className="consumer-app-section-heading">
-          <p className="consumer-app-eyebrow">Case system</p>
-          <h2>A signal room for consumer-led product and marketing strategy.</h2>
-          <p>
-            One data source feeds the proof signals, archive, highlights, field notes, and
-            signal logic. The archive is the full system. The expanded reads are selected
-            openings into that same system, not a competing index.
-          </p>
+          <p className="consumer-app-eyebrow">Consumer Switchboard</p>
+          <h2>One archive. Ten consumer signals. One routing mechanic.</h2>
+          <p>{portfolioData.switchboard.instruction}</p>
         </div>
-        <div className="consumer-app-depth">
-          {portfolioData.statusGroups.map((group) => (
-            <article key={group.label}>
-              <span>{group.label}</span>
-              <p>{group.text}</p>
-            </article>
-          ))}
-        </div>
-        <div className="consumer-app-archive" aria-label="Case archive">
-          <div className="consumer-app-archive-head">
-            <span>Case log</span>
-            <strong>{archiveCases.length} cases</strong>
-            <p>Category, capability, and target-house structure from the living archive.</p>
-          </div>
-          <div className="consumer-app-archive-grid">
-            {archiveCases.map((archiveCase, index) => (
-              <article key={archiveCase.id}>
-                <span>Case {String(index + 1).padStart(2, "0")}</span>
-                <div>
-                  <small>{archiveCase.category}</small>
-                  <h3>{archiveCase.title}</h3>
-                  <p>{archiveCase.hook}</p>
-                </div>
-                <ul>
-                  {[archiveCase.company, archiveCase.status, ...archiveCase.capabilities, archiveCase.validation]
-                    .filter(Boolean)
-                    .map((tag) => (
-                      <li key={tag}>{tag}</li>
-                    ))}
-                </ul>
+
+        <div className="consumer-app-switchboard-console">
+          <div className="consumer-app-switchboard-list">
+            <div className="consumer-app-switchboard-head">
+              <span>Signal list</span>
+              <strong>{cases.length}</strong>
+            </div>
+            {cases.map((item, index) => (
+              <article
+                key={item.id}
+                className={item.id === defaultCase.id ? "is-active" : ""}
+                style={{ "--signal-strength": `${item.evidenceStrength}%` } as CSSProperties}
+              >
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <blockquote>{item.signalQuote}</blockquote>
+                <small>{item.routeStatus}</small>
               </article>
             ))}
           </div>
+
+          <div className="consumer-app-switchboard-read">
+            <div className="consumer-app-switchboard-head">
+              <span>Evidence and tension</span>
+              <strong>{defaultCase.routeStatus}</strong>
+            </div>
+            <div>
+              <span>Evidence</span>
+              <p>{defaultCase.signal.evidence}</p>
+            </div>
+            <div>
+              <span>Tension</span>
+              <p>{defaultCase.signal.tension}</p>
+            </div>
+            <div className={`consumer-app-validation ${validationClass(defaultCase)}`}>
+              <span>{defaultCase.validation}</span>
+              <span>{defaultCase.status}</span>
+              <span>Updated {defaultCase.lastUpdatedLabel}</span>
+              <span>{defaultCase.evidenceStrength}% evidence</span>
+            </div>
+          </div>
+
+          <div className="consumer-app-switchboard-output">
+            <div className="consumer-app-switchboard-head">
+              <span>Translation and output</span>
+              <strong>{defaultCase.evidenceStrength}%</strong>
+            </div>
+            <div>
+              <span>Translation</span>
+              <p>{defaultCase.signal.translation}</p>
+            </div>
+            <div>
+              <span>Output</span>
+              <p>{defaultCase.signal.output}</p>
+            </div>
+            <div className="consumer-app-project-line">
+              <span>Project</span>
+              <p>{projectLine(defaultCase)}</p>
+            </div>
+            {defaultCase.caseLink ? <a href={defaultCase.caseLink}>Open dossier</a> : null}
+          </div>
         </div>
-        <div className="consumer-app-section-heading consumer-app-highlight-heading">
-          <p className="consumer-app-eyebrow">Signal room</p>
-          <p>
-            Expanded views from the archive, generated from the same case data and organized
-            by behavior, evidence, tension, move, and system.
-          </p>
+      </section>
+
+      <section className="consumer-app-notes" id="unrouted">
+        <div className="consumer-app-section-heading">
+          <p className="consumer-app-eyebrow">Unrouted signals</p>
+          <h2>Observations before they become full systems.</h2>
         </div>
-        <div className="consumer-app-read-grid">
-          {reads.map((read, index) => (
-            <article key={read.id}>
-              <span>Highlight {String(index + 1).padStart(2, "0")}</span>
-              <em>{read.status}</em>
-              <h3>{displayTitle(read)}</h3>
-              <small>{read.field}</small>
-              <b>{read.label}</b>
-              <p>{read.note}</p>
-              <div className="consumer-app-trace">
-                {signatureRows(read)
-                  .slice(0, 3)
-                  .map(([label, value]) => (
-                    <div key={label}>
-                      <small>{label}</small>
-                      <p>{value}</p>
-                    </div>
-                  ))}
-              </div>
-              <p>{read.hoverDetail}</p>
+        <div className="consumer-app-unrouted-grid">
+          {portfolioData.unroutedSignals.map((note) => (
+            <article key={`${note.date}-${note.signal}`}>
+              <span>{note.date}</span>
+              <blockquote>{note.signal}</blockquote>
+              <p>{note.note}</p>
             </article>
           ))}
         </div>
@@ -239,7 +208,7 @@ export default function Home() {
 
       <section className="consumer-app-method" id="method">
         <p className="consumer-app-eyebrow">Method</p>
-        <h2>The work moves from signal to system.</h2>
+        <h2>The method maps to the switchboard.</h2>
         <ol>
           {method.map(([title, text], index) => (
             <li key={title}>

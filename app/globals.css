@@ -2846,3 +2846,310 @@ blockquote {
     font-size: 3.1rem;
   }
 }
+
+/* Consumer Switchboard app wrapper */
+
+.consumer-app-switchboard {
+  --app-walnut: #312219;
+  --app-brass: #b58648;
+  --app-line: rgba(49, 34, 25, 0.22);
+  --app-line-strong: rgba(49, 34, 25, 0.38);
+  --active-accent: #287456;
+  --active-soft: rgba(40, 116, 86, 0.14);
+  --active-strong: #1f563f;
+  background:
+    radial-gradient(circle at 12% 16%, rgba(181, 134, 72, 0.18), transparent 24rem),
+    radial-gradient(circle at 84% 8%, rgba(93, 61, 39, 0.14), transparent 26rem),
+    linear-gradient(90deg, rgba(49, 34, 25, 0.052) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(49, 34, 25, 0.036) 1px, transparent 1px),
+    var(--consumer-paper);
+  background-size: auto, auto, 4.25rem 4.25rem, 4.25rem 4.25rem, auto;
+}
+
+.consumer-app-switchboard .consumer-app-header {
+  border-color: var(--app-line);
+}
+
+.consumer-app-thesis {
+  width: fit-content;
+  border: 1px solid var(--app-line-strong);
+  background: rgba(255, 249, 238, 0.76);
+  color: var(--active-strong);
+  font-family: var(--consumer-mono);
+  font-size: 0.75rem;
+  margin: 0 0 1rem;
+  padding: 0.42rem 0.62rem;
+}
+
+.consumer-app-switchboard-hero {
+  align-items: end;
+}
+
+.consumer-app-route-panel {
+  background:
+    linear-gradient(120deg, transparent 0 41%, rgba(40, 116, 86, 0.22) 41% 42%, transparent 42%),
+    radial-gradient(circle at 14% 16%, var(--active-soft), transparent 14rem),
+    linear-gradient(90deg, rgba(49, 34, 25, 0.055) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(49, 34, 25, 0.04) 1px, transparent 1px),
+    rgba(255, 246, 232, 0.92);
+  background-size: auto, auto, 1.12rem 1.12rem, 1.12rem 1.12rem, auto;
+  border: 1px solid var(--app-line-strong);
+  box-shadow: 0 1.1rem 3.8rem rgba(49, 34, 25, 0.12);
+  padding: 1.1rem;
+}
+
+.consumer-app-route-topline,
+.consumer-app-switchboard-head {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.consumer-app-route-topline p,
+.consumer-app-route-topline span,
+.consumer-app-switchboard-head span,
+.consumer-app-switchboard-head strong,
+.consumer-app-route-grid span,
+.consumer-app-switchboard-read span,
+.consumer-app-switchboard-output span,
+.consumer-app-validation span,
+.consumer-app-switchboard-list article > span,
+.consumer-app-switchboard-list small,
+.consumer-app-unrouted-grid span {
+  font-family: var(--consumer-mono);
+  font-size: 0.68rem;
+}
+
+.consumer-app-route-topline p,
+.consumer-app-route-grid span,
+.consumer-app-switchboard-head span,
+.consumer-app-switchboard-read span,
+.consumer-app-switchboard-output span,
+.consumer-app-unrouted-grid span {
+  color: var(--active-strong);
+}
+
+.consumer-app-route-panel blockquote {
+  font-size: clamp(2.45rem, 4.8vw, 4.3rem);
+  font-weight: 720;
+  line-height: 0.94;
+  margin: 1.15rem 0 1.2rem;
+}
+
+.consumer-app-route-grid {
+  background: rgba(255, 249, 238, 0.7);
+  border: 1px solid var(--app-line);
+  display: grid;
+}
+
+.consumer-app-route-grid div {
+  border-bottom: 1px solid var(--app-line);
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: 6.8rem 1fr;
+  padding: 0.68rem;
+}
+
+.consumer-app-route-grid div:last-child {
+  border-bottom: 0;
+}
+
+.consumer-app-lens-grid {
+  display: grid;
+  gap: 0.72rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 2rem;
+}
+
+.consumer-app-lens-grid article,
+.consumer-app-unrouted-grid article {
+  background: rgba(255, 249, 238, 0.66);
+  border: 1px solid var(--app-line);
+  padding: 1rem;
+}
+
+.consumer-app-lens-grid span {
+  color: var(--active-strong);
+  display: block;
+  font-family: var(--consumer-mono);
+  font-size: 0.7rem;
+}
+
+.consumer-app-lens-grid p {
+  font-family: var(--consumer-serif);
+  font-size: 1.75rem;
+  line-height: 1.05;
+  margin: 0.8rem 0 0;
+}
+
+.consumer-app-switchboard-console {
+  background:
+    linear-gradient(90deg, rgba(49, 34, 25, 0.05) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(49, 34, 25, 0.04) 1px, transparent 1px),
+    rgba(255, 249, 238, 0.7);
+  background-size: 1.18rem 1.18rem, 1.18rem 1.18rem, auto;
+  border: 1px solid var(--app-line-strong);
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.85fr) minmax(0, 1fr) minmax(0, 1fr);
+  margin-top: 2rem;
+}
+
+.consumer-app-switchboard-list,
+.consumer-app-switchboard-read,
+.consumer-app-switchboard-output {
+  border-right: 1px solid var(--app-line);
+  min-height: 36rem;
+}
+
+.consumer-app-switchboard-output {
+  border-right: 0;
+}
+
+.consumer-app-switchboard-head {
+  background: rgba(255, 249, 238, 0.42);
+  border-bottom: 1px solid var(--app-line);
+  min-height: 4.2rem;
+  padding: 0.9rem 1rem;
+}
+
+.consumer-app-switchboard-head strong {
+  color: var(--consumer-faint);
+}
+
+.consumer-app-switchboard-list article {
+  background: rgba(255, 249, 238, 0.42);
+  border-bottom: 1px solid var(--app-line);
+  display: grid;
+  gap: 0.72rem;
+  grid-template-columns: 2.1rem 1fr auto;
+  min-height: 5.25rem;
+  padding: 0.82rem 0.9rem 0.9rem;
+  position: relative;
+}
+
+.consumer-app-switchboard-list article::before {
+  background: var(--active-accent);
+  bottom: 0;
+  content: "";
+  height: 0.14rem;
+  left: 0.9rem;
+  position: absolute;
+  width: var(--signal-strength, 50%);
+}
+
+.consumer-app-switchboard-list article.is-active {
+  background:
+    linear-gradient(90deg, rgba(40, 116, 86, 0.14), transparent 58%),
+    rgba(255, 249, 238, 0.88);
+}
+
+.consumer-app-switchboard-list blockquote {
+  font-size: clamp(1.28rem, 2vw, 1.72rem);
+  font-weight: 680;
+  line-height: 1.03;
+  margin: 0;
+}
+
+.consumer-app-switchboard-list small {
+  border: 1px solid var(--app-line);
+  border-radius: 999px;
+  color: var(--consumer-faint);
+  height: fit-content;
+  padding: 0.18rem 0.42rem;
+}
+
+.consumer-app-switchboard-read > div:not(.consumer-app-switchboard-head),
+.consumer-app-switchboard-output > div:not(.consumer-app-switchboard-head) {
+  background: rgba(255, 249, 238, 0.34);
+  border-bottom: 1px solid var(--app-line);
+  padding: 1.05rem;
+}
+
+.consumer-app-switchboard-read p,
+.consumer-app-switchboard-output p {
+  line-height: 1.5;
+  margin: 0.55rem 0 0;
+}
+
+.consumer-app-switchboard-output > div:nth-child(2) p {
+  color: var(--consumer-ink);
+  font-family: var(--consumer-serif);
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  font-weight: 680;
+  line-height: 1;
+}
+
+.consumer-app-validation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+}
+
+.consumer-app-validation span {
+  background: rgba(255, 249, 238, 0.58);
+  border: 1px solid var(--app-line);
+  color: var(--consumer-faint);
+  padding: 0.28rem 0.44rem;
+}
+
+.consumer-app-project-line {
+  background:
+    linear-gradient(90deg, var(--active-soft), transparent),
+    rgba(255, 249, 238, 0.46) !important;
+}
+
+.consumer-app-switchboard-output a {
+  background: var(--consumer-ink);
+  color: var(--consumer-panel);
+  display: inline-flex;
+  font-family: var(--consumer-mono);
+  margin: 1rem;
+  padding: 0.82rem 1rem;
+}
+
+.consumer-app-unrouted-grid {
+  display: grid;
+  gap: 0.72rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 2rem;
+}
+
+.consumer-app-unrouted-grid blockquote {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 680;
+  line-height: 1;
+  margin: 1.1rem 0 0;
+}
+
+.consumer-app-unrouted-grid p {
+  line-height: 1.56;
+  margin: 0.9rem 0 0;
+}
+
+@media (max-width: 920px) {
+  .consumer-app-switchboard-console,
+  .consumer-app-lens-grid,
+  .consumer-app-unrouted-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .consumer-app-switchboard-list,
+  .consumer-app-switchboard-read,
+  .consumer-app-switchboard-output {
+    border-bottom: 1px solid var(--app-line);
+    border-right: 0;
+    min-height: 0;
+  }
+
+  .consumer-app-switchboard-output {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .consumer-app-route-grid div,
+  .consumer-app-switchboard-list article {
+    grid-template-columns: 1fr;
+  }
+}
