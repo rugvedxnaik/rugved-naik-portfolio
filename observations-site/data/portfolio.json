@@ -1,0 +1,403 @@
+{
+  "site": {
+    "lastUpdated": "2026-07-19",
+    "lastUpdatedLabel": "19 Jul 2026"
+  },
+  "currentFocus": {
+    "date": "19 Jul 2026",
+    "label": "Currently reading",
+    "text": "How consumer memory survives personalization, claim saturation, and category sameness."
+  },
+  "workingAreas": [
+    "consumer behavior",
+    "product logic",
+    "recognizable brand cues",
+    "category evidence",
+    "marketing systems"
+  ],
+  "lenses": [
+    {
+      "id": "collection",
+      "mood": "miutine",
+      "label": "collection",
+      "text": "Some people do not stay loyal to a fragrance. They build a collection that says who they are becoming."
+    },
+    {
+      "id": "identity",
+      "mood": "givenchy",
+      "label": "identity",
+      "text": "Beauty is not only applied. It is assembled through planes, edges, colors, and permission."
+    },
+    {
+      "id": "category-noise",
+      "mood": "danone",
+      "label": "category noise",
+      "text": "When every brand says protein, gut health, and better-for-you, stated preference becomes crowded evidence."
+    },
+    {
+      "id": "memory",
+      "mood": "loreal",
+      "label": "memory",
+      "text": "AI can personalize the journey, but brand meaning has to stay stable enough to be remembered."
+    },
+    {
+      "id": "infrastructure",
+      "mood": "lvmh",
+      "label": "infrastructure",
+      "text": "Shared data can improve service, but the front-of-house behavior still has to feel specific to the house."
+    },
+    {
+      "id": "position",
+      "mood": "givenchy",
+      "label": "position",
+      "text": "A crowded category is easier to read when you look for the position people can describe in one sentence."
+    }
+  ],
+  "fieldNotes": [
+    {
+      "date": "19 Jul",
+      "title": "SIARA House",
+      "text": "Reading contemporary Indian jewellery through the positions that are already crowded: heritage, occasion, investment, and minimal everyday luxury. The open question is where a house can feel precise without becoming cold."
+    },
+    {
+      "date": "18 Jul",
+      "title": "The Permanence Paradox",
+      "text": "In fragrance, permanence is emotional before it is technical. A scent can last on skin and still fail to last in memory if the object, story, and social signal do not hold together."
+    },
+    {
+      "date": "14 Jul",
+      "title": "Sampling as collectibility",
+      "text": "Reading beauty sampling as a collectibility signal, not just a discovery mechanic. The interesting question is when a trial object becomes something people keep, show, or arrange."
+    }
+  ],
+  "statusGroups": [
+    {
+      "label": "Expanded highlights",
+      "text": "Miutine, Givenchy, 19h03, Danone, L'Oréal, and LVMH have expanded read panels below. They are pulled from the same case data as the archive, so the tour and the system stay aligned."
+    },
+    {
+      "label": "Field notes and live inquiries",
+      "text": "SIARA House, The Permanence Paradox, Attention vs Meaning, and the Claim Saturation Framework are kept visible as shorter notes until their evidence base deserves a full dossier."
+    }
+  ],
+  "cases": [
+    {
+      "id": "003",
+      "slug": "loreal-ai-personalization",
+      "dossierKey": "loreal",
+      "isHighlight": true,
+      "isProofSignal": true,
+      "category": "Applied to Target House",
+      "company": "L'Oréal",
+      "capabilities": ["Strategy", "Analysis", "CRM"],
+      "status": "Active inquiry",
+      "validation": "Independent inquiry",
+      "lastUpdated": "2026-07-19",
+      "lastUpdatedLabel": "19 Jul",
+      "title": "What AI Can't Personalize",
+      "proofName": "L'Oréal",
+      "field": "L'Oréal / AI and recognizable beauty codes",
+      "label": "Rule",
+      "hook": "What must stay recognizable when AI adapts beauty discovery?",
+      "note": "Personalize utility. Protect memory.",
+      "proof": "Active inquiry on what should stay recognizable when AI adapts the beauty journey.",
+      "hoverDetail": "A rule set for separating adaptive utility from stable brand cues.",
+      "actionLabel": "Preview",
+      "theme": "theme-loreal",
+      "detail": {
+        "meta": ["Applied to target house", "Active inquiry", "Beauty AI and recognizable codes"],
+        "heading": "What AI Can't Personalize",
+        "kicker": "As AI personalizes discovery, beauty brands still need cues that stay recognizable.",
+        "context": "This is an inquiry about restraint. If every message, recommendation, and journey adapts to the individual, the brand still needs fixed cues people can recognize without thinking too hard.",
+        "fields": [
+          ["Question", "What must remain consistent for a beauty brand to stay recognizable across personalized journeys?"],
+          ["Rule", "The closer something is to memory, the less it should be personalized. The closer something is to utility, the more it can adapt."],
+          ["Behavior", "Consumers want recognition without being reduced to past clicks."],
+          ["Output", "A rule set for separating adaptive utility from stable brand cues."],
+          ["Next proof", "Beauty examples where personalization improves usefulness, plus examples where it weakens recognition."],
+          ["What it shows", "Personalization strategy needs memory cues, not just targeting accuracy."]
+        ]
+      }
+    },
+    {
+      "id": "009",
+      "slug": "miutine-collectibility",
+      "dossierKey": "miutine",
+      "isHighlight": true,
+      "isProofSignal": true,
+      "category": "Market & Data Reading",
+      "company": "",
+      "capabilities": ["Analysis", "Strategy"],
+      "status": "Finished dossier",
+      "validation": "Academic validated",
+      "lastUpdated": "2026-07-19",
+      "lastUpdatedLabel": "19 Jul",
+      "title": "Collectibility Over Loyalty",
+      "proofName": "Miutine",
+      "field": "Market reading / fragrance benchmark",
+      "label": "Evidence",
+      "hook": "Why some fragrances become identity while others become collection.",
+      "note": "4,700+ reviews revealed strong object value and weaker identity attachment.",
+      "proof": "4,700+ reviews, competitive benchmarking, and social listening shaped an Identity Value x Object Value framework.",
+      "hoverDetail": "Strongest evidence anchor: review mining, competitive read, social listening, and recommendations.",
+      "actionLabel": "Preview",
+      "caseLink": "case-miutine.html",
+      "caseLinkLabel": "Open the case",
+      "theme": "theme-miutine",
+      "detail": {
+        "meta": ["Market and data reading", "Academic validation", "Fragrance benchmark"],
+        "heading": "Collectibility Over Loyalty",
+        "kicker": "Why Miutine behaves more like a luxury object than a signature fragrance.",
+        "context": "This is the evidence anchor of the portfolio. The work started with a concrete dataset and used consumer language to separate being admired, being collected, and being personally adopted.",
+        "fields": [
+          ["Evidence base", "4,700+ reviews, competitive benchmarks, attribute-level review mining, and Instagram plus TikTok social listening."],
+          ["Behavior", "Consumers praised the bottle and object codes even when longevity weakened attachment."],
+          ["Tension", "Visibility and satisfaction were present, but identity drivers like confidence, sex appeal, and compliments were weaker."],
+          ["Framework", "Identity Value x Object Value separated collectible appeal from signature-fragrance attachment."],
+          ["Output", "Review mining, competitive read, social listening, framework, and recommendations."],
+          ["Status", "Full evidence-backed case now in the portfolio."]
+        ]
+      }
+    },
+    {
+      "id": "010",
+      "slug": "loreal-attention-meaning",
+      "dossierKey": "loreal",
+      "category": "Applied to Target House",
+      "company": "L'Oréal",
+      "capabilities": ["Strategy", "CRM"],
+      "status": "Field note",
+      "validation": "Independent inquiry",
+      "lastUpdated": "2026-07-19",
+      "lastUpdatedLabel": "19 Jul",
+      "title": "Attention vs Meaning",
+      "field": "Beauty brand measurement",
+      "label": "Question",
+      "hook": "Can beauty brands measure durable meaning as well as engagement?",
+      "note": "Clicks show attention. Repeatable cues show memory.",
+      "proof": "A measurement question for when engagement becomes a noisy proxy for meaning.",
+      "hoverDetail": "Useful as a bridge between CRM metrics and recognizable cues.",
+      "actionLabel": "Related",
+      "relatedDossierKey": "loreal"
+    },
+    {
+      "id": "011",
+      "slug": "danone-claim-saturation",
+      "dossierKey": "danone",
+      "isHighlight": true,
+      "isProofSignal": true,
+      "category": "Applied to Target House",
+      "company": "Danone",
+      "capabilities": ["Analysis", "Strategy"],
+      "status": "Active inquiry",
+      "validation": "Independent inquiry",
+      "lastUpdated": "2026-07-19",
+      "lastUpdatedLabel": "19 Jul",
+      "title": "Claim Saturation",
+      "proofName": "Danone",
+      "field": "Danone / category insight",
+      "label": "Question",
+      "hook": "Which signals matter after every brand learns the same nutrition claims?",
+      "note": "When everyone has the same insight, which signals still matter?",
+      "proof": "Active inquiry on claim saturation in dairy and nutrition, built from category trend analysis.",
+      "hoverDetail": "Next proof: category map, claim audit, shelf examples, and behavior gaps.",
+      "actionLabel": "Preview",
+      "theme": "theme-danone",
+      "detail": {
+        "meta": ["Applied to target house", "Active inquiry", "Category strategy"],
+        "heading": "Claim Saturation",
+        "kicker": "When every competitor learns the same nutrition insight, which signals are still worth researching?",
+        "context": "This is deliberately marked as an inquiry, not a finished case. The open question is how a food brand can avoid chasing the same claims everyone else has already learned to make.",
+        "fields": [
+          ["Category signal", "Protein, probiotics, reformulation, and better-for-you benefits are converging across dairy and adjacent nutrition."],
+          ["Research risk", "Consumer work can start measuring category-wide noise instead of useful differentiation."],
+          ["Lens", "Look for where behavior contradicts stated preference: what people buy, repeat, trade off, or ignore."],
+          ["Output", "Framework outline for consumer insight, category reading, and claim-space prioritization."],
+          ["Next proof", "Category map, claim audit, shelf examples, and sharper evidence on where stated preference and buying behavior diverge."],
+          ["What it shows", "Category saturation can become a research question, not just a positioning problem."]
+        ]
+      }
+    },
+    {
+      "id": "012",
+      "slug": "claim-saturation-framework",
+      "dossierKey": "danone",
+      "category": "Strategic Frameworks",
+      "company": "",
+      "capabilities": ["Strategy", "Analysis"],
+      "status": "Framework",
+      "validation": "Independent inquiry",
+      "lastUpdated": "2026-07-19",
+      "lastUpdatedLabel": "19 Jul",
+      "title": "Claim Saturation Framework",
+      "field": "Reusable research framework",
+      "label": "Framework",
+      "hook": "A reusable model for finding signal after category language converges.",
+      "note": "Move from claim audit to behavior gap to defensible choice cue.",
+      "proof": "A reusable model for reading categories where everyone has learned the same benefits.",
+      "hoverDetail": "Keeps Danone from reading like a one-off and turns it into transferable method.",
+      "actionLabel": "Related",
+      "relatedDossierKey": "danone"
+    },
+    {
+      "id": "013",
+      "slug": "lvmh-shared-infrastructure",
+      "dossierKey": "lvmh",
+      "isHighlight": true,
+      "isProofSignal": true,
+      "category": "Applied to Target House",
+      "company": "LVMH",
+      "capabilities": ["Strategy", "CRM"],
+      "status": "Active inquiry",
+      "validation": "Independent inquiry",
+      "lastUpdated": "2026-07-19",
+      "lastUpdatedLabel": "19 Jul",
+      "title": "Shared Infrastructure, House-Specific Expression",
+      "proofName": "LVMH",
+      "field": "LVMH / luxury group customer intelligence",
+      "label": "Tension",
+      "hook": "Can luxury groups share intelligence without flattening the houses?",
+      "note": "Scale the intelligence without flattening the house.",
+      "proof": "Active inquiry on sharing customer intelligence without making every house behave the same.",
+      "hoverDetail": "A group-level CRM question that keeps house codes as a design constraint.",
+      "actionLabel": "Preview",
+      "theme": "theme-lvmh",
+      "detail": {
+        "meta": ["Applied to target house", "Active inquiry", "Luxury group customer intelligence"],
+        "heading": "Shared Infrastructure, House-Specific Expression",
+        "kicker": "Can luxury groups share customer intelligence without making every house feel the same?",
+        "context": "This stays separate from Givenchy. Givenchy is a house-level product and identity territory. LVMH is a group-level question about what can be shared behind the scenes while each house keeps its own behavior in front of the customer.",
+        "fields": [
+          ["Group question", "Shared data can improve CRM, service, and relevance across a luxury portfolio."],
+          ["Luxury risk", "The same efficiency can flatten house memory if every brand starts behaving alike."],
+          ["Distinction", "This is group-level infrastructure thinking, distinct from Givenchy's house-level product territory."],
+          ["System", "Shared intelligence, house-specific expression."],
+          ["Next proof", "House code map, service moments, and customer use cases that show where shared data should stop."],
+          ["What it shows", "Good data architecture has to protect meaning, not just increase efficiency."]
+        ]
+      }
+    },
+    {
+      "id": "014",
+      "slug": "givenchy-face-architecture",
+      "dossierKey": "givenchy",
+      "isHighlight": true,
+      "isProofSignal": true,
+      "category": "Brand & Product Architecture",
+      "company": "LVMH",
+      "capabilities": ["Strategy", "Design"],
+      "status": "Finished dossier",
+      "validation": "Competition validated",
+      "lastUpdated": "2026-07-19",
+      "lastUpdatedLabel": "19 Jul",
+      "title": "Givenchy Face Architecture",
+      "proofName": "Givenchy Beauty",
+      "displayTitle": "Face Architecture",
+      "field": "Luxury beauty / brand territory",
+      "label": "Move",
+      "hook": "How couture construction became a defensible beauty territory.",
+      "note": "Makeup became identity construction, not surface decoration.",
+      "proof": "Couture construction became a face architecture territory, presented to the Givenchy beauty team.",
+      "hoverDetail": "Finished concept dossier with positioning, concept system, experience logic, and service cues.",
+      "actionLabel": "Preview",
+      "caseLink": "case-givenchy.html",
+      "caseLinkLabel": "Open the dossier",
+      "theme": "theme-givenchy",
+      "detail": {
+        "meta": ["Luxury beauty strategy", "Two-week concept sprint", "Presented work"],
+        "heading": "Face Architecture",
+        "kicker": "A beauty territory that translates couture construction into product, service, ritual, and seasonal expression.",
+        "context": "The point was not simply to say couture can inspire makeup. The work asked what Givenchy could own in beauty that competitors could not borrow as easily: the construction of the face as a repeatable house logic.",
+        "fields": [
+          ["Behavior", "Beauty consumers use the face to construct identity through plane, line, volume, and accent."],
+          ["Tension", "Couture had authority, but beauty needed a repeatable meaning beyond fashion adjacency."],
+          ["Move", "Turn the face into architecture and make construction the organizing idea."],
+          ["Output", "Positioning, concept system, experience logic, and service cues."],
+          ["Proof level", "Finished concept dossier, presented as a sprint to the Givenchy beauty team."],
+          ["What it shows", "Consumer identity can become a product and brand system."]
+        ]
+      }
+    },
+    {
+      "id": "019",
+      "slug": "permanence-paradox",
+      "dossierKey": "miutine",
+      "category": "Strategic Frameworks",
+      "company": "",
+      "capabilities": ["Strategy"],
+      "status": "Field note",
+      "validation": "Competition validated",
+      "lastUpdated": "2026-07-18",
+      "lastUpdatedLabel": "18 Jul",
+      "title": "The Permanence Paradox",
+      "field": "Fragrance strategy",
+      "label": "Tension",
+      "hook": "What remains defensible when scent itself becomes easy to copy?",
+      "note": "Longevity on skin and longevity in memory are not the same problem.",
+      "proof": "A fragrance strategy note connected to the Miutine evidence base.",
+      "hoverDetail": "Useful for reading how object, story, and social signal make scent more durable.",
+      "actionLabel": "Related",
+      "relatedDossierKey": "miutine"
+    },
+    {
+      "id": "022",
+      "slug": "19h03-third-hour",
+      "dossierKey": "1903",
+      "isHighlight": true,
+      "category": "Brand & Product Architecture",
+      "company": "",
+      "capabilities": ["Strategy", "Design"],
+      "status": "Finished concept",
+      "validation": "Independent inquiry",
+      "lastUpdated": "2026-07-18",
+      "lastUpdatedLabel": "18 Jul",
+      "title": "19h03: The Third Hour",
+      "displayTitle": "19h03",
+      "field": "Product concept / ritual design",
+      "label": "Ritual",
+      "hook": "Can the overlooked hour after work become a branded ritual?",
+      "note": "People use the first drink to mark a change of state.",
+      "proof": "A finished concept dossier showing how one occasion can organize product benefit, social meaning, visual codes, and brand world.",
+      "hoverDetail": "Turns the first evening drink into product logic and brand atmosphere.",
+      "actionLabel": "Preview",
+      "caseLink": "case-19h03.html",
+      "caseLinkLabel": "Open the dossier",
+      "theme": "theme-1903",
+      "detail": {
+        "meta": ["Brand creation", "Product concept", "Ritual design"],
+        "heading": "19h03",
+        "kicker": "A functional sparkling aperitif built around the precise moment the day becomes evening.",
+        "context": "This is a finished concept dossier rather than a research-heavy case. It shows how one occasion, the first evening drink, can organize product benefit, social meaning, visual codes, and brand world.",
+        "fields": [
+          ["Behavior", "People use the first drink as a social and emotional transition."],
+          ["Tension", "Non-alcoholic and functional drinks often define themselves by what is missing."],
+          ["Move", "Own the moment of transition rather than the substitute category."],
+          ["Output", "Occasion insight, product concept, positioning, and brand atmosphere."],
+          ["Proof level", "Finished concept dossier showing how a behavior becomes product logic and brand world."],
+          ["What it shows", "Consumer ritual can become a product proposition."]
+        ]
+      }
+    },
+    {
+      "id": "025",
+      "slug": "siara-house",
+      "dossierKey": "givenchy",
+      "category": "Brand & Product Architecture",
+      "company": "",
+      "capabilities": ["Strategy", "Design"],
+      "status": "Field note",
+      "validation": "Independent inquiry",
+      "lastUpdated": "2026-07-19",
+      "lastUpdatedLabel": "19 Jul",
+      "title": "SIARA House",
+      "field": "Jewellery positioning",
+      "label": "Position",
+      "hook": "Where is the least crowded position in contemporary Indian jewellery?",
+      "note": "The useful position has to be memorable before it is ornamental.",
+      "proof": "A live positioning note for contemporary Indian jewellery.",
+      "hoverDetail": "Uses the same territory discipline as Givenchy, applied to a different category.",
+      "actionLabel": "Related",
+      "relatedDossierKey": "givenchy"
+    }
+  ]
+}

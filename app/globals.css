@@ -2165,6 +2165,8 @@ blockquote {
 .consumer-app-ledger > p,
 .consumer-app-ledger span,
 .consumer-app-ledger small,
+.consumer-app-current span,
+.consumer-app-note-grid span,
 .consumer-app-read-grid span,
 .consumer-app-read-grid em,
 .consumer-app-read-grid small,
@@ -2175,6 +2177,7 @@ blockquote {
 .consumer-app-archive-grid small,
 .consumer-app-archive-grid li,
 .consumer-app-method span,
+.consumer-app-updated,
 .consumer-app-contact a {
   font-family: var(--consumer-mono);
 }
@@ -2204,6 +2207,7 @@ blockquote {
 
 .consumer-app-hero,
 .consumer-app-point,
+.consumer-app-notes,
 .consumer-app-work,
 .consumer-app-method,
 .consumer-app-contact {
@@ -2254,6 +2258,7 @@ blockquote {
 .consumer-app-hero p,
 .consumer-app-point p,
 .consumer-app-section-heading p,
+.consumer-app-note-grid p,
 .consumer-app-read-grid p,
 .consumer-app-method p,
 .consumer-app-contact p {
@@ -2271,6 +2276,24 @@ blockquote {
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 1.9rem;
+}
+
+.consumer-app-current {
+  border: 1px solid var(--consumer-line);
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 1.4rem;
+  max-width: 48rem;
+  padding: 0.75rem 0.85rem;
+}
+
+.consumer-app-current span {
+  color: var(--consumer-red);
+  font-size: 0.72rem;
+}
+
+.consumer-app-current p {
+  margin: 0;
 }
 
 .consumer-app-actions a,
@@ -2340,6 +2363,7 @@ blockquote {
 }
 
 .consumer-app-work,
+.consumer-app-notes,
 .consumer-app-method {
   display: block;
 }
@@ -2371,6 +2395,32 @@ blockquote {
 .consumer-app-depth p {
   line-height: 1.58;
   margin: 0.65rem 0 0;
+}
+
+.consumer-app-note-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 2rem;
+}
+
+.consumer-app-note-grid article {
+  background:
+    linear-gradient(90deg, rgba(20, 16, 12, 0.035) 1px, transparent 1px),
+    rgba(255, 249, 238, 0.66);
+  background-size: 1.1rem 1.1rem, auto;
+  border: 1px solid var(--consumer-line);
+  min-height: 14rem;
+  padding: 1rem;
+}
+
+.consumer-app-note-grid span {
+  color: var(--consumer-red);
+  font-size: 0.7rem;
+}
+
+.consumer-app-note-grid p {
+  line-height: 1.58;
 }
 
 .consumer-app-archive {
@@ -2417,7 +2467,7 @@ blockquote {
   border-bottom: 1px solid var(--consumer-line);
   display: grid;
   gap: 1rem;
-  grid-template-columns: 4.5rem minmax(0, 1fr) minmax(14rem, 0.72fr);
+  grid-template-columns: 5.25rem minmax(0, 1fr) minmax(14rem, 0.72fr);
   min-height: 7rem;
   padding: 0.9rem 1rem;
 }
@@ -2434,10 +2484,10 @@ blockquote {
   border: 1px solid var(--consumer-line);
   border-radius: 999px;
   display: grid;
-  font-size: 0.76rem;
-  height: 3.2rem;
+  font-size: 0.66rem;
+  height: 2.35rem;
   place-items: center;
-  width: 3.2rem;
+  width: 4.35rem;
 }
 
 .consumer-app-archive-grid small {
@@ -2477,6 +2527,10 @@ blockquote {
   display: grid;
   gap: 0.65rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 2rem;
+}
+
+.consumer-app-highlight-heading {
   margin-top: 2rem;
 }
 
@@ -2563,6 +2617,11 @@ blockquote {
   margin: 0 0 1rem;
 }
 
+.consumer-app-updated {
+  font-size: 0.68rem;
+  margin: 0.25rem 0 0;
+}
+
 @media (max-width: 920px) {
   .consumer-app-header,
   .consumer-app-hero,
@@ -2581,6 +2640,10 @@ blockquote {
   }
 
   .consumer-app-depth {
+    grid-template-columns: 1fr;
+  }
+
+  .consumer-app-note-grid {
     grid-template-columns: 1fr;
   }
 

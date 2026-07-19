@@ -68,6 +68,7 @@
       <nav class="site-nav" aria-label="Primary">
         <a href="#fit">Fit</a>
         <a href="#reads">Lens</a>
+        <a href="#notes">Notes</a>
         <a href="#work">Work</a>
         <a href="#method">Method</a>
         <a href="#contact">Contact</a>
@@ -91,32 +92,18 @@
             </div>
           </div>
 
-          <aside class="proof-ledger reveal delay-1" aria-label="Portfolio proof">
+          <aside class="proof-ledger reveal delay-1" aria-label="Portfolio proof" data-proof-ledger>
             <p class="ledger-label">Proof signals</p>
-            <div class="proof-row">
-              <span>Miutine</span>
-              <p>4,700+ reviews, competitive benchmarking, and social listening shaped an Identity Value x Object Value framework.</p>
-            </div>
-            <div class="proof-row">
-              <span>Givenchy Beauty</span>
-              <p>Couture construction became a face architecture territory, presented to the Givenchy beauty team.</p>
-            </div>
-            <div class="proof-row">
-              <span>Danone</span>
-              <p>Active inquiry on claim saturation in dairy and nutrition, built from category trend analysis.</p>
-            </div>
-            <div class="proof-row">
-              <span>L'Oréal</span>
-              <p>Active inquiry on what should stay recognizable when AI adapts the beauty journey.</p>
-            </div>
-            <div class="proof-row">
-              <span>LVMH</span>
-              <p>Active inquiry on sharing customer intelligence without making every house behave the same.</p>
-            </div>
+            <p class="data-loading">Loading the case system.</p>
           </aside>
         </div>
 
-        <div class="shell consumer-fit-strip" aria-label="Working areas">
+        <div class="shell current-focus" data-current-focus hidden aria-live="polite">
+          <span>Currently reading</span>
+          <p>Loading the latest note.</p>
+        </div>
+
+        <div class="shell consumer-fit-strip" aria-label="Working areas" data-working-areas>
           <span>consumer behavior</span>
           <span>product logic</span>
           <span>recognizable brand cues</span>
@@ -151,40 +138,35 @@
           <p class="eyebrow">What I read</p>
           <h2>A lens before the case studies.</h2>
         </div>
-        <div class="shell read-notes">
-          <article data-mood="miutine">
-            <span>01 / collection</span>
-            <p>Some people do not stay loyal to a fragrance. They build a collection that says who they are becoming.</p>
-          </article>
-          <article data-mood="givenchy">
-            <span>02 / identity</span>
-            <p>Beauty is not only applied. It is assembled through planes, edges, colors, and permission.</p>
-          </article>
-          <article data-mood="danone">
-            <span>03 / category noise</span>
-            <p>When every brand says protein, gut health, and better-for-you, stated preference becomes crowded evidence.</p>
-          </article>
-          <article data-mood="loreal">
-            <span>04 / memory</span>
-            <p>AI can personalize the journey, but brand meaning has to stay stable enough to be remembered.</p>
-          </article>
+        <div class="shell read-notes" data-lens-notes>
+          <p class="data-loading">Loading the reading lens.</p>
+        </div>
+      </section>
+
+      <section class="consumer-section field-notes-section" id="notes">
+        <div class="shell section-kicker-row">
+          <p class="eyebrow">Field notes</p>
+          <h2>Short observations before they become full cases.</h2>
+        </div>
+        <div class="shell field-notes" data-field-notes>
+          <p class="data-loading">Loading field notes.</p>
         </div>
       </section>
 
       <section class="consumer-section work-section" id="work">
         <div class="shell room-intro">
-          <p class="eyebrow">Selected reads</p>
+          <p class="eyebrow">Case system</p>
           <div class="section-heading">
             <h2>A living project system for consumer-led product and marketing strategy.</h2>
             <p>
-              The portfolio is intentionally split into finished dossiers and active
-              inquiries. Finished work opens as evidence. Active inquiries show the next
-              problems I am building, with the proof still being assembled.
+              One data source now feeds the proof signals, archive, highlights, and
+              field notes. The archive is the full system. The expanded reads below are
+              selected openings into that same system, not a competing index.
             </p>
           </div>
         </div>
 
-        <div class="shell depth-ledger" aria-label="Case depth map">
+        <div class="shell depth-ledger" aria-label="Case depth map" data-depth-ledger>
           <article>
             <span>Finished dossiers</span>
             <p>
@@ -207,7 +189,7 @@
           <div class="archive-console-head">
             <div>
               <p class="eyebrow">Case log</p>
-              <h3>One archive, three ways to read it.</h3>
+              <h3>The archive is the source of truth.</h3>
             </div>
             <p>
               Filter by the type of thinking, the capability it proves, or the company it
@@ -216,7 +198,7 @@
             </p>
           </div>
 
-          <div class="archive-controls" aria-label="Archive filters">
+          <div class="archive-controls" aria-label="Archive filters" data-archive-controls>
             <div class="archive-control-group">
               <span>Category</span>
               <div>
@@ -255,7 +237,7 @@
             </div>
           </div>
 
-          <div class="case-archive-grid">
+          <div class="case-archive-grid" data-case-grid>
             <article
               class="case-archive-row"
               data-case-row
@@ -481,8 +463,16 @@
           </p>
         </div>
 
+        <div class="shell highlight-intro">
+          <p class="eyebrow">Highlighted reads</p>
+          <p>
+            Expanded views from the archive. If a case is not expanded yet, it stays in
+            the log or field notes until the evidence base is ready.
+          </p>
+        </div>
+
         <div class="shell consumer-work-grid" id="signal-room">
-          <div class="signal-index consumer-index" role="tablist" aria-label="Consumer reads">
+          <div class="signal-index consumer-index" role="tablist" aria-label="Highlighted reads" data-highlight-tabs>
             <button
               class="signal-chip is-active"
               data-dossier="miutine"
@@ -580,7 +570,7 @@
             </button>
           </div>
 
-          <div class="signal-stage consumer-stage">
+          <div class="signal-stage consumer-stage" data-highlight-panels>
             <article
               class="signal-dossier theme-miutine is-active"
               id="dossier-miutine"
@@ -830,6 +820,7 @@
                 LinkedIn / rugvednaik
               </a>
             </div>
+            <p class="site-updated">Site last touched: <span data-site-updated>19 Jul 2026</span></p>
           </div>
         </div>
       </section>

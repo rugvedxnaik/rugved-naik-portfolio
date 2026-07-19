@@ -1,173 +1,10 @@
 import Link from "next/link";
+import portfolioData from "../observations-site/data/portfolio.json";
 
-const proofRows = [
-  {
-    name: "Miutine",
-    status: "Evidence-backed case",
-    detail:
-      "4,700+ reviews, competitive benchmarking, and social listening shaped an Identity Value x Object Value framework.",
-  },
-  {
-    name: "Givenchy Beauty",
-    status: "Presented concept sprint",
-    detail:
-      "Couture construction became a face architecture territory for product, service, ritual, and seasonal expression.",
-  },
-  {
-    name: "Danone",
-    status: "Active inquiry",
-    detail:
-      "A claim saturation lens for dairy and nutrition categories where protein, probiotics, and better-for-you cues converge.",
-  },
-  {
-    name: "L'Oréal",
-    status: "Active inquiry",
-    detail:
-      "A rule set for what should stay recognizable when AI adapts the beauty journey.",
-  },
-  {
-    name: "LVMH",
-    status: "Active inquiry",
-    detail:
-      "A group-level question about sharing customer intelligence without making every house behave the same.",
-  },
-];
-
-const reads = [
-  {
-    number: "01",
-    status: "Finished dossier",
-    title: "Collectibility Over Loyalty",
-    field: "Market reading / fragrance benchmark",
-    label: "Evidence",
-    note: "4,700+ reviews revealed strong object value and weaker identity attachment.",
-    detail:
-      "The evidence anchor: review mining, benchmarking, and social listening separate being admired, being collected, and being personally adopted.",
-  },
-  {
-    number: "02",
-    status: "Finished dossier",
-    title: "Face Architecture",
-    field: "Luxury beauty / brand territory",
-    label: "Move",
-    note: "Makeup became identity construction, not surface decoration.",
-    detail:
-      "A concept sprint that asked what Givenchy could own in beauty: the construction of the face as a repeatable house logic.",
-  },
-  {
-    number: "03",
-    status: "Active inquiry",
-    title: "Claim Saturation",
-    field: "Danone / category insight",
-    label: "Question",
-    note: "When everyone has the same insight, which signals still matter?",
-    detail:
-      "Next proof: category map, claim audit, shelf examples, and evidence on where stated preference diverges from buying behavior.",
-  },
-  {
-    number: "04",
-    status: "Active inquiry",
-    title: "What AI Can't Personalize",
-    field: "L'Oréal / AI and recognizable beauty codes",
-    label: "Rule",
-    note: "Personalize utility. Protect memory.",
-    detail:
-      "An inquiry about restraint: what should adapt to the individual, and what brand cues need to stay stable enough to recognize.",
-  },
-  {
-    number: "05",
-    status: "Active inquiry",
-    title: "Shared Infrastructure, House-Specific Expression",
-    field: "LVMH / luxury group customer intelligence",
-    label: "Tension",
-    note: "Scale the intelligence without flattening the house.",
-    detail:
-      "Next proof: house code map, service moments, and customer use cases that show where shared data should stop.",
-  },
-  {
-    number: "06",
-    status: "Finished concept",
-    title: "19h03",
-    field: "Product concept / ritual design",
-    label: "Ritual",
-    note: "People use the first drink to mark a change of state.",
-    detail:
-      "A finished concept dossier showing how one occasion can organize product benefit, social meaning, visual codes, and brand world.",
-  },
-];
-
-const archiveCases = [
-  {
-    number: "003",
-    category: "Applied to Target House",
-    title: "What AI Can't Personalize",
-    question: "What must stay recognizable when AI adapts beauty discovery?",
-    tags: ["L'Oréal", "Strategy", "CRM", "Independent inquiry"],
-  },
-  {
-    number: "009",
-    category: "Market & Data Reading",
-    title: "Collectibility Over Loyalty",
-    question: "Why some fragrances become identity while others become collection.",
-    tags: ["Miutine", "Analysis", "Strategy", "Academic validated"],
-  },
-  {
-    number: "010",
-    category: "Applied to Target House",
-    title: "Attention vs Meaning",
-    question: "Can beauty brands measure durable meaning as well as engagement?",
-    tags: ["L'Oréal", "Strategy", "CRM", "Independent inquiry"],
-  },
-  {
-    number: "011",
-    category: "Applied to Target House",
-    title: "Claim Saturation",
-    question: "Which signals matter after every brand learns the same nutrition claims?",
-    tags: ["Danone", "Analysis", "Strategy", "Independent inquiry"],
-  },
-  {
-    number: "012",
-    category: "Strategic Frameworks",
-    title: "Claim Saturation Framework",
-    question: "A reusable model for finding signal after category language converges.",
-    tags: ["Framework", "Strategy", "Analysis", "Independent inquiry"],
-  },
-  {
-    number: "013",
-    category: "Applied to Target House",
-    title: "Shared Infrastructure, House-Specific Expression",
-    question: "Can luxury groups share intelligence without flattening the houses?",
-    tags: ["LVMH", "Strategy", "CRM", "Independent inquiry"],
-  },
-  {
-    number: "014",
-    category: "Brand & Product Architecture",
-    title: "Givenchy Face Architecture",
-    question: "How couture construction became a defensible beauty territory.",
-    tags: ["LVMH", "Strategy", "Design", "Competition validated"],
-  },
-  {
-    number: "019",
-    category: "Strategic Frameworks",
-    title: "The Permanence Paradox",
-    question: "What remains defensible when scent itself becomes easy to copy?",
-    tags: ["Fragrance", "Strategy", "Competition validated"],
-  },
-  {
-    number: "022",
-    category: "Brand & Product Architecture",
-    title: "19h03: The Third Hour",
-    question: "Can the overlooked hour after work become a branded ritual?",
-    tags: ["Aperitif", "Strategy", "Design", "Independent inquiry"],
-  },
-  {
-    number: "025",
-    category: "Brand & Product Architecture",
-    title: "SIARA House",
-    question: "Where is the least crowded position in contemporary Indian jewellery?",
-    tags: ["Jewellery", "Strategy", "Design", "Independent inquiry"],
-  },
-];
+const cases = portfolioData.cases;
+const proofRows = cases.filter((item) => item.isProofSignal);
+const reads = cases.filter((item) => item.isHighlight && item.detail);
+const archiveCases = cases;
 
 const method = [
   ["Observe", "Find the behavior, ritual, review pattern, search language, claim, or moment of choice."],
@@ -176,6 +13,10 @@ const method = [
   ["Translate", "Move the insight into product logic, positioning, messaging, CRM, or experience design."],
   ["Make it travel", "Build the deck, dossier, framework, or phrase that lets the work keep moving."],
 ];
+
+function displayTitle(item: (typeof cases)[number]) {
+  return item.displayTitle ?? item.title;
+}
 
 export default function Home() {
   return (
@@ -189,6 +30,7 @@ export default function Home() {
           <span>Paris / ESCP</span>
         </div>
         <nav aria-label="Primary navigation">
+          <a href="#notes">Notes</a>
           <a href="#work">Work</a>
           <a href="#method">Method</a>
           <a href="#contact">Contact</a>
@@ -204,6 +46,12 @@ export default function Home() {
             systems. The work starts with what people choose, repeat, search, collect,
             imitate, and remember, then turns that reading into decisions teams can use.
           </p>
+          <div className="consumer-app-current">
+            <span>
+              {portfolioData.currentFocus.label} / {portfolioData.currentFocus.date}
+            </span>
+            <p>{portfolioData.currentFocus.text}</p>
+          </div>
           <div className="consumer-app-actions">
             <a href="#work">See the evidence</a>
             <a href="mailto:rugved.naik@edu.escp.eu">Email Rugved</a>
@@ -213,10 +61,12 @@ export default function Home() {
         <aside className="consumer-app-ledger" aria-label="Portfolio proof">
           <p>Proof signals</p>
           {proofRows.map((row) => (
-            <article key={row.name}>
-              <span>{row.name}</span>
-              <small>{row.status}</small>
-              <p>{row.detail}</p>
+            <article key={row.id}>
+              <span>{row.proofName ?? row.company ?? displayTitle(row)}</span>
+              <small>
+                {row.validation} / Updated {row.lastUpdatedLabel}
+              </small>
+              <p>{row.proof}</p>
             </article>
           ))}
         </aside>
@@ -239,66 +89,80 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="consumer-app-notes" id="notes">
+        <div className="consumer-app-section-heading">
+          <p className="consumer-app-eyebrow">Field notes</p>
+          <h2>Short observations before they become full cases.</h2>
+        </div>
+        <div className="consumer-app-note-grid">
+          {portfolioData.fieldNotes.map((note) => (
+            <article key={`${note.date}-${note.title}`}>
+              <span>{note.date}</span>
+              <h3>{note.title}</h3>
+              <p>{note.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="consumer-app-work" id="work">
         <div className="consumer-app-section-heading">
-          <p className="consumer-app-eyebrow">Selected reads</p>
+          <p className="consumer-app-eyebrow">Case system</p>
           <h2>A living project system for consumer-led product and marketing strategy.</h2>
           <p>
-            The portfolio is intentionally split into finished dossiers and active
-            inquiries. Finished work opens as evidence. Active inquiries show the next
-            problems I am building, with the proof still being assembled.
+            One data source feeds the proof signals, archive, highlights, and field notes.
+            The archive is the full system. The expanded reads are selected openings into
+            that same system, not a competing index.
           </p>
         </div>
         <div className="consumer-app-depth">
-          <article>
-            <span>Finished dossiers</span>
-            <p>
-              Miutine, Givenchy, and 19h03 are developed enough to show the strategic move,
-              the system, and the output.
-            </p>
-          </article>
-          <article>
-            <span>Active inquiries</span>
-            <p>
-              Danone, L&apos;Oréal, and LVMH stay visible because they show the business
-              questions I am currently sharpening.
-            </p>
-          </article>
+          {portfolioData.statusGroups.map((group) => (
+            <article key={group.label}>
+              <span>{group.label}</span>
+              <p>{group.text}</p>
+            </article>
+          ))}
         </div>
         <div className="consumer-app-archive" aria-label="Case archive">
           <div className="consumer-app-archive-head">
             <span>Case log</span>
-            <strong>10 cases</strong>
+            <strong>{archiveCases.length} cases</strong>
             <p>Category, capability, and target-house structure from the living archive.</p>
           </div>
           <div className="consumer-app-archive-grid">
-            {archiveCases.map((archiveCase) => (
-              <article key={archiveCase.number}>
-                <span>{archiveCase.number}</span>
+            {archiveCases.map((archiveCase, index) => (
+              <article key={archiveCase.id}>
+                <span>Case {String(index + 1).padStart(2, "0")}</span>
                 <div>
                   <small>{archiveCase.category}</small>
                   <h3>{archiveCase.title}</h3>
-                  <p>{archiveCase.question}</p>
+                  <p>{archiveCase.hook}</p>
                 </div>
                 <ul>
-                  {archiveCase.tags.map((tag) => (
-                    <li key={tag}>{tag}</li>
-                  ))}
+                  {[archiveCase.company, archiveCase.status, ...archiveCase.capabilities, archiveCase.validation]
+                    .filter(Boolean)
+                    .map((tag) => (
+                      <li key={tag}>{tag}</li>
+                    ))}
                 </ul>
               </article>
             ))}
           </div>
         </div>
+        <div className="consumer-app-section-heading consumer-app-highlight-heading">
+          <p className="consumer-app-eyebrow">Highlighted reads</p>
+          <p>Expanded views from the archive, generated from the same case data.</p>
+        </div>
         <div className="consumer-app-read-grid">
-          {reads.map((read) => (
-            <article key={read.title}>
-              <span>Read {read.number}</span>
+          {reads.map((read, index) => (
+            <article key={read.id}>
+              <span>Highlight {String(index + 1).padStart(2, "0")}</span>
               <em>{read.status}</em>
-              <h3>{read.title}</h3>
+              <h3>{displayTitle(read)}</h3>
               <small>{read.field}</small>
               <b>{read.label}</b>
               <p>{read.note}</p>
-              <p>{read.detail}</p>
+              <p>{read.hoverDetail}</p>
             </article>
           ))}
         </div>
@@ -336,6 +200,9 @@ export default function Home() {
           <a href="https://www.linkedin.com/in/rugvednaik" target="_blank" rel="noreferrer">
             LinkedIn / rugvednaik
           </a>
+          <p className="consumer-app-updated">
+            Site last touched: {portfolioData.site.lastUpdatedLabel}
+          </p>
         </aside>
       </section>
     </main>

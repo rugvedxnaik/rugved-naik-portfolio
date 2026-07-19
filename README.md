@@ -19,6 +19,19 @@ npm install
 npm run dev
 ```
 
+## Content system
+
+The live portfolio case surfaces are generated from
+`observations-site/data/portfolio.json`.
+
+To add or update work:
+
+- Add one entry to `cases` for a new case.
+- Set `isHighlight: true` only when the case has an expanded read panel.
+- Set `isProofSignal: true` only when it should appear in the hero proof ledger.
+- Add short, dated observations to `fieldNotes` between full case releases.
+- Update `site.lastUpdatedLabel` after a visible content change.
+
 ## Validation
 
 ```bash
