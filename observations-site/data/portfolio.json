@@ -6,7 +6,7 @@
   "switchboard": {
     "defaultCaseId": "009",
     "thesis": "Start with the person. End with the system.",
-    "instruction": "Select a consumer signal. The switchboard routes it into evidence, tension, translation, and output.",
+    "instruction": "Select a signal to see the evidence, tension, translation, and output behind the work.",
     "soundLabel": "Route tone",
     "soundOffLabel": "Sound off",
     "soundOnLabel": "Sound on"

@@ -35,8 +35,8 @@ export default function Home() {
         </div>
         <nav aria-label="Primary navigation">
           <a href="#lens">Lens</a>
-          <a href="#switchboard">Switchboard</a>
-          <a href="#unrouted">Unrouted</a>
+          <a href="#switchboard">Work</a>
+          <a href="#unrouted">Notes</a>
           <a href="#method">Method</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -46,10 +46,13 @@ export default function Home() {
         <div>
           <p className="consumer-app-eyebrow">Consumer insight for product and marketing</p>
           <p className="consumer-app-thesis">{portfolioData.switchboard.thesis}</p>
-          <h1>The best strategy makes the consumer feel obvious without making them feel simplified.</h1>
+          <h1>Consumer behavior, turned into product and marketing systems.</h1>
           <p>
-            I read what people are trying to signal, protect, repeat, or become, then
+            I study what people are trying to signal, protect, repeat, or become, then
             translate that behavior into product logic, brand cues, and marketing systems.
+          </p>
+          <p className="consumer-app-principle">
+            The best strategy makes the consumer feel obvious without making them feel simplified.
           </p>
           <div className="consumer-app-current">
             <span>
@@ -58,14 +61,14 @@ export default function Home() {
             <p>{portfolioData.currentFocus.text}</p>
           </div>
           <div className="consumer-app-actions">
-            <a href="#switchboard">Route a signal</a>
+            <a href="#switchboard">See the work</a>
             <a href="mailto:rugved.naik@edu.escp.eu">Email Rugved</a>
           </div>
         </div>
 
         <aside className="consumer-app-route-panel" aria-label="Active consumer signal">
           <div className="consumer-app-route-topline">
-            <p>Consumer signal</p>
+            <p>Featured signal</p>
             <span>Sound optional</span>
           </div>
           <blockquote>{defaultCase.signalQuote}</blockquote>
@@ -109,7 +112,7 @@ export default function Home() {
       <section className="consumer-app-notes" id="lens">
         <div className="consumer-app-section-heading">
           <p className="consumer-app-eyebrow">What I read</p>
-          <h2>A lens before the switchboard.</h2>
+          <h2>A lens before the work.</h2>
         </div>
         <div className="consumer-app-lens-grid">
           {portfolioData.lenses.map((lens, index) => (
@@ -123,15 +126,15 @@ export default function Home() {
 
       <section className="consumer-app-work" id="switchboard">
         <div className="consumer-app-section-heading">
-          <p className="consumer-app-eyebrow">Consumer Switchboard</p>
-          <h2>One archive. Ten consumer signals. One routing mechanic.</h2>
+          <p className="consumer-app-eyebrow">Work archive</p>
+          <h2>Ten consumer signals, each translated into a system.</h2>
           <p>{portfolioData.switchboard.instruction}</p>
         </div>
 
         <div className="consumer-app-switchboard-console">
           <div className="consumer-app-switchboard-list">
             <div className="consumer-app-switchboard-head">
-              <span>Signal list</span>
+              <span>Consumer signals</span>
               <strong>{cases.length}</strong>
             </div>
             {cases.map((item, index) => (
@@ -192,7 +195,7 @@ export default function Home() {
 
       <section className="consumer-app-notes" id="unrouted">
         <div className="consumer-app-section-heading">
-          <p className="consumer-app-eyebrow">Unrouted signals</p>
+          <p className="consumer-app-eyebrow">Notes</p>
           <h2>Observations before they become full systems.</h2>
         </div>
         <div className="consumer-app-unrouted-grid">
@@ -208,7 +211,7 @@ export default function Home() {
 
       <section className="consumer-app-method" id="method">
         <p className="consumer-app-eyebrow">Method</p>
-        <h2>The method maps to the switchboard.</h2>
+        <h2>The method keeps the work readable.</h2>
         <ol>
           {method.map(([title, text], index) => (
             <li key={title}>

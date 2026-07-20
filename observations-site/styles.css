@@ -197,6 +197,274 @@ body.consumer-switchboard-home[data-signal="siara"] {
   }
 }
 
+/* Calmer portfolio pass */
+
+body.portfolio-calm-home {
+  --paper: #f3eadc;
+  --paper-soft: #fff8ed;
+  --paper-deep: #e8dcc9;
+  --ink: #15110d;
+  --ink-soft: #554b40;
+  --ink-faint: #817467;
+  --switchboard-panel: rgba(255, 248, 236, 0.84);
+  --switchboard-panel-strong: #fff8ed;
+  --switchboard-line: rgba(35, 26, 18, 0.13);
+  --switchboard-line-strong: rgba(35, 26, 18, 0.2);
+  background:
+    radial-gradient(circle at 18% 5%, rgba(40, 116, 86, 0.08), transparent 25rem),
+    linear-gradient(180deg, #f6edde 0%, #efe4d3 100%);
+}
+
+.portfolio-calm-home .consumer-header {
+  min-height: 3.35rem;
+  background: rgba(246, 237, 222, 0.88);
+  backdrop-filter: blur(18px);
+}
+
+.portfolio-calm-home .site-nav a {
+  color: var(--ink-soft);
+}
+
+.portfolio-calm-home .switchboard-hero {
+  min-height: auto;
+  padding: clamp(5rem, 9vh, 6.7rem) 0 2.2rem;
+  border-bottom: 1px solid var(--switchboard-line);
+}
+
+.portfolio-calm-home .switchboard-hero-grid {
+  grid-template-columns: minmax(0, 0.98fr) minmax(22rem, 0.52fr);
+  gap: clamp(2.4rem, 6vw, 5.8rem);
+  align-items: start;
+}
+
+.portfolio-calm-home .switchboard-thesis {
+  margin-bottom: 1.2rem;
+  border-color: rgba(40, 116, 86, 0.22);
+  background: rgba(255, 248, 237, 0.88);
+  color: #245943;
+}
+
+.portfolio-calm-home .switchboard-hero-copy h1 {
+  max-width: 49rem;
+  font-size: clamp(3.2rem, 6.2vw, 5.9rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.portfolio-calm-home .hero-lede {
+  max-width: 42rem;
+  margin-top: 1.25rem;
+  color: var(--ink-soft);
+  font-size: clamp(1.04rem, 1.35vw, 1.2rem);
+  line-height: 1.62;
+}
+
+.portfolio-calm-home .hero-principle {
+  max-width: 38rem;
+  margin: 1rem 0 0;
+  padding-left: 0.9rem;
+  border-left: 2px solid rgba(40, 116, 86, 0.34);
+  color: #245943;
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.28rem, 1.9vw, 1.65rem);
+  font-weight: 560;
+  line-height: 1.22;
+}
+
+.portfolio-calm-home .hero-actions {
+  margin-top: 1.7rem;
+}
+
+.portfolio-calm-home .hero-route-panel {
+  width: min(100%, 28rem);
+  justify-self: end;
+  padding: 1.05rem;
+  border-color: var(--switchboard-line-strong);
+  border-radius: 1.35rem;
+  background:
+    linear-gradient(180deg, rgba(255, 248, 237, 0.96), rgba(255, 248, 237, 0.82)),
+    var(--switchboard-panel-strong);
+  box-shadow: 0 1rem 3rem rgba(35, 26, 18, 0.08);
+}
+
+.portfolio-calm-home .hero-route-panel::before {
+  inset: auto 1.05rem 1.05rem 1.05rem;
+  height: 3px;
+  border: 0;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--active-accent) 34%, transparent);
+}
+
+.portfolio-calm-home .hero-route-panel blockquote {
+  max-width: 23rem;
+  margin: 1rem 0 1.05rem;
+  font-size: clamp(1.85rem, 3.1vw, 3rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+.portfolio-calm-home .hero-route-grid {
+  border-color: var(--switchboard-line);
+  border-radius: 0.95rem;
+  overflow: hidden;
+  background: rgba(255, 252, 246, 0.72);
+}
+
+.portfolio-calm-home .hero-route-grid div {
+  grid-template-columns: 5.8rem 1fr;
+  padding: 0.72rem 0.78rem;
+}
+
+.portfolio-calm-home .hero-route-grid p {
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.portfolio-calm-home .current-focus {
+  margin-top: 1.6rem;
+  border-radius: 999px;
+  background: rgba(255, 248, 237, 0.68);
+}
+
+.portfolio-calm-home .consumer-fit-strip {
+  margin-top: 0.85rem;
+}
+
+.portfolio-calm-home .section-kicker-row,
+.portfolio-calm-home .room-intro,
+.portfolio-calm-home .point-grid {
+  align-items: start;
+}
+
+.portfolio-calm-home .switchboard-section {
+  background: rgba(255, 248, 237, 0.32);
+}
+
+.portfolio-calm-home .switchboard-console {
+  gap: 0.85rem;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.portfolio-calm-home .switchboard-list-panel,
+.portfolio-calm-home .switchboard-read-panel,
+.portfolio-calm-home .switchboard-output-panel {
+  min-height: 0;
+  border: 1px solid var(--switchboard-line);
+  border-radius: 1.2rem;
+  overflow: hidden;
+  background: rgba(255, 248, 237, 0.78);
+  box-shadow: 0 1rem 2.8rem rgba(35, 26, 18, 0.055);
+}
+
+.portfolio-calm-home .switchboard-panel-head {
+  min-height: 3.35rem;
+  padding: 0.78rem 0.9rem;
+  background: rgba(255, 252, 246, 0.58);
+}
+
+.portfolio-calm-home .switchboard-row {
+  min-height: 4.35rem;
+  grid-template-columns: 2rem 1fr;
+  padding: 0.82rem 0.9rem;
+  background: transparent;
+}
+
+.portfolio-calm-home .switchboard-row-status {
+  grid-column: 2;
+  justify-self: start;
+  margin-top: 0.35rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.portfolio-calm-home .switchboard-row-quote {
+  max-width: 100%;
+  font-family: var(--font-sans);
+  font-size: clamp(0.96rem, 1.25vw, 1.08rem);
+  font-weight: 560;
+  letter-spacing: -0.012em;
+  line-height: 1.28;
+}
+
+.portfolio-calm-home .switchboard-row.is-active {
+  background: color-mix(in srgb, var(--active-accent) 9%, rgba(255, 248, 237, 0.88));
+}
+
+.portfolio-calm-home .switchboard-row-meter {
+  display: none;
+}
+
+.portfolio-calm-home .route-block,
+.portfolio-calm-home .project-line {
+  padding: 1rem;
+  background: transparent;
+}
+
+.portfolio-calm-home .route-block-large p {
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.38rem, 2vw, 1.95rem);
+  line-height: 1.1;
+}
+
+.portfolio-calm-home .validation-strip span {
+  border-radius: 999px;
+  background: rgba(255, 252, 246, 0.74);
+}
+
+.portfolio-calm-home .unrouted-section {
+  background: transparent;
+}
+
+.portfolio-calm-home .unrouted-grid {
+  gap: 0.85rem;
+}
+
+.portfolio-calm-home .unrouted-card {
+  min-height: 0;
+  border-radius: 1.2rem;
+  background: rgba(255, 248, 237, 0.72);
+  box-shadow: 0 1rem 2.6rem rgba(35, 26, 18, 0.045);
+}
+
+.portfolio-calm-home .unrouted-card blockquote {
+  font-size: clamp(1.35rem, 2.1vw, 1.85rem);
+  line-height: 1.12;
+}
+
+@media (max-width: 1050px) {
+  .portfolio-calm-home .switchboard-hero-grid,
+  .portfolio-calm-home .switchboard-console,
+  .portfolio-calm-home .unrouted-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-calm-home .hero-route-panel {
+    justify-self: stretch;
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .portfolio-calm-home .switchboard-hero {
+    padding: 4.1rem 0 1.55rem;
+  }
+
+  .portfolio-calm-home .switchboard-hero-copy h1 {
+    font-size: clamp(2.7rem, 12vw, 4rem);
+  }
+
+  .portfolio-calm-home .hero-principle {
+    font-size: 1.24rem;
+  }
+
+  .portfolio-calm-home .hero-route-grid div {
+    grid-template-columns: 1fr;
+  }
+}
+
 .consumer-switchboard-home .switchboard-hero-copy h1,
 .consumer-switchboard-home .hero-route-panel blockquote,
 .consumer-switchboard-home .switchboard-row-quote,
