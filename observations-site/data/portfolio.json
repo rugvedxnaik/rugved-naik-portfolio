@@ -1,12 +1,19 @@
 {
   "site": {
-    "lastUpdated": "2026-07-19",
-    "lastUpdatedLabel": "19 Jul 2026"
+    "lastUpdated": "2026-07-20",
+    "lastUpdatedLabel": "20 Jul 2026"
+  },
+  "hero": {
+    "eyebrow": "Consumer behavior, turned into product and marketing systems.",
+    "lens": "I am Rugved Naik, an ESCP student building consumer centric product and marketing strategy from behavior, memory, category evidence, and brand meaning.",
+    "proofLine": "Work and inquiries across Givenchy Beauty, Miutine, Danone, L'Oréal, LVMH, 19h03.",
+    "primaryCta": "See the signals",
+    "secondaryCta": "Email Rugved"
   },
   "switchboard": {
     "defaultCaseId": "009",
     "thesis": "Start with the person. End with the system.",
-    "instruction": "Select a signal to see the evidence, tension, translation, and output behind the work.",
+    "instruction": "Read a consumer sentence, then open it to see how it becomes a strategy.",
     "soundLabel": "Route tone",
     "soundOffLabel": "Sound off",
     "soundOnLabel": "Sound on"
@@ -63,19 +70,19 @@
   ],
   "unroutedSignals": [
     {
+      "date": "20 Jul",
+      "signal": "I keep the trial object when it earns a place on my shelf.",
+      "note": "Reading sampling as something people keep, arrange, and show, not only as discovery."
+    },
+    {
+      "date": "20 Jul",
+      "signal": "I trust a claim when I can picture the routine around it.",
+      "note": "Looking at how health language becomes believable only when it connects to a repeated daily behavior."
+    },
+    {
       "date": "19 Jul",
-      "signal": "I want jewellery that feels precise before it feels ornamental.",
-      "note": "Reading contemporary Indian jewellery through crowded positions: heritage, occasion, investment, and minimal everyday luxury. Still routing the sharpest territory."
-    },
-    {
-      "date": "18 Jul",
-      "signal": "I want the scent to last in memory, not only on skin.",
-      "note": "In fragrance, permanence is emotional before it is technical. The open question is how object, story, and social signal make a scent more durable."
-    },
-    {
-      "date": "14 Jul",
-      "signal": "I keep the trial object when it starts saying something about me.",
-      "note": "Reading beauty sampling as collectibility, not just discovery. Still routing when trial becomes something people keep, show, or arrange."
+      "signal": "I remember the service when it feels like the house, not the system.",
+      "note": "A live question about where shared customer intelligence should stop and house expression should begin."
     }
   ],
   "cases": [

@@ -3,6 +3,7 @@
   const body = document.body;
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const scrollBehavior = prefersReducedMotion ? "auto" : "smooth";
+  const connectorDelay = prefersReducedMotion ? 0 : 380;
 
   let portfolioData = null;
   let activeCaseId = null;
@@ -29,50 +30,39 @@
   }
 
   function caseById(id) {
-    return cases().find((item) => item.id === id) || cases()[0];
-  }
-
-  function caseTheme(item) {
-    return item?.dossierKey || item?.theme?.replace("theme-", "") || "miutine";
+    return cases().find((item) => item.id === id) || null;
   }
 
   function projectLine(item) {
     return item?.project || item?.company || item?.caseTitle || "Portfolio inquiry";
   }
 
-  function validationClass(item) {
-    return `validation-${item.validationType || "independent"}`;
+  function evidenceHint(item) {
+    return item?.signal?.evidence || "Evidence is being gathered.";
   }
 
-  function renderCurrentFocus(data) {
-    const focus = qs("[data-current-focus]");
-    if (!focus || !data.currentFocus) return;
-
-    focus.replaceChildren();
-    focus.hidden = false;
-    focus.append(
-      textElement("span", "", `${data.currentFocus.label} / ${data.currentFocus.date}`),
-      textElement("p", "", data.currentFocus.text),
-    );
+  function setText(selector, value) {
+    const element = qs(selector);
+    if (element) element.textContent = value || "";
   }
 
-  function renderWorkingAreas(data) {
-    const strip = qs("[data-working-areas]");
-    if (!strip || !data.workingAreas) return;
-
-    strip.replaceChildren(
-      ...data.workingAreas.map((area) => textElement("span", "", area)),
-    );
+  function renderHero(data) {
+    if (data.hero?.eyebrow) setText("[data-hero-eyebrow]", data.hero.eyebrow);
+    if (data.hero?.lens) setText("[data-hero-lens]", data.hero.lens);
+    if (data.hero?.proofLine) setText("[data-hero-proof]", data.hero.proofLine);
+    if (data.hero?.primaryCta) setText("[data-hero-primary]", data.hero.primaryCta);
+    if (data.hero?.secondaryCta) setText("[data-hero-secondary]", data.hero.secondaryCta);
+    if (data.switchboard?.thesis) setText("[data-switchboard-thesis]", data.switchboard.thesis);
+    if (data.switchboard?.instruction) setText("[data-switchboard-instruction]", data.switchboard.instruction);
   }
 
   function renderLenses(data) {
     const notes = qs("[data-lens-notes]");
-    if (!notes) return;
+    if (!notes || !data.lenses) return;
 
     notes.replaceChildren();
     data.lenses.forEach((lens, index) => {
       const article = textElement("article", "reveal");
-      article.dataset.mood = lens.mood;
       article.append(
         textElement("span", "", `${String(index + 1).padStart(2, "0")} / ${lens.label}`),
         textElement("p", "", lens.text),
@@ -81,13 +71,102 @@
     });
   }
 
+  function createEvidenceDetails(item) {
+    const details = textElement("details", "signal-evidence-details");
+    const summary = textElement("summary", "", "See the evidence");
+    const evidence = textElement("div", "");
+    evidence.append(
+      textElement("span", "", "Evidence"),
+      textElement("p", "", item.signal.evidence),
+    );
+    const tension = textElement("div", "");
+    tension.append(
+      textElement("span", "", "Tension"),
+      textElement("p", "", item.signal.tension),
+    );
+    const meta = textElement(
+      "p",
+      "signal-meta",
+      `${item.validation} · ${item.status} · Updated ${item.lastUpdatedLabel}`,
+    );
+    details.append(summary, evidence, tension, meta);
+    return details;
+  }
+
+  function createSignalEntry(item, index, isOpen) {
+    const entry = textElement("article", `signal-entry${isOpen ? " is-open" : ""}`);
+    entry.dataset.signalEntry = "";
+    entry.dataset.caseId = item.id;
+
+    const trigger = textElement("button", "signal-entry-trigger");
+    trigger.type = "button";
+    trigger.setAttribute("aria-expanded", String(isOpen));
+    trigger.setAttribute("aria-controls", `signal-panel-${item.id}`);
+    trigger.append(
+      textElement("span", "signal-entry-number", String(index + 1).padStart(2, "0")),
+      textElement("span", "signal-entry-quote", item.signalQuote),
+      textElement(
+        "span",
+        `signal-entry-status ${item.routeStatus === "routed" ? "is-routed" : "is-routing"}`,
+        item.routeStatus,
+      ),
+    );
+
+    const panel = textElement("div", "signal-entry-panel");
+    panel.id = `signal-panel-${item.id}`;
+    panel.hidden = !isOpen;
+
+    const connector = textElement("div", "signal-connector");
+    connector.setAttribute("aria-hidden", "true");
+
+    const content = textElement("div", "signal-entry-content");
+    const translation = textElement("div", "signal-translation");
+    translation.append(
+      textElement("span", "", "Translation"),
+      textElement("p", "", item.signal.translation),
+    );
+    const output = textElement("div", "signal-output");
+    output.append(
+      textElement("span", "", "Output"),
+      textElement("p", "", item.signal.output),
+    );
+    const hint = textElement("p", "signal-evidence-hint");
+    hint.append(textElement("span", "", "Evidence:"), document.createTextNode(` ${evidenceHint(item)}`));
+
+    const project = textElement("div", "signal-project");
+    project.append(textElement("span", "", "Project"), textElement("p", "", projectLine(item)));
+    if (item.caseLink) {
+      const link = textElement("a", "", item.caseLinkLabel || "Open dossier");
+      link.href = item.caseLink;
+      project.append(link);
+    } else {
+      project.append(textElement("small", "", "Dossier in progress"));
+    }
+
+    content.append(translation, output, hint, createEvidenceDetails(item), project);
+    panel.append(connector, content);
+    entry.append(trigger, panel);
+    return entry;
+  }
+
+  function renderSignalList(data) {
+    const list = qs("[data-signal-list]");
+    if (!list) return;
+
+    const defaultId = data.switchboard?.defaultCaseId || data.cases[0]?.id;
+    list.replaceChildren(
+      ...data.cases.map((item, index) => createSignalEntry(item, index, item.id === defaultId)),
+    );
+    activeCaseId = defaultId;
+  }
+
   function renderUnroutedSignals(data) {
     const grid = qs("[data-unrouted-signals]");
-    if (!grid) return;
+    if (!grid || !data.unroutedSignals) return;
 
     grid.replaceChildren();
     data.unroutedSignals.forEach((note) => {
-      const article = textElement("article", "unrouted-card reveal");
+      const article = textElement("article", "note-card reveal");
       article.append(
         textElement("span", "", note.date),
         textElement("blockquote", "", note.signal),
@@ -97,161 +176,88 @@
     });
   }
 
-  function renderSwitchboardRows(data) {
-    const list = qs("[data-switchboard-list]");
-    const count = qs("[data-signal-count]");
-    if (!list) return;
+  function renderSiteUpdated(data) {
+    const updated = qs("[data-site-updated]");
+    if (updated && data.site?.lastUpdatedLabel) updated.textContent = data.site.lastUpdatedLabel;
+  }
 
-    list.replaceChildren();
-    list.setAttribute("aria-activedescendant", "");
+  function closeEntry(entry) {
+    if (!entry) return;
+    const trigger = qs(".signal-entry-trigger", entry);
+    const panel = qs(".signal-entry-panel", entry);
+    const details = qs(".signal-evidence-details", entry);
+    entry.classList.remove("is-open", "is-animating");
+    if (trigger) trigger.setAttribute("aria-expanded", "false");
+    if (panel) panel.hidden = true;
+    if (details) details.open = false;
+  }
 
-    data.cases.forEach((item, index) => {
-      const row = textElement("button", "switchboard-row");
-      row.type = "button";
-      row.id = `signal-row-${item.id}`;
-      row.dataset.caseId = item.id;
-      row.dataset.mood = caseTheme(item);
-      row.setAttribute("role", "option");
-      row.setAttribute("aria-selected", "false");
-      row.setAttribute("tabindex", "-1");
-      row.style.setProperty("--signal-strength", `${item.evidenceStrength || 50}%`);
+  function openEntry(entry, options = {}) {
+    if (!entry) return;
+    const id = entry.dataset.caseId;
+    const panel = qs(".signal-entry-panel", entry);
+    const trigger = qs(".signal-entry-trigger", entry);
 
-      const number = textElement("span", "switchboard-row-number", String(index + 1).padStart(2, "0"));
-      const quote = textElement("span", "switchboard-row-quote", item.signalQuote);
-      const routeStatus = textElement("span", `switchboard-row-status ${item.routeStatus === "routed" ? "is-routed" : "is-routing"}`, item.routeStatus);
-      const meter = textElement("span", "switchboard-row-meter", "");
-
-      row.append(number, quote, routeStatus, meter);
-      list.append(row);
+    qsa("[data-signal-entry]").forEach((candidate) => {
+      if (candidate !== entry) closeEntry(candidate);
     });
 
-    if (count) count.textContent = String(data.cases.length);
-  }
-
-  function setText(selector, value) {
-    const element = qs(selector);
-    if (element) element.textContent = value || "";
-  }
-
-  function updateValidationStrip(item) {
-    const strip = qs("[data-validation-strip]");
-    if (!strip) return;
-
-    strip.replaceChildren();
-    [
-      item.validation,
-      item.status,
-      `Updated ${item.lastUpdatedLabel}`,
-      `${item.evidenceStrength}% evidence`,
-    ].forEach((label) => {
-      strip.append(textElement("span", "", label));
+    activeCaseId = id;
+    if (panel) panel.hidden = false;
+    if (trigger) trigger.setAttribute("aria-expanded", "true");
+    entry.classList.add("is-open");
+    entry.classList.remove("is-animating");
+    window.requestAnimationFrame(() => {
+      entry.classList.add("is-animating");
     });
-    strip.className = `validation-strip ${validationClass(item)}`;
-  }
 
-  function updateDossierLink(item) {
-    const link = qs("[data-panel-link]");
-    if (!link) return;
-
-    if (item.caseLink) {
-      link.hidden = false;
-      link.href = item.caseLink;
-      link.textContent = item.caseLinkLabel || "Open dossier";
-    } else {
-      link.hidden = true;
-      link.removeAttribute("href");
+    if (options.focus && trigger) trigger.focus();
+    if (options.playSound) {
+      window.setTimeout(playRouteTone, connectorDelay);
     }
   }
 
-  function updateHero(item) {
-    setText("[data-hero-quote]", item.signalQuote);
-    setText("[data-hero-evidence]", item.signal.evidence);
-    setText("[data-hero-tension]", item.signal.tension);
-    setText("[data-hero-translation]", item.signal.translation);
-    setText("[data-hero-project]", projectLine(item));
+  function toggleEntry(entry, options = {}) {
+    const isOpen = entry.classList.contains("is-open");
+    if (isOpen) {
+      closeEntry(entry);
+      activeCaseId = null;
+      return;
+    }
+    openEntry(entry, options);
   }
 
-  function updatePanel(item) {
-    setText("[data-panel-evidence]", item.signal.evidence);
-    setText("[data-panel-tension]", item.signal.tension);
-    setText("[data-panel-translation]", item.signal.translation);
-    setText("[data-panel-output]", item.signal.output);
-    setText("[data-panel-project]", projectLine(item));
-    setText("[data-selected-status]", item.routeStatus);
-    setText("[data-evidence-strength]", `${item.evidenceStrength}%`);
-    updateValidationStrip(item);
-    updateDossierLink(item);
-  }
+  function setupSignalArchive() {
+    const entries = qsa("[data-signal-entry]");
+    entries.forEach((entry, index) => {
+      const trigger = qs(".signal-entry-trigger", entry);
+      if (!trigger) return;
 
-  function updateRows(item, options = {}) {
-    const rows = qsa("[data-case-id]");
-    rows.forEach((row) => {
-      const isActive = row.dataset.caseId === item.id;
-      row.classList.toggle("is-active", isActive);
-      row.setAttribute("aria-selected", String(isActive));
-      row.setAttribute("tabindex", isActive ? "0" : "-1");
-      if (isActive && options.focus) row.focus();
-    });
-
-    const list = qs("[data-switchboard-list]");
-    if (list) list.setAttribute("aria-activedescendant", `signal-row-${item.id}`);
-  }
-
-  function activateCase(id, options = {}) {
-    const item = caseById(id);
-    if (!item) return;
-
-    activeCaseId = item.id;
-    body.dataset.signal = caseTheme(item);
-    updateHero(item);
-    updatePanel(item);
-    updateRows(item, options);
-
-    if (options.playSound) playRouteTone(item);
-  }
-
-  function setupSwitchboardRows() {
-    const rows = qsa("[data-case-id]");
-    rows.forEach((row, index) => {
-      row.addEventListener("click", () => {
-        activateCase(row.dataset.caseId, { playSound: true });
+      trigger.addEventListener("click", () => {
+        toggleEntry(entry, { playSound: true });
       });
 
-      row.addEventListener("keydown", (event) => {
+      trigger.addEventListener("keydown", (event) => {
         let nextIndex = index;
-
         if (event.key === "ArrowDown" || event.key === "ArrowRight") {
-          nextIndex = (index + 1) % rows.length;
+          nextIndex = (index + 1) % entries.length;
         } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
-          nextIndex = (index - 1 + rows.length) % rows.length;
+          nextIndex = (index - 1 + entries.length) % entries.length;
         } else if (event.key === "Home") {
           nextIndex = 0;
         } else if (event.key === "End") {
-          nextIndex = rows.length - 1;
+          nextIndex = entries.length - 1;
         } else if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
-          activateCase(row.dataset.caseId, { playSound: true });
+          toggleEntry(entry, { playSound: true });
           return;
         } else {
           return;
         }
 
         event.preventDefault();
-        activateCase(rows[nextIndex].dataset.caseId, { focus: true, playSound: true });
-      });
-    });
-  }
-
-  function setupMoodTargets() {
-    qsa("[data-mood]").forEach((target) => {
-      target.addEventListener("mouseenter", () => {
-        const key = target.getAttribute("data-mood");
-        if (key) body.dataset.signal = key;
-      });
-
-      target.addEventListener("mouseleave", () => {
-        const item = caseById(activeCaseId);
-        if (item) body.dataset.signal = caseTheme(item);
+        const nextTrigger = qs(".signal-entry-trigger", entries[nextIndex]);
+        if (nextTrigger) nextTrigger.focus();
       });
     });
   }
@@ -266,7 +272,7 @@
     return audioContext;
   }
 
-  function playRouteTone(item) {
+  function playRouteTone() {
     if (!soundEnabled) return;
 
     const context = ensureAudioContext();
@@ -275,36 +281,35 @@
     const now = context.currentTime;
     const master = context.createGain();
     const filter = context.createBiquadFilter();
-    const validation = item.validationType || "independent";
-    const routed = item.routeStatus === "routed";
-
-    const profile = {
-      academic: { base: 196, top: 392, duration: 0.22, gain: 0.034, q: 0.7 },
-      competition: { base: 262, top: 524, duration: 0.16, gain: 0.028, q: 1.1 },
-      independent: { base: routed ? 330 : 294, top: routed ? 495 : 349, duration: routed ? 0.15 : 0.12, gain: 0.022, q: 1.3 },
-    }[validation] || { base: 294, top: 440, duration: 0.13, gain: 0.02, q: 1.2 };
+    const fundamental = context.createOscillator();
+    const overtone = context.createOscillator();
+    const overtoneGain = context.createGain();
 
     filter.type = "lowpass";
-    filter.frequency.setValueAtTime(routed ? 1800 : 1150, now);
-    filter.Q.setValueAtTime(profile.q, now);
+    filter.frequency.setValueAtTime(1450, now);
+    filter.Q.setValueAtTime(1.4, now);
     master.gain.setValueAtTime(0.0001, now);
-    master.gain.exponentialRampToValueAtTime(profile.gain, now + 0.012);
-    master.gain.exponentialRampToValueAtTime(0.0001, now + profile.duration);
+    master.gain.exponentialRampToValueAtTime(0.032, now + 0.012);
+    master.gain.exponentialRampToValueAtTime(0.0001, now + 0.42);
+
+    fundamental.type = "triangle";
+    overtone.type = "sine";
+    fundamental.frequency.setValueAtTime(220, now);
+    fundamental.frequency.exponentialRampToValueAtTime(217, now + 0.4);
+    overtone.frequency.setValueAtTime(447, now);
+    overtone.frequency.exponentialRampToValueAtTime(441, now + 0.32);
+    overtoneGain.gain.setValueAtTime(0.32, now);
+
+    fundamental.connect(master);
+    overtone.connect(overtoneGain);
+    overtoneGain.connect(master);
     master.connect(filter);
     filter.connect(context.destination);
 
-    [profile.base, profile.top].forEach((frequency, index) => {
-      const osc = context.createOscillator();
-      const gain = context.createGain();
-      osc.type = index === 0 ? "sine" : "triangle";
-      osc.frequency.setValueAtTime(frequency, now);
-      osc.frequency.exponentialRampToValueAtTime(frequency * (routed ? 1.002 : 0.992), now + profile.duration);
-      gain.gain.setValueAtTime(index === 0 ? 1 : 0.34, now);
-      osc.connect(gain);
-      gain.connect(master);
-      osc.start(now);
-      osc.stop(now + profile.duration + 0.02);
-    });
+    fundamental.start(now);
+    overtone.start(now);
+    fundamental.stop(now + 0.45);
+    overtone.stop(now + 0.36);
   }
 
   function setupSoundToggle(data) {
@@ -347,18 +352,6 @@
     revealElements.forEach((element) => observer.observe(element));
   }
 
-  function renderSiteUpdated(data) {
-    const updated = qs("[data-site-updated]");
-    if (updated && data.site?.lastUpdatedLabel) {
-      updated.textContent = data.site.lastUpdatedLabel;
-    }
-  }
-
-  function renderSwitchboardText(data) {
-    if (data.switchboard?.thesis) setText("[data-switchboard-thesis]", data.switchboard.thesis);
-    if (data.switchboard?.instruction) setText("[data-switchboard-instruction]", data.switchboard.instruction);
-  }
-
   function setupJumpLinks() {
     qsa('a[href^="#"]').forEach((link) => {
       link.addEventListener("click", (event) => {
@@ -370,23 +363,32 @@
     });
   }
 
+  function validateUnroutedSignals(data) {
+    const routedSignals = new Set(
+      data.cases
+        .filter((item) => item.routeStatus === "routed")
+        .map((item) => item.signalQuote.trim().toLowerCase()),
+    );
+    const duplicates = data.unroutedSignals.filter((note) =>
+      routedSignals.has(note.signal.trim().toLowerCase()),
+    );
+    if (duplicates.length) {
+      console.warn("Unrouted signals duplicate routed archive entries:", duplicates);
+    }
+  }
+
   function renderPortfolio(data) {
     portfolioData = data;
-    activeCaseId = data.switchboard?.defaultCaseId || data.cases[0]?.id;
-
-    renderSwitchboardText(data);
-    renderCurrentFocus(data);
-    renderWorkingAreas(data);
+    validateUnroutedSignals(data);
+    renderHero(data);
     renderLenses(data);
+    renderSignalList(data);
     renderUnroutedSignals(data);
-    renderSwitchboardRows(data);
     renderSiteUpdated(data);
     setupSoundToggle(data);
-    setupSwitchboardRows();
-    setupMoodTargets();
+    setupSignalArchive();
     setupReveal();
     setupJumpLinks();
-    activateCase(activeCaseId);
     body.classList.add("is-data-ready");
   }
 
