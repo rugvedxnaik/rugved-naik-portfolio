@@ -3546,3 +3546,382 @@ blockquote {
     margin-left: 3.15rem;
   }
 }
+
+/* Clean archive pass */
+
+.consumer-app-page.consumer-app-signal-archive {
+  --consumer-paper: #f0eade;
+  --consumer-panel: #f6f0e7;
+  --consumer-ink: #292826;
+  --consumer-soft: #5d5851;
+  --consumer-faint: #898174;
+  --consumer-brass: #8a6a3f;
+  --consumer-sage: #5c6e5e;
+  --app-line: rgba(43, 42, 40, 0.18);
+  --app-line-soft: rgba(43, 42, 40, 0.1);
+  background: var(--consumer-paper);
+}
+
+.consumer-app-signal-archive .consumer-app-header {
+  min-height: 3.05rem;
+  background: rgba(240, 234, 222, 0.9);
+}
+
+.consumer-app-signal-archive .consumer-app-header,
+.consumer-app-signal-archive .consumer-app-header nav,
+.consumer-app-signal-archive .consumer-app-header div {
+  font-size: 0.69rem;
+  letter-spacing: 0.24em;
+}
+
+.consumer-app-signal-archive .consumer-app-header nav {
+  gap: clamp(0.85rem, 1.8vw, 1.25rem);
+}
+
+.consumer-app-signal-hero {
+  grid-template-columns: minmax(0, 0.78fr) minmax(16rem, 0.3fr);
+  gap: clamp(2.2rem, 6vw, 6rem);
+  padding-block: clamp(4.35rem, 8vh, 5.7rem) clamp(2.2rem, 5vh, 3.4rem);
+}
+
+.consumer-app-signal-hero h1 {
+  max-width: 50rem;
+  font-size: clamp(3rem, 5.55vw, 5.65rem);
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+}
+
+.consumer-app-signal-hero > div > p:not(.consumer-app-eyebrow):not(.consumer-app-thesis):not(.consumer-app-proof) {
+  max-width: 38rem;
+  font-size: clamp(0.98rem, 1.1vw, 1.08rem);
+  line-height: 1.62;
+}
+
+.consumer-app-thesis {
+  max-width: 40rem;
+  margin-block: 0.8rem 1rem;
+  padding: 0;
+  border: 0;
+  color: var(--consumer-brass);
+}
+
+.consumer-app-proof {
+  max-width: 42rem;
+  color: var(--consumer-soft);
+  font-size: 0.7rem;
+}
+
+.consumer-app-actions {
+  gap: 0.55rem;
+  margin-top: 1.35rem;
+}
+
+.consumer-app-actions a {
+  min-height: 2.45rem;
+  border-radius: 999px;
+  padding: 0.64rem 0.86rem;
+  font-size: 0.68rem;
+}
+
+.consumer-app-how {
+  width: min(100%, 19rem);
+  margin-top: clamp(4.1rem, 8vh, 5.6rem);
+  padding: 0.85rem 0 0;
+  border: 0;
+  border-top: 1px solid var(--app-line);
+  background: transparent;
+}
+
+.consumer-app-how p:last-child {
+  max-width: 17rem;
+  font-size: 0.94rem;
+  line-height: 1.58;
+}
+
+.consumer-app-point,
+.consumer-app-notes,
+.consumer-app-work,
+.consumer-app-method,
+.consumer-app-contact {
+  padding-block: clamp(3.25rem, 6.4vw, 5.4rem);
+}
+
+.consumer-app-point,
+.consumer-app-section-heading,
+.consumer-app-contact {
+  grid-template-columns: minmax(10rem, 0.32fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 4.8rem);
+}
+
+.consumer-app-section-heading > div,
+.consumer-app-point > div {
+  max-width: 42rem;
+}
+
+.consumer-app-point h2,
+.consumer-app-notes h2,
+.consumer-app-work h2,
+.consumer-app-method h2,
+.consumer-app-contact h2 {
+  max-width: 46rem;
+  font-size: clamp(2rem, 3.4vw, 3.35rem);
+  line-height: 1.03;
+}
+
+.consumer-app-lens-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--app-line);
+  border-left: 1px solid var(--app-line-soft);
+}
+
+.consumer-app-lens-grid article {
+  min-height: 0;
+  padding: 1rem;
+  border: 0;
+  border-right: 1px solid var(--app-line-soft);
+  border-bottom: 1px solid var(--app-line-soft);
+  background: transparent;
+}
+
+.consumer-app-lens-grid span {
+  font-size: 0.66rem;
+}
+
+.consumer-app-lens-grid p {
+  margin-top: 0.75rem;
+  font-size: clamp(1.05rem, 1.7vw, 1.42rem);
+  line-height: 1.24;
+}
+
+.consumer-app-signal-list {
+  border-top-color: var(--app-line);
+}
+
+.consumer-app-signal-entry {
+  border-bottom-color: var(--app-line-soft);
+}
+
+.consumer-app-signal-entry[open] {
+  margin: 0 -1rem;
+  padding: 0 1rem;
+  border-radius: 1.15rem;
+  background: rgba(246, 240, 231, 0.66);
+}
+
+.consumer-app-signal-entry > summary {
+  grid-template-columns: 2.65rem minmax(0, 1fr) 7.75rem;
+  gap: 0.9rem;
+  align-items: center;
+  padding: clamp(0.86rem, 1.7vw, 1.16rem) 0;
+}
+
+.consumer-app-signal-entry blockquote {
+  font-size: clamp(1.45rem, 2.55vw, 2.75rem);
+  letter-spacing: -0.028em;
+  line-height: 1.09;
+}
+
+.consumer-app-signal-entry > summary small {
+  justify-self: end;
+  width: fit-content;
+  padding: 0.2rem 0.48rem;
+  border: 1px solid rgba(92, 110, 94, 0.24);
+  border-radius: 999px;
+  font-size: 0.62rem;
+}
+
+.consumer-app-signal-entry > summary small.is-routed {
+  border-color: rgba(138, 106, 63, 0.28);
+}
+
+.consumer-app-connector {
+  min-height: 100%;
+  margin-left: 1.32rem;
+  background: rgba(138, 106, 63, 0.42);
+}
+
+.consumer-app-signal-content {
+  max-width: none;
+  display: grid;
+  grid-template-columns: minmax(0, 0.96fr) minmax(15.5rem, 0.52fr);
+  gap: 0.8rem clamp(1.6rem, 4vw, 3rem);
+  margin-left: 3.55rem;
+}
+
+.consumer-app-signal-content > div:nth-of-type(1),
+.consumer-app-signal-content > div:nth-of-type(2),
+.consumer-app-archive-note {
+  grid-column: 1;
+}
+
+.consumer-app-evidence-hint,
+.consumer-app-evidence-details,
+.consumer-app-classification,
+.consumer-app-project-line {
+  grid-column: 2;
+}
+
+.consumer-app-signal-content div:first-child p {
+  font-size: clamp(1.35rem, 2.2vw, 2.05rem);
+  line-height: 1.15;
+}
+
+.consumer-app-signal-content p,
+.consumer-app-evidence-details p,
+.consumer-app-project-line p {
+  font-size: 0.93rem;
+  line-height: 1.55;
+}
+
+.consumer-app-archive-note {
+  max-width: 34rem;
+  margin-top: 0.1rem;
+  padding-left: 0.85rem;
+  border-left: 1px solid rgba(138, 106, 63, 0.34);
+  color: var(--consumer-ink);
+  font-size: clamp(1.14rem, 1.65vw, 1.48rem);
+  line-height: 1.22;
+}
+
+.consumer-app-evidence-details {
+  width: auto;
+  padding: 0.72rem 0 0;
+  border: 0;
+  border-top: 1px solid var(--app-line-soft);
+  background: transparent;
+}
+
+.consumer-app-evidence-details[open] {
+  width: auto;
+}
+
+.consumer-app-classification,
+.consumer-app-project-line span,
+.consumer-app-project-line a,
+.consumer-app-project-line small {
+  font-size: 0.65rem;
+}
+
+.consumer-app-project-line {
+  margin-top: 0.15rem;
+  padding-top: 0.72rem;
+  border-top: 1px solid var(--app-line-soft);
+}
+
+.consumer-app-unrouted-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--app-line);
+  border-left: 1px solid var(--app-line-soft);
+}
+
+.consumer-app-unrouted-grid article {
+  min-height: 0;
+  padding: 1rem;
+  border: 0;
+  border-right: 1px solid var(--app-line-soft);
+  border-bottom: 1px solid var(--app-line-soft);
+  background: transparent;
+}
+
+.consumer-app-unrouted-grid blockquote {
+  font-size: clamp(1.14rem, 1.75vw, 1.5rem);
+  line-height: 1.18;
+}
+
+.consumer-app-unrouted-grid p {
+  font-size: 0.92rem;
+  line-height: 1.52;
+}
+
+.consumer-app-method ol {
+  gap: 0;
+  border-top: 1px solid var(--app-line);
+}
+
+.consumer-app-method li {
+  padding: 0.95rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--app-line-soft);
+  background: transparent;
+}
+
+@media (max-width: 980px) {
+  .consumer-app-signal-hero,
+  .consumer-app-point,
+  .consumer-app-section-heading,
+  .consumer-app-contact {
+    grid-template-columns: 1fr;
+  }
+
+  .consumer-app-how {
+    width: min(100%, 34rem);
+    margin-top: 0.4rem;
+  }
+
+  .consumer-app-lens-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .consumer-app-signal-content {
+    grid-template-columns: 1fr;
+  }
+
+  .consumer-app-signal-content > div:nth-of-type(1),
+  .consumer-app-signal-content > div:nth-of-type(2),
+  .consumer-app-archive-note,
+  .consumer-app-evidence-hint,
+  .consumer-app-evidence-details,
+  .consumer-app-classification,
+  .consumer-app-project-line {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 680px) {
+  .consumer-app-signal-archive .consumer-app-header {
+    min-height: 3.35rem;
+  }
+
+  .consumer-app-signal-archive .consumer-app-header div {
+    display: none;
+  }
+
+  .consumer-app-signal-hero {
+    padding-top: 4rem;
+  }
+
+  .consumer-app-signal-hero h1 {
+    font-size: clamp(2.65rem, 13vw, 3.8rem);
+    letter-spacing: -0.04em;
+  }
+
+  .consumer-app-lens-grid,
+  .consumer-app-unrouted-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .consumer-app-signal-entry[open] {
+    margin: 0 -0.55rem;
+    padding: 0 0.55rem;
+  }
+
+  .consumer-app-signal-entry > summary {
+    grid-template-columns: 2.1rem minmax(0, 1fr);
+    gap: 0.6rem;
+  }
+
+  .consumer-app-signal-entry > summary small {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .consumer-app-signal-content {
+    margin-left: 2.7rem;
+  }
+
+  .consumer-app-connector {
+    margin-left: 1.04rem;
+  }
+}
