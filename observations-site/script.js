@@ -41,6 +41,11 @@
     return item?.signal?.evidence || "Evidence is being gathered.";
   }
 
+  function classificationLine(item) {
+    const capability = item?.capabilities?.length ? item.capabilities.join(" / ") : "Strategy";
+    return `${item.category || "Portfolio inquiry"} / ${capability} / ${item.validation || "In progress"}${item.readingTime ? ` / ${item.readingTime}` : ""}`;
+  }
+
   function setText(selector, value) {
     const element = qs(selector);
     if (element) element.textContent = value || "";
@@ -48,12 +53,16 @@
 
   function renderHero(data) {
     if (data.hero?.eyebrow) setText("[data-hero-eyebrow]", data.hero.eyebrow);
+    if (data.hero?.title) setText("[data-hero-title]", data.hero.title);
     if (data.hero?.lens) setText("[data-hero-lens]", data.hero.lens);
     if (data.hero?.proofLine) setText("[data-hero-proof]", data.hero.proofLine);
     if (data.hero?.primaryCta) setText("[data-hero-primary]", data.hero.primaryCta);
     if (data.hero?.secondaryCta) setText("[data-hero-secondary]", data.hero.secondaryCta);
     if (data.switchboard?.thesis) setText("[data-switchboard-thesis]", data.switchboard.thesis);
     if (data.switchboard?.instruction) setText("[data-switchboard-instruction]", data.switchboard.instruction);
+    if (data.cases?.length) {
+      setText("[data-signal-heading]", `${data.cases.length} consumer signals, filed as evidence.`);
+    }
   }
 
   function renderLenses(data) {
@@ -130,8 +139,14 @@
       textElement("span", "", "Output"),
       textElement("p", "", item.signal.output),
     );
+    const archiveNote = item.archiveNote ? textElement("p", "signal-archive-note", item.archiveNote) : null;
     const hint = textElement("p", "signal-evidence-hint");
     hint.append(textElement("span", "", "Evidence:"), document.createTextNode(` ${evidenceHint(item)}`));
+    const classification = textElement("p", "signal-classification");
+    classification.append(
+      textElement("span", "", "Classification:"),
+      document.createTextNode(` ${classificationLine(item)}`),
+    );
 
     const project = textElement("div", "signal-project");
     project.append(textElement("span", "", "Project"), textElement("p", "", projectLine(item)));
@@ -143,7 +158,9 @@
       project.append(textElement("small", "", "Dossier in progress"));
     }
 
-    content.append(translation, output, hint, createEvidenceDetails(item), project);
+    content.append(
+      ...[translation, output, archiveNote, hint, createEvidenceDetails(item), classification, project].filter(Boolean),
+    );
     panel.append(connector, content);
     entry.append(trigger, panel);
     return entry;

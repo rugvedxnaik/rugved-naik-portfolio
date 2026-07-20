@@ -24,9 +24,9 @@
   --shadow-soft: 0 18px 60px rgba(33, 24, 14, 0.08);
   --shadow-card: 0 20px 70px rgba(25, 21, 18, 0.1);
   --shell: min(1380px, calc(100vw - 3rem));
-  --font-sans: "Bricolage Grotesque", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-serif-display: "Fraunces", ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-sans: "Tenor Sans", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif-display: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 }
 
 /* Consumer Switchboard */
@@ -489,7 +489,7 @@ body.signal-archive-home {
   --shell: min(1180px, calc(100vw - 3rem));
   background: var(--paper);
   color: var(--ink);
-  font-family: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-sans);
 }
 
 .signal-archive-home .consumer-header {
@@ -547,28 +547,29 @@ body.signal-archive-home {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.38fr);
   gap: clamp(2rem, 6vw, 5.5rem);
-  align-items: end;
+  align-items: start;
 }
 
 .signal-thesis {
   width: fit-content;
+  max-width: min(100%, 46rem);
   margin: 0.95rem 0 1.2rem;
   padding: 0.42rem 0.62rem;
   border: 1px solid var(--divider);
   color: var(--brass);
   font-family: var(--font-mono);
   font-size: 0.72rem;
+  line-height: 1.45;
 }
 
 .signal-hero h1 {
   max-width: 56rem;
   margin: 0;
   font-family: var(--font-serif-display);
-  font-size: clamp(3.25rem, 7vw, 6.85rem);
-  font-variation-settings: "SOFT" 72, "WONK" 1;
-  font-weight: 720;
-  letter-spacing: -0.058em;
-  line-height: 0.98;
+  font-size: clamp(3.25rem, 6.15vw, 6.35rem);
+  font-weight: 400;
+  letter-spacing: -0.048em;
+  line-height: 0.94;
 }
 
 .hero-lens {
@@ -613,6 +614,7 @@ body.signal-archive-home {
 }
 
 .signal-hero-note {
+  margin-top: clamp(4.8rem, 10vh, 7.2rem);
   padding: 1rem;
   border: 1px solid var(--divider);
   background: var(--paper-card);
@@ -671,10 +673,9 @@ body.signal-archive-home {
 
 .signal-entry-quote {
   font-family: var(--font-serif-display);
-  font-size: clamp(2rem, 4vw, 4.25rem);
-  font-variation-settings: "SOFT" 72, "WONK" 1;
-  font-weight: 650;
-  letter-spacing: -0.045em;
+  font-size: clamp(2.05rem, 4vw, 4.4rem);
+  font-weight: 400;
+  letter-spacing: -0.042em;
   line-height: 1.04;
 }
 
@@ -746,8 +747,7 @@ body.signal-archive-home {
   margin: 0;
   font-family: var(--font-serif-display);
   font-size: clamp(1.55rem, 2.8vw, 2.55rem);
-  font-variation-settings: "SOFT" 66, "WONK" 1;
-  font-weight: 680;
+  font-weight: 500;
   line-height: 1.12;
 }
 
@@ -762,6 +762,17 @@ body.signal-archive-home {
 
 .signal-evidence-hint {
   padding-top: 0.15rem;
+}
+
+.signal-archive-note {
+  margin: 0;
+  max-width: 43rem;
+  color: var(--ink);
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.28rem, 2.2vw, 1.95rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 .signal-evidence-hint span {
@@ -805,6 +816,18 @@ body.signal-archive-home {
 
 .signal-meta {
   margin-top: 0.85rem;
+}
+
+.signal-classification {
+  margin: 0;
+  color: var(--ink-faint);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  line-height: 1.65;
+}
+
+.signal-classification span {
+  color: var(--brass);
 }
 
 .signal-project {
@@ -859,8 +882,7 @@ body.signal-archive-home {
   color: var(--sage);
   font-family: var(--font-serif-display);
   font-size: clamp(1.35rem, 2.2vw, 1.95rem);
-  font-variation-settings: "SOFT" 68, "WONK" 1;
-  font-weight: 620;
+  font-weight: 400;
   line-height: 1.12;
 }
 
@@ -6522,7 +6544,7 @@ body.signal-archive-home {
   --line-strong: rgba(43, 42, 40, 0.28);
   background: var(--paper);
   color: var(--ink);
-  font-family: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-sans);
 }
 
 body.signal-archive-home .consumer-header {
@@ -6542,11 +6564,12 @@ body.signal-archive-home .signal-hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.38fr);
   gap: clamp(2rem, 6vw, 5.5rem);
-  align-items: end;
+  align-items: start;
 }
 
 body.signal-archive-home .signal-thesis {
   width: fit-content;
+  max-width: min(100%, 46rem);
   margin: 0.95rem 0 1.2rem;
   padding: 0.42rem 0.62rem;
   border: 1px solid var(--divider);
@@ -6555,19 +6578,18 @@ body.signal-archive-home .signal-thesis {
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0;
-  line-height: 1.2;
+  line-height: 1.45;
   text-transform: none;
 }
 
 body.signal-archive-home .signal-hero h1 {
-  max-width: 54rem;
+  max-width: 56rem;
   margin: 0;
   font-family: var(--font-serif-display);
-  font-size: clamp(3rem, 5.8vw, 5.7rem);
-  font-variation-settings: "SOFT" 72, "WONK" 1;
-  font-weight: 700;
-  letter-spacing: -0.052em;
-  line-height: 1;
+  font-size: clamp(3.25rem, 6.15vw, 6.35rem);
+  font-weight: 400;
+  letter-spacing: -0.048em;
+  line-height: 0.94;
   text-transform: none;
 }
 
@@ -6613,6 +6635,7 @@ body.signal-archive-home .secondary-link:hover {
 }
 
 body.signal-archive-home .signal-hero-note {
+  margin-top: clamp(4.8rem, 10vh, 7.2rem);
   padding: 1rem;
   border: 1px solid var(--divider);
   background: var(--paper-card);
@@ -6627,10 +6650,9 @@ body.signal-archive-home .signal-entry-trigger {
 
 body.signal-archive-home .signal-entry-quote {
   font-family: var(--font-serif-display);
-  font-size: clamp(2rem, 4vw, 4.25rem);
-  font-variation-settings: "SOFT" 72, "WONK" 1;
-  font-weight: 650;
-  letter-spacing: -0.045em;
+  font-size: clamp(2.05rem, 4vw, 4.4rem);
+  font-weight: 400;
+  letter-spacing: -0.042em;
   line-height: 1.04;
 }
 

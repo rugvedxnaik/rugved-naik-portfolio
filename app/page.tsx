@@ -17,6 +17,11 @@ function projectLine(item: (typeof cases)[number]) {
   return item.project || item.company || item.caseTitle;
 }
 
+function classificationLine(item: (typeof cases)[number]) {
+  const capabilities = item.capabilities.length ? item.capabilities.join(" / ") : "Strategy";
+  return `${item.category} / ${capabilities} / ${item.validation}${item.readingTime ? ` / ${item.readingTime}` : ""}`;
+}
+
 export default function Home() {
   return (
     <main className="consumer-app-page consumer-app-signal-archive">
@@ -42,7 +47,7 @@ export default function Home() {
         <div>
           <p className="consumer-app-eyebrow">{portfolioData.hero.eyebrow}</p>
           <p className="consumer-app-thesis">{portfolioData.switchboard.thesis}</p>
-          <h1>You read a consumer sentence, then watch it become a strategy.</h1>
+          <h1>{portfolioData.hero.title}</h1>
           <p>{portfolioData.hero.lens}</p>
           <p className="consumer-app-proof">{portfolioData.hero.proofLine}</p>
           <div className="consumer-app-actions">
@@ -55,7 +60,7 @@ export default function Home() {
           <p className="consumer-app-eyebrow">How it works</p>
           <p>
             The work starts with what someone says, wants, avoids, or repeats. Open a
-            signal to see the translation, output, evidence, and project it became.
+            signal to see how evidence becomes a system.
           </p>
         </aside>
       </section>
@@ -94,7 +99,7 @@ export default function Home() {
       <section className="consumer-app-work" id="signals">
         <div className="consumer-app-section-heading">
           <p className="consumer-app-eyebrow">Signals</p>
-          <h2>Ten consumer sentences, each opened into strategy.</h2>
+          <h2>{cases.length} consumer signals, filed as evidence.</h2>
           <p>{portfolioData.switchboard.instruction}</p>
         </div>
 
@@ -122,6 +127,9 @@ export default function Home() {
                   <span>Output</span>
                   <p>{item.signal.output}</p>
                 </div>
+                {item.archiveNote ? (
+                  <p className="consumer-app-archive-note">{item.archiveNote}</p>
+                ) : null}
                 <p className="consumer-app-evidence-hint">
                   <span>Evidence:</span> {item.signal.evidence}
                 </p>
@@ -139,6 +147,9 @@ export default function Home() {
                     {item.validation} · {item.status} · Updated {item.lastUpdatedLabel}
                   </p>
                 </details>
+                <p className="consumer-app-classification">
+                  <span>Classification:</span> {classificationLine(item)}
+                </p>
                 <div className="consumer-app-project-line">
                   <span>Project</span>
                   <p>{projectLine(item)}</p>
