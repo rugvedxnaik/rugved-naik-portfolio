@@ -402,3 +402,767 @@ body.signal-archive-home .method-list li:nth-child(n) {
     margin-left: 1.04rem;
   }
 }
+
+/* Consumer Read repair pass, stable home layout */
+
+body.signal-archive-home {
+  --paper: #f3ebdc;
+  --paper-soft: #fbf4e8;
+  --paper-card: #f8efdf;
+  --ink: #25211d;
+  --ink-soft: #5f5549;
+  --ink-faint: #8a7f70;
+  --brass: #9a6b38;
+  --clay: #b76d4d;
+  --sage: #667a62;
+  --blue: #516d9c;
+  --plum: #8b5b74;
+  --gold: #c49336;
+  --line: rgba(37, 33, 29, 0.16);
+  --line-strong: rgba(37, 33, 29, 0.28);
+  --shell: min(1180px, calc(100vw - 4.4rem));
+  min-width: 0;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 9% 9%, rgba(183, 109, 77, 0.16), transparent 22rem),
+    radial-gradient(circle at 88% 18%, rgba(81, 109, 156, 0.1), transparent 24rem),
+    linear-gradient(90deg, rgba(37, 33, 29, 0.035) 1px, transparent 1px),
+    var(--paper);
+  background-size: auto, auto, 4.2rem 4.2rem, auto;
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+body.signal-archive-home *,
+body.signal-archive-home *::before,
+body.signal-archive-home *::after {
+  box-sizing: border-box;
+}
+
+body.signal-archive-home .shell {
+  width: var(--shell);
+  max-width: var(--shell);
+  margin-inline: auto;
+}
+
+body.signal-archive-home .consumer-header {
+  display: grid;
+  grid-template-columns: minmax(10rem, 0.72fr) minmax(14rem, 1fr) minmax(20rem, 1.28fr);
+  gap: 1rem;
+  align-items: center;
+  min-height: 4.05rem;
+  padding: 0 1.9rem;
+  border-bottom: 1px solid var(--line);
+  background: rgba(243, 235, 220, 0.9);
+  backdrop-filter: blur(16px);
+}
+
+body.signal-archive-home .wordmark,
+body.signal-archive-home .header-status,
+body.signal-archive-home .site-nav,
+body.signal-archive-home .eyebrow,
+body.signal-archive-home .signal-entry-number,
+body.signal-archive-home .signal-entry-status,
+body.signal-archive-home .signal-translation span,
+body.signal-archive-home .signal-output span,
+body.signal-archive-home .signal-evidence-hint span,
+body.signal-archive-home .signal-evidence-details summary,
+body.signal-archive-home .signal-evidence-details span,
+body.signal-archive-home .signal-classification span,
+body.signal-archive-home .signal-meta,
+body.signal-archive-home .signal-project span,
+body.signal-archive-home .signal-project a,
+body.signal-archive-home .signal-project small,
+body.signal-archive-home .read-notes span,
+body.signal-archive-home .note-card span,
+body.signal-archive-home .method-list span,
+body.signal-archive-home .help-cards span,
+body.signal-archive-home .contact-stack a,
+body.signal-archive-home .site-updated {
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+body.signal-archive-home .wordmark,
+body.signal-archive-home .site-nav a,
+body.signal-archive-home .contact-stack a,
+body.signal-archive-home .primary-link,
+body.signal-archive-home .secondary-link,
+body.signal-archive-home .signal-sound-toggle {
+  text-decoration: none;
+}
+
+body.signal-archive-home .wordmark,
+body.signal-archive-home .header-status,
+body.signal-archive-home .site-nav {
+  color: var(--ink);
+  font-size: 0.68rem;
+}
+
+body.signal-archive-home .header-status {
+  display: flex;
+  justify-content: center;
+  gap: 1.1rem;
+}
+
+body.signal-archive-home .site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+}
+
+body.signal-archive-home .site-nav a {
+  color: var(--ink-soft);
+  transition: color 180ms ease;
+}
+
+body.signal-archive-home .site-nav a:hover,
+body.signal-archive-home .site-nav a:focus-visible {
+  color: var(--ink);
+}
+
+body.signal-archive-home .signal-hero {
+  padding: clamp(5.6rem, 9vw, 8.2rem) 0 clamp(3.2rem, 5.6vw, 5rem);
+  border-bottom: 1px solid var(--line);
+}
+
+body.signal-archive-home .signal-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.42fr);
+  gap: clamp(2.2rem, 6vw, 5.4rem);
+  align-items: start;
+}
+
+body.signal-archive-home .signal-thesis {
+  max-width: 46rem;
+  margin: 0.9rem 0 1.1rem;
+  padding: 0;
+  border: 0;
+  color: var(--brass);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+
+body.signal-archive-home .signal-hero h1,
+body.signal-archive-home .consumer-section h2,
+body.signal-archive-home .signal-entry-quote,
+body.signal-archive-home .signal-translation p,
+body.signal-archive-home .note-card blockquote,
+body.signal-archive-home .contact-panel blockquote {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+body.signal-archive-home .signal-hero h1 {
+  max-width: 58rem;
+  margin: 0;
+  font-family: var(--font-serif-display);
+  font-size: clamp(3.45rem, 6.2vw, 6.35rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.94;
+}
+
+body.signal-archive-home .hero-lens {
+  max-width: 43rem;
+  margin: 1.25rem 0 0;
+  color: var(--ink-soft);
+  font-size: clamp(1.02rem, 1.24vw, 1.16rem);
+  line-height: 1.68;
+}
+
+body.signal-archive-home .hero-proof {
+  max-width: 46rem;
+  margin: 1rem 0 0;
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.01em;
+  line-height: 1.7;
+}
+
+body.signal-archive-home .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.68rem;
+  margin-top: 1.55rem;
+}
+
+body.signal-archive-home .primary-link,
+body.signal-archive-home .secondary-link,
+body.signal-archive-home .signal-sound-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.55rem;
+  padding: 0.7rem 0.95rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(251, 244, 232, 0.72);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+body.signal-archive-home .primary-link {
+  border-color: rgba(154, 107, 56, 0.72);
+  background: var(--brass);
+  color: var(--paper-soft);
+}
+
+body.signal-archive-home .signal-sound-toggle {
+  cursor: pointer;
+}
+
+body.signal-archive-home .signal-hero-note {
+  width: min(100%, 21rem);
+  margin-top: clamp(4.4rem, 8vw, 6.6rem);
+  padding: 1rem 0 0;
+  border: 0;
+  border-top: 1px solid var(--line-strong);
+  background: transparent;
+}
+
+body.signal-archive-home .signal-hero-note p:last-child {
+  max-width: 20rem;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  line-height: 1.62;
+}
+
+body.signal-archive-home .consumer-section {
+  padding: clamp(3.8rem, 7vw, 6.2rem) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+body.signal-archive-home .point-grid,
+body.signal-archive-home .section-kicker-row,
+body.signal-archive-home .room-intro,
+body.signal-archive-home .method-grid,
+body.signal-archive-home .help-grid,
+body.signal-archive-home .contact-grid {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.28fr) minmax(0, 1fr);
+  gap: clamp(1.6rem, 4.8vw, 5.4rem);
+  align-items: start;
+}
+
+body.signal-archive-home .eyebrow {
+  margin: 0;
+  color: var(--brass);
+  font-size: 0.68rem;
+}
+
+body.signal-archive-home .consumer-section h2 {
+  max-width: 52rem;
+  margin: 0;
+  font-family: var(--font-serif-display);
+  font-size: clamp(2.3rem, 4vw, 4.15rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+body.signal-archive-home .point-copy,
+body.signal-archive-home .section-heading {
+  max-width: 44rem;
+}
+
+body.signal-archive-home .point-copy {
+  display: grid;
+  gap: 1.05rem;
+}
+
+body.signal-archive-home .point-copy p,
+body.signal-archive-home .section-heading p,
+body.signal-archive-home .method-list p,
+body.signal-archive-home .help-cards p,
+body.signal-archive-home .contact-grid p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.68;
+}
+
+body.signal-archive-home .read-notes {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+  border: 0;
+}
+
+body.signal-archive-home .read-notes article,
+body.signal-archive-home .read-notes article:nth-child(n) {
+  grid-column: auto;
+  min-width: 0;
+  min-height: 13.2rem;
+  margin-top: 0;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-top: 0.22rem solid var(--lens-accent, var(--brass));
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--lens-accent, var(--brass)) 12%, transparent), transparent 52%),
+    rgba(248, 239, 223, 0.72);
+}
+
+body.signal-archive-home .read-notes article[data-mood="miutine"],
+body.signal-archive-home .read-notes article[data-mood="collection"] {
+  --lens-accent: var(--sage);
+}
+
+body.signal-archive-home .read-notes article[data-mood="givenchy"],
+body.signal-archive-home .read-notes article[data-mood="identity"] {
+  --lens-accent: var(--clay);
+}
+
+body.signal-archive-home .read-notes article[data-mood="danone"],
+body.signal-archive-home .read-notes article[data-mood="category-noise"] {
+  --lens-accent: var(--gold);
+}
+
+body.signal-archive-home .read-notes article[data-mood="loreal"],
+body.signal-archive-home .read-notes article[data-mood="memory"] {
+  --lens-accent: var(--blue);
+}
+
+body.signal-archive-home .read-notes article[data-mood="recognition"],
+body.signal-archive-home .read-notes article[data-mood="commerce"] {
+  --lens-accent: var(--plum);
+}
+
+body.signal-archive-home .read-notes article[data-mood="lvmh"],
+body.signal-archive-home .read-notes article[data-mood="infrastructure"],
+body.signal-archive-home .read-notes article[data-mood="1903"],
+body.signal-archive-home .read-notes article[data-mood="ritual"] {
+  --lens-accent: var(--brass);
+}
+
+body.signal-archive-home .read-notes span {
+  display: block;
+  color: var(--ink-faint);
+  font-size: 0.64rem;
+}
+
+body.signal-archive-home .read-notes p {
+  margin: 0.82rem 0 0;
+  color: var(--ink);
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.2rem, 1.55vw, 1.48rem);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.18;
+}
+
+body.signal-archive-home .signal-list {
+  display: grid;
+  gap: 0.72rem;
+  border-top: 1px solid var(--line-strong);
+  padding-top: 0.85rem;
+}
+
+body.signal-archive-home .signal-entry {
+  --entry-accent: var(--brass);
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: rgba(248, 239, 223, 0.54);
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+body.signal-archive-home .signal-entry[data-signal="miutine"] {
+  --entry-accent: var(--sage);
+}
+
+body.signal-archive-home .signal-entry[data-signal="givenchy"],
+body.signal-archive-home .signal-entry[data-signal="siara"] {
+  --entry-accent: var(--clay);
+}
+
+body.signal-archive-home .signal-entry[data-signal="danone"] {
+  --entry-accent: var(--gold);
+}
+
+body.signal-archive-home .signal-entry[data-signal="loreal"],
+body.signal-archive-home .signal-entry[data-signal="withings"] {
+  --entry-accent: var(--blue);
+}
+
+body.signal-archive-home .signal-entry[data-signal="lvmh"],
+body.signal-archive-home .signal-entry[data-signal="1903"] {
+  --entry-accent: var(--brass);
+}
+
+body.signal-archive-home .signal-entry[data-signal="recognition"],
+body.signal-archive-home .signal-entry[data-signal="commerce"] {
+  --entry-accent: var(--plum);
+}
+
+body.signal-archive-home .signal-entry.is-open {
+  margin: 0;
+  padding: 0;
+  border-color: color-mix(in srgb, var(--entry-accent) 58%, var(--line));
+  border-radius: 0;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--entry-accent) 9%, transparent), transparent 42%),
+    rgba(251, 244, 232, 0.76);
+}
+
+body.signal-archive-home .signal-entry-trigger {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 3.1rem minmax(0, 1fr) max-content;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 1rem 1.05rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+body.signal-archive-home .signal-entry-number {
+  color: var(--entry-accent);
+  font-size: 0.68rem;
+}
+
+body.signal-archive-home .signal-entry-quote {
+  min-width: 0;
+  color: var(--ink);
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.5rem, 2.6vw, 2.95rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+
+body.signal-archive-home .signal-entry-status {
+  justify-self: end;
+  width: fit-content;
+  padding: 0.22rem 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--entry-accent) 32%, var(--line));
+  border-radius: 999px;
+  color: var(--entry-accent);
+  font-size: 0.6rem;
+  white-space: nowrap;
+}
+
+body.signal-archive-home .signal-entry-panel {
+  display: grid;
+  grid-template-columns: 3.1rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0 1.05rem 1.15rem;
+}
+
+body.signal-archive-home .signal-entry-panel[hidden] {
+  display: none;
+}
+
+body.signal-archive-home .signal-connector {
+  width: 1px;
+  min-height: 100%;
+  margin-left: 1.52rem;
+  background: linear-gradient(var(--entry-accent), transparent);
+}
+
+body.signal-archive-home .signal-entry-content {
+  display: grid;
+  max-width: none;
+  grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.52fr);
+  gap: 0.9rem clamp(1.6rem, 4vw, 3rem);
+  min-width: 0;
+  padding-top: 0.15rem;
+}
+
+body.signal-archive-home .signal-translation,
+body.signal-archive-home .signal-output,
+body.signal-archive-home .signal-archive-note {
+  grid-column: 1;
+}
+
+body.signal-archive-home .signal-evidence-hint,
+body.signal-archive-home .signal-evidence-details,
+body.signal-archive-home .signal-classification,
+body.signal-archive-home .signal-project {
+  grid-column: 2;
+}
+
+body.signal-archive-home .signal-translation span,
+body.signal-archive-home .signal-output span,
+body.signal-archive-home .signal-evidence-hint span,
+body.signal-archive-home .signal-classification span,
+body.signal-archive-home .signal-project span,
+body.signal-archive-home .signal-project a {
+  color: var(--entry-accent);
+}
+
+body.signal-archive-home .signal-translation p {
+  margin: 0.32rem 0 0;
+  color: var(--ink);
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.38rem, 2.05vw, 2.1rem);
+  letter-spacing: -0.02em;
+  line-height: 1.16;
+}
+
+body.signal-archive-home .signal-output p,
+body.signal-archive-home .signal-evidence-hint,
+body.signal-archive-home .signal-evidence-details p,
+body.signal-archive-home .signal-project p,
+body.signal-archive-home .signal-classification,
+body.signal-archive-home .signal-meta {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.58;
+}
+
+body.signal-archive-home .signal-archive-note {
+  max-width: 35rem;
+  margin: 0.16rem 0 0;
+  padding-left: 0.85rem;
+  border-left: 2px solid color-mix(in srgb, var(--entry-accent) 56%, transparent);
+  color: var(--ink);
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.08rem, 1.45vw, 1.36rem);
+  letter-spacing: -0.012em;
+  line-height: 1.25;
+}
+
+body.signal-archive-home .signal-evidence-details {
+  padding: 0.72rem 0 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: transparent;
+}
+
+body.signal-archive-home .signal-project {
+  margin-top: 0;
+  padding-top: 0.72rem;
+  border-top: 1px solid var(--line);
+}
+
+body.signal-archive-home .notes-grid,
+body.signal-archive-home .help-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+  border: 0;
+}
+
+body.signal-archive-home .note-card,
+body.signal-archive-home .help-cards article {
+  min-height: 12rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(102, 122, 98, 0.08), transparent 54%),
+    rgba(248, 239, 223, 0.7);
+}
+
+body.signal-archive-home .note-card blockquote {
+  margin: 0.82rem 0 0;
+  color: var(--ink);
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.22rem, 1.65vw, 1.58rem);
+  line-height: 1.16;
+}
+
+body.signal-archive-home .note-card p,
+body.signal-archive-home .help-cards p {
+  margin-top: 0.8rem;
+  color: var(--ink-soft);
+  font-size: 0.93rem;
+  line-height: 1.56;
+}
+
+body.signal-archive-home .method-list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line-strong);
+  list-style: none;
+}
+
+body.signal-archive-home .method-list li,
+body.signal-archive-home .method-list li:nth-child(n) {
+  display: grid;
+  grid-template-columns: 3rem 10rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: baseline;
+  padding: 1rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+}
+
+body.signal-archive-home .method-list span,
+body.signal-archive-home .help-cards span,
+body.signal-archive-home .note-card span {
+  color: var(--brass);
+  font-size: 0.66rem;
+}
+
+body.signal-archive-home .method-list strong {
+  font-family: var(--font-serif-display);
+  font-size: 1.7rem;
+  font-weight: 400;
+}
+
+body.signal-archive-home .help-cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body.signal-archive-home .contact-panel {
+  padding: clamp(1.1rem, 2vw, 1.4rem);
+  border: 1px solid var(--line-strong);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(183, 109, 77, 0.14), transparent 14rem),
+    var(--paper-card);
+}
+
+body.signal-archive-home .contact-panel blockquote {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-serif-display);
+  font-size: clamp(2.1rem, 3.4vw, 3.35rem);
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+body.signal-archive-home .contact-stack {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1.35rem;
+}
+
+body.signal-archive-home .contact-stack a {
+  color: var(--brass);
+  font-size: 0.68rem;
+  text-transform: none;
+}
+
+body.signal-archive-home .site-updated {
+  margin: 1rem 0 0;
+  color: var(--ink-faint);
+  font-size: 0.64rem;
+}
+
+@media (max-width: 1050px) {
+  body.signal-archive-home {
+    --shell: min(100vw - 2rem, 1180px);
+  }
+
+  body.signal-archive-home .consumer-header,
+  body.signal-archive-home .signal-hero-grid,
+  body.signal-archive-home .point-grid,
+  body.signal-archive-home .section-kicker-row,
+  body.signal-archive-home .room-intro,
+  body.signal-archive-home .method-grid,
+  body.signal-archive-home .help-grid,
+  body.signal-archive-home .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.signal-archive-home .consumer-header {
+    justify-items: start;
+    gap: 0.55rem;
+    padding: 0.85rem 1rem;
+  }
+
+  body.signal-archive-home .header-status,
+  body.signal-archive-home .site-nav {
+    justify-content: start;
+  }
+
+  body.signal-archive-home .signal-hero-note {
+    width: min(100%, 34rem);
+    margin-top: 0.2rem;
+  }
+
+  body.signal-archive-home .read-notes,
+  body.signal-archive-home .notes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.signal-archive-home .signal-entry-content {
+    grid-template-columns: 1fr;
+  }
+
+  body.signal-archive-home .signal-translation,
+  body.signal-archive-home .signal-output,
+  body.signal-archive-home .signal-archive-note,
+  body.signal-archive-home .signal-evidence-hint,
+  body.signal-archive-home .signal-evidence-details,
+  body.signal-archive-home .signal-classification,
+  body.signal-archive-home .signal-project {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 680px) {
+  body.signal-archive-home {
+    --shell: min(100vw - 1.2rem, 1180px);
+  }
+
+  body.signal-archive-home .header-status {
+    display: none;
+  }
+
+  body.signal-archive-home .site-nav {
+    row-gap: 0.38rem;
+  }
+
+  body.signal-archive-home .signal-hero {
+    padding-top: 3.8rem;
+  }
+
+  body.signal-archive-home .signal-hero h1 {
+    font-size: clamp(2.78rem, 13.5vw, 4rem);
+  }
+
+  body.signal-archive-home .read-notes,
+  body.signal-archive-home .notes-grid,
+  body.signal-archive-home .help-cards {
+    grid-template-columns: 1fr;
+  }
+
+  body.signal-archive-home .read-notes article,
+  body.signal-archive-home .read-notes article:nth-child(n),
+  body.signal-archive-home .note-card,
+  body.signal-archive-home .help-cards article {
+    min-height: 0;
+  }
+
+  body.signal-archive-home .signal-entry-trigger {
+    grid-template-columns: 2.35rem minmax(0, 1fr);
+    gap: 0.7rem;
+    padding: 0.9rem 0.82rem;
+  }
+
+  body.signal-archive-home .signal-entry-status {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  body.signal-archive-home .signal-entry-panel {
+    grid-template-columns: 2.35rem minmax(0, 1fr);
+    gap: 0.7rem;
+    padding-inline: 0.82rem;
+  }
+
+  body.signal-archive-home .signal-connector {
+    margin-left: 1.16rem;
+  }
+
+  body.signal-archive-home .method-list li,
+  body.signal-archive-home .method-list li:nth-child(n) {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}

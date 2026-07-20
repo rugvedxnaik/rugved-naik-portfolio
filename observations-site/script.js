@@ -72,6 +72,7 @@
     notes.replaceChildren();
     data.lenses.forEach((lens, index) => {
       const article = textElement("article", "reveal");
+      article.dataset.mood = lens.mood || lens.id || "";
       article.append(
         textElement("span", "", `${String(index + 1).padStart(2, "0")} / ${lens.label}`),
         textElement("p", "", lens.text),
@@ -106,6 +107,11 @@
     const entry = textElement("article", `signal-entry${isOpen ? " is-open" : ""}`);
     entry.dataset.signalEntry = "";
     entry.dataset.caseId = item.id;
+    entry.dataset.signal = item.dossierKey || item.theme || item.category || "";
+    if (item.evidenceStrength) {
+      entry.style.setProperty("--signal-strength", `${item.evidenceStrength}%`);
+    }
+    if (item.theme) entry.classList.add(item.theme);
 
     const trigger = textElement("button", "signal-entry-trigger");
     trigger.type = "button";
