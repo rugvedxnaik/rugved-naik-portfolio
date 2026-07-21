@@ -88,12 +88,6 @@ body.consumer-switchboard-home[data-signal="1903"] {
   --active-accent-strong: #12423d;
 }
 
-body.consumer-switchboard-home[data-signal="siara"] {
-  --active-accent: #8d4d74;
-  --active-accent-soft: rgba(141, 77, 116, 0.14);
-  --active-accent-strong: #613650;
-}
-
 /* Final clean archive pass */
 
 body.signal-archive-home {
@@ -7603,10 +7597,4 @@ body.consumer-switchboard-home[data-signal="1903"] {
   --active-accent: #0f6b61;
   --active-accent-soft: rgba(15, 107, 97, 0.14);
   --active-accent-strong: #12423d;
-}
-
-body.consumer-switchboard-home[data-signal="siara"] {
-  --active-accent: #8d4d74;
-  --active-accent-soft: rgba(141, 77, 116, 0.14);
-  --active-accent-strong: #613650;
 }

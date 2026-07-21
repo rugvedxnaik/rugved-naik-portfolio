@@ -63,7 +63,7 @@
       document.documentElement.classList.add("js");
     </script>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="clean-ui.css?v=20260721-2" />
+    <link rel="stylesheet" href="clean-ui.css?v=20260721-3" />
   </head>
   <body class="site-home signal-archive-home">
     <header class="site-header consumer-header">
@@ -78,6 +78,7 @@
         <a href="#signals">Signals</a>
         <a href="#notes">Notes</a>
         <a href="#method">Method</a>
+        <a href="#interests">Interests</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -93,7 +94,7 @@
               They are solved with a clearer idea of what the brand is actually saying, what the product helps people become, and what should stay recognizable after the touchpoint disappears.
             </p>
             <p class="hero-proof" data-hero-proof>
-              Archive includes Givenchy Beauty, Miutine, Danone, L'Oréal, LVMH, Withings, Recognition Index, 19h03, SIARA House, and Amazon conversion systems.
+              Archive includes Givenchy Beauty, Miutine, Danone, L'Oréal, LVMH, Withings, BAJA SAE India, foldable e-mobility, Recognition Index, 19h03, and Amazon conversion systems.
             </p>
             <div class="hero-actions">
               <a class="primary-link" href="#signals" data-hero-primary>Open the archive</a>
@@ -184,6 +185,16 @@
               Open a sentence to see the consumer behavior, the evidence, the strategic translation, and the system it became.
             </p>
           </div>
+        </div>
+
+        <div class="shell signal-filter-panel" data-signal-filters aria-label="Filter signal archive">
+          <div class="signal-filter-group">
+            <span>Status</span>
+            <button class="signal-filter-chip" type="button" aria-pressed="true">All</button>
+            <button class="signal-filter-chip" type="button">Routed</button>
+            <button class="signal-filter-chip" type="button">Still routing</button>
+          </div>
+          <p class="signal-filter-count" data-signal-filter-count>Loading archive filters</p>
         </div>
 
         <div class="shell signal-list" data-signal-list aria-label="Signal archive">
@@ -385,27 +396,6 @@
             </div>
           </article>
 
-          <article class="signal-entry" data-signal-entry data-case-id="025">
-            <button class="signal-entry-trigger" type="button" aria-expanded="false" aria-controls="signal-panel-025">
-              <span class="signal-entry-number">10</span>
-              <span class="signal-entry-quote">I want jewellery that feels precise before it feels ornamental.</span>
-              <span class="signal-entry-status is-routing">still routing</span>
-            </button>
-            <div class="signal-entry-panel" id="signal-panel-025" hidden>
-              <div class="signal-connector" aria-hidden="true"></div>
-              <div class="signal-entry-content">
-                <div class="signal-translation"><span>Translation</span><p>Find the position that is memorable before it becomes ornamental.</p></div>
-                <div class="signal-output"><span>Output</span><p>A still-routing positioning territory for a jewellery house.</p></div>
-                <p class="signal-evidence-hint"><span>Evidence:</span> A live positioning note for contemporary Indian jewellery.</p>
-                <details class="signal-evidence-details">
-                  <summary>See tension and status</summary>
-                  <div><span>Tension</span><p>Heritage, occasion, investment, and minimal luxury are already crowded positions.</p></div>
-                  <p class="signal-meta">Route: still routing / Proof: Independent inquiry / State: Field note / Updated 19 Jul</p>
-                </details>
-                <div class="signal-project"><span>Project</span><p>SIARA House</p><small>Dossier in progress</small></div>
-              </div>
-            </div>
-          </article>
         </div>
       </section>
 
@@ -464,6 +454,33 @@
         </div>
       </section>
 
+      <section class="consumer-section interests-section" id="interests">
+        <div class="shell interests-grid">
+          <div>
+            <p class="eyebrow" data-interests-eyebrow>Interests</p>
+            <h2 data-interests-title>Travel, culture, and people are part of the same consumer practice.</h2>
+            <p data-interests-text>
+              I like moving through places slowly enough to notice what people repeat: how they eat, commute, gather, buy, dress, wait, celebrate, and make meaning. This section will later open into a fuller field notebook on travel, culture, and understanding people in context.
+            </p>
+            <a class="interests-link" href="#interests" data-interests-link>Interests archive coming soon</a>
+          </div>
+          <div class="interests-cards" data-interests-list>
+            <article class="interest-card reveal">
+              <span>Travel</span>
+              <p>Seeing how behavior changes when the street, weather, language, transport, and social rules change.</p>
+            </article>
+            <article class="interest-card reveal">
+              <span>Cultures</span>
+              <p>Reading rituals, objects, and everyday codes without flattening them into trends.</p>
+            </article>
+            <article class="interest-card reveal">
+              <span>People</span>
+              <p>Understanding what people do before asking what they say they want.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="consumer-section contact-section" id="contact">
         <div class="shell contact-grid consumer-contact-grid">
           <div>
@@ -491,6 +508,6 @@
       </section>
     </main>
 
-    <script src="script.js?v=20260721-1"></script>
+    <script src="script.js?v=20260721-2"></script>
   </body>
 </html>

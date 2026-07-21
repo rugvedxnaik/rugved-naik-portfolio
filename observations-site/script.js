@@ -9,6 +9,85 @@
   let activeCaseId = null;
   let soundEnabled = false;
   let audioContext = null;
+  let signalFilterState = {
+    status: "all",
+    focus: "all",
+  };
+
+  const soundProfiles = {
+    settled: {
+      wave: "triangle",
+      overtoneWave: "sine",
+      fundamental: 220,
+      endFrequency: 217,
+      overtone: 447,
+      overtoneEnd: 441,
+      filter: 1450,
+      q: 1.4,
+      peak: 0.032,
+      duration: 0.45,
+    },
+    tentative: {
+      wave: "sine",
+      overtoneWave: "triangle",
+      fundamental: 196,
+      endFrequency: 202,
+      overtone: 311,
+      overtoneEnd: 328,
+      filter: 1180,
+      q: 0.9,
+      peak: 0.026,
+      duration: 0.34,
+    },
+    clear: {
+      wave: "triangle",
+      overtoneWave: "sine",
+      fundamental: 261.63,
+      endFrequency: 264,
+      overtone: 523.25,
+      overtoneEnd: 528,
+      filter: 1680,
+      q: 1.1,
+      peak: 0.03,
+      duration: 0.38,
+    },
+    light: {
+      wave: "sine",
+      overtoneWave: "sine",
+      fundamental: 329.63,
+      endFrequency: 326,
+      overtone: 659.25,
+      overtoneEnd: 652,
+      filter: 2100,
+      q: 0.8,
+      peak: 0.022,
+      duration: 0.3,
+    },
+    deep: {
+      wave: "triangle",
+      overtoneWave: "square",
+      fundamental: 164.81,
+      endFrequency: 162,
+      overtone: 329.63,
+      overtoneEnd: 324,
+      filter: 980,
+      q: 1.6,
+      peak: 0.028,
+      duration: 0.5,
+    },
+    bright: {
+      wave: "sine",
+      overtoneWave: "triangle",
+      fundamental: 293.66,
+      endFrequency: 302,
+      overtone: 587.33,
+      overtoneEnd: 604,
+      filter: 2350,
+      q: 1,
+      peak: 0.024,
+      duration: 0.36,
+    },
+  };
 
   function qs(selector, root = document) {
     return root.querySelector(selector);
@@ -41,9 +120,40 @@
     return item?.signal?.evidence || "Evidence is being gathered.";
   }
 
+  function slugify(value) {
+    return String(value || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/&/g, " and ")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
+  function focusLabel(item) {
+    const combined = `${item?.company || ""} ${item?.project || ""} ${item?.dossierKey || ""} ${item?.slug || ""}`.toLowerCase();
+    if (combined.includes("l'oréal") || combined.includes("loreal")) return "L'Oréal";
+    if (combined.includes("lvmh") || combined.includes("givenchy")) return "LVMH";
+    if (combined.includes("danone")) return "Danone";
+    if (combined.includes("withings")) return "Withings";
+    if (combined.includes("miutine")) return "Miutine";
+    if (combined.includes("baja")) return "BAJA";
+    if (combined.includes("mobility") || combined.includes("electric")) return "Mobility";
+    if (combined.includes("amazon") || combined.includes("commerce")) return "Amazon";
+    return "Independent";
+  }
+
+  function focusKey(item) {
+    return slugify(focusLabel(item)) || "independent";
+  }
+
+  function dossierStatus(item) {
+    return item?.caseLink ? "Dossier open" : "Dossier in progress";
+  }
+
   function classificationLine(item) {
     const capability = item?.capabilities?.length ? item.capabilities.join(" / ") : "Strategy";
-    return `${item.category || "Portfolio inquiry"} / ${capability} / ${item.validation || "In progress"}${item.readingTime ? ` / ${item.readingTime}` : ""}`;
+    return `${capability}${item.readingTime ? ` / ${item.readingTime}` : ""}`;
   }
 
   function setText(selector, value) {
@@ -90,10 +200,11 @@
       textElement("span", "", "Tension"),
       textElement("p", "", item.signal.tension),
     );
-    const meta = textElement(
-      "p",
-      "signal-meta",
-      `Route: ${item.routeStatus} / Proof: ${item.validation} / State: ${item.status} / Updated ${item.lastUpdatedLabel}`,
+    const meta = textElement("div", "signal-meta-tags");
+    meta.append(
+      textElement("span", "", item.routeStatus || "still routing"),
+      textElement("span", "", item.validation || "Proof in progress"),
+      textElement("span", "", dossierStatus(item)),
     );
     details.append(summary, tension, meta);
     return details;
@@ -104,10 +215,18 @@
     entry.dataset.signalEntry = "";
     entry.dataset.caseId = item.id;
     entry.dataset.signal = item.dossierKey || item.theme || item.category || "";
+    entry.dataset.routeStatus = item.routeStatus || "";
+    entry.dataset.focus = focusKey(item);
     if (item.evidenceStrength) {
       entry.style.setProperty("--signal-strength", `${item.evidenceStrength}%`);
     }
     if (item.theme) entry.classList.add(item.theme);
+
+    const quoteBlock = textElement("span", "signal-entry-main");
+    quoteBlock.append(
+      textElement("span", "signal-entry-quote", item.signalQuote),
+      textElement("span", "signal-entry-category", item.category || "Portfolio inquiry"),
+    );
 
     const trigger = textElement("button", "signal-entry-trigger");
     trigger.type = "button";
@@ -115,7 +234,7 @@
     trigger.setAttribute("aria-controls", `signal-panel-${item.id}`);
     trigger.append(
       textElement("span", "signal-entry-number", String(index + 1).padStart(2, "0")),
-      textElement("span", "signal-entry-quote", item.signalQuote),
+      quoteBlock,
       textElement(
         "span",
         `signal-entry-status ${item.routeStatus === "routed" ? "is-routed" : "is-routing"}`,
@@ -146,7 +265,7 @@
     hint.append(textElement("span", "", "Evidence:"), document.createTextNode(` ${evidenceHint(item)}`));
     const classification = textElement("p", "signal-classification");
     classification.append(
-      textElement("span", "", "Classification:"),
+      textElement("span", "", "Capability:"),
       document.createTextNode(` ${classificationLine(item)}`),
     );
 
@@ -179,6 +298,100 @@
     activeCaseId = defaultId;
   }
 
+  function buttonForFilter(group, value, label, isActive) {
+    const button = textElement("button", "signal-filter-chip", label);
+    button.type = "button";
+    button.dataset.filterGroup = group;
+    button.dataset.filterValue = value;
+    button.setAttribute("aria-pressed", String(isActive));
+    return button;
+  }
+
+  function renderSignalFilters(data) {
+    const panel = qs("[data-signal-filters]");
+    if (!panel) return;
+
+    const focusLabels = ["All", ...Array.from(new Set(data.cases.map(focusLabel)))];
+    const statusOptions = [
+      ["all", "All"],
+      ["routed", "Routed"],
+      ["still routing", "Still routing"],
+    ];
+
+    const statusGroup = textElement("div", "signal-filter-group");
+    statusGroup.append(textElement("span", "", "Status"));
+    statusOptions.forEach(([value, label]) => {
+      statusGroup.append(buttonForFilter("status", value, label, signalFilterState.status === value));
+    });
+
+    const focusGroup = textElement("div", "signal-filter-group");
+    focusGroup.append(textElement("span", "", "Project"));
+    focusLabels.forEach((label) => {
+      const value = label === "All" ? "all" : slugify(label);
+      focusGroup.append(buttonForFilter("focus", value, label, signalFilterState.focus === value));
+    });
+
+    const count = textElement("p", "signal-filter-count", "");
+    count.dataset.signalFilterCount = "";
+
+    panel.replaceChildren(statusGroup, focusGroup, count);
+  }
+
+  function matchesSignalFilter(entry) {
+    const statusMatch =
+      signalFilterState.status === "all" || entry.dataset.routeStatus === signalFilterState.status;
+    const focusMatch = signalFilterState.focus === "all" || entry.dataset.focus === signalFilterState.focus;
+    return statusMatch && focusMatch;
+  }
+
+  function applySignalFilters(options = {}) {
+    const entries = qsa("[data-signal-entry]");
+    let visibleEntries = [];
+
+    entries.forEach((entry) => {
+      const isVisible = matchesSignalFilter(entry);
+      entry.hidden = !isVisible;
+      entry.classList.toggle("is-filtered-out", !isVisible);
+      if (isVisible) visibleEntries.push(entry);
+      if (!isVisible && entry.classList.contains("is-open")) closeEntry(entry);
+    });
+
+    const count = qs("[data-signal-filter-count]");
+    if (count) {
+      const noun = visibleEntries.length === 1 ? "signal" : "signals";
+      count.textContent = `${visibleEntries.length} visible ${noun}`;
+    }
+
+    const hasOpenVisible = visibleEntries.some((entry) => entry.classList.contains("is-open"));
+    if (!hasOpenVisible && visibleEntries.length && options.openFirst !== false) {
+      openEntry(visibleEntries[0], { focus: false, playSound: false });
+    }
+
+    qsa("[data-filter-group]").forEach((button) => {
+      button.setAttribute(
+        "aria-pressed",
+        String(signalFilterState[button.dataset.filterGroup] === button.dataset.filterValue),
+      );
+    });
+  }
+
+  function setupSignalFilters() {
+    const panel = qs("[data-signal-filters]");
+    if (!panel) return;
+
+    panel.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-filter-group]");
+      if (!button) return;
+      const group = button.dataset.filterGroup;
+      const value = button.dataset.filterValue;
+      if (!group || !value) return;
+      signalFilterState[group] = value;
+      applySignalFilters();
+    });
+
+    applySignalFilters({ openFirst: false });
+  }
+
   function renderUnroutedSignals(data) {
     const grid = qs("[data-unrouted-signals]");
     if (!grid || !data.unroutedSignals) return;
@@ -191,6 +404,26 @@
         textElement("blockquote", "", note.signal),
         textElement("p", "", note.note),
       );
+      grid.append(article);
+    });
+  }
+
+  function renderInterests(data) {
+    const interests = data.interests;
+    if (!interests) return;
+
+    setText("[data-interests-eyebrow]", interests.eyebrow);
+    setText("[data-interests-title]", interests.title);
+    setText("[data-interests-text]", interests.text);
+    setText("[data-interests-link]", interests.linkLabel);
+
+    const grid = qs("[data-interests-list]");
+    if (!grid || !interests.items) return;
+
+    grid.replaceChildren();
+    interests.items.forEach((item) => {
+      const article = textElement("article", "interest-card reveal");
+      article.append(textElement("span", "", item.label), textElement("p", "", item.text));
       grid.append(article);
     });
   }
@@ -232,7 +465,8 @@
 
     if (options.focus && trigger) trigger.focus();
     if (options.playSound) {
-      window.setTimeout(playRouteTone, connectorDelay);
+      const item = caseById(id);
+      window.setTimeout(() => playRouteTone(item?.soundProfile), connectorDelay);
     }
   }
 
@@ -257,15 +491,18 @@
       });
 
       trigger.addEventListener("keydown", (event) => {
-        let nextIndex = index;
+        const visibleEntries = entries.filter((candidate) => !candidate.hidden);
+        const visibleIndex = visibleEntries.indexOf(entry);
+        let nextIndex = visibleIndex;
+        if (visibleIndex < 0) return;
         if (event.key === "ArrowDown" || event.key === "ArrowRight") {
-          nextIndex = (index + 1) % entries.length;
+          nextIndex = (visibleIndex + 1) % visibleEntries.length;
         } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
-          nextIndex = (index - 1 + entries.length) % entries.length;
+          nextIndex = (visibleIndex - 1 + visibleEntries.length) % visibleEntries.length;
         } else if (event.key === "Home") {
           nextIndex = 0;
         } else if (event.key === "End") {
-          nextIndex = entries.length - 1;
+          nextIndex = visibleEntries.length - 1;
         } else if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
           toggleEntry(entry, { playSound: true });
@@ -275,7 +512,7 @@
         }
 
         event.preventDefault();
-        const nextTrigger = qs(".signal-entry-trigger", entries[nextIndex]);
+        const nextTrigger = qs(".signal-entry-trigger", visibleEntries[nextIndex]);
         if (nextTrigger) nextTrigger.focus();
       });
     });
@@ -291,12 +528,13 @@
     return audioContext;
   }
 
-  function playRouteTone() {
+  function playRouteTone(profileName = "settled") {
     if (!soundEnabled) return;
 
     const context = ensureAudioContext();
     if (!context) return;
 
+    const profile = soundProfiles[profileName] || soundProfiles.settled;
     const now = context.currentTime;
     const master = context.createGain();
     const filter = context.createBiquadFilter();
@@ -305,18 +543,18 @@
     const overtoneGain = context.createGain();
 
     filter.type = "lowpass";
-    filter.frequency.setValueAtTime(1450, now);
-    filter.Q.setValueAtTime(1.4, now);
+    filter.frequency.setValueAtTime(profile.filter, now);
+    filter.Q.setValueAtTime(profile.q, now);
     master.gain.setValueAtTime(0.0001, now);
-    master.gain.exponentialRampToValueAtTime(0.032, now + 0.012);
-    master.gain.exponentialRampToValueAtTime(0.0001, now + 0.42);
+    master.gain.exponentialRampToValueAtTime(profile.peak, now + 0.012);
+    master.gain.exponentialRampToValueAtTime(0.0001, now + profile.duration);
 
-    fundamental.type = "triangle";
-    overtone.type = "sine";
-    fundamental.frequency.setValueAtTime(220, now);
-    fundamental.frequency.exponentialRampToValueAtTime(217, now + 0.4);
-    overtone.frequency.setValueAtTime(447, now);
-    overtone.frequency.exponentialRampToValueAtTime(441, now + 0.32);
+    fundamental.type = profile.wave;
+    overtone.type = profile.overtoneWave;
+    fundamental.frequency.setValueAtTime(profile.fundamental, now);
+    fundamental.frequency.exponentialRampToValueAtTime(profile.endFrequency, now + profile.duration * 0.86);
+    overtone.frequency.setValueAtTime(profile.overtone, now);
+    overtone.frequency.exponentialRampToValueAtTime(profile.overtoneEnd, now + profile.duration * 0.72);
     overtoneGain.gain.setValueAtTime(0.32, now);
 
     fundamental.connect(master);
@@ -327,8 +565,8 @@
 
     fundamental.start(now);
     overtone.start(now);
-    fundamental.stop(now + 0.45);
-    overtone.stop(now + 0.36);
+    fundamental.stop(now + profile.duration + 0.02);
+    overtone.stop(now + profile.duration * 0.82);
   }
 
   function setupSoundToggle(data) {
@@ -402,10 +640,13 @@
     renderHero(data);
     renderLenses(data);
     renderSignalList(data);
+    renderSignalFilters(data);
     renderUnroutedSignals(data);
+    renderInterests(data);
     renderSiteUpdated(data);
     setupSoundToggle(data);
     setupSignalArchive();
+    setupSignalFilters();
     setupReveal();
     setupJumpLinks();
     body.classList.add("is-data-ready");

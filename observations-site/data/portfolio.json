@@ -7,7 +7,7 @@
     "eyebrow": "Consumer-centric product and marketing strategy.",
     "title": "The most interesting marketing problems are not solved with more content.",
     "lens": "They are solved with a clearer idea of what the brand is actually saying, what the product helps people become, and what should stay recognizable after the touchpoint disappears.",
-    "proofLine": "Archive includes Givenchy Beauty, Miutine, Danone, L'Oréal, LVMH, Withings, Recognition Index, 19h03, SIARA House, and Amazon conversion systems.",
+    "proofLine": "Archive includes Givenchy Beauty, Miutine, Danone, L'Oréal, LVMH, Withings, BAJA SAE India, foldable e-mobility, Recognition Index, 19h03, and Amazon conversion systems.",
     "primaryCta": "Open the archive",
     "secondaryCta": "Email Rugved"
   },
@@ -32,6 +32,26 @@
     "category evidence",
     "marketing systems"
   ],
+  "interests": {
+    "eyebrow": "Interests",
+    "title": "Travel, culture, and people are part of the same consumer practice.",
+    "text": "I like moving through places slowly enough to notice what people repeat: how they eat, commute, gather, buy, dress, wait, celebrate, and make meaning. This section will later open into a fuller field notebook on travel, culture, and understanding people in context.",
+    "linkLabel": "Interests archive coming soon",
+    "items": [
+      {
+        "label": "Travel",
+        "text": "Seeing how behavior changes when the street, weather, language, transport, and social rules change."
+      },
+      {
+        "label": "Cultures",
+        "text": "Reading rituals, objects, and everyday codes without flattening them into trends."
+      },
+      {
+        "label": "People",
+        "text": "Understanding what people do before asking what they say they want."
+      }
+    ]
+  },
   "lenses": [
     {
       "id": "collection",
@@ -74,6 +94,18 @@
       "mood": "1903",
       "label": "ritual",
       "text": "People often choose the object that helps them cross into the next version of the day."
+    },
+    {
+      "id": "mobility",
+      "mood": "mobility",
+      "label": "mobility",
+      "text": "Cleaner mobility is adopted when the product fits the city's behavior, not only its roads."
+    },
+    {
+      "id": "team-systems",
+      "mood": "baja",
+      "label": "team systems",
+      "text": "A technical product becomes easier to trust when the proof, team, and operating logic are visible."
     },
     {
       "id": "conversion",
@@ -360,30 +392,62 @@
     },
     {
       "id": "025",
-      "slug": "siara-house",
-      "dossierKey": "siara",
-      "theme": "theme-siara",
-      "signalQuote": "I want jewellery that feels precise before it feels ornamental.",
-      "routeStatus": "still routing",
-      "status": "Field note",
-      "validation": "Independent inquiry",
-      "validationType": "independent",
-      "lastUpdated": "2026-07-19",
-      "lastUpdatedLabel": "19 Jul",
-      "evidenceStrength": 54,
-      "caseTitle": "SIARA House",
-      "project": "SIARA House",
-      "company": "",
-      "category": "Brand and Product Architecture",
-      "capabilities": ["Strategy", "Design"],
-      "readingTime": "4 min note",
-      "archiveNote": "The opportunity is not another ornament. It is a house with rules.",
-      "soundProfile": "tentative",
+      "slug": "baja-sae-experience",
+      "dossierKey": "baja",
+      "theme": "theme-baja",
+      "signalQuote": "I believe the machine when the team makes the proof visible.",
+      "routeStatus": "routed",
+      "status": "Finished dossier",
+      "validation": "Competition validated",
+      "validationType": "competition",
+      "lastUpdated": "2026-07-21",
+      "lastUpdatedLabel": "21 Jul",
+      "evidenceStrength": 82,
+      "caseTitle": "BAJA SAE India Experience",
+      "project": "BAJA SAE India 2023",
+      "company": "BAJA SAE",
+      "category": "Experience and Operations Systems",
+      "capabilities": ["Product", "Operations", "Leadership"],
+      "caseLink": "case-baja.html",
+      "caseLinkLabel": "Open dossier",
+      "readingTime": "5 min read",
+      "archiveNote": "A vehicle competition became an exercise in making technical work visible, fundable, and understood.",
+      "soundProfile": "deep",
       "signal": {
-        "evidence": "A live positioning note for contemporary Indian jewellery.",
-        "tension": "Heritage, occasion, investment, and minimal luxury are already crowded positions.",
-        "translation": "Find the position that is memorable before it becomes ornamental.",
-        "output": "A still-routing positioning territory for a jewellery house."
+        "evidence": "Led a 25-member multidisciplinary BAJA SAE India team across research and development, vehicle dynamics, production, simulation, finance, marketing, sponsorships, and competition operations.",
+        "tension": "Technical excellence does not travel by itself. Sponsors, judges, teammates, and audiences need visible proof that the product and the team can hold pressure.",
+        "translation": "Make engineering legible before asking people to believe in it.",
+        "output": "A cross-functional operating system connecting vehicle design, sponsorship, logistics, proof moments, and team narrative."
+      }
+    },
+    {
+      "id": "029",
+      "slug": "foldable-electric-mobility",
+      "dossierKey": "mobility",
+      "theme": "theme-mobility",
+      "signalQuote": "I will use cleaner mobility only if it fits the city I actually live in.",
+      "routeStatus": "routed",
+      "status": "Finished dossier",
+      "validation": "Published research",
+      "validationType": "academic",
+      "lastUpdated": "2026-07-21",
+      "lastUpdatedLabel": "21 Jul",
+      "evidenceStrength": 84,
+      "caseTitle": "Foldable Electric Mobility Product",
+      "project": "Foldable electric mobility product",
+      "company": "",
+      "category": "Product and Adoption Systems",
+      "capabilities": ["Product", "Research", "Strategy"],
+      "caseLink": "case-electric-mobility.html",
+      "caseLinkLabel": "Open dossier",
+      "readingTime": "6 min read",
+      "archiveNote": "The product was not only a vehicle idea. It was a question about how mobility has to behave inside dense urban life.",
+      "soundProfile": "bright",
+      "signal": {
+        "evidence": "User research, prototyping, simulation, feasibility analysis, an Indian product patent filing, and research published in the International Journal of Vehicle Structures and Systems.",
+        "tension": "A sustainable vehicle can still fail adoption if it ignores storage, last-mile friction, public transport integration, and the way people move through crowded cities.",
+        "translation": "Design for adoption conditions, not just vehicle function.",
+        "output": "A foldable electric mobility concept shaped around urban space, public transport integration, usability, and commercialization potential."
       }
     },
     {

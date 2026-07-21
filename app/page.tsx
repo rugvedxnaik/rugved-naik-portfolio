@@ -19,7 +19,11 @@ function projectLine(item: (typeof cases)[number]) {
 
 function classificationLine(item: (typeof cases)[number]) {
   const capabilities = item.capabilities.length ? item.capabilities.join(" / ") : "Strategy";
-  return `${item.category} / ${capabilities} / ${item.validation}${item.readingTime ? ` / ${item.readingTime}` : ""}`;
+  return `${capabilities}${item.readingTime ? ` / ${item.readingTime}` : ""}`;
+}
+
+function dossierStatus(item: (typeof cases)[number]) {
+  return item.caseLink ? "Dossier open" : "Dossier in progress";
 }
 
 export default function Home() {
@@ -39,6 +43,7 @@ export default function Home() {
           <a href="#signals">Signals</a>
           <a href="#notes">Notes</a>
           <a href="#method">Method</a>
+          <a href="#interests">Interests</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
@@ -113,7 +118,10 @@ export default function Home() {
             >
               <summary>
                 <span>{String(index + 1).padStart(2, "0")}</span>
-                <blockquote>{item.signalQuote}</blockquote>
+                <div className="consumer-app-signal-main">
+                  <blockquote>{item.signalQuote}</blockquote>
+                  <em>{item.category}</em>
+                </div>
                 <small className={item.routeStatus === "routed" ? "is-routed" : ""}>
                   {item.routeStatus}
                 </small>
@@ -140,12 +148,14 @@ export default function Home() {
                     <span>Tension</span>
                     <p>{item.signal.tension}</p>
                   </div>
-                  <p>
-                    Route: {item.routeStatus} / Proof: {item.validation} / State: {item.status} / Updated {item.lastUpdatedLabel}
+                  <p className="consumer-app-meta-tags">
+                    <span>{item.routeStatus}</span>
+                    <span>{item.validation}</span>
+                    <span>{dossierStatus(item)}</span>
                   </p>
                 </details>
                 <p className="consumer-app-classification">
-                  <span>Classification:</span> {classificationLine(item)}
+                  <span>Capability:</span> {classificationLine(item)}
                 </p>
                 <div className="consumer-app-project-line">
                   <span>Project</span>
@@ -186,6 +196,23 @@ export default function Home() {
             </li>
           ))}
         </ol>
+      </section>
+
+      <section className="consumer-app-interests" id="interests">
+        <div>
+          <p className="consumer-app-eyebrow">{portfolioData.interests.eyebrow}</p>
+          <h2>{portfolioData.interests.title}</h2>
+          <p>{portfolioData.interests.text}</p>
+          <a href="#interests">{portfolioData.interests.linkLabel}</a>
+        </div>
+        <div className="consumer-app-interests-grid">
+          {portfolioData.interests.items.map((item) => (
+            <article key={item.label}>
+              <span>{item.label}</span>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="consumer-app-contact" id="contact">
