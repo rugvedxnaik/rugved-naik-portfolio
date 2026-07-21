@@ -1175,3 +1175,58 @@ body.signal-archive-home .site-updated {
     gap: 0.25rem;
   }
 }
+
+/* Closing sections repair */
+
+body.signal-archive-home .help-section .help-grid,
+body.signal-archive-home .contact-section .contact-grid {
+  grid-template-columns: minmax(23rem, 0.48fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 4.4rem);
+}
+
+body.signal-archive-home .help-section h2,
+body.signal-archive-home .contact-section h2 {
+  max-width: 35rem;
+  font-size: clamp(2.35rem, 3.25vw, 3.35rem);
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+body.signal-archive-home .help-section .help-cards {
+  align-self: start;
+  gap: 0.82rem;
+}
+
+body.signal-archive-home .help-section .help-cards article {
+  min-height: clamp(8.6rem, 11vw, 10.8rem);
+  padding: clamp(1rem, 1.35vw, 1.2rem);
+}
+
+body.signal-archive-home .contact-section .contact-panel {
+  align-self: start;
+  min-height: 0;
+  padding: clamp(1.25rem, 2.4vw, 1.9rem);
+}
+
+body.signal-archive-home .contact-section .contact-panel blockquote {
+  max-width: 50rem;
+  font-size: clamp(2.35rem, 3.2vw, 3.5rem);
+  line-height: 1.03;
+  text-wrap: balance;
+}
+
+body.signal-archive-home .contact-section .contact-grid p:not(.eyebrow):not(.site-updated) {
+  max-width: 24rem;
+}
+
+@media (max-width: 1050px) {
+  body.signal-archive-home .help-section .help-grid,
+  body.signal-archive-home .contact-section .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.signal-archive-home .help-section h2,
+  body.signal-archive-home .contact-section h2 {
+    max-width: 44rem;
+  }
+}

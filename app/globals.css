@@ -3933,3 +3933,44 @@ blockquote {
     margin-left: 1.04rem;
   }
 }
+
+/* Closing sections repair */
+
+.consumer-app-signal-archive .consumer-app-contact {
+  grid-template-columns: minmax(23rem, 0.48fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 4.4rem);
+}
+
+.consumer-app-signal-archive .consumer-app-contact h2 {
+  max-width: 35rem;
+  font-size: clamp(2.35rem, 3.25vw, 3.35rem);
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.consumer-app-signal-archive .consumer-app-contact aside {
+  align-self: start;
+  min-height: 0;
+  padding: clamp(1.25rem, 2.4vw, 1.9rem);
+}
+
+.consumer-app-signal-archive .consumer-app-contact aside blockquote {
+  max-width: 50rem;
+  font-size: clamp(2.35rem, 3.2vw, 3.5rem);
+  line-height: 1.03;
+  text-wrap: balance;
+}
+
+.consumer-app-signal-archive .consumer-app-contact > div > p:not(.consumer-app-eyebrow) {
+  max-width: 24rem;
+}
+
+@media (max-width: 1050px) {
+  .consumer-app-signal-archive .consumer-app-contact {
+    grid-template-columns: 1fr;
+  }
+
+  .consumer-app-signal-archive .consumer-app-contact h2 {
+    max-width: 44rem;
+  }
+}
