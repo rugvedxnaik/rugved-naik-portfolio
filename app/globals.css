@@ -3362,10 +3362,18 @@ blockquote {
   background: var(--consumer-panel);
 }
 
-.consumer-app-how p:last-child {
+.consumer-app-how p:not(.consumer-app-eyebrow) {
   margin: 0.78rem 0 0;
   color: var(--consumer-soft);
   line-height: 1.62;
+}
+
+.consumer-app-status-line {
+  padding-top: 0.78rem;
+  border-top: 1px solid var(--app-line);
+  color: var(--consumer-faint) !important;
+  font-size: 0.82rem;
+  line-height: 1.55;
 }
 
 .consumer-app-signal-list {

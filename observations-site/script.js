@@ -60,6 +60,7 @@
     if (data.hero?.secondaryCta) setText("[data-hero-secondary]", data.hero.secondaryCta);
     if (data.switchboard?.thesis) setText("[data-switchboard-thesis]", data.switchboard.thesis);
     if (data.switchboard?.instruction) setText("[data-switchboard-instruction]", data.switchboard.instruction);
+    if (data.switchboard?.statusLine) setText("[data-status-line]", data.switchboard.statusLine);
     if (data.cases?.length) {
       setText("[data-signal-heading]", `${data.cases.length} consumer signals, filed as evidence.`);
     }
@@ -83,12 +84,7 @@
 
   function createEvidenceDetails(item) {
     const details = textElement("details", "signal-evidence-details");
-    const summary = textElement("summary", "", "See the evidence");
-    const evidence = textElement("div", "");
-    evidence.append(
-      textElement("span", "", "Evidence"),
-      textElement("p", "", item.signal.evidence),
-    );
+    const summary = textElement("summary", "", "See tension and status");
     const tension = textElement("div", "");
     tension.append(
       textElement("span", "", "Tension"),
@@ -97,9 +93,9 @@
     const meta = textElement(
       "p",
       "signal-meta",
-      `${item.validation} · ${item.status} · Updated ${item.lastUpdatedLabel}`,
+      `Route: ${item.routeStatus} / Proof: ${item.validation} / State: ${item.status} / Updated ${item.lastUpdatedLabel}`,
     );
-    details.append(summary, evidence, tension, meta);
+    details.append(summary, tension, meta);
     return details;
   }
 

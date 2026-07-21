@@ -62,6 +62,7 @@ export default function Home() {
             The work starts with what someone says, wants, avoids, or repeats. Open a
             signal to see how evidence becomes a system.
           </p>
+          <p className="consumer-app-status-line">{portfolioData.switchboard.statusLine}</p>
         </aside>
       </section>
 
@@ -134,17 +135,13 @@ export default function Home() {
                   <span>Evidence:</span> {item.signal.evidence}
                 </p>
                 <details className="consumer-app-evidence-details">
-                  <summary>See the evidence</summary>
-                  <div>
-                    <span>Evidence</span>
-                    <p>{item.signal.evidence}</p>
-                  </div>
+                  <summary>See tension and status</summary>
                   <div>
                     <span>Tension</span>
                     <p>{item.signal.tension}</p>
                   </div>
                   <p>
-                    {item.validation} · {item.status} · Updated {item.lastUpdatedLabel}
+                    Route: {item.routeStatus} / Proof: {item.validation} / State: {item.status} / Updated {item.lastUpdatedLabel}
                   </p>
                 </details>
                 <p className="consumer-app-classification">

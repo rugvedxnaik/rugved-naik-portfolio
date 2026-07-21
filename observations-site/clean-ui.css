@@ -630,11 +630,20 @@ body.signal-archive-home .signal-hero-note {
   background: transparent;
 }
 
-body.signal-archive-home .signal-hero-note p:last-child {
+body.signal-archive-home .signal-hero-note p:not(.eyebrow) {
   max-width: 20rem;
   color: var(--ink-soft);
   font-size: 0.98rem;
   line-height: 1.62;
+}
+
+body.signal-archive-home .status-axis-line {
+  margin: 0.78rem 0 0;
+  padding-top: 0.78rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink-faint);
+  font-size: 0.82rem;
+  line-height: 1.55;
 }
 
 body.signal-archive-home .consumer-section {

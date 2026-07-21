@@ -1,7 +1,7 @@
 {
   "site": {
-    "lastUpdated": "2026-07-20",
-    "lastUpdatedLabel": "20 Jul 2026"
+    "lastUpdated": "2026-07-21",
+    "lastUpdatedLabel": "21 Jul 2026"
   },
   "hero": {
     "eyebrow": "Consumer-centric product and marketing strategy.",
@@ -15,6 +15,7 @@
     "defaultCaseId": "009",
     "thesis": "The best strategy makes the consumer feel obvious without making them feel simplified.",
     "instruction": "Open a sentence to see the consumer behavior, the evidence, the strategic translation, and the system it became.",
+    "statusLine": "Read the labels as separate axes: route status shows whether the thinking has landed; proof status names the evidence level; the project line shows whether a dossier is available.",
     "soundLabel": "Route tone",
     "soundOffLabel": "Sound off",
     "soundOnLabel": "Sound on"
