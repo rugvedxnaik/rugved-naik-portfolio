@@ -43,7 +43,6 @@ export default function Home() {
           <a href="#signals">Signals</a>
           <a href="#notes">Notes</a>
           <a href="#method">Method</a>
-          <a href="#interests">Interests</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
@@ -84,6 +83,11 @@ export default function Home() {
             The case matters, but the consumer signal comes first. The company appears only
             after the behavior has been read and translated into a usable system.
           </p>
+          <p>
+            For a PM, that means fewer features guessed at and more features earned from
+            evidence. For a PMM, that means positioning that is remembered instead of
+            positioning that is merely accurate.
+          </p>
         </div>
       </section>
 
@@ -98,6 +102,17 @@ export default function Home() {
               <span>{String(index + 1).padStart(2, "0")} / {lens.label}</span>
               <p>{lens.text}</p>
             </article>
+          ))}
+        </div>
+        <p className="consumer-app-lens-closing">{portfolioData.lensClosing}</p>
+      </section>
+
+      <section className="consumer-app-background" id="background">
+        <p className="consumer-app-eyebrow">{portfolioData.background.eyebrow}</p>
+        <h2>{portfolioData.background.title}</h2>
+        <div>
+          {portfolioData.background.lines.map((line) => (
+            <p key={line}>{line}</p>
           ))}
         </div>
       </section>
@@ -132,9 +147,15 @@ export default function Home() {
                   <span>Translation</span>
                   <p>{item.signal.translation}</p>
                 </div>
-                <div>
-                  <span>Output</span>
-                  <p>{item.signal.output}</p>
+                <div className="consumer-app-signal-implications">
+                  <div>
+                    <span>Product implication</span>
+                    <p>{item.signal.productImplication}</p>
+                  </div>
+                  <div>
+                    <span>GTM implication</span>
+                    <p>{item.signal.gtmImplication}</p>
+                  </div>
                 </div>
                 {item.archiveNote ? (
                   <p className="consumer-app-archive-note">{item.archiveNote}</p>
@@ -153,6 +174,7 @@ export default function Home() {
                     <span>{item.validation}</span>
                     <span>{dossierStatus(item)}</span>
                   </p>
+                  <small className="consumer-app-meta-date">Updated {item.lastUpdatedLabel}</small>
                 </details>
                 <p className="consumer-app-classification">
                   <span>Capability:</span> {classificationLine(item)}
@@ -198,20 +220,16 @@ export default function Home() {
         </ol>
       </section>
 
-      <section className="consumer-app-interests" id="interests">
+      <section className="consumer-app-help">
         <div>
-          <p className="consumer-app-eyebrow">{portfolioData.interests.eyebrow}</p>
-          <h2>{portfolioData.interests.title}</h2>
-          <p>{portfolioData.interests.text}</p>
-          <a href="#interests">{portfolioData.interests.linkLabel}</a>
+          <p className="consumer-app-eyebrow">Where I fit</p>
+          <h2>For teams that need sharper consumer understanding before product or marketing decisions.</h2>
         </div>
-        <div className="consumer-app-interests-grid">
-          {portfolioData.interests.items.map((item) => (
-            <article key={item.label}>
-              <span>{item.label}</span>
-              <p>{item.text}</p>
-            </article>
-          ))}
+        <div className="consumer-app-help-grid">
+          <article><span>Product</span><p>Turning evidence into roadmap priorities and feature tradeoffs, not just feature requests.</p></article>
+          <article><span>Marketing</span><p>Positioning and launch narratives built to be remembered, not just accurate.</p></article>
+          <article><span>Brand</span><p>Protect what people should remember when channels and messages change.</p></article>
+          <article><span>Research</span><p>Separate useful signals from category noise, claims, and performance dashboards.</p></article>
         </div>
       </section>
 
@@ -219,6 +237,10 @@ export default function Home() {
         <div>
           <p className="consumer-app-eyebrow">Contact</p>
           <h2>If consumer understanding needs to shape the decision, send me the problem.</h2>
+          <p>
+            Looking for PM, PMM, and consumer-strategy roles where evidence should shape
+            the roadmap or the launch.
+          </p>
           <p>
             Email me with the role, project, or business question. I can reply with the
             most relevant dossier, a short written take, or a 20-minute call if the fit

@@ -137,8 +137,7 @@
     if (combined.includes("danone")) return "Danone";
     if (combined.includes("withings")) return "Withings";
     if (combined.includes("miutine")) return "Miutine";
-    if (combined.includes("baja")) return "BAJA";
-    if (combined.includes("mobility") || combined.includes("electric")) return "Mobility";
+    if (combined.includes("mobility") || combined.includes("electric") || combined.includes("independent venture")) return "E-mobility venture";
     if (combined.includes("amazon") || combined.includes("commerce")) return "Amazon";
     return "Independent";
   }
@@ -192,6 +191,26 @@
     });
   }
 
+  function renderLensClosing(data) {
+    if (data.lensClosing) setText("[data-lens-closing]", data.lensClosing);
+  }
+
+  function renderBackground(data) {
+    const background = data.background;
+    if (!background) return;
+
+    setText("[data-background-eyebrow]", background.eyebrow);
+    setText("[data-background-title]", background.title);
+
+    const lines = qs("[data-background-lines]");
+    if (!lines || !background.lines) return;
+
+    lines.replaceChildren();
+    background.lines.forEach((line) => {
+      lines.append(textElement("p", "", line));
+    });
+  }
+
   function createEvidenceDetails(item) {
     const details = textElement("details", "signal-evidence-details");
     const summary = textElement("summary", "", "See tension and status");
@@ -206,7 +225,10 @@
       textElement("span", "", item.validation || "Proof in progress"),
       textElement("span", "", dossierStatus(item)),
     );
-    details.append(summary, tension, meta);
+    const date = item.lastUpdatedLabel
+      ? textElement("small", "signal-meta-date", `Updated ${item.lastUpdatedLabel}`)
+      : null;
+    details.append(summary, tension, meta, date);
     return details;
   }
 
@@ -255,11 +277,18 @@
       textElement("span", "", "Translation"),
       textElement("p", "", item.signal.translation),
     );
-    const output = textElement("div", "signal-output");
-    output.append(
-      textElement("span", "", "Output"),
-      textElement("p", "", item.signal.output),
+    const implications = textElement("div", "signal-implications");
+    const productImplication = textElement("div", "signal-output");
+    productImplication.append(
+      textElement("span", "", "Product implication"),
+      textElement("p", "", item.signal.productImplication || item.signal.output),
     );
+    const gtmImplication = textElement("div", "signal-output");
+    gtmImplication.append(
+      textElement("span", "", "GTM implication"),
+      textElement("p", "", item.signal.gtmImplication || item.signal.output),
+    );
+    implications.append(productImplication, gtmImplication);
     const archiveNote = item.archiveNote ? textElement("p", "signal-archive-note", item.archiveNote) : null;
     const hint = textElement("p", "signal-evidence-hint");
     hint.append(textElement("span", "", "Evidence:"), document.createTextNode(` ${evidenceHint(item)}`));
@@ -280,7 +309,7 @@
     }
 
     content.append(
-      ...[translation, output, archiveNote, hint, createEvidenceDetails(item), classification, project].filter(Boolean),
+      ...[translation, implications, archiveNote, hint, createEvidenceDetails(item), classification, project].filter(Boolean),
     );
     panel.append(connector, content);
     entry.append(trigger, panel);
@@ -325,7 +354,7 @@
     });
 
     const focusGroup = textElement("div", "signal-filter-group");
-    focusGroup.append(textElement("span", "", "Project"));
+    focusGroup.append(textElement("span", "", "Company"));
     focusLabels.forEach((label) => {
       const value = label === "All" ? "all" : slugify(label);
       focusGroup.append(buttonForFilter("focus", value, label, signalFilterState.focus === value));
@@ -404,26 +433,6 @@
         textElement("blockquote", "", note.signal),
         textElement("p", "", note.note),
       );
-      grid.append(article);
-    });
-  }
-
-  function renderInterests(data) {
-    const interests = data.interests;
-    if (!interests) return;
-
-    setText("[data-interests-eyebrow]", interests.eyebrow);
-    setText("[data-interests-title]", interests.title);
-    setText("[data-interests-text]", interests.text);
-    setText("[data-interests-link]", interests.linkLabel);
-
-    const grid = qs("[data-interests-list]");
-    if (!grid || !interests.items) return;
-
-    grid.replaceChildren();
-    interests.items.forEach((item) => {
-      const article = textElement("article", "interest-card reveal");
-      article.append(textElement("span", "", item.label), textElement("p", "", item.text));
       grid.append(article);
     });
   }
@@ -639,10 +648,11 @@
     validateUnroutedSignals(data);
     renderHero(data);
     renderLenses(data);
+    renderLensClosing(data);
+    renderBackground(data);
     renderSignalList(data);
     renderSignalFilters(data);
     renderUnroutedSignals(data);
-    renderInterests(data);
     renderSiteUpdated(data);
     setupSoundToggle(data);
     setupSignalArchive();

@@ -321,6 +321,7 @@ body.signal-archive-home .method-list li:nth-child(n) {
   body.signal-archive-home .point-grid,
   body.signal-archive-home .section-kicker-row,
   body.signal-archive-home .room-intro,
+  body.signal-archive-home .background-grid,
   body.signal-archive-home .method-grid,
   body.signal-archive-home .help-grid,
   body.signal-archive-home .contact-grid {
@@ -341,6 +342,7 @@ body.signal-archive-home .method-list li:nth-child(n) {
   }
 
   body.signal-archive-home .signal-translation,
+  body.signal-archive-home .signal-implications,
   body.signal-archive-home .signal-output,
   body.signal-archive-home .signal-archive-note,
   body.signal-archive-home .signal-evidence-hint,
@@ -649,11 +651,13 @@ body.signal-archive-home .status-axis-line {
 body.signal-archive-home .consumer-section {
   padding: clamp(3.8rem, 7vw, 6.2rem) 0;
   border-bottom: 1px solid var(--line);
+  scroll-margin-top: 4.5rem;
 }
 
 body.signal-archive-home .point-grid,
 body.signal-archive-home .section-kicker-row,
 body.signal-archive-home .room-intro,
+body.signal-archive-home .background-grid,
 body.signal-archive-home .method-grid,
 body.signal-archive-home .help-grid,
 body.signal-archive-home .contact-grid {
@@ -690,6 +694,8 @@ body.signal-archive-home .point-copy {
 }
 
 body.signal-archive-home .point-copy p,
+body.signal-archive-home .lens-closing p,
+body.signal-archive-home .background-lines p,
 body.signal-archive-home .section-heading p,
 body.signal-archive-home .method-list p,
 body.signal-archive-home .help-cards p,
@@ -768,6 +774,40 @@ body.signal-archive-home .read-notes p {
   line-height: 1.18;
 }
 
+body.signal-archive-home .lens-closing {
+  margin-top: clamp(1rem, 2vw, 1.6rem);
+}
+
+body.signal-archive-home .lens-closing p {
+  max-width: 44rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+body.signal-archive-home .background-section {
+  background:
+    radial-gradient(circle at 78% 18%, rgba(81, 109, 156, 0.1), transparent 26rem),
+    linear-gradient(180deg, rgba(251, 244, 232, 0.32), rgba(248, 239, 223, 0.72));
+}
+
+body.signal-archive-home .background-grid h2 {
+  max-width: 38rem;
+  font-size: clamp(2rem, 3.2vw, 3.35rem);
+}
+
+body.signal-archive-home .background-lines {
+  display: grid;
+  gap: 0.88rem;
+  max-width: 48rem;
+  padding: clamp(1.1rem, 2vw, 1.45rem);
+  border: 1px solid var(--line);
+  background: rgba(251, 244, 232, 0.58);
+}
+
+body.signal-archive-home .background-lines p:first-child {
+  color: var(--ink);
+}
+
 body.signal-archive-home .signal-list {
   display: grid;
   gap: 0.72rem;
@@ -788,6 +828,10 @@ body.signal-archive-home .signal-entry[data-signal="miutine"] {
 }
 
 body.signal-archive-home .signal-entry[data-signal="givenchy"] {
+  --entry-accent: var(--clay);
+}
+
+body.signal-archive-home .signal-entry[data-signal="siara"] {
   --entry-accent: var(--clay);
 }
 
@@ -888,6 +932,7 @@ body.signal-archive-home .signal-entry-content {
 }
 
 body.signal-archive-home .signal-translation,
+body.signal-archive-home .signal-implications,
 body.signal-archive-home .signal-output,
 body.signal-archive-home .signal-archive-note {
   grid-column: 1;
@@ -927,6 +972,16 @@ body.signal-archive-home .signal-meta {
   color: var(--ink-soft);
   font-size: 0.92rem;
   line-height: 1.58;
+}
+
+body.signal-archive-home .signal-implications {
+  display: grid;
+  gap: 0.72rem;
+}
+
+body.signal-archive-home .signal-implications .signal-output {
+  padding-top: 0.72rem;
+  border-top: 1px solid color-mix(in srgb, var(--entry-accent) 22%, var(--line));
 }
 
 body.signal-archive-home .signal-archive-note {
@@ -1218,7 +1273,12 @@ body.signal-archive-home .contact-section .contact-grid p:not(.eyebrow):not(.sit
   max-width: 24rem;
 }
 
+body.signal-archive-home .contact-role-line {
+  color: var(--ink);
+}
+
 @media (max-width: 1050px) {
+  body.signal-archive-home .background-grid,
   body.signal-archive-home .help-section .help-grid,
   body.signal-archive-home .contact-section .contact-grid {
     grid-template-columns: 1fr;
@@ -1254,8 +1314,7 @@ body.signal-archive-home .signal-filter-chip,
 body.signal-archive-home .signal-filter-count,
 body.signal-archive-home .signal-entry-category,
 body.signal-archive-home .signal-meta-tags span,
-body.signal-archive-home .interest-card span,
-body.signal-archive-home .interests-link {
+body.signal-archive-home .signal-meta-date {
   font-family: var(--font-mono);
   font-size: 0.62rem;
   letter-spacing: 0.08em;
@@ -1300,7 +1359,7 @@ body.signal-archive-home .signal-entry[hidden] {
   display: none;
 }
 
-body.signal-archive-home .signal-entry[data-signal="baja"] {
+body.signal-archive-home .signal-entry[data-signal="siara"] {
   --entry-accent: var(--sage);
 }
 
@@ -1335,6 +1394,12 @@ body.signal-archive-home .signal-meta-tags span {
   border-radius: 999px;
   color: color-mix(in srgb, var(--entry-accent) 76%, var(--ink));
   background: rgba(251, 244, 232, 0.58);
+}
+
+body.signal-archive-home .signal-meta-date {
+  display: inline-flex;
+  margin-top: 0.62rem;
+  color: var(--ink-faint);
 }
 
 body.signal-archive-home .interests-grid {

@@ -3314,6 +3314,7 @@ blockquote {
 
 .consumer-app-signal-archive #fit,
 .consumer-app-signal-archive #lens,
+.consumer-app-signal-archive #background,
 .consumer-app-signal-archive #signals,
 .consumer-app-signal-archive #notes,
 .consumer-app-signal-archive #method,
@@ -3648,14 +3649,18 @@ blockquote {
 
 .consumer-app-point,
 .consumer-app-notes,
+.consumer-app-background,
 .consumer-app-work,
 .consumer-app-method,
+.consumer-app-help,
 .consumer-app-contact {
   padding-block: clamp(3.25rem, 6.4vw, 5.4rem);
 }
 
 .consumer-app-point,
 .consumer-app-section-heading,
+.consumer-app-background,
+.consumer-app-help,
 .consumer-app-contact {
   grid-template-columns: minmax(10rem, 0.32fr) minmax(0, 1fr);
   gap: clamp(1.5rem, 4vw, 4.8rem);
@@ -3668,8 +3673,10 @@ blockquote {
 
 .consumer-app-point h2,
 .consumer-app-notes h2,
+.consumer-app-background h2,
 .consumer-app-work h2,
 .consumer-app-method h2,
+.consumer-app-help h2,
 .consumer-app-contact h2 {
   max-width: 46rem;
   font-size: clamp(2rem, 3.4vw, 3.35rem);
@@ -3700,6 +3707,50 @@ blockquote {
   margin-top: 0.75rem;
   font-size: clamp(1.05rem, 1.7vw, 1.42rem);
   line-height: 1.24;
+}
+
+.consumer-app-lens-closing {
+  max-width: 44rem;
+  margin: 1.35rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--app-line);
+  color: var(--consumer-soft);
+  line-height: 1.68;
+}
+
+.consumer-app-background {
+  background:
+    radial-gradient(circle at 78% 18%, rgba(81, 109, 156, 0.1), transparent 26rem),
+    linear-gradient(180deg, rgba(251, 244, 232, 0.32), rgba(248, 239, 223, 0.72));
+}
+
+.consumer-app-background h2,
+.consumer-app-help h2 {
+  max-width: 38rem;
+  font-size: clamp(2rem, 3.2vw, 3.35rem);
+}
+
+.consumer-app-background > div,
+.consumer-app-help-grid {
+  display: grid;
+  gap: 0.88rem;
+}
+
+.consumer-app-background > div {
+  max-width: 48rem;
+  padding: clamp(1.1rem, 2vw, 1.45rem);
+  border: 1px solid var(--app-line);
+  background: rgba(251, 244, 232, 0.58);
+}
+
+.consumer-app-background > div p {
+  margin: 0;
+  color: var(--consumer-soft);
+  line-height: 1.68;
+}
+
+.consumer-app-background > div p:first-child {
+  color: var(--consumer-ink);
 }
 
 .consumer-app-signal-list {
@@ -3758,7 +3809,7 @@ blockquote {
 }
 
 .consumer-app-signal-content > div:nth-of-type(1),
-.consumer-app-signal-content > div:nth-of-type(2),
+.consumer-app-signal-implications,
 .consumer-app-archive-note {
   grid-column: 1;
 }
@@ -3773,6 +3824,16 @@ blockquote {
 .consumer-app-signal-content div:first-child p {
   font-size: clamp(1.35rem, 2.2vw, 2.05rem);
   line-height: 1.15;
+}
+
+.consumer-app-signal-implications {
+  display: grid;
+  gap: 0.72rem;
+}
+
+.consumer-app-signal-implications > div {
+  padding-top: 0.72rem;
+  border-top: 1px solid var(--app-line-soft);
 }
 
 .consumer-app-signal-content p,
@@ -3859,6 +3920,8 @@ blockquote {
   .consumer-app-signal-hero,
   .consumer-app-point,
   .consumer-app-section-heading,
+  .consumer-app-background,
+  .consumer-app-help,
   .consumer-app-contact {
     grid-template-columns: 1fr;
   }
@@ -3877,7 +3940,7 @@ blockquote {
   }
 
   .consumer-app-signal-content > div:nth-of-type(1),
-  .consumer-app-signal-content > div:nth-of-type(2),
+  .consumer-app-signal-implications,
   .consumer-app-archive-note,
   .consumer-app-evidence-hint,
   .consumer-app-evidence-details,
@@ -3965,7 +4028,38 @@ blockquote {
   max-width: 24rem;
 }
 
+.consumer-app-help {
+  grid-template-columns: minmax(23rem, 0.48fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 4.4rem);
+}
+
+.consumer-app-help-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.consumer-app-help-grid article {
+  min-height: clamp(8.6rem, 11vw, 10.8rem);
+  padding: clamp(1rem, 1.35vw, 1.2rem);
+  border: 1px solid var(--app-line);
+  background: rgba(248, 239, 223, 0.58);
+}
+
+.consumer-app-help-grid span {
+  color: var(--consumer-brass);
+  font-family: var(--consumer-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.consumer-app-help-grid p {
+  margin: 0.75rem 0 0;
+  color: var(--consumer-soft);
+  line-height: 1.6;
+}
+
 @media (max-width: 1050px) {
+  .consumer-app-help,
   .consumer-app-signal-archive .consumer-app-contact {
     grid-template-columns: 1fr;
   }
@@ -3983,8 +4077,7 @@ blockquote {
 
 .consumer-app-signal-main em,
 .consumer-app-meta-tags span,
-.consumer-app-interests-grid span,
-.consumer-app-interests a {
+.consumer-app-meta-date {
   font-family: var(--mono);
   font-size: 0.62rem;
   font-style: normal;
@@ -4008,6 +4101,12 @@ blockquote {
   border-radius: 999px;
   color: var(--bronze);
   padding: 0.28rem 0.5rem;
+}
+
+.consumer-app-meta-date {
+  display: inline-flex;
+  margin-top: 0.62rem;
+  color: var(--consumer-faint);
 }
 
 .consumer-app-interests {
