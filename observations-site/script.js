@@ -239,9 +239,6 @@
     entry.dataset.signal = item.dossierKey || item.theme || item.category || "";
     entry.dataset.routeStatus = item.routeStatus || "";
     entry.dataset.focus = focusKey(item);
-    if (item.evidenceStrength) {
-      entry.style.setProperty("--signal-strength", `${item.evidenceStrength}%`);
-    }
     if (item.theme) entry.classList.add(item.theme);
 
     const quoteBlock = textElement("span", "signal-entry-main");

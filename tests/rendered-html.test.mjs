@@ -46,3 +46,46 @@ test("ships finished metadata and removes starter preview code", async () => {
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
   await assert.rejects(access(new URL("../app/_sites-preview", import.meta.url)));
 });
+
+test("portfolio archive follows the v3 content rules", async () => {
+  const [indexHtml, pageTsx, scriptJs, portfolioJson] = await Promise.all([
+    readFile(new URL("../observations-site/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../observations-site/script.js", import.meta.url), "utf8"),
+    readFile(new URL("../observations-site/data/portfolio.json", import.meta.url), "utf8"),
+  ]);
+  const portfolio = JSON.parse(portfolioJson);
+
+  assert.equal((indexHtml.match(/data-signal-list/g) ?? []).length, 1);
+  assert.equal((indexHtml.match(/data-signal-entry/g) ?? []).length, 0);
+  assert.equal(portfolio.cases.length, 14);
+  assert.equal(Boolean(portfolio.interests), false);
+  assert.match(portfolio.lensClosing, /Traveling across India/);
+
+  for (const file of [indexHtml, pageTsx, scriptJs, portfolioJson]) {
+    assert.doesNotMatch(file, /consumer truth/i);
+    assert.doesNotMatch(file, /consumer insight product strategy brand meaning PMM framing editorial systems/i);
+    assert.doesNotMatch(file, /PMM framing|emotional moats|insight synthesis/);
+    assert.doesNotMatch(file, /#interests|Interests archive coming soon/);
+    assert.doesNotMatch(file, /case-baja/i);
+    assert.doesNotMatch(file, /evidenceStrength|signal-strength/);
+    assert.doesNotMatch(file, /Route:|Proof:|State:/);
+  }
+
+  for (const item of portfolio.cases) {
+    assert.ok(item.signal.productImplication, item.slug);
+    assert.ok(item.signal.gtmImplication, item.slug);
+    assert.notEqual(item.slug, "baja-sae-experience");
+  }
+
+  const routedSignals = new Set(
+    portfolio.cases
+      .filter((item) => item.routeStatus === "routed")
+      .map((item) => item.signalQuote.trim().toLowerCase()),
+  );
+  for (const note of portfolio.unroutedSignals) {
+    assert.equal(routedSignals.has(note.signal.trim().toLowerCase()), false, note.signal);
+  }
+
+  await assert.rejects(access(new URL("../observations-site/case-baja.html", import.meta.url)));
+});
