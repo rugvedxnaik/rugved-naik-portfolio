@@ -116,16 +116,18 @@
       "company": "L'Oréal",
       "category": "Applied to Target House",
       "capabilities": ["Strategy", "Analysis", "CRM"],
-      "readingTime": "6 min read",
-      "archiveNote": "The risk of AI is not only automation. It is variation without memory.",
+      "caseLink": "case-loreal-ai-personalization.html",
+      "caseLinkLabel": "Open active dossier",
+      "readingTime": "7 min read",
+      "archiveNote": "The risk of AI is not only automation. It is personalization that works in the moment while making the brand harder to remember.",
       "soundProfile": "tentative",
       "signal": {
-        "evidence": "AI-powered content, discovery, recommendation, and commerce patterns mapped against recognizable beauty brand codes.",
-        "tension": "If every consumer receives a different version of the brand, usefulness can rise while shared memory weakens.",
+        "evidence": "An audit of AI-personalized beauty discovery flows mapped against brand recognition codes, including recommendation screens, shade-match results, and routine summaries.",
+        "tension": "Personalization optimizes individual fit in the moment, while brand memory depends on repeatable cues across moments and people.",
         "translation": "Personalize utility. Protect memory.",
-        "output": "A rule set separating adaptive surfaces from stable brand cues.",
-        "productImplication": "Separate adaptive surfaces from stable brand cues so personalization improves utility without fragmenting memory.",
-        "gtmImplication": "Frame AI as remembered relevance, not endless variation."
+        "output": "A working rule set separating adaptive utility from protected brand cues.",
+        "productImplication": "Build discovery tools with a protected brand-core layer that personalization cannot override.",
+        "gtmImplication": "Name the non-negotiable cues that must survive across every personalized touchpoint."
       }
     },
     {
@@ -205,16 +207,18 @@
       "company": "Danone",
       "category": "Applied to Target House",
       "capabilities": ["Analysis", "Strategy"],
-      "readingTime": "5 min read",
-      "archiveNote": "Once every brand learns the same insight, the obvious answer becomes category noise.",
+      "caseLink": "case-danone-claim-saturation.html",
+      "caseLinkLabel": "Open active dossier",
+      "readingTime": "6 min read",
+      "archiveNote": "Once every brand learns the same benefit language, the claim stops differentiating and the proof around it has to work harder.",
       "soundProfile": "tentative",
       "signal": {
-        "evidence": "Nutrition claim convergence, shelf language, category trend reading, and behavior-gap mapping.",
-        "tension": "Protein, probiotics, and better-for-you claims are increasingly true for everyone, which makes stated preference less strategically useful.",
-        "translation": "Look for the behavior that contradicts the claim.",
-        "output": "A prioritization model for deciding which claims deserve product and marketing weight.",
-        "productImplication": "Prioritize claims that connect to a repeated behavior, not only a category trend.",
-        "gtmImplication": "Make the reason to believe visible in the routine around the product."
+        "evidence": "A category-wide audit of claim language across dairy and plant-based brands, with overlap, specificity, proof format, and delivery checks.",
+        "tension": "Claim saturation is easier to prove than the replacement signal is to name.",
+        "translation": "Move from claim volume to credibility structure.",
+        "output": "An active inquiry into which proof signals make a familiar health claim harder to copy.",
+        "productImplication": "Invest in proof infrastructure around claims, not only another claim on the package.",
+        "gtmImplication": "Use specificity and verification where category-standard health language has become table stakes."
       }
     },
     {
@@ -263,16 +267,18 @@
       "company": "LVMH",
       "category": "Applied to Target House",
       "capabilities": ["Strategy", "CRM"],
-      "readingTime": "5 min note",
+      "caseLink": "case-lvmh-shared-infrastructure.html",
+      "caseLinkLabel": "Open active dossier",
+      "readingTime": "6 min read",
       "archiveNote": "The intelligence can be shared. The feeling of the house cannot.",
       "soundProfile": "tentative",
       "signal": {
-        "evidence": "Luxury service moments, house code mapping, CRM use cases, and portfolio logic.",
-        "tension": "Shared intelligence can improve relevance while flattening the houses it is meant to support.",
-        "translation": "Share infrastructure. Preserve expression.",
-        "output": "A group-level CRM logic with house-specific rules at the customer-facing layer.",
-        "productImplication": "Share intelligence at the infrastructure layer while keeping house-specific customer-facing rules.",
-        "gtmImplication": "Position recognition as service that feels like the house, not a centralized system."
+        "evidence": "A structural comparison of shared CRM and data infrastructure across luxury groups, mapped against service, personalization, and recommendation moments.",
+        "tension": "Shared systems improve data, service quality, and deployment speed, but luxury depends on each house feeling singular.",
+        "translation": "Share infrastructure. Translate expression.",
+        "output": "A working logic for separating backstage customer intelligence from house-specific front-of-house delivery.",
+        "productImplication": "Design the translation layer between shared data and house-specific customer delivery.",
+        "gtmImplication": "Frame shared infrastructure as backstage efficiency, never as the customer-facing feature."
       }
     },
     {

@@ -89,3 +89,28 @@ test("portfolio archive follows the v3 content rules", async () => {
 
   await assert.rejects(access(new URL("../observations-site/case-baja.html", import.meta.url)));
 });
+
+test("public portfolio copy avoids em and en dashes", async () => {
+  const publicFiles = [
+    "../observations-site/index.html",
+    "../observations-site/case-miutine.html",
+    "../observations-site/case-givenchy.html",
+    "../observations-site/case-19h03.html",
+    "../observations-site/case-electric-mobility.html",
+    "../observations-site/case-recognition-index.html",
+    "../observations-site/case-withings.html",
+    "../observations-site/case-amazon-conversion.html",
+    "../observations-site/case-loreal-ai-personalization.html",
+    "../observations-site/case-danone-claim-saturation.html",
+    "../observations-site/case-lvmh-shared-infrastructure.html",
+    "../observations-site/data/portfolio.json",
+  ];
+
+  const files = await Promise.all(
+    publicFiles.map(async (file) => [file, await readFile(new URL(file, import.meta.url), "utf8")]),
+  );
+
+  for (const [file, contents] of files) {
+    assert.doesNotMatch(contents, /\u2014|\u2013/, file);
+  }
+});
