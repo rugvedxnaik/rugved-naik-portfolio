@@ -117,6 +117,24 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="consumer-app-experience" id="experience">
+        <div>
+          <p className="consumer-app-eyebrow">{portfolioData.experience.eyebrow}</p>
+          <h2>{portfolioData.experience.title}</h2>
+          <p className="consumer-app-experience-meta">{portfolioData.experience.meta}</p>
+        </div>
+        <div>
+          <p>{portfolioData.experience.intro}</p>
+          <ul>
+            {portfolioData.experience.bullets.map((bullet) => (
+              <li key={bullet}>{bullet}</li>
+            ))}
+          </ul>
+          <p>{portfolioData.experience.closing}</p>
+          <a href={portfolioData.experience.link}>{portfolioData.experience.linkLabel}</a>
+        </div>
+      </section>
+
       <section className="consumer-app-work" id="signals">
         <div className="consumer-app-section-heading">
           <p className="consumer-app-eyebrow">Signals</p>
@@ -255,9 +273,6 @@ export default function Home() {
           <a href="https://www.linkedin.com/in/rugvednaik" target="_blank" rel="noreferrer">
             LinkedIn / rugvednaik
           </a>
-          <p className="consumer-app-updated">
-            Site last touched: {portfolioData.site.lastUpdatedLabel}
-          </p>
         </aside>
       </section>
     </main>

@@ -1,7 +1,7 @@
 {
   "site": {
-    "lastUpdated": "2026-07-23",
-    "lastUpdatedLabel": "23 Jul 2026"
+    "lastUpdated": "2026-08-04",
+    "lastUpdatedLabel": "04 Aug 2026"
   },
   "hero": {
     "eyebrow": "Consumer-centric product and marketing strategy.",
@@ -42,6 +42,21 @@
       "Led a 25-member team through BAJA SAE India, where I learned that a good idea dies without a team that can build and defend it under deadline.",
       "That mix, engineering discipline, brand and product strategy, and graduate management training, is what shows up in how I read a consumer signal: looking for what is buildable and defensible, not just clever."
     ]
+  },
+  "experience": {
+    "eyebrow": "Experience",
+    "title": "Freelance Growth & Performance Marketing Consultant",
+    "meta": "Jul 2023 - Jun 2025 · Mumbai, India (Remote)",
+    "intro": "Contributed to digital marketing, content, and marketplace growth across 10+ consumer brands, with a primary long-term engagement scaling an international e-commerce business across India, the US, and Canada.",
+    "bullets": [
+      "Managed growth initiatives across three markets, coordinating planning and performance tracking across a €68K monthly budget",
+      "Built Excel and Power BI dashboards consolidating sales, advertising, and conversion metrics for executive decision-making",
+      "Improved campaign CTR by 25% through structured experimentation and continuous optimization",
+      "Led Canada market expansion through 20+ localized initiatives and adaptation of 1,000+ market-specific assets"
+    ],
+    "closing": "The primary engagement, Peora's international Amazon business, is where the deepest commercial investigation happened.",
+    "linkLabel": "See the full signal: Availability Is a Ranking Signal",
+    "link": "case-peora-availability-ranking.html"
   },
   "lenses": [
     {
@@ -492,6 +507,37 @@
         "output": "A PMM interview report and interactive category dashboard reading Withings as a premium preventive-health player.",
         "productImplication": "Prioritize interpretation, trust, and portfolio laddering over raw measurement features.",
         "gtmImplication": "Frame connected measurement as preventive-health infrastructure, not another smart scale."
+      }
+    },
+    {
+      "id": "030",
+      "slug": "peora-availability-ranking",
+      "dossierKey": "commerce",
+      "theme": "theme-commerce",
+      "signalQuote": "If I can't buy it right now, I stop looking for it.",
+      "routeStatus": "routed",
+      "status": "Finished dossier",
+      "validation": "Operationally validated",
+      "validationType": "operational",
+      "lastUpdated": "2026-08-04",
+      "lastUpdatedLabel": "04 Aug",
+      "caseTitle": "Availability Is a Ranking Signal",
+      "project": "Peora international Amazon marketplace business",
+      "company": "Peora",
+      "category": "Applied in Role",
+      "capabilities": ["Growth", "Analysis", "Product"],
+      "caseLink": "case-peora-availability-ranking.html",
+      "caseLinkLabel": "Open dossier",
+      "readingTime": "7 min read",
+      "archiveNote": "A stock-out was not only lost revenue. It created ranking debt that advertising spend could mask but not solve.",
+      "soundProfile": "deep",
+      "signal": {
+        "evidence": "Inventory availability, organic keyword ranking, sales performance, and advertising performance combined across multiple Amazon marketplaces into Excel and Power BI views.",
+        "tension": "The platform read a consumer's inability to buy now as reduced product relevance, while the business treated the damage as an SEO or advertising problem.",
+        "translation": "Treat availability as a ranking input, not a fulfillment detail.",
+        "output": "An executive dashboard and commercial operating logic connecting stock-outs, rank loss, ad dependency, and recovery risk.",
+        "productImplication": "Build inventory forecasting and alerting around ranking risk before a stock-out damages future discoverability.",
+        "gtmImplication": "Fix availability before increasing advertising spend, so paid media does not keep servicing ranking debt."
       }
     },
     {

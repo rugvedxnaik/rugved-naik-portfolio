@@ -211,6 +211,31 @@
     });
   }
 
+  function renderExperience(data) {
+    const experience = data.experience;
+    if (!experience) return;
+
+    setText("[data-experience-eyebrow]", experience.eyebrow);
+    setText("[data-experience-title]", experience.title);
+    setText("[data-experience-meta]", experience.meta);
+    setText("[data-experience-intro]", experience.intro);
+    setText("[data-experience-closing]", experience.closing);
+
+    const bullets = qs("[data-experience-bullets]");
+    if (bullets && experience.bullets) {
+      bullets.replaceChildren();
+      experience.bullets.forEach((bullet) => {
+        bullets.append(textElement("li", "", bullet));
+      });
+    }
+
+    const link = qs("[data-experience-link]");
+    if (link) {
+      link.textContent = experience.linkLabel || "See the full signal";
+      link.href = experience.link || "#signals";
+    }
+  }
+
   function createEvidenceDetails(item) {
     const details = textElement("details", "signal-evidence-details");
     const summary = textElement("summary", "", "See tension and status");
@@ -439,6 +464,25 @@
     if (updated && data.site?.lastUpdatedLabel) updated.textContent = data.site.lastUpdatedLabel;
   }
 
+  function renderArchiveError() {
+    const filters = qs("[data-signal-filters]");
+    const list = qs("[data-signal-list]");
+    if (filters) {
+      const message = textElement("p", "signal-filter-count", "Archive data could not load.");
+      message.dataset.signalFilterCount = "";
+      filters.replaceChildren(message);
+    }
+    if (list) {
+      list.replaceChildren(
+        textElement(
+          "p",
+          "signal-loading signal-loading-error",
+          "The signal archive could not load. Please refresh the page, or use the contact link if it keeps happening.",
+        ),
+      );
+    }
+  }
+
   function closeEntry(entry) {
     if (!entry) return;
     const trigger = qs(".signal-entry-trigger", entry);
@@ -647,10 +691,10 @@
     renderLenses(data);
     renderLensClosing(data);
     renderBackground(data);
+    renderExperience(data);
     renderSignalList(data);
     renderSignalFilters(data);
     renderUnroutedSignals(data);
-    renderSiteUpdated(data);
     setupSoundToggle(data);
     setupSignalArchive();
     setupSignalFilters();
@@ -667,6 +711,7 @@
       renderPortfolio(data);
     } catch (error) {
       console.error(error);
+      renderArchiveError();
     }
   }
 

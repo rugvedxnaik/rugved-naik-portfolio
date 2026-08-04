@@ -3315,6 +3315,7 @@ blockquote {
 .consumer-app-signal-archive #fit,
 .consumer-app-signal-archive #lens,
 .consumer-app-signal-archive #background,
+.consumer-app-signal-archive #experience,
 .consumer-app-signal-archive #signals,
 .consumer-app-signal-archive #notes,
 .consumer-app-signal-archive #method,
@@ -3650,6 +3651,7 @@ blockquote {
 .consumer-app-point,
 .consumer-app-notes,
 .consumer-app-background,
+.consumer-app-experience,
 .consumer-app-work,
 .consumer-app-method,
 .consumer-app-help,
@@ -3660,6 +3662,7 @@ blockquote {
 .consumer-app-point,
 .consumer-app-section-heading,
 .consumer-app-background,
+.consumer-app-experience,
 .consumer-app-help,
 .consumer-app-contact {
   grid-template-columns: minmax(10rem, 0.32fr) minmax(0, 1fr);
@@ -3718,39 +3721,72 @@ blockquote {
   line-height: 1.68;
 }
 
-.consumer-app-background {
+.consumer-app-background,
+.consumer-app-experience {
   background:
     radial-gradient(circle at 78% 18%, rgba(81, 109, 156, 0.1), transparent 26rem),
     linear-gradient(180deg, rgba(251, 244, 232, 0.32), rgba(248, 239, 223, 0.72));
 }
 
 .consumer-app-background h2,
+.consumer-app-experience h2,
 .consumer-app-help h2 {
   max-width: 38rem;
   font-size: clamp(2rem, 3.2vw, 3.35rem);
 }
 
 .consumer-app-background > div,
+.consumer-app-experience > div:last-child,
 .consumer-app-help-grid {
   display: grid;
   gap: 0.88rem;
 }
 
-.consumer-app-background > div {
+.consumer-app-background > div,
+.consumer-app-experience > div:last-child {
   max-width: 48rem;
   padding: clamp(1.1rem, 2vw, 1.45rem);
   border: 1px solid var(--app-line);
   background: rgba(251, 244, 232, 0.58);
 }
 
-.consumer-app-background > div p {
+.consumer-app-background > div p,
+.consumer-app-experience > div:last-child p {
   margin: 0;
   color: var(--consumer-soft);
   line-height: 1.68;
 }
 
-.consumer-app-background > div p:first-child {
+.consumer-app-background > div p:first-child,
+.consumer-app-experience > div:last-child p:first-child {
   color: var(--consumer-ink);
+}
+
+.consumer-app-experience-meta {
+  margin: 0.75rem 0 0;
+  color: var(--consumer-faint);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.consumer-app-experience ul {
+  display: grid;
+  gap: 0.72rem;
+  margin: 0.1rem 0;
+  padding-left: 1.1rem;
+  color: var(--consumer-soft);
+  line-height: 1.58;
+}
+
+.consumer-app-experience a {
+  width: fit-content;
+  color: var(--consumer-brass);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .consumer-app-signal-list {

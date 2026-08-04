@@ -58,9 +58,11 @@ test("portfolio archive follows the v3 content rules", async () => {
 
   assert.equal((indexHtml.match(/data-signal-list/g) ?? []).length, 1);
   assert.equal((indexHtml.match(/data-signal-entry/g) ?? []).length, 0);
-  assert.equal(portfolio.cases.length, 14);
+  assert.equal(portfolio.cases.length, 15);
   assert.equal(Boolean(portfolio.interests), false);
   assert.match(portfolio.lensClosing, /Traveling across India/);
+  assert.doesNotMatch(indexHtml, /Site last touched/);
+  assert.doesNotMatch(pageTsx, /Site last touched/);
 
   for (const file of [indexHtml, pageTsx, scriptJs, portfolioJson]) {
     assert.doesNotMatch(file, /consumer truth/i);
@@ -77,6 +79,11 @@ test("portfolio archive follows the v3 content rules", async () => {
     assert.ok(item.signal.gtmImplication, item.slug);
     assert.notEqual(item.slug, "baja-sae-experience");
   }
+
+  const peora = portfolio.cases.find((item) => item.slug === "peora-availability-ranking");
+  assert.ok(peora);
+  assert.equal(peora.validation, "Operationally validated");
+  assert.equal(peora.caseLink, "case-peora-availability-ranking.html");
 
   const routedSignals = new Set(
     portfolio.cases
@@ -100,6 +107,7 @@ test("public portfolio copy avoids em and en dashes", async () => {
     "../observations-site/case-recognition-index.html",
     "../observations-site/case-withings.html",
     "../observations-site/case-amazon-conversion.html",
+    "../observations-site/case-peora-availability-ranking.html",
     "../observations-site/case-loreal-ai-personalization.html",
     "../observations-site/case-danone-claim-saturation.html",
     "../observations-site/case-lvmh-shared-infrastructure.html",
@@ -112,5 +120,35 @@ test("public portfolio copy avoids em and en dashes", async () => {
 
   for (const [file, contents] of files) {
     assert.doesNotMatch(contents, /\u2014|\u2013/, file);
+  }
+});
+
+test("v4 dossier pages share the standard section structure", async () => {
+  const dossierFiles = [
+    "../observations-site/case-miutine.html",
+    "../observations-site/case-givenchy.html",
+    "../observations-site/case-loreal-ai-personalization.html",
+    "../observations-site/case-danone-claim-saturation.html",
+    "../observations-site/case-lvmh-shared-infrastructure.html",
+    "../observations-site/case-peora-availability-ranking.html",
+  ];
+
+  const expectedSections = [
+    "The signal",
+    "Output",
+    "What it shows",
+  ];
+
+  for (const file of dossierFiles) {
+    const html = await readFile(new URL(file, import.meta.url), "utf8");
+    assert.match(html, /<h1>[^<]+<\/h1>/, file);
+    assert.match(html, /<h3>[^<]+<\/h3>/, file);
+    assert.match(html, /class="dossier-status"><em>Status:/, file);
+    assert.match(html, /class="dossier-signal-quote"/, file);
+    assert.match(html, /<strong>Product implication/, file);
+    assert.match(html, /<strong>GTM implication/, file);
+    for (const section of expectedSections) {
+      assert.match(html, new RegExp(section), `${file} ${section}`);
+    }
   }
 });

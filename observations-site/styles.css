@@ -3479,6 +3479,125 @@ body[data-signal="seo"] .room-signal {
   flex-wrap: wrap;
 }
 
+.dossier-standard {
+  --case-accent: var(--bronze);
+}
+
+.dossier-main {
+  padding: clamp(5rem, 8vw, 7rem) 0 4rem;
+}
+
+.dossier-template {
+  display: grid;
+  gap: clamp(1.8rem, 4vw, 3rem);
+  max-width: 880px;
+}
+
+.dossier-template h1 {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(3.4rem, 7vw, 6.4rem);
+  font-weight: 300;
+  letter-spacing: -0.045em;
+  line-height: 0.96;
+}
+
+.dossier-template h3 {
+  max-width: 680px;
+  margin: 0.85rem 0 0;
+  color: var(--ink-soft);
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.45rem, 2.2vw, 2.1rem);
+  font-weight: 400;
+  line-height: 1.14;
+}
+
+.dossier-status {
+  margin: 1rem 0 0;
+  color: var(--case-accent);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.dossier-section {
+  padding-top: clamp(1.4rem, 3vw, 2.15rem);
+  border-top: 1px solid var(--line);
+}
+
+.dossier-section-title {
+  margin: 0 0 0.9rem;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.dossier-section p {
+  max-width: 720px;
+  margin: 0.85rem 0 0;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  line-height: 1.72;
+}
+
+.dossier-signal-quote {
+  margin: 0;
+  max-width: 760px;
+  color: var(--ink);
+  font-family: var(--font-serif-display);
+  font-size: clamp(2.1rem, 4.2vw, 4rem);
+  font-style: italic;
+  letter-spacing: -0.025em;
+  line-height: 1.03;
+}
+
+.dossier-section ul {
+  display: grid;
+  gap: 0.72rem;
+  max-width: 720px;
+  margin: 1rem 0;
+  padding-left: 1.15rem;
+  color: var(--ink-soft);
+  line-height: 1.62;
+}
+
+.dossier-output {
+  display: grid;
+  gap: 1rem;
+  max-width: 760px;
+  margin-top: 1rem;
+}
+
+.dossier-output p {
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--case-accent);
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.dossier-project-footer {
+  align-items: end;
+}
+
+.dossier-project-footer span {
+  display: block;
+  color: var(--ink-faint);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.dossier-project-footer p {
+  margin: 0.35rem 0 0;
+  color: var(--ink);
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.05;
+}
+
 @media (max-width: 1100px) {
   .hero-shell,
   .signal-room-grid,
