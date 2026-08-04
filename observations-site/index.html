@@ -66,6 +66,7 @@
     <link rel="stylesheet" href="clean-ui.css?v=20260804-1" />
   </head>
   <body class="site-home signal-archive-home">
+    <div class="reading-progress" data-scroll-progress aria-hidden="true"></div>
     <header class="site-header consumer-header">
       <a class="wordmark" href="index.html">Rugved Naik</a>
       <div class="header-status">
@@ -73,12 +74,12 @@
         <span>Paris / ESCP</span>
       </div>
       <nav class="site-nav" aria-label="Primary">
-        <a href="#fit">Fit</a>
-        <a href="#lens">Lens</a>
-        <a href="#signals">Signals</a>
-        <a href="#notes">Notes</a>
-        <a href="#method">Method</a>
-        <a href="#contact">Contact</a>
+        <a href="#fit"><span class="ui-icon" aria-hidden="true">◇</span>Fit</a>
+        <a href="#lens"><span class="ui-icon" aria-hidden="true">◌</span>Lens</a>
+        <a href="#signals"><span class="ui-icon" aria-hidden="true">◎</span>Signals</a>
+        <a href="#notes"><span class="ui-icon" aria-hidden="true">⌁</span>Notes</a>
+        <a href="#method"><span class="ui-icon" aria-hidden="true">✦</span>Method</a>
+        <a href="#contact"><span class="ui-icon" aria-hidden="true">↗</span>Contact</a>
       </nav>
     </header>
 
@@ -96,8 +97,14 @@
               Archive includes Givenchy Beauty, Miutine, Danone, L'Oréal, LVMH, Withings, Recognition Index, 19h03, Amazon conversion systems, and an e-mobility venture.
             </p>
             <div class="hero-actions">
-              <a class="primary-link" href="#signals" data-hero-primary>Open the archive</a>
-              <a class="secondary-link" href="mailto:rugved.naik@edu.escp.eu" data-hero-secondary>Email Rugved</a>
+              <a class="primary-link" href="#signals">
+                <span class="ui-icon" aria-hidden="true">◎</span>
+                <span data-hero-primary-label>Open the archive</span>
+              </a>
+              <a class="secondary-link" href="mailto:rugved.naik@edu.escp.eu">
+                <span class="ui-icon" aria-hidden="true">↗</span>
+                <span data-hero-secondary-label>Email Rugved</span>
+              </a>
               <button
                 class="sound-toggle signal-sound-toggle"
                 type="button"
@@ -105,7 +112,8 @@
                 aria-pressed="false"
                 aria-label="Turn route tone on"
               >
-                Sound off
+                <span class="ui-icon" aria-hidden="true">◍</span>
+                <span data-sound-toggle-label>Sound off</span>
               </button>
             </div>
           </div>
@@ -118,6 +126,14 @@
             <p class="status-axis-line" data-status-line>
               Read the labels as separate axes: route status shows whether the thinking has landed; proof status names the evidence level; the project line shows whether a dossier is available.
             </p>
+            <div class="active-signal-card" data-active-signal-card>
+              <span class="active-signal-icon ui-icon" data-active-signal-icon aria-hidden="true">◎</span>
+              <div>
+                <p class="panel-key">Active signal</p>
+                <strong data-active-signal-title>Collectibility Over Loyalty</strong>
+                <span data-active-signal-translation>Separate object value from identity value.</span>
+              </div>
+            </div>
           </aside>
         </div>
       </section>

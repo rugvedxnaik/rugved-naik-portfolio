@@ -4144,3 +4144,154 @@ blockquote {
   margin-top: 0.62rem;
   color: var(--consumer-faint);
 }
+
+/* Icon and motion layer for the app route */
+
+.consumer-app-icon {
+  display: inline-grid;
+  width: 1.05em;
+  min-width: 1.05em;
+  place-items: center;
+  color: currentColor;
+  font-family: var(--mono);
+  font-size: 0.9em;
+  line-height: 1;
+}
+
+.consumer-app-header nav a,
+.consumer-app-actions a,
+.consumer-app-lens-grid article > span,
+.consumer-app-signal-content span,
+.consumer-app-evidence-details summary {
+  display: inline-flex;
+  gap: 0.38rem;
+  align-items: center;
+}
+
+.consumer-app-header nav a .consumer-app-icon,
+.consumer-app-lens-grid article > span .consumer-app-icon {
+  color: var(--bronze);
+}
+
+.consumer-app-actions a,
+.consumer-app-signal-entry,
+.consumer-app-lens-grid article,
+.consumer-app-help-grid article {
+  transform: translateY(0);
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.consumer-app-actions a:hover,
+.consumer-app-lens-grid article:hover,
+.consumer-app-help-grid article:hover {
+  transform: translateY(-2px);
+}
+
+.consumer-app-active-readout {
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr);
+  gap: 0.78rem;
+  margin-top: 1.15rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--app-line-soft);
+}
+
+.consumer-app-active-readout > .consumer-app-icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid rgba(150, 114, 77, 0.34);
+  border-radius: 999px;
+  color: var(--bronze);
+  background: rgba(150, 114, 77, 0.1);
+  font-size: 1rem;
+}
+
+.consumer-app-active-readout p {
+  margin: 0 0 0.22rem;
+  color: var(--consumer-faint);
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.consumer-app-active-readout strong {
+  display: block;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(1.32rem, 1.9vw, 1.72rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+.consumer-app-active-readout span:not(.consumer-app-icon) {
+  display: block;
+  margin-top: 0.42rem;
+  color: var(--consumer-soft);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.consumer-app-signal-number-wrap {
+  display: grid;
+  gap: 0.48rem;
+  justify-items: start;
+}
+
+.consumer-app-signal-icon {
+  width: 1.66rem;
+  height: 1.66rem;
+  border: 1px solid rgba(150, 114, 77, 0.34);
+  border-radius: 999px;
+  color: var(--bronze);
+  background: rgba(150, 114, 77, 0.1);
+}
+
+.consumer-app-signal-entry:hover .consumer-app-signal-icon,
+.consumer-app-signal-entry[open] .consumer-app-signal-icon {
+  transform: rotate(12deg);
+}
+
+.consumer-app-help-grid article::before {
+  content: "◇";
+  display: block;
+  margin-bottom: 0.65rem;
+  color: var(--bronze);
+  font-family: var(--mono);
+  font-size: 1rem;
+}
+
+.consumer-app-help-grid article:nth-child(2)::before {
+  content: "◎";
+}
+
+.consumer-app-help-grid article:nth-child(3)::before {
+  content: "◧";
+}
+
+.consumer-app-help-grid article:nth-child(4)::before {
+  content: "✦";
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .consumer-app-signal-entry[open] .consumer-app-signal-content {
+    animation: consumerAppSignalIn 420ms cubic-bezier(0.2, 0.72, 0.22, 1) both;
+  }
+}
+
+@keyframes consumerAppSignalIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

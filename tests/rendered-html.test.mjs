@@ -58,6 +58,12 @@ test("portfolio archive follows the v3 content rules", async () => {
 
   assert.equal((indexHtml.match(/data-signal-list/g) ?? []).length, 1);
   assert.equal((indexHtml.match(/data-signal-entry/g) ?? []).length, 0);
+  assert.match(indexHtml, /data-scroll-progress/);
+  assert.match(indexHtml, /data-active-signal-card/);
+  assert.match(indexHtml, /class="ui-icon"/);
+  assert.match(pageTsx, /consumer-app-active-readout/);
+  assert.match(scriptJs, /setupScrollProgress/);
+  assert.match(scriptJs, /setActiveSignal/);
   assert.equal(portfolio.cases.length, 15);
   assert.equal(Boolean(portfolio.interests), false);
   assert.match(portfolio.lensClosing, /Traveling across India/);

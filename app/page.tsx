@@ -4,6 +4,35 @@ import portfolioData from "../observations-site/data/portfolio.json";
 const cases = portfolioData.cases;
 const defaultCase =
   cases.find((item) => item.id === portfolioData.switchboard.defaultCaseId) ?? cases[0]!;
+const navItems = [
+  ["Fit", "#fit", "◇"],
+  ["Lens", "#lens", "◌"],
+  ["Signals", "#signals", "◎"],
+  ["Notes", "#notes", "⌁"],
+  ["Method", "#method", "✦"],
+  ["Contact", "#contact", "↗"],
+];
+const signalIcons: Record<string, string> = {
+  "1903": "⌁",
+  commerce: "▣",
+  danone: "◎",
+  givenchy: "◆",
+  loreal: "◌",
+  lvmh: "◧",
+  miutine: "◇",
+  mobility: "△",
+  recognition: "✦",
+  siara: "◐",
+  withings: "◍",
+};
+const lensIcons: Record<string, string> = {
+  category: "◧",
+  collection: "◇",
+  identity: "◆",
+  infrastructure: "◌",
+  memory: "⌁",
+  recognition: "✦",
+};
 
 const method = [
   ["Observe", "Find the behavior, ritual, review pattern, search language, claim, or moment of choice."],
@@ -26,6 +55,16 @@ function dossierStatus(item: (typeof cases)[number]) {
   return item.caseLink ? "Dossier open" : "Dossier in progress";
 }
 
+function signalIconForItem(item: (typeof cases)[number]) {
+  const key = String(item.dossierKey || item.theme || item.category || "").replace(/^theme-/, "");
+  return signalIcons[key] ?? (item.routeStatus === "routed" ? "◎" : "◌");
+}
+
+function lensIconForItem(lens: (typeof portfolioData.lenses)[number]) {
+  const key = String(lens.mood || lens.id || lens.label || "").toLowerCase();
+  return lensIcons[key] ?? "◌";
+}
+
 export default function Home() {
   return (
     <main className="consumer-app-page consumer-app-signal-archive">
@@ -38,12 +77,12 @@ export default function Home() {
           <span>Paris / ESCP</span>
         </div>
         <nav aria-label="Primary navigation">
-          <a href="#fit">Fit</a>
-          <a href="#lens">Lens</a>
-          <a href="#signals">Signals</a>
-          <a href="#notes">Notes</a>
-          <a href="#method">Method</a>
-          <a href="#contact">Contact</a>
+          {navItems.map(([label, href, icon]) => (
+            <a href={href} key={href}>
+              <span className="consumer-app-icon" aria-hidden="true">{icon}</span>
+              {label}
+            </a>
+          ))}
         </nav>
       </header>
 
@@ -55,8 +94,8 @@ export default function Home() {
           <p>{portfolioData.hero.lens}</p>
           <p className="consumer-app-proof">{portfolioData.hero.proofLine}</p>
           <div className="consumer-app-actions">
-            <a href="#signals">{portfolioData.hero.primaryCta}</a>
-            <a href="mailto:rugved.naik@edu.escp.eu">{portfolioData.hero.secondaryCta}</a>
+            <a href="#signals"><span className="consumer-app-icon" aria-hidden="true">◎</span>{portfolioData.hero.primaryCta}</a>
+            <a href="mailto:rugved.naik@edu.escp.eu"><span className="consumer-app-icon" aria-hidden="true">↗</span>{portfolioData.hero.secondaryCta}</a>
           </div>
         </div>
 
@@ -67,6 +106,14 @@ export default function Home() {
             signal to see how evidence becomes a system.
           </p>
           <p className="consumer-app-status-line">{portfolioData.switchboard.statusLine}</p>
+          <div className="consumer-app-active-readout">
+            <span className="consumer-app-icon" aria-hidden="true">{signalIconForItem(defaultCase)}</span>
+            <div>
+              <p>Active signal</p>
+              <strong>{defaultCase.caseTitle || projectLine(defaultCase)}</strong>
+              <span>{defaultCase.signal.translation}</span>
+            </div>
+          </div>
         </aside>
       </section>
 
@@ -99,7 +146,7 @@ export default function Home() {
         <div className="consumer-app-lens-grid">
           {portfolioData.lenses.map((lens, index) => (
             <article key={lens.id}>
-              <span>{String(index + 1).padStart(2, "0")} / {lens.label}</span>
+              <span><span className="consumer-app-icon" aria-hidden="true">{lensIconForItem(lens)}</span>{String(index + 1).padStart(2, "0")} / {lens.label}</span>
               <p>{lens.text}</p>
             </article>
           ))}
@@ -150,7 +197,10 @@ export default function Home() {
               open={item.id === defaultCase.id}
             >
               <summary>
-                <span>{String(index + 1).padStart(2, "0")}</span>
+                <span className="consumer-app-signal-number-wrap">
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <span className="consumer-app-icon consumer-app-signal-icon" aria-hidden="true">{signalIconForItem(item)}</span>
+                </span>
                 <div className="consumer-app-signal-main">
                   <blockquote>{item.signalQuote}</blockquote>
                   <em>{item.category}</em>
@@ -162,16 +212,16 @@ export default function Home() {
               <div className="consumer-app-connector" aria-hidden="true" />
               <div className="consumer-app-signal-content">
                 <div>
-                  <span>Translation</span>
+                  <span><span className="consumer-app-icon" aria-hidden="true">✦</span>Translation</span>
                   <p>{item.signal.translation}</p>
                 </div>
                 <div className="consumer-app-signal-implications">
                   <div>
-                    <span>Product implication</span>
+                    <span><span className="consumer-app-icon" aria-hidden="true">◎</span>Product implication</span>
                     <p>{item.signal.productImplication}</p>
                   </div>
                   <div>
-                    <span>GTM implication</span>
+                    <span><span className="consumer-app-icon" aria-hidden="true">◧</span>GTM implication</span>
                     <p>{item.signal.gtmImplication}</p>
                   </div>
                 </div>
@@ -179,12 +229,12 @@ export default function Home() {
                   <p className="consumer-app-archive-note">{item.archiveNote}</p>
                 ) : null}
                 <p className="consumer-app-evidence-hint">
-                  <span>Evidence:</span> {item.signal.evidence}
+                  <span><span className="consumer-app-icon" aria-hidden="true">◌</span>Evidence</span> {item.signal.evidence}
                 </p>
                 <details className="consumer-app-evidence-details">
-                  <summary>See tension and status</summary>
+                  <summary><span className="consumer-app-icon" aria-hidden="true">⌁</span>See tension and status</summary>
                   <div>
-                    <span>Tension</span>
+                    <span><span className="consumer-app-icon" aria-hidden="true">△</span>Tension</span>
                     <p>{item.signal.tension}</p>
                   </div>
                   <p className="consumer-app-meta-tags">
@@ -195,10 +245,10 @@ export default function Home() {
                   <small className="consumer-app-meta-date">Updated {item.lastUpdatedLabel}</small>
                 </details>
                 <p className="consumer-app-classification">
-                  <span>Capability:</span> {classificationLine(item)}
+                  <span><span className="consumer-app-icon" aria-hidden="true">▣</span>Capability</span> {classificationLine(item)}
                 </p>
                 <div className="consumer-app-project-line">
-                  <span>Project</span>
+                  <span><span className="consumer-app-icon" aria-hidden="true">↗</span>Project</span>
                   <p>{projectLine(item)}</p>
                   {item.caseLink ? <a href={item.caseLink}>Open dossier</a> : <small>Dossier in progress</small>}
                 </div>

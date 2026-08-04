@@ -3598,6 +3598,27 @@ body[data-signal="seo"] .room-signal {
   line-height: 1.05;
 }
 
+.dossier-standard .dossier-section-title::before,
+.dossier-standard .dossier-output p::before,
+.dossier-standard .dossier-project-footer span::before {
+  display: inline-block;
+  margin-right: 0.45rem;
+  color: var(--case-accent);
+  font-family: var(--font-mono);
+}
+
+.dossier-standard .dossier-section-title::before {
+  content: "✦";
+}
+
+.dossier-standard .dossier-output p::before {
+  content: "◎";
+}
+
+.dossier-standard .dossier-project-footer span::before {
+  content: "↗";
+}
+
 @media (max-width: 1100px) {
   .hero-shell,
   .signal-room-grid,

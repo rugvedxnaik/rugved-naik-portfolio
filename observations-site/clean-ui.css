@@ -1454,3 +1454,288 @@ body.signal-archive-home .signal-meta-date {
     font-size: 0.58rem;
   }
 }
+
+/* Icon and motion layer */
+
+body.signal-archive-home {
+  --active-accent: var(--brass);
+}
+
+body.signal-archive-home[data-active-signal="miutine"] {
+  --active-accent: var(--sage);
+}
+
+body.signal-archive-home[data-active-signal="givenchy"],
+body.signal-archive-home[data-active-signal="siara"] {
+  --active-accent: var(--clay);
+}
+
+body.signal-archive-home[data-active-signal="danone"] {
+  --active-accent: var(--gold);
+}
+
+body.signal-archive-home[data-active-signal="loreal"],
+body.signal-archive-home[data-active-signal="withings"],
+body.signal-archive-home[data-active-signal="mobility"] {
+  --active-accent: var(--blue);
+}
+
+body.signal-archive-home[data-active-signal="lvmh"],
+body.signal-archive-home[data-active-signal="1903"] {
+  --active-accent: var(--brass);
+}
+
+body.signal-archive-home[data-active-signal="recognition"],
+body.signal-archive-home[data-active-signal="commerce"] {
+  --active-accent: var(--plum);
+}
+
+body.signal-archive-home .reading-progress {
+  position: fixed;
+  inset: 0 auto auto 0;
+  z-index: 80;
+  width: 100%;
+  height: 2px;
+  background: color-mix(in srgb, var(--active-accent) 78%, transparent);
+  transform: scaleX(var(--scroll-progress, 0));
+  transform-origin: left center;
+  transition: background-color 220ms ease;
+}
+
+body.signal-archive-home .ui-icon {
+  display: inline-grid;
+  width: 1.05em;
+  min-width: 1.05em;
+  place-items: center;
+  color: currentColor;
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  line-height: 1;
+}
+
+body.signal-archive-home .site-nav a,
+body.signal-archive-home .primary-link,
+body.signal-archive-home .secondary-link,
+body.signal-archive-home .signal-sound-toggle,
+body.signal-archive-home .signal-filter-chip,
+body.signal-archive-home .signal-filter-label,
+body.signal-archive-home .signal-label,
+body.signal-archive-home .signal-evidence-details summary {
+  display: inline-flex;
+  gap: 0.38rem;
+  align-items: center;
+}
+
+body.signal-archive-home .site-nav a .ui-icon,
+body.signal-archive-home .signal-filter-chip .ui-icon {
+  color: color-mix(in srgb, var(--active-accent) 72%, var(--ink-faint));
+}
+
+body.signal-archive-home .primary-link,
+body.signal-archive-home .secondary-link,
+body.signal-archive-home .signal-sound-toggle,
+body.signal-archive-home .signal-filter-chip {
+  transform: translateY(0);
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+body.signal-archive-home .primary-link:hover,
+body.signal-archive-home .secondary-link:hover,
+body.signal-archive-home .signal-sound-toggle:hover,
+body.signal-archive-home .signal-filter-chip:hover {
+  transform: translateY(-1px);
+}
+
+body.signal-archive-home .active-signal-card {
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr);
+  gap: 0.78rem;
+  margin-top: 1.15rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  transition: border-color 220ms ease, transform 220ms ease;
+}
+
+body.signal-archive-home .active-signal-icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid color-mix(in srgb, var(--active-accent) 42%, var(--line));
+  border-radius: 999px;
+  color: var(--active-accent);
+  background: color-mix(in srgb, var(--active-accent) 9%, transparent);
+  font-size: 1rem;
+  transition:
+    border-color 220ms ease,
+    background 220ms ease,
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+body.signal-archive-home .active-signal-card strong {
+  display: block;
+  color: var(--ink);
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.32rem, 1.9vw, 1.72rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+body.signal-archive-home .active-signal-card span:not(.ui-icon) {
+  display: block;
+  margin-top: 0.42rem;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+body.signal-archive-home .signal-entry-number-wrap {
+  display: grid;
+  gap: 0.48rem;
+  justify-items: start;
+}
+
+body.signal-archive-home .signal-entry-icon {
+  width: 1.66rem;
+  height: 1.66rem;
+  border: 1px solid color-mix(in srgb, var(--entry-accent) 42%, var(--line));
+  border-radius: 999px;
+  color: var(--entry-accent);
+  background: color-mix(in srgb, var(--entry-accent) 8%, transparent);
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+body.signal-archive-home .signal-entry:hover .signal-entry-icon,
+body.signal-archive-home .signal-entry.is-open .signal-entry-icon {
+  border-color: color-mix(in srgb, var(--entry-accent) 72%, var(--line));
+  background: color-mix(in srgb, var(--entry-accent) 15%, transparent);
+  transform: rotate(12deg);
+}
+
+body.signal-archive-home .signal-label {
+  width: fit-content;
+}
+
+body.signal-archive-home .signal-label-icon,
+body.signal-archive-home .signal-summary-icon,
+body.signal-archive-home .lens-icon {
+  color: var(--entry-accent, var(--active-accent));
+}
+
+body.signal-archive-home .read-notes article {
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+body.signal-archive-home .read-notes article:hover {
+  border-color: color-mix(in srgb, var(--active-accent) 42%, var(--line));
+  background: rgba(251, 244, 232, 0.78);
+  transform: translateY(-2px);
+}
+
+body.signal-archive-home .experience-lines li::marker,
+body.signal-archive-home .method-list li::marker {
+  color: var(--active-accent);
+}
+
+body.signal-archive-home .help-cards article {
+  position: relative;
+  overflow: hidden;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+body.signal-archive-home .help-cards article::before {
+  content: "◇";
+  display: block;
+  margin-bottom: 0.65rem;
+  color: var(--active-accent);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+}
+
+body.signal-archive-home .help-cards article:nth-child(2)::before {
+  content: "◎";
+}
+
+body.signal-archive-home .help-cards article:nth-child(3)::before {
+  content: "◧";
+}
+
+body.signal-archive-home .help-cards article:nth-child(4)::before {
+  content: "✦";
+}
+
+body.signal-archive-home .help-cards article:hover {
+  border-color: color-mix(in srgb, var(--active-accent) 38%, var(--line));
+  background: rgba(251, 244, 232, 0.78);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body.signal-archive-home .signal-entry.is-animating .signal-entry-content {
+    animation: signalContentIn 420ms cubic-bezier(0.2, 0.72, 0.22, 1) both;
+  }
+
+  body.signal-archive-home .active-signal-card {
+    animation: activeSignalSettle 360ms cubic-bezier(0.2, 0.72, 0.22, 1) both;
+  }
+}
+
+@keyframes signalContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes activeSignalSettle {
+  from {
+    opacity: 0.72;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 680px) {
+  body.signal-archive-home .site-nav a .ui-icon {
+    display: none;
+  }
+
+  body.signal-archive-home .signal-entry-number-wrap {
+    gap: 0.34rem;
+  }
+
+  body.signal-archive-home .signal-entry-icon {
+    width: 1.42rem;
+    height: 1.42rem;
+  }
+
+  body.signal-archive-home .active-signal-card {
+    grid-template-columns: 1.9rem minmax(0, 1fr);
+  }
+
+  body.signal-archive-home .active-signal-icon {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+}

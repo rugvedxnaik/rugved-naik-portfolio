@@ -89,6 +89,29 @@
     },
   };
 
+  const signalIcons = {
+    "1903": "⌁",
+    commerce: "▣",
+    danone: "◎",
+    givenchy: "◆",
+    loreal: "◌",
+    lvmh: "◧",
+    miutine: "◇",
+    mobility: "△",
+    recognition: "✦",
+    siara: "◐",
+    withings: "◍",
+  };
+
+  const lensIcons = {
+    category: "◧",
+    collection: "◇",
+    identity: "◆",
+    infrastructure: "◌",
+    memory: "⌁",
+    recognition: "✦",
+  };
+
   function qs(selector, root = document) {
     return root.querySelector(selector);
   }
@@ -102,6 +125,18 @@
     if (className) element.className = className;
     if (text !== undefined && text !== null) element.textContent = text;
     return element;
+  }
+
+  function iconElement(className, icon) {
+    const element = textElement("span", className || "ui-icon", icon || "◇");
+    element.setAttribute("aria-hidden", "true");
+    return element;
+  }
+
+  function labelElement(text, icon) {
+    const label = textElement("span", "signal-label");
+    label.append(iconElement("ui-icon signal-label-icon", icon), document.createTextNode(text));
+    return label;
   }
 
   function cases() {
@@ -146,6 +181,26 @@
     return slugify(focusLabel(item)) || "independent";
   }
 
+  function signalIconForItem(item) {
+    const key = String(item?.dossierKey || item?.theme || item?.category || "").replace(/^theme-/, "");
+    return signalIcons[key] || (item?.routeStatus === "routed" ? "◎" : "◌");
+  }
+
+  function lensIconForItem(lens) {
+    const key = String(lens?.mood || lens?.id || lens?.label || "").toLowerCase();
+    return lensIcons[key] || "◌";
+  }
+
+  function filterIconFor(group, value) {
+    if (group === "status") {
+      if (value === "routed") return "◎";
+      if (value === "still routing") return "◌";
+      return "◇";
+    }
+    if (value === "all") return "◇";
+    return "◧";
+  }
+
   function dossierStatus(item) {
     return item?.caseLink ? "Dossier open" : "Dossier in progress";
   }
@@ -160,13 +215,30 @@
     if (element) element.textContent = value || "";
   }
 
+  function setActiveSignal(item) {
+    const card = qs("[data-active-signal-card]");
+    if (!item) {
+      delete body.dataset.activeSignal;
+      setText("[data-active-signal-title]", "No signal open");
+      setText("[data-active-signal-translation]", "Open any archive line to route it through the system.");
+      setText("[data-active-signal-icon]", "○");
+      return;
+    }
+
+    body.dataset.activeSignal = String(item.dossierKey || focusKey(item) || "signal");
+    if (card) card.dataset.activeCaseId = item.id;
+    setText("[data-active-signal-title]", item.caseTitle || projectLine(item));
+    setText("[data-active-signal-translation]", item.signal?.translation || item.signalQuote);
+    setText("[data-active-signal-icon]", signalIconForItem(item));
+  }
+
   function renderHero(data) {
     if (data.hero?.eyebrow) setText("[data-hero-eyebrow]", data.hero.eyebrow);
     if (data.hero?.title) setText("[data-hero-title]", data.hero.title);
     if (data.hero?.lens) setText("[data-hero-lens]", data.hero.lens);
     if (data.hero?.proofLine) setText("[data-hero-proof]", data.hero.proofLine);
-    if (data.hero?.primaryCta) setText("[data-hero-primary]", data.hero.primaryCta);
-    if (data.hero?.secondaryCta) setText("[data-hero-secondary]", data.hero.secondaryCta);
+    if (data.hero?.primaryCta) setText("[data-hero-primary-label]", data.hero.primaryCta);
+    if (data.hero?.secondaryCta) setText("[data-hero-secondary-label]", data.hero.secondaryCta);
     if (data.switchboard?.thesis) setText("[data-switchboard-thesis]", data.switchboard.thesis);
     if (data.switchboard?.instruction) setText("[data-switchboard-instruction]", data.switchboard.instruction);
     if (data.switchboard?.statusLine) setText("[data-status-line]", data.switchboard.statusLine);
@@ -183,8 +255,13 @@
     data.lenses.forEach((lens, index) => {
       const article = textElement("article", "reveal");
       article.dataset.mood = lens.mood || lens.id || "";
+      const label = textElement("span", "lens-label");
+      label.append(
+        iconElement("ui-icon lens-icon", lensIconForItem(lens)),
+        document.createTextNode(`${String(index + 1).padStart(2, "0")} / ${lens.label}`),
+      );
       article.append(
-        textElement("span", "", `${String(index + 1).padStart(2, "0")} / ${lens.label}`),
+        label,
         textElement("p", "", lens.text),
       );
       notes.append(article);
@@ -238,10 +315,11 @@
 
   function createEvidenceDetails(item) {
     const details = textElement("details", "signal-evidence-details");
-    const summary = textElement("summary", "", "See tension and status");
+    const summary = textElement("summary", "");
+    summary.append(iconElement("ui-icon signal-summary-icon", "⌁"), document.createTextNode("See tension and status"));
     const tension = textElement("div", "");
     tension.append(
-      textElement("span", "", "Tension"),
+      labelElement("Tension", "△"),
       textElement("p", "", item.signal.tension),
     );
     const meta = textElement("div", "signal-meta-tags");
@@ -276,8 +354,13 @@
     trigger.type = "button";
     trigger.setAttribute("aria-expanded", String(isOpen));
     trigger.setAttribute("aria-controls", `signal-panel-${item.id}`);
-    trigger.append(
+    const numberWrap = textElement("span", "signal-entry-number-wrap");
+    numberWrap.append(
       textElement("span", "signal-entry-number", String(index + 1).padStart(2, "0")),
+      iconElement("ui-icon signal-entry-icon", signalIconForItem(item)),
+    );
+    trigger.append(
+      numberWrap,
       quoteBlock,
       textElement(
         "span",
@@ -296,32 +379,32 @@
     const content = textElement("div", "signal-entry-content");
     const translation = textElement("div", "signal-translation");
     translation.append(
-      textElement("span", "", "Translation"),
+      labelElement("Translation", "✦"),
       textElement("p", "", item.signal.translation),
     );
     const implications = textElement("div", "signal-implications");
     const productImplication = textElement("div", "signal-output");
     productImplication.append(
-      textElement("span", "", "Product implication"),
+      labelElement("Product implication", "◎"),
       textElement("p", "", item.signal.productImplication || item.signal.output),
     );
     const gtmImplication = textElement("div", "signal-output");
     gtmImplication.append(
-      textElement("span", "", "GTM implication"),
+      labelElement("GTM implication", "◧"),
       textElement("p", "", item.signal.gtmImplication || item.signal.output),
     );
     implications.append(productImplication, gtmImplication);
     const archiveNote = item.archiveNote ? textElement("p", "signal-archive-note", item.archiveNote) : null;
     const hint = textElement("p", "signal-evidence-hint");
-    hint.append(textElement("span", "", "Evidence:"), document.createTextNode(` ${evidenceHint(item)}`));
+    hint.append(labelElement("Evidence", "◌"), document.createTextNode(` ${evidenceHint(item)}`));
     const classification = textElement("p", "signal-classification");
     classification.append(
-      textElement("span", "", "Capability:"),
+      labelElement("Capability", "▣"),
       document.createTextNode(` ${classificationLine(item)}`),
     );
 
     const project = textElement("div", "signal-project");
-    project.append(textElement("span", "", "Project"), textElement("p", "", projectLine(item)));
+    project.append(labelElement("Project", "↗"), textElement("p", "", projectLine(item)));
     if (item.caseLink) {
       const link = textElement("a", "", item.caseLinkLabel || "Open dossier");
       link.href = item.caseLink;
@@ -347,14 +430,16 @@
       ...data.cases.map((item, index) => createSignalEntry(item, index, item.id === defaultId)),
     );
     activeCaseId = defaultId;
+    setActiveSignal(caseById(defaultId));
   }
 
   function buttonForFilter(group, value, label, isActive) {
-    const button = textElement("button", "signal-filter-chip", label);
+    const button = textElement("button", "signal-filter-chip");
     button.type = "button";
     button.dataset.filterGroup = group;
     button.dataset.filterValue = value;
     button.setAttribute("aria-pressed", String(isActive));
+    button.append(iconElement("ui-icon signal-filter-icon", filterIconFor(group, value)), document.createTextNode(label));
     return button;
   }
 
@@ -370,13 +455,17 @@
     ];
 
     const statusGroup = textElement("div", "signal-filter-group");
-    statusGroup.append(textElement("span", "", "Status"));
+    const statusLabel = textElement("span", "signal-filter-label");
+    statusLabel.append(iconElement("ui-icon signal-filter-label-icon", "◎"), document.createTextNode("Status"));
+    statusGroup.append(statusLabel);
     statusOptions.forEach(([value, label]) => {
       statusGroup.append(buttonForFilter("status", value, label, signalFilterState.status === value));
     });
 
     const focusGroup = textElement("div", "signal-filter-group");
-    focusGroup.append(textElement("span", "", "Company"));
+    const focusLabelText = textElement("span", "signal-filter-label");
+    focusLabelText.append(iconElement("ui-icon signal-filter-label-icon", "◧"), document.createTextNode("Company"));
+    focusGroup.append(focusLabelText);
     focusLabels.forEach((label) => {
       const value = label === "All" ? "all" : slugify(label);
       focusGroup.append(buttonForFilter("focus", value, label, signalFilterState.focus === value));
@@ -505,6 +594,7 @@
     });
 
     activeCaseId = id;
+    setActiveSignal(caseById(id));
     if (panel) panel.hidden = false;
     if (trigger) trigger.setAttribute("aria-expanded", "true");
     entry.classList.add("is-open");
@@ -525,6 +615,7 @@
     if (isOpen) {
       closeEntry(entry);
       activeCaseId = null;
+      setActiveSignal(null);
       return;
     }
     openEntry(entry, options);
@@ -623,14 +714,22 @@
     const toggle = qs("[data-sound-toggle]");
     if (!toggle) return;
 
-    toggle.textContent = data.switchboard?.soundOffLabel || "Sound off";
+    const label = qs("[data-sound-toggle-label]", toggle);
+    const setToggleLabel = (value) => {
+      if (label) label.textContent = value;
+      else toggle.textContent = value;
+    };
+
+    setToggleLabel(data.switchboard?.soundOffLabel || "Sound off");
     toggle.addEventListener("click", () => {
       soundEnabled = !soundEnabled;
       toggle.setAttribute("aria-pressed", String(soundEnabled));
       toggle.setAttribute("aria-label", soundEnabled ? "Turn route tone off" : "Turn route tone on");
-      toggle.textContent = soundEnabled
-        ? data.switchboard?.soundOnLabel || "Sound on"
-        : data.switchboard?.soundOffLabel || "Sound off";
+      setToggleLabel(
+        soundEnabled
+          ? data.switchboard?.soundOnLabel || "Sound on"
+          : data.switchboard?.soundOffLabel || "Sound off",
+      );
       if (soundEnabled) ensureAudioContext();
     });
   }
@@ -670,6 +769,27 @@
     });
   }
 
+  function setupScrollProgress() {
+    const progress = qs("[data-scroll-progress]");
+    if (!progress) return;
+
+    let frame = null;
+    const update = () => {
+      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      const ratio = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+      progress.style.setProperty("--scroll-progress", String(ratio));
+      frame = null;
+    };
+    const requestUpdate = () => {
+      if (frame !== null) return;
+      frame = window.requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+  }
+
   function validateUnroutedSignals(data) {
     const routedSignals = new Set(
       data.cases
@@ -700,6 +820,7 @@
     setupSignalFilters();
     setupReveal();
     setupJumpLinks();
+    setupScrollProgress();
     body.classList.add("is-data-ready");
   }
 
