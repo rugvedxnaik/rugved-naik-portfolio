@@ -54,7 +54,7 @@
       },
       {
         "label": "Proof base",
-        "value": "16 linked signals",
+        "value": "15 linked signals",
         "note": "Dossiers, field notes, operating work, data-backed reads, and active inquiries."
       }
     ]
@@ -443,35 +443,6 @@
         "output": "A product ritual that connects benefit, occasion, visual code, and brand world.",
         "productImplication": "Build around the evening transition ritual instead of the absence of alcohol.",
         "gtmImplication": "Own the third hour as a positive occasion, not a substitute category."
-      }
-    },
-    {
-      "id": "025",
-      "slug": "siara-house",
-      "dossierKey": "siara",
-      "theme": "theme-siara",
-      "signalQuote": "I want jewellery that feels precise before it feels ornamental.",
-      "routeStatus": "still routing",
-      "status": "Field note",
-      "validation": "Independent inquiry",
-      "validationType": "independent",
-      "lastUpdated": "2026-07-22",
-      "lastUpdatedLabel": "22 Jul",
-      "caseTitle": "SIARA House",
-      "project": "SIARA House",
-      "company": "",
-      "category": "Brand and Product Architecture",
-      "capabilities": ["Strategy", "Design"],
-      "readingTime": "4 min note",
-      "archiveNote": "The opportunity is not another ornament. It is a house with rules.",
-      "soundProfile": "tentative",
-      "signal": {
-        "evidence": "Brand-house notes, jewellery category reading, material codes, and product language exploration from the SIARA personal project.",
-        "tension": "Jewellery can become decorative fast when the house has no repeatable rules for form, material, ritual, and memory.",
-        "translation": "Build the house rules before the ornament.",
-        "output": "A brand-house note for turning precision into a recognizable product and communication system.",
-        "productImplication": "Define house rules for form, material, and ritual before expanding product expression.",
-        "gtmImplication": "Position precision as the memory cue before ornamentation takes over."
       }
     },
     {

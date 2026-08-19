@@ -3,7 +3,7 @@ import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
 const routes = [
-  ["/", /The Consumer Read \| Rugved Naik/],
+  ["/", /Le Dossier \| Rugved Naik|Le Dossier/],
   ["/personalization", /On Personalization/],
   ["/givenchy", /Givenchy Face Architecture/],
   ["/19h03", /The first drink is not about alcohol/],
@@ -41,41 +41,45 @@ test("ships finished metadata and removes starter preview code", async () => {
     readFile(new URL("../package.json", import.meta.url), "utf8"),
   ]);
 
-  assert.match(layout, /The Consumer Read \| Rugved Naik/);
+  assert.match(layout, /Le Dossier \| Rugved Naik/);
   assert.match(layout, /og\.png/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
   await assert.rejects(access(new URL("../app/_sites-preview", import.meta.url)));
 });
 
-test("portfolio archive follows the v3 content rules", async () => {
-  const [indexHtml, pageTsx, scriptJs, portfolioJson] = await Promise.all([
+test("Le Dossier homepage follows the HR portfolio rules", async () => {
+  const [indexHtml, pageTsx, dossierJs, portfolioJson] = await Promise.all([
     readFile(new URL("../observations-site/index.html", import.meta.url), "utf8"),
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../observations-site/script.js", import.meta.url), "utf8"),
+    readFile(new URL("../observations-site/le-dossier.js", import.meta.url), "utf8"),
     readFile(new URL("../observations-site/data/portfolio.json", import.meta.url), "utf8"),
   ]);
   const portfolio = JSON.parse(portfolioJson);
 
-  assert.equal((indexHtml.match(/data-signal-list/g) ?? []).length, 1);
-  assert.equal((indexHtml.match(/data-signal-entry/g) ?? []).length, 0);
-  assert.match(indexHtml, /data-scroll-progress/);
-  assert.match(indexHtml, /data-active-signal-card/);
-  assert.match(indexHtml, /class="ui-icon"/);
-  assert.match(pageTsx, /consumer-app-active-readout/);
-  assert.match(pageTsx, /consumer-app-quote-underline/);
-  assert.match(scriptJs, /signal-quote-underline/);
-  assert.match(scriptJs, /setupScrollProgress/);
-  assert.match(scriptJs, /setActiveSignal/);
-  assert.equal(portfolio.cases.length, 16);
+  assert.match(indexHtml, /<title>Le Dossier \| Rugved Naik<\/title>/);
+  assert.match(indexHtml, /role="tablist"/);
+  assert.equal((indexHtml.match(/class="folder-tab(?: is-active)?"/g) ?? []).length, 6);
+  assert.match(indexHtml, /data-lang-button="fr"/);
+  assert.match(indexHtml, /data-lang-button="en"/);
+  assert.match(indexHtml, /rugved-naik-cv\.pdf/);
+  assert.match(indexHtml, /Disponible pour un stage à partir de mars 2027/);
+  assert.match(indexHtml, /Stage Danone, fin août 2026/);
+  assert.match(indexHtml, /BAJA SAE and e-mobility/);
+  assert.match(indexHtml, /case-electric-mobility\.html/);
+  assert.match(indexHtml, /case-box-is-the-proof\.html/);
+  assert.doesNotMatch(indexHtml, /Loading|data-signal-list|data-active-signal-card|sound-toggle|Switchboard/i);
+  assert.match(pageTsx, /Le Dossier/);
+  assert.match(pageTsx, /Download CV PDF/);
+  assert.match(dossierJs, /setTab/);
+  assert.match(dossierJs, /setLanguage/);
+  assert.equal(portfolio.cases.length, 15);
   assert.equal(portfolio.hiring.facts.find((item) => item.label === "Next search window")?.value, "March 2027");
-  assert.match(indexHtml, /For HRs and hiring teams/);
-  assert.match(pageTsx, /March 2027 job search/);
   assert.equal(Boolean(portfolio.interests), false);
   assert.match(portfolio.lensClosing, /Traveling across India/);
   assert.doesNotMatch(indexHtml, /Site last touched/);
   assert.doesNotMatch(pageTsx, /Site last touched/);
 
-  for (const file of [indexHtml, pageTsx, scriptJs, portfolioJson]) {
+  for (const file of [indexHtml, pageTsx, dossierJs, portfolioJson]) {
     assert.doesNotMatch(file, /consumer truth/i);
     assert.doesNotMatch(file, /consumer insight product strategy brand meaning PMM framing editorial systems/i);
     assert.doesNotMatch(file, /PMM framing|emotional moats|insight synthesis/);
@@ -83,6 +87,7 @@ test("portfolio archive follows the v3 content rules", async () => {
     assert.doesNotMatch(file, /case-baja/i);
     assert.doesNotMatch(file, /evidenceStrength|signal-strength/);
     assert.doesNotMatch(file, /Route:|Proof:|State:/);
+    assert.doesNotMatch(file, /siara/i);
   }
 
   for (const item of portfolio.cases) {
@@ -111,11 +116,14 @@ test("portfolio archive follows the v3 content rules", async () => {
   }
 
   await assert.rejects(access(new URL("../observations-site/case-baja.html", import.meta.url)));
+  await access(new URL("../observations-site/rugved-naik-cv.pdf", import.meta.url));
 });
 
 test("public portfolio copy avoids em and en dashes", async () => {
   const publicFiles = [
     "../observations-site/index.html",
+    "../observations-site/le-dossier.css",
+    "../observations-site/le-dossier.js",
     "../observations-site/case-miutine.html",
     "../observations-site/case-givenchy.html",
     "../observations-site/case-19h03.html",

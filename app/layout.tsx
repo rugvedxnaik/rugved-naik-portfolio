@@ -11,12 +11,12 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(origin),
     title: {
-      default: "The Consumer Read | Rugved Naik",
+      default: "Le Dossier | Rugved Naik",
       template: "%s",
     },
     description:
-      "A consumer centric product and marketing strategy portfolio by Rugved Naik.",
-    applicationName: "The Consumer Read",
+      "A French HR-facing dossier portfolio by Rugved Naik for PM, PMM, consumer strategy, and product marketing internships.",
+    applicationName: "Le Dossier",
     keywords: [
       "consumer insight",
       "product strategy",
@@ -28,18 +28,18 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
     authors: [{ name: "Rugved Naik" }],
     openGraph: {
-      title: "The Consumer Read | Rugved Naik",
+      title: "Le Dossier | Rugved Naik",
       description:
-        "Consumer behavior translated into product logic, recognizable brand cues, and marketing systems.",
+        "A fast dossier for hiring teams: availability, experience, method, selected cases, and CV PDF.",
       type: "website",
       locale: "en_US",
-      images: [{ url: `${origin}/og.png`, width: 1200, height: 630, alt: "The Consumer Read | Rugved Naik" }],
+      images: [{ url: `${origin}/og.png`, width: 1200, height: 630, alt: "Le Dossier | Rugved Naik" }],
     },
     twitter: {
       card: "summary_large_image",
-      title: "The Consumer Read | Rugved Naik",
+      title: "Le Dossier | Rugved Naik",
       description:
-        "Consumer behavior translated into product logic, recognizable brand cues, and marketing systems.",
+        "A fast dossier for hiring teams: availability, experience, method, selected cases, and CV PDF.",
       images: [`${origin}/og.png`],
     },
   };
@@ -47,7 +47,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <body>{children}</body>
     </html>
   );

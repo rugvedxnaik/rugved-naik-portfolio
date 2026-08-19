@@ -1,353 +1,324 @@
 import Link from "next/link";
 import portfolioData from "../observations-site/data/portfolio.json";
 
-const cases = portfolioData.cases;
-const defaultCase =
-  cases.find((item) => item.id === portfolioData.switchboard.defaultCaseId) ?? cases[0]!;
-const navItems = [
-  ["Hiring", "#fit", "◇"],
-  ["Lens", "#lens", "◌"],
-  ["Signals", "#signals", "◎"],
-  ["Notes", "#notes", "⌁"],
-  ["Method", "#method", "✦"],
-  ["Contact", "#contact", "↗"],
+const dossierLinks = [
+  {
+    label: "Applied in role",
+    title: "Availability Is a Ranking Signal",
+    text: "Peora, Amazon marketplace growth, stock-outs, rank loss, ad dependency and operating dashboards.",
+    href: "case-peora-availability-ranking.html",
+  },
+  {
+    label: "FMCG category",
+    title: "Claim Saturation",
+    text: "Danone, health claims, proof cues and what makes a familiar category claim believable.",
+    href: "case-danone-claim-saturation.html",
+  },
+  {
+    label: "Target house",
+    title: "What AI Can't Personalize",
+    text: "L'Oréal, adaptive discovery, brand memory and protected cues inside personalization.",
+    href: "case-loreal-ai-personalization.html",
+  },
+  {
+    label: "Luxury service",
+    title: "Shared Infrastructure, House-Specific Expression",
+    text: "LVMH, customer intelligence, house codes and where shared systems should stop.",
+    href: "case-lvmh-shared-infrastructure.html",
+  },
+  {
+    label: "Market reading",
+    title: "Collectibility Over Loyalty",
+    text: "Miutine, 4,700+ reviews, collectibility, identity value and object value.",
+    href: "case-miutine.html",
+  },
+  {
+    label: "India luxury read",
+    title: "The Box Is the Proof",
+    text: "Luxury fragrance in India, saved gifts, social permission and the role of packaging.",
+    href: "case-box-is-the-proof.html",
+  },
+  {
+    label: "Product adoption",
+    title: "Foldable Electric Mobility Product",
+    text: "Urban mobility, adoption conditions, public transport integration and commercialization logic.",
+    href: "case-electric-mobility.html",
+  },
+  {
+    label: "PMM category read",
+    title: "Withings PMM Category Read",
+    text: "Preventive health, connected measurement, premium positioning and category direction.",
+    href: "case-withings.html",
+  },
 ];
-const signalIcons: Record<string, string> = {
-  "1903": "⌁",
-  commerce: "▣",
-  danone: "◎",
-  "fragrance-india": "□",
-  givenchy: "◆",
-  loreal: "◌",
-  lvmh: "◧",
-  miutine: "◇",
-  mobility: "△",
-  recognition: "✦",
-  siara: "◐",
-  withings: "◍",
-};
-const lensIcons: Record<string, string> = {
-  category: "◧",
-  collection: "◇",
-  identity: "◆",
-  infrastructure: "◌",
-  memory: "⌁",
-  recognition: "✦",
-};
 
 const method = [
-  ["Observe", "Find the behavior, ritual, review pattern, search language, claim, or moment of choice."],
-  ["Separate", "Use the quote and evidence to separate useful signals from category noise and polished claims."],
-  ["Name", "Turn the pattern into a sentence a team can remember and challenge."],
-  ["Translate", "Move from signal to product logic, positioning, CRM, or experience design."],
-  ["Make it travel", "Build the dossier, framework, or phrase that lets the work keep moving."],
+  ["01", "Observer", "Read reviews, routines, searches, constraints and moments of choice."],
+  ["02", "Separate", "Separate useful signal from noise, trend and repeated claims."],
+  ["03", "Name", "Find a sentence the team can remember, debate and use."],
+  ["04", "Translate", "Turn the signal into product, positioning, CRM or content logic."],
+  ["05", "Make it usable", "Create a dossier, rule or framework that helps the next decision."],
 ];
 
-function projectLine(item: (typeof cases)[number]) {
-  return item.project || item.company || item.caseTitle;
-}
-
-function classificationLine(item: (typeof cases)[number]) {
-  const capabilities = item.capabilities.length ? item.capabilities.join(" / ") : "Strategy";
-  return `${capabilities}${item.readingTime ? ` / ${item.readingTime}` : ""}`;
-}
-
-function dossierStatus(item: (typeof cases)[number]) {
-  return item.caseLink ? "Dossier open" : "Dossier in progress";
-}
-
-function signalIconForItem(item: (typeof cases)[number]) {
-  const key = String(item.dossierKey || item.theme || item.category || "").replace(/^theme-/, "");
-  return signalIcons[key] ?? (item.routeStatus === "routed" ? "◎" : "◌");
-}
-
-function lensIconForItem(lens: (typeof portfolioData.lenses)[number]) {
-  const key = String(lens.mood || lens.id || lens.label || "").toLowerCase();
-  return lensIcons[key] ?? "◌";
-}
+const tabs = [
+  ["01", "Profil", "#profil"],
+  ["02", "Disponibilité", "#disponibilite"],
+  ["03", "Expérience", "#experience"],
+  ["04", "Méthode", "#methode"],
+  ["05", "Dossiers", "#dossiers"],
+  ["06", "Contact", "#contact"],
+];
 
 export default function Home() {
+  const casesCount = portfolioData.cases.length;
+
   return (
-    <main className="consumer-app-page consumer-app-signal-archive">
-      <header className="consumer-app-header">
-        <Link href="/" className="consumer-app-wordmark">
-          Rugved Naik
+    <main className="dossier-app le-dossier">
+      <header className="dossier-header" aria-label="Site header">
+        <Link className="dossier-mark" href="/">
+          <span>Rugved Naik</span>
+          <small>Paris / ESCP</small>
         </Link>
-        <div>
-          <span>The Consumer Read</span>
-          <span>Paris / ESCP</span>
+        <p className="dossier-center-mark" aria-label="Le Dossier">
+          <span>Le Dossier</span>
+          <span>Candidature</span>
+        </p>
+        <div className="language-switch" aria-label="Language">
+          <button className="is-active" type="button" aria-pressed="true">FR</button>
+          <button type="button" aria-pressed="false">EN</button>
         </div>
-        <nav aria-label="Primary navigation">
-          {navItems.map(([label, href, icon]) => (
-            <a href={href} key={href}>
-              <span className="consumer-app-icon" aria-hidden="true">{icon}</span>
-              {label}
+      </header>
+
+      <section className="cover-sheet" aria-labelledby="cover-title">
+        <aside className="cover-index" aria-label="Dossier identity">
+          <span>01</span>
+          <p>Profil</p>
+          <p>Disponibilité</p>
+          <p>Expérience</p>
+          <p>Méthode</p>
+          <p>Dossiers</p>
+        </aside>
+
+        <div className="cover-copy">
+          <p className="eyebrow">Dossier de candidature</p>
+          <h1 id="cover-title">Consumer understanding for product, marketing and PMM decisions.</h1>
+          <p className="cover-lede">
+            Un portfolio rapide à lire pour les recruteurs en France: qui je suis,
+            quand je suis disponible, ce que j'ai fait, comment je travaille, et les
+            dossiers à ouvrir si le fit est clair.
+          </p>
+          <div className="availability-stamp">Disponible pour un stage à partir de mars 2027</div>
+        </div>
+
+        <div className="cover-meta" aria-label="Quick facts">
+          <article>
+            <span>Current</span>
+            <strong>Stage Danone, fin août 2026</strong>
+          </article>
+          <article>
+            <span>Target</span>
+            <strong>PM / PMM / Consumer Strategy</strong>
+          </article>
+          <article>
+            <span>Proof base</span>
+            <strong>{casesCount} dossiers and signals</strong>
+          </article>
+          <article>
+            <span>Contact</span>
+            <strong>rugved.naik@edu.escp.eu</strong>
+          </article>
+        </div>
+      </section>
+
+      <section className="folder" aria-label="Portfolio dossier">
+        <nav className="folder-tabs" role="tablist" aria-label="Dossier sections">
+          {tabs.map(([number, label, href], index) => (
+            <a
+              className={`folder-tab${index === 0 ? " is-active" : ""}`}
+              href={href}
+              key={href}
+              role="tab"
+              aria-selected={index === 0}
+            >
+              <span>{number}</span> {label}
             </a>
           ))}
         </nav>
-      </header>
 
-      <section className="consumer-app-hero consumer-app-signal-hero">
-        <div>
-          <p className="consumer-app-eyebrow">{portfolioData.hero.eyebrow}</p>
-          <p className="consumer-app-thesis">{portfolioData.switchboard.thesis}</p>
-          <h1>{portfolioData.hero.title}</h1>
-          <p>{portfolioData.hero.lens}</p>
-          <p className="consumer-app-proof">{portfolioData.hero.proofLine}</p>
-          <div className="consumer-app-actions">
-            <a href="#signals"><span className="consumer-app-icon" aria-hidden="true">◎</span>{portfolioData.hero.primaryCta}</a>
-            <a href="mailto:rugved.naik@edu.escp.eu"><span className="consumer-app-icon" aria-hidden="true">↗</span>{portfolioData.hero.secondaryCta}</a>
+        <section className="folder-panel is-active" id="profil" role="tabpanel" aria-labelledby="profil">
+          <div className="panel-heading">
+            <p className="eyebrow">Profil</p>
+            <h2>Je relie ce que les gens font à ce que les équipes doivent décider.</h2>
           </div>
-        </div>
-
-        <aside className="consumer-app-how">
-          <p className="consumer-app-eyebrow">How it works</p>
-          <p>
-            The work starts with what someone says, wants, avoids, or repeats. Open a
-            signal to see how evidence becomes a system.
-          </p>
-          <p className="consumer-app-status-line">{portfolioData.switchboard.statusLine}</p>
-          <div className="consumer-app-active-readout">
-            <span className="consumer-app-icon" aria-hidden="true">{signalIconForItem(defaultCase)}</span>
-            <div>
-              <p>Active signal</p>
-              <strong>{defaultCase.caseTitle || projectLine(defaultCase)}</strong>
-              <span>{defaultCase.signal.translation}</span>
+          <div className="panel-body profile-grid">
+            <div className="profile-statement">
+              <p>
+                Je suis étudiant à ESCP Business School à Paris, avec une base en
+                ingénierie, une expérience en croissance marketplace, et un intérêt
+                constant pour les décisions produit et marketing qui partent du
+                comportement réel des consommateurs.
+              </p>
+              <p>
+                Avant d'ajouter du contenu, une campagne ou une fonctionnalité, il faut
+                savoir ce que la personne essaie de faire, de signaler, d'éviter ou de devenir.
+              </p>
+            </div>
+            <div className="profile-cards">
+              <article>
+                <span className="icon-dot" aria-hidden="true">◉</span>
+                <h3>PM</h3>
+                <p>Transformer le besoin en priorité produit.</p>
+              </article>
+              <article>
+                <span className="icon-dot" aria-hidden="true">◇</span>
+                <h3>PMM</h3>
+                <p>Transformer l'usage en message mémorisable.</p>
+              </article>
+              <article>
+                <span className="icon-dot" aria-hidden="true">◎</span>
+                <h3>Strategy</h3>
+                <p>Séparer le signal utile du bruit de catégorie.</p>
+              </article>
+              <article>
+                <span className="icon-dot" aria-hidden="true">⌁</span>
+                <h3>Terrain</h3>
+                <p>Voyages, cultures et observation de ce que les gens font avant de l'expliquer.</p>
+              </article>
             </div>
           </div>
-        </aside>
-      </section>
+        </section>
 
-      <section className="consumer-app-point" id="fit">
-        <p className="consumer-app-eyebrow">{portfolioData.hiring.eyebrow}</p>
-        <h2>{portfolioData.hiring.title}</h2>
-        <div>
-          <p className="consumer-app-hiring-intro">{portfolioData.hiring.intro}</p>
-          <div className="consumer-app-hiring-facts">
-            {portfolioData.hiring.facts.map((fact) => (
-              <article key={fact.label}>
-                <span>{fact.label}</span>
-                <strong>{fact.value}</strong>
-                <p>{fact.note}</p>
+        <section className="folder-panel" id="disponibilite" role="tabpanel" aria-labelledby="disponibilite">
+          <div className="panel-heading">
+            <p className="eyebrow">Disponibilité</p>
+            <h2>La prochaine recherche commence en mars 2027.</h2>
+          </div>
+          <div className="panel-body availability-grid">
+            <div className="stamp-card">
+              <p>Disponible à partir de</p>
+              <strong>Mars 2027</strong>
+              <small>Stages PM, PMM, consumer strategy, brand/product strategy ou growth.</small>
+            </div>
+            <ol className="timeline">
+              <li>
+                <span>Fin août 2026</span>
+                <p>Début d'un stage chez Danone, avec un contexte FMCG, catégorie et consommateur.</p>
+              </li>
+              <li>
+                <span>Mars 2027</span>
+                <p>Ouverture de la prochaine fenêtre de recherche de stage.</p>
+              </li>
+              <li>
+                <span>Paris / France</span>
+                <p>Basé à Paris, ouvert aux équipes internationales et aux environnements bilingues.</p>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section className="folder-panel" id="experience" role="tabpanel" aria-labelledby="experience">
+          <div className="panel-heading">
+            <p className="eyebrow">Expérience</p>
+            <h2>Une base commerciale, produit et opérationnelle.</h2>
+          </div>
+          <div className="panel-body experience-stack">
+            <article className="experience-item primary">
+              <div>
+                <span className="item-date">Août 2026</span>
+                <h3>Danone</h3>
+                <p>Stage à venir, FMCG, catégorie, consommateur et exécution commerciale.</p>
+              </div>
+              <strong>Incoming internship</strong>
+            </article>
+            <article className="experience-item">
+              <div>
+                <span className="item-date">Jul 2023 - Jun 2025</span>
+                <h3>Freelance Growth & Performance Marketing Consultant</h3>
+                <p>
+                  10+ marques consumer, trois marchés, budget mensuel d'environ EUR 68K,
+                  dashboards Excel et Power BI, +25% CTR, 1,000+ assets adaptés pour le Canada.
+                </p>
+              </div>
+              <a href="case-peora-availability-ranking.html">Peora dossier</a>
+            </article>
+            <article className="experience-item">
+              <div>
+                <span className="item-date">Engineering base</span>
+                <h3>BAJA SAE and e-mobility</h3>
+                <p>
+                  Conduite d'une équipe de 25 personnes en BAJA SAE India et travail de
+                  produit sur un concept de mobilité électrique pliable.
+                </p>
+              </div>
+              <a href="case-electric-mobility.html">E-mobility dossier</a>
+            </article>
+          </div>
+        </section>
+
+        <section className="folder-panel" id="methode" role="tabpanel" aria-labelledby="methode">
+          <div className="panel-heading">
+            <p className="eyebrow">Méthode</p>
+            <h2>Un processus court pour transformer l'observation en décision.</h2>
+          </div>
+          <div className="panel-body method-grid">
+            {method.map(([number, title, text]) => (
+              <article key={number}>
+                <span>{number}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
               </article>
             ))}
           </div>
-          <p className="consumer-app-eyebrow consumer-app-point-of-view-label">Point of view</p>
-          <p>
-            A product decision asks what someone is trying to get done, signal, avoid, or
-            become. A marketing decision asks what they should remember after the touchpoint
-            disappears.
-          </p>
-          <p>
-            The case matters, but the consumer signal comes first. The company appears only
-            after the behavior has been read and translated into a usable system.
-          </p>
-          <p>
-            For a PM, that means fewer features guessed at and more features earned from
-            evidence. For a PMM, that means positioning that is remembered instead of
-            positioning that is merely accurate.
-          </p>
-        </div>
-      </section>
+        </section>
 
-      <section className="consumer-app-notes" id="lens">
-        <div className="consumer-app-section-heading">
-          <p className="consumer-app-eyebrow">What I read</p>
-          <h2>A lens before the signals.</h2>
-        </div>
-        <div className="consumer-app-lens-grid">
-          {portfolioData.lenses.map((lens, index) => (
-            <article key={lens.id}>
-              <span><span className="consumer-app-icon" aria-hidden="true">{lensIconForItem(lens)}</span>{String(index + 1).padStart(2, "0")} / {lens.label}</span>
-              <p>{lens.text}</p>
-            </article>
-          ))}
-        </div>
-        <p className="consumer-app-lens-closing">{portfolioData.lensClosing}</p>
-      </section>
-
-      <section className="consumer-app-background" id="background">
-        <p className="consumer-app-eyebrow">{portfolioData.background.eyebrow}</p>
-        <h2>{portfolioData.background.title}</h2>
-        <div>
-          {portfolioData.background.lines.map((line) => (
-            <p key={line}>{line}</p>
-          ))}
-        </div>
-      </section>
-
-      <section className="consumer-app-experience" id="experience">
-        <div>
-          <p className="consumer-app-eyebrow">{portfolioData.experience.eyebrow}</p>
-          <h2>{portfolioData.experience.title}</h2>
-          <p className="consumer-app-experience-meta">{portfolioData.experience.meta}</p>
-        </div>
-        <div>
-          <p>{portfolioData.experience.intro}</p>
-          <ul>
-            {portfolioData.experience.bullets.map((bullet) => (
-              <li key={bullet}>{bullet}</li>
+        <section className="folder-panel" id="dossiers" role="tabpanel" aria-labelledby="dossiers">
+          <div className="panel-heading">
+            <p className="eyebrow">Dossiers</p>
+            <h2>Des preuves à ouvrir seulement si le premier fit est bon.</h2>
+          </div>
+          <div className="panel-body dossier-grid">
+            {dossierLinks.map((dossier, index) => (
+              <a
+                className={`work-dossier${index < 2 ? " priority" : ""}`}
+                href={dossier.href}
+                key={dossier.href}
+              >
+                <span>{dossier.label}</span>
+                <h3>{dossier.title}</h3>
+                <p>{dossier.text}</p>
+                <small>Open dossier</small>
+              </a>
             ))}
-          </ul>
-          <p>{portfolioData.experience.closing}</p>
-          <a href={portfolioData.experience.link}>{portfolioData.experience.linkLabel}</a>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      <section className="consumer-app-work" id="signals">
-        <div className="consumer-app-section-heading">
-          <p className="consumer-app-eyebrow">Signals</p>
-          <h2>{cases.length} consumer signals, filed as evidence.</h2>
-          <p>{portfolioData.switchboard.instruction}</p>
-        </div>
-
-        <div className="consumer-app-signal-list">
-          {cases.map((item, index) => (
-            <details
-              className="consumer-app-signal-entry"
-              key={item.id}
-              open={item.id === defaultCase.id}
-            >
-              <summary>
-                <span className="consumer-app-signal-number-wrap">
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <span className="consumer-app-icon consumer-app-signal-icon" aria-hidden="true">{signalIconForItem(item)}</span>
-                </span>
-                <div className="consumer-app-signal-main">
-                  <blockquote>
-                    <span className="consumer-app-signal-quote-text">
-                      {item.signalQuote}
-                      <svg
-                        className="consumer-app-quote-underline"
-                        viewBox="0 0 300 10"
-                        preserveAspectRatio="none"
-                        aria-hidden="true"
-                      >
-                        <path d="M2,6 Q78,2 150,6 T298,5" />
-                      </svg>
-                    </span>
-                  </blockquote>
-                  <em>{item.category}</em>
-                </div>
-                <small className={item.routeStatus === "routed" ? "is-routed" : ""}>
-                  {item.routeStatus}
-                </small>
-              </summary>
-              <div className="consumer-app-connector" aria-hidden="true" />
-              <div className="consumer-app-signal-content">
-                <div>
-                  <span><span className="consumer-app-icon" aria-hidden="true">✦</span>Translation</span>
-                  <p>{item.signal.translation}</p>
-                </div>
-                <div className="consumer-app-signal-implications">
-                  <div>
-                    <span><span className="consumer-app-icon" aria-hidden="true">◎</span>Product implication</span>
-                    <p>{item.signal.productImplication}</p>
-                  </div>
-                  <div>
-                    <span><span className="consumer-app-icon" aria-hidden="true">◧</span>GTM implication</span>
-                    <p>{item.signal.gtmImplication}</p>
-                  </div>
-                </div>
-                {item.archiveNote ? (
-                  <p className="consumer-app-archive-note">{item.archiveNote}</p>
-                ) : null}
-                <p className="consumer-app-evidence-hint">
-                  <span><span className="consumer-app-icon" aria-hidden="true">◌</span>Evidence</span> {item.signal.evidence}
-                </p>
-                <details className="consumer-app-evidence-details">
-                  <summary><span className="consumer-app-icon" aria-hidden="true">⌁</span>See tension and status</summary>
-                  <div>
-                    <span><span className="consumer-app-icon" aria-hidden="true">△</span>Tension</span>
-                    <p>{item.signal.tension}</p>
-                  </div>
-                  <p className="consumer-app-meta-tags">
-                    <span>{item.routeStatus}</span>
-                    <span>{item.validation}</span>
-                    <span>{dossierStatus(item)}</span>
-                  </p>
-                  <small className="consumer-app-meta-date">Updated {item.lastUpdatedLabel}</small>
-                </details>
-                <p className="consumer-app-classification">
-                  <span><span className="consumer-app-icon" aria-hidden="true">▣</span>Capability</span> {classificationLine(item)}
-                </p>
-                <div className="consumer-app-project-line">
-                  <span><span className="consumer-app-icon" aria-hidden="true">↗</span>Project</span>
-                  <p>{projectLine(item)}</p>
-                  {item.caseLink ? <a href={item.caseLink}>Open dossier</a> : <small>Dossier in progress</small>}
-                </div>
+        <section className="folder-panel" id="contact" role="tabpanel" aria-labelledby="contact">
+          <div className="panel-heading">
+            <p className="eyebrow">Contact</p>
+            <h2>Si le besoin demande de comprendre le consommateur avant de décider, envoyez-moi le problème.</h2>
+          </div>
+          <div className="panel-body contact-grid">
+            <div className="contact-card main-contact">
+              <p>
+                Je peux répondre avec le dossier le plus pertinent, une courte note écrite
+                ou un appel de 20 minutes si le fit est clair.
+              </p>
+              <div className="contact-actions">
+                <a href="mailto:rugved.naik@edu.escp.eu">Email</a>
+                <a href="https://www.linkedin.com/in/rugvednaik">LinkedIn</a>
+                <a href="rugved-naik-cv.pdf" download>Download CV PDF</a>
               </div>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      <section className="consumer-app-notes" id="notes">
-        <div className="consumer-app-section-heading">
-          <p className="consumer-app-eyebrow">Notes</p>
-          <h2>Observations before they become full systems.</h2>
-        </div>
-        <div className="consumer-app-unrouted-grid">
-          {portfolioData.unroutedSignals.map((note) => (
-            <article key={`${note.date}-${note.signal}`}>
-              <span>{note.date}</span>
-              <blockquote>{note.signal}</blockquote>
-              <p>{note.note}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="consumer-app-method" id="method">
-        <p className="consumer-app-eyebrow">Method</p>
-        <h2>The method maps to the archive.</h2>
-        <ol>
-          {method.map(([title, text], index) => (
-            <li key={title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <strong>{title}</strong>
-              <p>{text}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      <section className="consumer-app-help">
-        <div>
-          <p className="consumer-app-eyebrow">Where I fit</p>
-          <h2>For teams that need sharper consumer understanding before product or marketing decisions.</h2>
-        </div>
-        <div className="consumer-app-help-grid">
-          <article><span>Product</span><p>Turning evidence into roadmap priorities and feature tradeoffs, not just feature requests.</p></article>
-          <article><span>Marketing</span><p>Positioning and launch narratives built to be remembered, not just accurate.</p></article>
-          <article><span>Brand</span><p>Protect what people should remember when channels and messages change.</p></article>
-          <article><span>Research</span><p>Separate useful signals from category noise, claims, and performance dashboards.</p></article>
-        </div>
-      </section>
-
-      <section className="consumer-app-contact" id="contact">
-        <div>
-          <p className="consumer-app-eyebrow">Contact</p>
-          <h2>If consumer understanding needs to shape the decision, send me the problem.</h2>
-          <p>
-            Building toward a March 2027 job search for PM, PMM, and consumer-strategy
-            roles where evidence should shape the roadmap or the launch.
-          </p>
-          <p>
-            Email me with the role, project, or business question. I can reply with the
-            most relevant dossier, a short written take, or a 20-minute call if the fit
-            is clear.
-          </p>
-        </div>
-        <aside>
-          <blockquote>
-            I like problems where the answer is hiding inside the way people already behave.
-          </blockquote>
-          <a href="mailto:rugved.naik@edu.escp.eu">rugved.naik@edu.escp.eu</a>
-          <a href="https://www.linkedin.com/in/rugvednaik" target="_blank" rel="noreferrer">
-            LinkedIn / rugvednaik
-          </a>
-        </aside>
+            </div>
+            <div className="contact-card">
+              <span>What to send</span>
+              <ul>
+                <li>Le rôle ou le stage concerné.</li>
+                <li>Le problème produit, marketing ou consommateur.</li>
+                <li>La date et le contexte de l'équipe.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
       </section>
     </main>
   );
