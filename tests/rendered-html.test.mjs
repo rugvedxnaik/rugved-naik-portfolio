@@ -62,9 +62,14 @@ test("portfolio archive follows the v3 content rules", async () => {
   assert.match(indexHtml, /data-active-signal-card/);
   assert.match(indexHtml, /class="ui-icon"/);
   assert.match(pageTsx, /consumer-app-active-readout/);
+  assert.match(pageTsx, /consumer-app-quote-underline/);
+  assert.match(scriptJs, /signal-quote-underline/);
   assert.match(scriptJs, /setupScrollProgress/);
   assert.match(scriptJs, /setActiveSignal/);
-  assert.equal(portfolio.cases.length, 15);
+  assert.equal(portfolio.cases.length, 16);
+  assert.equal(portfolio.hiring.facts.find((item) => item.label === "Next search window")?.value, "March 2027");
+  assert.match(indexHtml, /For HRs and hiring teams/);
+  assert.match(pageTsx, /March 2027 job search/);
   assert.equal(Boolean(portfolio.interests), false);
   assert.match(portfolio.lensClosing, /Traveling across India/);
   assert.doesNotMatch(indexHtml, /Site last touched/);
@@ -91,6 +96,11 @@ test("portfolio archive follows the v3 content rules", async () => {
   assert.equal(peora.validation, "Operationally validated");
   assert.equal(peora.caseLink, "case-peora-availability-ranking.html");
 
+  const boxProof = portfolio.cases.find((item) => item.slug === "box-is-the-proof");
+  assert.ok(boxProof);
+  assert.equal(boxProof.routeStatus, "still routing");
+  assert.equal(boxProof.caseLink, "case-box-is-the-proof.html");
+
   const routedSignals = new Set(
     portfolio.cases
       .filter((item) => item.routeStatus === "routed")
@@ -114,6 +124,7 @@ test("public portfolio copy avoids em and en dashes", async () => {
     "../observations-site/case-withings.html",
     "../observations-site/case-amazon-conversion.html",
     "../observations-site/case-peora-availability-ranking.html",
+    "../observations-site/case-box-is-the-proof.html",
     "../observations-site/case-loreal-ai-personalization.html",
     "../observations-site/case-danone-claim-saturation.html",
     "../observations-site/case-lvmh-shared-infrastructure.html",
@@ -137,6 +148,7 @@ test("v4 dossier pages share the standard section structure", async () => {
     "../observations-site/case-danone-claim-saturation.html",
     "../observations-site/case-lvmh-shared-infrastructure.html",
     "../observations-site/case-peora-availability-ranking.html",
+    "../observations-site/case-box-is-the-proof.html",
   ];
 
   const expectedSections = [

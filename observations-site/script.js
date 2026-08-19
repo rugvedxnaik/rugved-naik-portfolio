@@ -93,6 +93,7 @@
     "1903": "⌁",
     commerce: "▣",
     danone: "◎",
+    "fragrance-india": "□",
     givenchy: "◆",
     loreal: "◌",
     lvmh: "◧",
@@ -137,6 +138,20 @@
     const label = textElement("span", "signal-label");
     label.append(iconElement("ui-icon signal-label-icon", icon), document.createTextNode(text));
     return label;
+  }
+
+  function underlineElement() {
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.classList.add("signal-quote-underline");
+    svg.setAttribute("viewBox", "0 0 300 10");
+    svg.setAttribute("preserveAspectRatio", "none");
+    svg.setAttribute("aria-hidden", "true");
+
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.classList.add("signal-quote-underline-path");
+    path.setAttribute("d", "M2,6 Q78,2 150,6 T298,5");
+    svg.append(path);
+    return svg;
   }
 
   function cases() {
@@ -247,6 +262,30 @@
     }
   }
 
+  function renderHiring(data) {
+    const hiring = data.hiring;
+    if (!hiring) return;
+
+    setText("[data-hiring-eyebrow]", hiring.eyebrow);
+    setText("[data-hiring-title]", hiring.title);
+    setText("[data-hiring-intro]", hiring.intro);
+
+    const facts = qs("[data-hiring-facts]");
+    if (!facts || !hiring.facts) return;
+
+    facts.replaceChildren();
+    hiring.facts.forEach((fact, index) => {
+      const article = textElement("article", "");
+      article.append(
+        textElement("span", "", fact.label),
+        textElement("strong", "", fact.value),
+        textElement("p", "", fact.note),
+      );
+      article.style.setProperty("--fact-index", String(index));
+      facts.append(article);
+    });
+  }
+
   function renderLenses(data) {
     const notes = qs("[data-lens-notes]");
     if (!notes || !data.lenses) return;
@@ -344,9 +383,15 @@
     entry.dataset.focus = focusKey(item);
     if (item.theme) entry.classList.add(item.theme);
 
+    const quote = textElement("span", "signal-entry-quote");
+    quote.append(
+      textElement("span", "signal-entry-quote-text", item.signalQuote),
+      underlineElement(),
+    );
+
     const quoteBlock = textElement("span", "signal-entry-main");
     quoteBlock.append(
-      textElement("span", "signal-entry-quote", item.signalQuote),
+      quote,
       textElement("span", "signal-entry-category", item.category || "Portfolio inquiry"),
     );
 
@@ -677,37 +722,33 @@
 
     const profile = soundProfiles[profileName] || soundProfiles.settled;
     const now = context.currentTime;
-    const master = context.createGain();
+    const duration = Math.min(0.24, Math.max(0.14, profile.duration * 0.42));
+    const bufferSize = Math.ceil(context.sampleRate * duration);
+    const buffer = context.createBuffer(1, bufferSize, context.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let index = 0; index < bufferSize; index += 1) {
+      const fade = 1 - index / bufferSize;
+      data[index] = (Math.random() * 2 - 1) * fade;
+    }
+
+    const noise = context.createBufferSource();
+    const gain = context.createGain();
     const filter = context.createBiquadFilter();
-    const fundamental = context.createOscillator();
-    const overtone = context.createOscillator();
-    const overtoneGain = context.createGain();
+    const frequency = Math.max(850, Math.min(2600, profile.filter * 1.08));
 
-    filter.type = "lowpass";
-    filter.frequency.setValueAtTime(profile.filter, now);
+    noise.buffer = buffer;
+    filter.type = "bandpass";
+    filter.frequency.setValueAtTime(frequency, now);
     filter.Q.setValueAtTime(profile.q, now);
-    master.gain.setValueAtTime(0.0001, now);
-    master.gain.exponentialRampToValueAtTime(profile.peak, now + 0.012);
-    master.gain.exponentialRampToValueAtTime(0.0001, now + profile.duration);
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(Math.max(0.018, profile.peak * 2.2), now + 0.012);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
 
-    fundamental.type = profile.wave;
-    overtone.type = profile.overtoneWave;
-    fundamental.frequency.setValueAtTime(profile.fundamental, now);
-    fundamental.frequency.exponentialRampToValueAtTime(profile.endFrequency, now + profile.duration * 0.86);
-    overtone.frequency.setValueAtTime(profile.overtone, now);
-    overtone.frequency.exponentialRampToValueAtTime(profile.overtoneEnd, now + profile.duration * 0.72);
-    overtoneGain.gain.setValueAtTime(0.32, now);
-
-    fundamental.connect(master);
-    overtone.connect(overtoneGain);
-    overtoneGain.connect(master);
-    master.connect(filter);
-    filter.connect(context.destination);
-
-    fundamental.start(now);
-    overtone.start(now);
-    fundamental.stop(now + profile.duration + 0.02);
-    overtone.stop(now + profile.duration * 0.82);
+    noise.connect(filter);
+    filter.connect(gain);
+    gain.connect(context.destination);
+    noise.start(now);
+    noise.stop(now + duration + 0.02);
   }
 
   function setupSoundToggle(data) {
@@ -808,6 +849,7 @@
     portfolioData = data;
     validateUnroutedSignals(data);
     renderHero(data);
+    renderHiring(data);
     renderLenses(data);
     renderLensClosing(data);
     renderBackground(data);

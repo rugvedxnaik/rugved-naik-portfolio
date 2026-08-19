@@ -1,13 +1,13 @@
 {
   "site": {
-    "lastUpdated": "2026-08-04",
-    "lastUpdatedLabel": "04 Aug 2026"
+    "lastUpdated": "2026-08-05",
+    "lastUpdatedLabel": "05 Aug 2026"
   },
   "hero": {
     "eyebrow": "Consumer-centric product and marketing strategy.",
     "title": "The most interesting marketing problems are not solved with more content.",
     "lens": "They are solved with a clearer idea of what the brand is actually saying, what the product helps people become, and what should stay recognizable after the touchpoint disappears. This is the evidence base for product and product-marketing decisions: what to build, what to prioritize, and what to say so it is remembered.",
-    "proofLine": "Archive includes Givenchy Beauty, Miutine, Danone, L'Oréal, LVMH, Withings, Recognition Index, 19h03, Amazon conversion systems, and an e-mobility venture.",
+    "proofLine": "Archive includes Givenchy Beauty, Miutine, luxury fragrance in India, Danone, L'Oréal, LVMH, Withings, Recognition Index, 19h03, Amazon conversion systems, and an e-mobility venture.",
     "primaryCta": "Open the archive",
     "secondaryCta": "Email Rugved"
   },
@@ -32,6 +32,33 @@
     "category evidence",
     "marketing systems"
   ],
+  "hiring": {
+    "eyebrow": "For HRs and hiring teams",
+    "title": "Fast read before the deep read.",
+    "intro": "This portfolio is built for PM, PMM, consumer strategy, and brand/product strategy roles where evidence has to shape roadmap, positioning, launch, or growth decisions.",
+    "facts": [
+      {
+        "label": "Next search window",
+        "value": "March 2027",
+        "note": "The site is being shaped now for the next internship or early-career role search."
+      },
+      {
+        "label": "Current anchor",
+        "value": "Incoming Danone internship",
+        "note": "Starting later in August 2026, adding live FMCG and category experience to the archive."
+      },
+      {
+        "label": "Best-fit roles",
+        "value": "PM / PMM / Consumer strategy",
+        "note": "Especially where product, category, marketing, and consumer behavior meet."
+      },
+      {
+        "label": "Proof base",
+        "value": "16 linked signals",
+        "note": "Dossiers, field notes, operating work, data-backed reads, and active inquiries."
+      }
+    ]
+  },
   "lensClosing": "Traveling across India, I have watched how the same consumer behaviors, collecting, ritual, trust in claims, and loyalty, show up differently by region, income, and generation. That is the same lens applied outside a brand brief.",
   "background": {
     "eyebrow": "Background",
@@ -174,6 +201,37 @@
         "output": "Identity Value x Object Value framework for deciding whether to build collectibility, loyalty, or both.",
         "productImplication": "Decide whether new drops should build collectibility, identity attachment, or both before expanding the line.",
         "gtmImplication": "Lead with the object people want to own, then attach it to the self they want to signal."
+      }
+    },
+    {
+      "id": "031",
+      "slug": "box-is-the-proof",
+      "dossierKey": "fragrance-india",
+      "theme": "theme-fragrance-india",
+      "signalQuote": "I received it as a gift. I am saving it for when it matters.",
+      "routeStatus": "still routing",
+      "status": "Active inquiry",
+      "validation": "Anecdotal inquiry",
+      "validationType": "independent",
+      "lastUpdated": "2026-08-05",
+      "lastUpdatedLabel": "05 Aug",
+      "caseTitle": "The Box Is the Proof",
+      "project": "Luxury fragrance in India",
+      "company": "",
+      "category": "Market and Data Reading",
+      "capabilities": ["Strategy", "Research", "Category analysis"],
+      "caseLink": "case-box-is-the-proof.html",
+      "caseLinkLabel": "Open active dossier",
+      "readingTime": "6 min read",
+      "archiveNote": "Unused luxury fragrance may not be failed interest. It may be value preservation through non-use.",
+      "soundProfile": "tentative",
+      "signal": {
+        "evidence": "Anecdotal Indian luxury-fragrance gifting observation, Miutine framework comparison, gift-economy behavior, and questions for future interviews, sales cuts, and price-tier analysis.",
+        "tension": "In Miutine's market, object value and identity value were both active. In this market, symbolic value may be winning so completely that use value barely activates.",
+        "translation": "Distinguish value preservation from collectibility.",
+        "output": "A market-transfer hypothesis testing whether a framework built for collecting fails when luxury fragrance behaves like a saved gift.",
+        "productImplication": "Explore smaller formats, refills, or gifting systems that lower the psychological cost of using up a precious object.",
+        "gtmImplication": "Grant permission to use the fragrance, instead of relying only on prestige language that can reinforce saving."
       }
     },
     {

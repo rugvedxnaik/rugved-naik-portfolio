@@ -5,7 +5,7 @@ const cases = portfolioData.cases;
 const defaultCase =
   cases.find((item) => item.id === portfolioData.switchboard.defaultCaseId) ?? cases[0]!;
 const navItems = [
-  ["Fit", "#fit", "◇"],
+  ["Hiring", "#fit", "◇"],
   ["Lens", "#lens", "◌"],
   ["Signals", "#signals", "◎"],
   ["Notes", "#notes", "⌁"],
@@ -16,6 +16,7 @@ const signalIcons: Record<string, string> = {
   "1903": "⌁",
   commerce: "▣",
   danone: "◎",
+  "fragrance-india": "□",
   givenchy: "◆",
   loreal: "◌",
   lvmh: "◧",
@@ -118,9 +119,20 @@ export default function Home() {
       </section>
 
       <section className="consumer-app-point" id="fit">
-        <p className="consumer-app-eyebrow">Point of view</p>
-        <h2>Consumer centric is not soft. It is operational.</h2>
+        <p className="consumer-app-eyebrow">{portfolioData.hiring.eyebrow}</p>
+        <h2>{portfolioData.hiring.title}</h2>
         <div>
+          <p className="consumer-app-hiring-intro">{portfolioData.hiring.intro}</p>
+          <div className="consumer-app-hiring-facts">
+            {portfolioData.hiring.facts.map((fact) => (
+              <article key={fact.label}>
+                <span>{fact.label}</span>
+                <strong>{fact.value}</strong>
+                <p>{fact.note}</p>
+              </article>
+            ))}
+          </div>
+          <p className="consumer-app-eyebrow consumer-app-point-of-view-label">Point of view</p>
           <p>
             A product decision asks what someone is trying to get done, signal, avoid, or
             become. A marketing decision asks what they should remember after the touchpoint
@@ -202,7 +214,19 @@ export default function Home() {
                   <span className="consumer-app-icon consumer-app-signal-icon" aria-hidden="true">{signalIconForItem(item)}</span>
                 </span>
                 <div className="consumer-app-signal-main">
-                  <blockquote>{item.signalQuote}</blockquote>
+                  <blockquote>
+                    <span className="consumer-app-signal-quote-text">
+                      {item.signalQuote}
+                      <svg
+                        className="consumer-app-quote-underline"
+                        viewBox="0 0 300 10"
+                        preserveAspectRatio="none"
+                        aria-hidden="true"
+                      >
+                        <path d="M2,6 Q78,2 150,6 T298,5" />
+                      </svg>
+                    </span>
+                  </blockquote>
                   <em>{item.category}</em>
                 </div>
                 <small className={item.routeStatus === "routed" ? "is-routed" : ""}>
@@ -306,8 +330,8 @@ export default function Home() {
           <p className="consumer-app-eyebrow">Contact</p>
           <h2>If consumer understanding needs to shape the decision, send me the problem.</h2>
           <p>
-            Looking for PM, PMM, and consumer-strategy roles where evidence should shape
-            the roadmap or the launch.
+            Building toward a March 2027 job search for PM, PMM, and consumer-strategy
+            roles where evidence should shape the roadmap or the launch.
           </p>
           <p>
             Email me with the role, project, or business question. I can reply with the
