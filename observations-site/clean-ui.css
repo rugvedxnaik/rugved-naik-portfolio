@@ -921,10 +921,6 @@ body.signal-archive-home .signal-entry[data-signal="givenchy"] {
   --entry-accent: var(--clay);
 }
 
-body.signal-archive-home .signal-entry[data-signal="siara"] {
-  --entry-accent: var(--clay);
-}
-
 body.signal-archive-home .signal-entry[data-signal="danone"] {
   --entry-accent: var(--gold);
 }
@@ -1487,10 +1483,6 @@ body.signal-archive-home .signal-entry[hidden] {
   display: none;
 }
 
-body.signal-archive-home .signal-entry[data-signal="siara"] {
-  --entry-accent: var(--sage);
-}
-
 body.signal-archive-home .signal-entry[data-signal="mobility"] {
   --entry-accent: var(--blue);
 }
@@ -1550,8 +1542,7 @@ body.signal-archive-home[data-active-signal="miutine"] {
   --active-accent: var(--sage);
 }
 
-body.signal-archive-home[data-active-signal="givenchy"],
-body.signal-archive-home[data-active-signal="siara"] {
+body.signal-archive-home[data-active-signal="givenchy"] {
   --active-accent: var(--clay);
 }
 

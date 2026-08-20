@@ -58,20 +58,32 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
 
   assert.match(indexHtml, /<title>Le Dossier \| Rugved Naik<\/title>/);
   assert.match(indexHtml, /role="tablist"/);
-  assert.equal((indexHtml.match(/class="folder-tab(?: is-active)?"/g) ?? []).length, 6);
+  assert.equal((indexHtml.match(/class="folder-tab(?: is-active)?"/g) ?? []).length, 7);
   assert.match(indexHtml, /data-lang-button="fr"/);
   assert.match(indexHtml, /data-lang-button="en"/);
   assert.match(indexHtml, /rugved-naik-cv\.pdf/);
+  assert.match(indexHtml, /rugved-naik-dossier\.pdf/);
   assert.match(indexHtml, /Stage dès mars 2027 \/ alternance dès septembre 2027/);
+  assert.match(indexHtml, /Convention de stage ESCP obligatoire\. Durée flexible 4-6 mois\./);
   assert.match(indexHtml, /Danone, Innovation & Productivity PM Intern/);
   assert.match(indexHtml, /Sep 2026 - Fév 2027/);
   assert.match(indexHtml, /IPROview, Power BI, innovation governance, KPIs and portfolio health/);
+  assert.match(indexHtml, /Compétences/);
+  assert.match(indexHtml, /Excel, Power BI, SQL/);
+  assert.match(indexHtml, /Amazon Seller Central \/ Ads/);
+  assert.match(indexHtml, /English C1, French A2 improving/);
+  assert.match(indexHtml, /4 700\+/);
+  assert.match(indexHtml, /68K EUR/);
+  assert.match(indexHtml, /lead-dossier/);
   assert.match(indexHtml, /BAJA SAE and e-mobility/);
   assert.match(indexHtml, /case-electric-mobility\.html/);
   assert.match(indexHtml, /case-box-is-the-proof\.html/);
+  assert.match(indexHtml, /Cultural & field research/);
+  assert.match(indexHtml, /The preferred working language/);
   assert.doesNotMatch(indexHtml, /Loading|data-signal-list|data-active-signal-card|sound-toggle|Switchboard/i);
   assert.match(pageTsx, /Le Dossier/);
   assert.match(pageTsx, /Download CV PDF/);
+  assert.match(pageTsx, /Download dossier PDF/);
   assert.match(dossierJs, /setTab/);
   assert.match(dossierJs, /setLanguage/);
   assert.equal(portfolio.cases.length, 15);
@@ -121,6 +133,7 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
 
   await assert.rejects(access(new URL("../observations-site/case-baja.html", import.meta.url)));
   await access(new URL("../observations-site/rugved-naik-cv.pdf", import.meta.url));
+  await access(new URL("../observations-site/rugved-naik-dossier.pdf", import.meta.url));
 });
 
 test("public portfolio copy avoids em and en dashes", async () => {
@@ -161,6 +174,8 @@ test("v4 dossier pages share the standard section structure", async () => {
     "../observations-site/case-lvmh-shared-infrastructure.html",
     "../observations-site/case-peora-availability-ranking.html",
     "../observations-site/case-box-is-the-proof.html",
+    "../observations-site/case-withings.html",
+    "../observations-site/case-amazon-conversion.html",
   ];
 
   const expectedSections = [
@@ -181,4 +196,14 @@ test("v4 dossier pages share the standard section structure", async () => {
       assert.match(html, new RegExp(section), `${file} ${section}`);
     }
   }
+});
+
+test("Danone dossier discloses independent public analysis", async () => {
+  const html = await readFile(
+    new URL("../observations-site/case-danone-claim-saturation.html", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(html, /This independent analysis was conducted before and outside my Danone Innovation & Productivity PM internship/);
+  assert.match(html, /unrelated to internal Danone work/);
 });

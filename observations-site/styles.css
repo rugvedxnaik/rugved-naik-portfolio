@@ -3519,6 +3519,22 @@ body[data-signal="seo"] .room-signal {
   line-height: 1.6;
 }
 
+.dossier-disclosure {
+  max-width: 760px;
+  margin: 1rem 0 0;
+  padding: 1rem;
+  border: 1px solid rgba(138, 106, 63, 0.28);
+  border-left: 3px solid var(--case-accent);
+  background: rgba(255, 255, 255, 0.28);
+  color: var(--ink-soft);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.dossier-disclosure strong {
+  color: var(--ink);
+}
+
 .dossier-section {
   padding-top: clamp(1.4rem, 3vw, 2.15rem);
   border-top: 1px solid var(--line);
@@ -3550,6 +3566,18 @@ body[data-signal="seo"] .room-signal {
   font-style: italic;
   letter-spacing: -0.025em;
   line-height: 1.03;
+}
+
+.dossier-inline-signal {
+  max-width: 760px;
+  margin: 1.25rem 0 1.4rem;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.case-copy .dossier-inline-signal .dossier-signal-quote {
+  font-size: clamp(2rem, 3.6vw, 3.25rem);
+  line-height: 1.04;
 }
 
 .dossier-section ul {

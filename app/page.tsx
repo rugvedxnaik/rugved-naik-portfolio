@@ -3,16 +3,19 @@ import portfolioData from "../observations-site/data/portfolio.json";
 
 const dossierLinks = [
   {
-    label: "Applied in role",
+    label: "Start here / Applied in role",
     title: "Availability Is a Ranking Signal",
     text: "Peora, Amazon marketplace growth, stock-outs, rank loss, ad dependency and operating dashboards.",
     href: "case-peora-availability-ranking.html",
+    priority: true,
+    lead: true,
   },
   {
     label: "FMCG category",
     title: "Claim Saturation",
     text: "Danone, health claims, proof cues and what makes a familiar category claim believable.",
     href: "case-danone-claim-saturation.html",
+    priority: true,
   },
   {
     label: "Target house",
@@ -27,16 +30,25 @@ const dossierLinks = [
     href: "case-lvmh-shared-infrastructure.html",
   },
   {
-    label: "Market reading",
+    label: "Start here / Market reading",
     title: "Collectibility Over Loyalty",
     text: "Miutine, 4,700+ reviews, collectibility, identity value and object value.",
     href: "case-miutine.html",
+    lead: true,
   },
   {
-    label: "India luxury read",
+    label: "Start here / India luxury read",
     title: "The Box Is the Proof",
     text: "Luxury fragrance in India, saved gifts, social permission and the role of packaging.",
     href: "case-box-is-the-proof.html",
+    lead: true,
+  },
+  {
+    label: "Start here / Competition validated",
+    title: "Face Architecture",
+    text: "Givenchy Beauty, identity, face structure and a beauty territory built as architecture.",
+    href: "case-givenchy.html",
+    lead: true,
   },
   {
     label: "Product adoption",
@@ -49,6 +61,12 @@ const dossierLinks = [
     title: "Withings PMM Category Read",
     text: "Preventive health, connected measurement, premium positioning and category direction.",
     href: "case-withings.html",
+  },
+  {
+    label: "Conversion system",
+    title: "Listing Conversion Systems",
+    text: "Amazon A+ content, product understanding, proof and trust as marketplace infrastructure.",
+    href: "case-amazon-conversion.html",
   },
 ];
 
@@ -64,9 +82,10 @@ const tabs = [
   ["01", "Profil", "#profil"],
   ["02", "Disponibilité", "#disponibilite"],
   ["03", "Expérience", "#experience"],
-  ["04", "Méthode", "#methode"],
-  ["05", "Dossiers", "#dossiers"],
-  ["06", "Contact", "#contact"],
+  ["04", "Compétences", "#competences"],
+  ["05", "Méthode", "#methode"],
+  ["06", "Dossiers", "#dossiers"],
+  ["07", "Contact", "#contact"],
 ];
 
 export default function Home() {
@@ -95,6 +114,7 @@ export default function Home() {
           <p>Profil</p>
           <p>Disponibilité</p>
           <p>Expérience</p>
+          <p>Compétences</p>
           <p>Méthode</p>
           <p>Dossiers</p>
         </aside>
@@ -162,27 +182,45 @@ export default function Home() {
                 Avant d'ajouter un projet, un outil, un dashboard ou une fonctionnalité,
                 il faut savoir ce que l'équipe doit décider et ce que les données rendent visible.
               </p>
+              <div className="stat-strip" aria-label="At-a-glance proof points">
+                <article>
+                  <strong>4 700+</strong>
+                  <span>avis analysés</span>
+                </article>
+                <article>
+                  <strong>10+</strong>
+                  <span>marques consumer</span>
+                </article>
+                <article>
+                  <strong>68K EUR</strong>
+                  <span>budget mensuel</span>
+                </article>
+                <article>
+                  <strong>3</strong>
+                  <span>marchés</span>
+                </article>
+              </div>
             </div>
             <div className="profile-cards">
               <article>
-                <span className="icon-dot" aria-hidden="true">◉</span>
+                <span className="role-icon role-icon--pm" aria-hidden="true"><i /></span>
                 <h3>PM</h3>
                 <p>Transformer le besoin en priorité produit.</p>
               </article>
               <article>
-                <span className="icon-dot" aria-hidden="true">◇</span>
+                <span className="role-icon role-icon--pmm" aria-hidden="true" />
                 <h3>PMM</h3>
                 <p>Transformer l'usage en message mémorisable.</p>
               </article>
               <article>
-                <span className="icon-dot" aria-hidden="true">◎</span>
+                <span className="role-icon role-icon--pmo" aria-hidden="true"><i /></span>
                 <h3>Innovation PMO</h3>
                 <p>Rendre les jalons, risques et prochaines étapes lisibles.</p>
               </article>
               <article>
-                <span className="icon-dot" aria-hidden="true">⌁</span>
-                <h3>Terrain</h3>
-                <p>Voyages, cultures et observation de ce que les gens font avant de l'expliquer.</p>
+                <span className="role-icon role-icon--field" aria-hidden="true" />
+                <h3>Recherche terrain & culturelle</h3>
+                <p>Observer les usages, les contextes et les différences culturelles avant de formaliser une hypothèse.</p>
               </article>
             </div>
           </div>
@@ -198,6 +236,9 @@ export default function Home() {
               <p>Disponible à partir de</p>
               <strong>Mars 2027</strong>
               <small>Stages PM, PMM, innovation, consumer strategy ou PMO. Alternance dès septembre 2027.</small>
+            </div>
+            <div className="format-note">
+              Convention de stage ESCP obligatoire. Durée flexible 4-6 mois.
             </div>
             <ol className="timeline">
               <li>
@@ -272,6 +313,45 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="folder-panel" id="competences" role="tabpanel" aria-labelledby="competences">
+          <div className="panel-heading">
+            <p className="eyebrow">Compétences</p>
+            <h2>Les outils et langages pratiques pour travailler vite avec une équipe.</h2>
+          </div>
+          <div className="panel-body skills-grid">
+            <article className="skill-card">
+              <span>Tools</span>
+              <h3>Excel, Power BI, SQL</h3>
+              <p>Dashboarding, KPI tracking, data visualization, performance reporting and data quality reviews.</p>
+            </article>
+            <article className="skill-card">
+              <span>Marketplace</span>
+              <h3>Amazon Seller Central / Ads</h3>
+              <p>Acquisition, conversion, advertising, inventory, A+ content and marketplace performance tracking.</p>
+            </article>
+            <article className="skill-card">
+              <span>Project & PMO</span>
+              <h3>Milestones, governance, stakeholders</h3>
+              <p>Project coordination, risk tracking, decision forum preparation and continuous improvement.</p>
+            </article>
+            <article className="skill-card">
+              <span>Languages</span>
+              <h3>English C1, French A2 improving</h3>
+              <p>Marathi native, Hindi bilingual, English advanced C1, French A2 improving.</p>
+            </article>
+            <article className="skill-card">
+              <span>Certifications</span>
+              <h3>Google, McKinsey, Inside LVMH</h3>
+              <p>Google Digital Marketing & E-Commerce 2025, McKinsey Forward 2025, Inside LVMH 2024.</p>
+            </article>
+            <article className="skill-card quieter">
+              <span>Reference</span>
+              <h3>Références disponibles sur demande</h3>
+              <p>I can share the most relevant reference depending on the role, project and hiring context.</p>
+            </article>
+          </div>
+        </section>
+
         <section className="folder-panel" id="methode" role="tabpanel" aria-labelledby="methode">
           <div className="panel-heading">
             <p className="eyebrow">Méthode</p>
@@ -294,9 +374,9 @@ export default function Home() {
             <h2>Des preuves à ouvrir seulement si le premier fit est bon.</h2>
           </div>
           <div className="panel-body dossier-grid">
-            {dossierLinks.map((dossier, index) => (
+            {dossierLinks.map((dossier) => (
               <a
-                className={`work-dossier${index < 2 ? " priority" : ""}`}
+                className={`work-dossier${dossier.priority ? " priority" : ""}${dossier.lead ? " lead-dossier" : ""}`}
                 href={dossier.href}
                 key={dossier.href}
               >
@@ -324,6 +404,7 @@ export default function Home() {
                 <a href="mailto:rugved.naik@edu.escp.eu">Email</a>
                 <a href="https://www.linkedin.com/in/rugvednaik">LinkedIn</a>
                 <a href="rugved-naik-cv.pdf" download>Download CV PDF</a>
+                <a href="rugved-naik-dossier.pdf" download>Download dossier PDF</a>
               </div>
             </div>
             <div className="contact-card">
@@ -332,6 +413,7 @@ export default function Home() {
                 <li>Le rôle ou le stage concerné.</li>
                 <li>Le problème produit, marketing ou consommateur.</li>
                 <li>La date et le contexte de l'équipe.</li>
+                <li>La langue de travail souhaitée.</li>
               </ul>
             </div>
           </div>

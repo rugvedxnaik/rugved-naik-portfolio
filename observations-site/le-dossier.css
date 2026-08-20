@@ -247,13 +247,29 @@ body[data-lang="en"] .lang-en {
 }
 
 .availability-stamp {
-  border: 1px solid rgba(163, 58, 49, 0.56);
+  background:
+    repeating-linear-gradient(135deg, rgba(163, 58, 49, 0.06) 0 1px, transparent 1px 6px),
+    rgba(251, 246, 236, 0.28);
+  border: 1px solid rgba(163, 58, 49, 0.62);
+  box-shadow:
+    0 0 0 2px rgba(163, 58, 49, 0.16) inset,
+    0 12px 26px rgba(163, 58, 49, 0.08);
   color: var(--red);
   display: inline-flex;
   font-size: clamp(0.7rem, 1vw, 0.9rem);
   margin-top: 24px;
   padding: 14px 18px;
-  transform: rotate(-1.2deg);
+  position: relative;
+  text-shadow: 0.6px 0 rgba(163, 58, 49, 0.18);
+  transform: rotate(-2.4deg);
+}
+
+.availability-stamp::after {
+  border: 1px solid rgba(163, 58, 49, 0.34);
+  content: "";
+  inset: 4px;
+  pointer-events: none;
+  position: absolute;
 }
 
 .cover-meta {
@@ -332,8 +348,9 @@ body[data-lang="en"] .lang-en {
 
 .folder-tab.is-active {
   background: var(--sheet);
+  box-shadow: 0 -8px 20px rgba(51, 42, 33, 0.08);
   color: var(--ink);
-  transform: translateY(1px);
+  transform: translateY(-1px);
 }
 
 .folder-panel {
@@ -411,6 +428,43 @@ body[data-lang="en"] .lang-en {
   margin-bottom: 22px;
 }
 
+.stat-strip {
+  border: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 34px;
+}
+
+.stat-strip article {
+  border-right: 1px solid var(--line);
+  padding: 16px 14px;
+}
+
+.stat-strip article:last-child {
+  border-right: 0;
+}
+
+.stat-strip strong {
+  color: var(--blue);
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(1.55rem, 2.5vw, 2.25rem);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+  margin-bottom: 6px;
+}
+
+.stat-strip span {
+  color: var(--muted);
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
 .profile-cards {
   display: grid;
   gap: 14px;
@@ -431,7 +485,8 @@ body[data-lang="en"] .lang-en {
   padding: 24px;
 }
 
-.icon-dot {
+.icon-dot,
+.role-icon {
   align-items: center;
   background: var(--blue-soft);
   border: 1px solid rgba(34, 63, 99, 0.2);
@@ -441,7 +496,100 @@ body[data-lang="en"] .lang-en {
   height: 34px;
   justify-content: center;
   margin-bottom: 24px;
+  position: relative;
   width: 34px;
+}
+
+.role-icon i,
+.role-icon::before,
+.role-icon::after {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+.role-icon--pm i {
+  border: 1px solid var(--blue);
+  height: 12px;
+  right: 7px;
+  top: 10px;
+  width: 12px;
+}
+
+.role-icon--pm::before {
+  background: var(--blue);
+  height: 1px;
+  left: 7px;
+  top: 16px;
+  width: 15px;
+}
+
+.role-icon--pm::after {
+  border-right: 1px solid var(--blue);
+  border-top: 1px solid var(--blue);
+  height: 6px;
+  left: 16px;
+  top: 13px;
+  transform: rotate(45deg);
+  width: 6px;
+}
+
+.role-icon--pmm::before {
+  border: 1px solid var(--blue);
+  border-radius: 6px;
+  height: 13px;
+  left: 8px;
+  top: 9px;
+  width: 18px;
+}
+
+.role-icon--pmm::after {
+  border-bottom: 1px solid var(--blue);
+  border-left: 1px solid var(--blue);
+  bottom: 9px;
+  height: 5px;
+  left: 13px;
+  transform: skewX(-18deg);
+  width: 6px;
+}
+
+.role-icon--pmo i,
+.role-icon--pmo::before,
+.role-icon--pmo::after {
+  background: var(--blue);
+  height: 1px;
+  left: 12px;
+  width: 12px;
+}
+
+.role-icon--pmo i {
+  top: 11px;
+}
+
+.role-icon--pmo::before {
+  top: 16px;
+}
+
+.role-icon--pmo::after {
+  top: 21px;
+}
+
+.role-icon--field::before {
+  border: 1px solid var(--blue);
+  border-radius: 50%;
+  height: 18px;
+  left: 7px;
+  top: 7px;
+  width: 18px;
+}
+
+.role-icon--field::after {
+  background: var(--blue);
+  height: 15px;
+  left: 16px;
+  top: 9px;
+  transform: rotate(34deg);
+  width: 1px;
 }
 
 .profile-cards h3,
@@ -479,9 +627,11 @@ body[data-lang="en"] .lang-en {
 .stamp-card {
   align-items: center;
   background:
+    repeating-linear-gradient(135deg, rgba(163, 58, 49, 0.045) 0 1px, transparent 1px 8px),
     radial-gradient(circle at 20% 10%, rgba(163, 58, 49, 0.1), transparent 36%),
     var(--sheet-soft);
   border: 1px solid rgba(163, 58, 49, 0.42);
+  box-shadow: 0 0 0 5px rgba(163, 58, 49, 0.08) inset;
   color: var(--red);
   display: flex;
   flex-direction: column;
@@ -513,6 +663,54 @@ body[data-lang="en"] .lang-en {
   color: var(--muted);
   font-size: 0.66rem;
   max-width: 360px;
+}
+
+.format-note {
+  align-self: start;
+  background: rgba(217, 226, 236, 0.5);
+  border: 1px solid rgba(34, 63, 99, 0.22);
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  line-height: 1.55;
+  padding: 18px;
+  text-transform: uppercase;
+}
+
+.skills-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.skill-card {
+  background: rgba(246, 239, 227, 0.62);
+  border: 1px solid var(--line);
+  min-height: 220px;
+  padding: 24px;
+}
+
+.skill-card.quieter {
+  background: rgba(217, 226, 236, 0.32);
+}
+
+.skill-card > span {
+  color: var(--gold);
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  margin-bottom: 44px;
+  text-transform: uppercase;
+}
+
+.skill-card h3 {
+  margin-bottom: 14px;
+}
+
+.skill-card p {
+  margin-bottom: 0;
 }
 
 .timeline {
@@ -615,7 +813,7 @@ body[data-lang="en"] .lang-en {
 }
 
 .method-grid article > span {
-  color: var(--red);
+  color: var(--gold);
   display: block;
   font-family: var(--mono);
   font-size: 0.7rem;
@@ -662,6 +860,23 @@ body[data-lang="en"] .lang-en {
 
 .work-dossier.priority {
   background: rgba(217, 226, 236, 0.42);
+}
+
+.work-dossier.lead-dossier {
+  border-left: 3px solid var(--gold);
+  box-shadow: inset 10px 0 22px rgba(168, 117, 62, 0.08);
+}
+
+.work-dossier.lead-dossier::before {
+  color: var(--blue);
+  content: "Recommended start";
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  position: absolute;
+  right: 24px;
+  text-transform: uppercase;
+  top: 24px;
 }
 
 .work-dossier span,
@@ -816,8 +1031,21 @@ body[data-lang="en"] .lang-en {
 
   .profile-cards,
   .dossier-grid,
+  .skills-grid,
   .method-grid {
     grid-template-columns: 1fr;
+  }
+
+  .stat-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stat-strip article:nth-child(2) {
+    border-right: 0;
+  }
+
+  .stat-strip article:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
   }
 
   .experience-item strong,

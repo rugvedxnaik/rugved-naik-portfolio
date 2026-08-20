@@ -88,6 +88,7 @@
           <p>Profil</p>
           <p>Disponibilité</p>
           <p>Expérience</p>
+          <p>Compétences</p>
           <p>Méthode</p>
           <p>Dossiers</p>
         </aside>
@@ -152,14 +153,17 @@
           <button class="folder-tab" id="tab-experience" type="button" role="tab" aria-selected="false" aria-controls="panel-experience" data-tab="experience">
             <span>03</span> Expérience
           </button>
+          <button class="folder-tab" id="tab-competences" type="button" role="tab" aria-selected="false" aria-controls="panel-competences" data-tab="competences">
+            <span>04</span> Compétences
+          </button>
           <button class="folder-tab" id="tab-methode" type="button" role="tab" aria-selected="false" aria-controls="panel-methode" data-tab="methode">
-            <span>04</span> Méthode
+            <span>05</span> Méthode
           </button>
           <button class="folder-tab" id="tab-dossiers" type="button" role="tab" aria-selected="false" aria-controls="panel-dossiers" data-tab="dossiers">
-            <span>05</span> Dossiers
+            <span>06</span> Dossiers
           </button>
           <button class="folder-tab" id="tab-contact" type="button" role="tab" aria-selected="false" aria-controls="panel-contact" data-tab="contact">
-            <span>06</span> Contact
+            <span>07</span> Contact
           </button>
         </nav>
 
@@ -201,10 +205,40 @@
                   understand what the team needs to decide and what the data makes visible.
                 </span>
               </p>
+              <div class="stat-strip" aria-label="At-a-glance proof points">
+                <article>
+                  <strong>4 700+</strong>
+                  <span>
+                    <span class="lang-fr">avis analysés</span>
+                    <span class="lang-en">reviews analyzed</span>
+                  </span>
+                </article>
+                <article>
+                  <strong>10+</strong>
+                  <span>
+                    <span class="lang-fr">marques consumer</span>
+                    <span class="lang-en">consumer brands</span>
+                  </span>
+                </article>
+                <article>
+                  <strong>68K EUR</strong>
+                  <span>
+                    <span class="lang-fr">budget mensuel</span>
+                    <span class="lang-en">monthly budget</span>
+                  </span>
+                </article>
+                <article>
+                  <strong>3</strong>
+                  <span>
+                    <span class="lang-fr">marchés</span>
+                    <span class="lang-en">markets</span>
+                  </span>
+                </article>
+              </div>
             </div>
             <div class="profile-cards">
               <article>
-                <span class="icon-dot" aria-hidden="true">◉</span>
+                <span class="role-icon role-icon--pm" aria-hidden="true"><i></i></span>
                 <h3>PM</h3>
                 <p>
                   <span class="lang-fr">Transformer le besoin en priorité produit.</span>
@@ -212,7 +246,7 @@
                 </p>
               </article>
               <article>
-                <span class="icon-dot" aria-hidden="true">◇</span>
+                <span class="role-icon role-icon--pmm" aria-hidden="true"><i></i></span>
                 <h3>PMM</h3>
                 <p>
                   <span class="lang-fr">Transformer l'usage en message mémorisable.</span>
@@ -220,7 +254,7 @@
                 </p>
               </article>
               <article>
-                <span class="icon-dot" aria-hidden="true">◎</span>
+                <span class="role-icon role-icon--pmo" aria-hidden="true"><i></i></span>
                 <h3>Innovation PMO</h3>
                 <p>
                   <span class="lang-fr">Rendre les jalons, risques et prochaines étapes lisibles.</span>
@@ -228,14 +262,14 @@
                 </p>
               </article>
               <article>
-                <span class="icon-dot" aria-hidden="true">⌁</span>
+                <span class="role-icon role-icon--field" aria-hidden="true"><i></i></span>
                 <h3>
-                  <span class="lang-fr">Terrain</span>
-                  <span class="lang-en">Field lens</span>
+                  <span class="lang-fr">Recherche terrain & culturelle</span>
+                  <span class="lang-en">Cultural & field research</span>
                 </h3>
                 <p>
-                  <span class="lang-fr">Voyages, cultures et observation de ce que les gens font avant de l'expliquer.</span>
-                  <span class="lang-en">Travel, cultures and observing what people do before they explain it.</span>
+                  <span class="lang-fr">Observer les usages, les contextes et les différences culturelles avant de formaliser une hypothèse.</span>
+                  <span class="lang-en">Observe usage, context and cultural differences before formalizing a hypothesis.</span>
                 </p>
               </article>
             </div>
@@ -264,6 +298,10 @@
                 <span class="lang-fr">Stages PM, PMM, innovation, consumer strategy ou PMO. Alternance dès septembre 2027.</span>
                 <span class="lang-en">PM, PMM, innovation, consumer strategy or PMO internships. Apprenticeships from September 2027.</span>
               </small>
+            </div>
+            <div class="format-note">
+              <span class="lang-fr">Convention de stage ESCP obligatoire. Durée flexible 4-6 mois.</span>
+              <span class="lang-en">ESCP internship agreement required. Flexible 4-6 month duration.</span>
             </div>
             <ol class="timeline">
               <li>
@@ -386,6 +424,72 @@
           </div>
         </section>
 
+        <section class="folder-panel" id="panel-competences" role="tabpanel" aria-labelledby="tab-competences" data-panel="competences">
+          <div class="panel-heading">
+            <p class="eyebrow">
+              <span class="lang-fr">Compétences</span>
+              <span class="lang-en">Skills</span>
+            </p>
+            <h2>
+              <span class="lang-fr">Les outils et langages pratiques pour travailler vite avec une équipe.</span>
+              <span class="lang-en">The tools and working languages to move quickly with a team.</span>
+            </h2>
+          </div>
+          <div class="panel-body skills-grid">
+            <article class="skill-card">
+              <span>Tools</span>
+              <h3>Excel, Power BI, SQL</h3>
+              <p>
+                <span class="lang-fr">Dashboarding, KPI tracking, data visualization, reporting de performance et data quality reviews.</span>
+                <span class="lang-en">Dashboarding, KPI tracking, data visualization, performance reporting and data quality reviews.</span>
+              </p>
+            </article>
+            <article class="skill-card">
+              <span>Marketplace</span>
+              <h3>Amazon Seller Central / Ads</h3>
+              <p>
+                <span class="lang-fr">Suivi acquisition, conversion, advertising, inventory, contenu A+ et performance marketplace.</span>
+                <span class="lang-en">Acquisition, conversion, advertising, inventory, A+ content and marketplace performance tracking.</span>
+              </p>
+            </article>
+            <article class="skill-card">
+              <span>Project & PMO</span>
+              <h3>Milestones, governance, stakeholders</h3>
+              <p>
+                <span class="lang-fr">Coordination projet, suivi des risques, préparation de forums de décision et amélioration continue.</span>
+                <span class="lang-en">Project coordination, risk tracking, decision forum preparation and continuous improvement.</span>
+              </p>
+            </article>
+            <article class="skill-card">
+              <span>Languages</span>
+              <h3>English C1, French A2 improving</h3>
+              <p>
+                <span class="lang-fr">Marathi natif, Hindi bilingue, Anglais avancé C1, Français A2 en progression.</span>
+                <span class="lang-en">Marathi native, Hindi bilingual, English advanced C1, French A2 improving.</span>
+              </p>
+            </article>
+            <article class="skill-card">
+              <span>Certifications</span>
+              <h3>Google, McKinsey, Inside LVMH</h3>
+              <p>
+                <span class="lang-fr">Google Digital Marketing & E-Commerce 2025, McKinsey Forward 2025, Inside LVMH 2024.</span>
+                <span class="lang-en">Google Digital Marketing & E-Commerce 2025, McKinsey Forward 2025, Inside LVMH 2024.</span>
+              </p>
+            </article>
+            <article class="skill-card quieter">
+              <span>Reference</span>
+              <h3>
+                <span class="lang-fr">Références disponibles sur demande</span>
+                <span class="lang-en">References available on request</span>
+              </h3>
+              <p>
+                <span class="lang-fr">Je peux partager une référence adaptée selon le rôle, le projet et le contexte de recrutement.</span>
+                <span class="lang-en">I can share the most relevant reference depending on the role, project and hiring context.</span>
+              </p>
+            </article>
+          </div>
+        </section>
+
         <section class="folder-panel" id="panel-methode" role="tabpanel" aria-labelledby="tab-methode" data-panel="methode">
           <div class="panel-heading">
             <p class="eyebrow">
@@ -443,10 +547,10 @@
               </p>
             </article>
             <article>
-              <span>05</span>
-              <h3>
-                <span class="lang-fr">Rendre utilisable</span>
-                <span class="lang-en">Make it usable</span>
+                <span>05</span>
+                <h3>
+                  <span class="lang-fr">Rendre utilisable</span>
+                  <span class="lang-en">Make it usable</span>
               </h3>
               <p>
                 <span class="lang-fr">Créer un dossier, une règle ou un framework qui aide la décision suivante.</span>
@@ -468,8 +572,8 @@
             </h2>
           </div>
           <div class="panel-body dossier-grid">
-            <a class="work-dossier priority" href="case-peora-availability-ranking.html">
-              <span>Applied in role</span>
+            <a class="work-dossier priority lead-dossier" href="case-peora-availability-ranking.html">
+              <span>Start here / Applied in role</span>
               <h3>Availability Is a Ranking Signal</h3>
               <p>Peora, Amazon marketplace growth, stock-outs, rank loss, ad dependency and operating dashboards.</p>
               <small>Open dossier</small>
@@ -492,20 +596,20 @@
               <p>LVMH, customer intelligence, house codes and where shared systems should stop.</p>
               <small>Open dossier</small>
             </a>
-            <a class="work-dossier" href="case-miutine.html">
-              <span>Market reading</span>
+            <a class="work-dossier lead-dossier" href="case-miutine.html">
+              <span>Start here / Market reading</span>
               <h3>Collectibility Over Loyalty</h3>
               <p>Miutine, 4,700+ reviews, collectibility, identity value and object value.</p>
               <small>Open dossier</small>
             </a>
-            <a class="work-dossier" href="case-box-is-the-proof.html">
-              <span>India luxury read</span>
+            <a class="work-dossier lead-dossier" href="case-box-is-the-proof.html">
+              <span>Start here / India luxury read</span>
               <h3>The Box Is the Proof</h3>
               <p>Luxury fragrance in India, saved gifts, social permission and the role of packaging.</p>
               <small>Open dossier</small>
             </a>
-            <a class="work-dossier" href="case-givenchy.html">
-              <span>Competition validated</span>
+            <a class="work-dossier lead-dossier" href="case-givenchy.html">
+              <span>Start here / Competition validated</span>
               <h3>Face Architecture</h3>
               <p>Givenchy Beauty, identity, face structure and a beauty territory built as architecture.</p>
               <small>Open dossier</small>
@@ -555,6 +659,7 @@
                 <a href="mailto:rugved.naik@edu.escp.eu">Email</a>
                 <a href="https://www.linkedin.com/in/rugvednaik">LinkedIn</a>
                 <a href="rugved-naik-cv.pdf" download>Download CV PDF</a>
+                <a href="rugved-naik-dossier.pdf" download>Download dossier PDF</a>
               </div>
             </div>
             <div class="contact-card">
@@ -571,6 +676,10 @@
                 <li>
                   <span class="lang-fr">La date et le contexte de l'équipe.</span>
                   <span class="lang-en">The timeline and team context.</span>
+                </li>
+                <li>
+                  <span class="lang-fr">La langue de travail souhaitée.</span>
+                  <span class="lang-en">The preferred working language.</span>
                 </li>
               </ul>
             </div>

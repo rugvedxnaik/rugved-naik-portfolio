@@ -100,7 +100,6 @@
     miutine: "◇",
     mobility: "△",
     recognition: "✦",
-    siara: "◐",
     withings: "◍",
   };
 
