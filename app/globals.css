@@ -4761,6 +4761,32 @@ body:has(.dossier-app) {
   text-transform: uppercase;
 }
 
+.dossier-app .design-note {
+  border-left: 2px solid var(--gold);
+  margin-top: 28px;
+  padding-left: 18px;
+}
+
+.dossier-app .design-note > span,
+.dossier-app .dossier-recommendation > span {
+  color: var(--gold);
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.dossier-app .design-note p {
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: clamp(0.96rem, 1.15vw, 1.08rem);
+  letter-spacing: 0;
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
 .dossier-app .profile-cards,
 .dossier-app .dossier-grid,
 .dossier-app .skills-grid {
@@ -5065,6 +5091,39 @@ body:has(.dossier-app) {
   margin-bottom: 72px;
 }
 
+.dossier-app .dossier-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.dossier-app .dossier-recommendation {
+  background:
+    radial-gradient(circle at 8% 0%, rgba(168, 117, 62, 0.12), transparent 32%),
+    rgba(251, 246, 236, 0.7);
+  border: 1px solid var(--line-strong);
+  border-left: 3px solid var(--gold);
+  color: var(--muted);
+  display: grid;
+  max-width: 860px;
+  padding: 24px;
+}
+
+.dossier-app .dossier-recommendation strong {
+  color: var(--ink);
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.dossier-app .dossier-recommendation p {
+  margin: 0;
+  max-width: 660px;
+}
+
 .dossier-app .work-dossier {
   color: var(--muted);
   min-height: 236px;
@@ -5121,6 +5180,16 @@ body:has(.dossier-app) {
   font-size: clamp(2rem, 4vw, 4rem);
   letter-spacing: -0.05em;
   line-height: 1.02;
+}
+
+.dossier-app .main-contact p.response-note {
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  line-height: 1.55;
+  margin-top: 22px;
+  text-transform: uppercase;
 }
 
 .dossier-app .contact-actions {

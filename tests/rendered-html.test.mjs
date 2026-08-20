@@ -74,6 +74,13 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /English C1, French A2 improving/);
   assert.match(indexHtml, /4 700\+/);
   assert.match(indexHtml, /68K EUR/);
+  assert.match(indexHtml, /\+25%/);
+  assert.match(indexHtml, /1,000\+/);
+  assert.match(indexHtml, /This site is structured as a dossier, not a portfolio/);
+  assert.match(indexHtml, /If you only open one dossier/);
+  assert.match(indexHtml, /I usually reply within 24-48 hours/);
+  assert.match(indexHtml, /application\/ld\+json/);
+  assert.match(indexHtml, /"knowsLanguage": \["English C1", "French A2", "Hindi", "Marathi"\]/);
   assert.match(indexHtml, /lead-dossier/);
   assert.match(indexHtml, /BAJA SAE and e-mobility/);
   assert.match(indexHtml, /case-electric-mobility\.html/);
@@ -174,6 +181,7 @@ test("v4 dossier pages share the standard section structure", async () => {
     "../observations-site/case-lvmh-shared-infrastructure.html",
     "../observations-site/case-peora-availability-ranking.html",
     "../observations-site/case-box-is-the-proof.html",
+    "../observations-site/case-electric-mobility.html",
     "../observations-site/case-withings.html",
     "../observations-site/case-amazon-conversion.html",
   ];

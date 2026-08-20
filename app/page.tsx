@@ -188,17 +188,25 @@ export default function Home() {
                   <span>avis analysés</span>
                 </article>
                 <article>
-                  <strong>10+</strong>
-                  <span>marques consumer</span>
-                </article>
-                <article>
                   <strong>68K EUR</strong>
                   <span>budget mensuel</span>
                 </article>
                 <article>
-                  <strong>3</strong>
-                  <span>marchés</span>
+                  <strong>+25%</strong>
+                  <span>CTR amélioré</span>
                 </article>
+                <article>
+                  <strong>1,000+</strong>
+                  <span>assets adaptés</span>
+                </article>
+              </div>
+              <div className="design-note">
+                <span>Design note</span>
+                <p>
+                  Ce site est construit comme un dossier, pas comme un portfolio:
+                  le recruteur est l'utilisateur, d'abord scanner, puis ouvrir la
+                  preuve utile, puis contacter.
+                </p>
               </div>
             </div>
             <div className="profile-cards">
@@ -373,19 +381,29 @@ export default function Home() {
             <p className="eyebrow">Dossiers</p>
             <h2>Des preuves à ouvrir seulement si le premier fit est bon.</h2>
           </div>
-          <div className="panel-body dossier-grid">
-            {dossierLinks.map((dossier) => (
-              <a
-                className={`work-dossier${dossier.priority ? " priority" : ""}${dossier.lead ? " lead-dossier" : ""}`}
-                href={dossier.href}
-                key={dossier.href}
-              >
-                <span>{dossier.label}</span>
-                <h3>{dossier.title}</h3>
-                <p>{dossier.text}</p>
-                <small>Open dossier</small>
-              </a>
-            ))}
+          <div className="panel-body dossier-stack">
+            <a className="dossier-recommendation" href="case-peora-availability-ranking.html">
+              <span>Si vous n'ouvrez qu'un dossier</span>
+              <strong>Availability Is a Ranking Signal</strong>
+              <p>
+                Commencez ici: c'est le lien le plus direct entre comportement marketplace,
+                dashboards, disponibilité, exécution et décisions PM/PMO.
+              </p>
+            </a>
+            <div className="dossier-grid">
+              {dossierLinks.map((dossier) => (
+                <a
+                  className={`work-dossier${dossier.priority ? " priority" : ""}${dossier.lead ? " lead-dossier" : ""}`}
+                  href={dossier.href}
+                  key={dossier.href}
+                >
+                  <span>{dossier.label}</span>
+                  <h3>{dossier.title}</h3>
+                  <p>{dossier.text}</p>
+                  <small>Open dossier</small>
+                </a>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -400,6 +418,7 @@ export default function Home() {
                 Je peux répondre avec le dossier le plus pertinent, une courte note écrite
                 ou un appel de 20 minutes si le fit est clair.
               </p>
+              <p className="response-note">Réponse habituelle sous 24-48 heures.</p>
               <div className="contact-actions">
                 <a href="mailto:rugved.naik@edu.escp.eu">Email</a>
                 <a href="https://www.linkedin.com/in/rugvednaik">LinkedIn</a>
