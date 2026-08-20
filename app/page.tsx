@@ -107,17 +107,17 @@ export default function Home() {
             quand je suis disponible, ce que j'ai fait, comment je travaille, et les
             dossiers à ouvrir si le fit est clair.
           </p>
-          <div className="availability-stamp">Disponible pour un stage à partir de mars 2027</div>
+          <div className="availability-stamp">Stage dès mars 2027 / alternance dès septembre 2027</div>
         </div>
 
         <div className="cover-meta" aria-label="Quick facts">
           <article>
             <span>Current</span>
-            <strong>Stage Danone, fin août 2026</strong>
+            <strong>Danone, Innovation & Productivity PM Intern</strong>
           </article>
           <article>
             <span>Target</span>
-            <strong>PM / PMM / Consumer Strategy</strong>
+            <strong>Innovation PM / PMM / PMO</strong>
           </article>
           <article>
             <span>Proof base</span>
@@ -154,13 +154,13 @@ export default function Home() {
             <div className="profile-statement">
               <p>
                 Je suis étudiant à ESCP Business School à Paris, avec une base en
-                ingénierie, une expérience en croissance marketplace, et un intérêt
-                constant pour les décisions produit et marketing qui partent du
-                comportement réel des consommateurs.
+                ingénierie, une expérience en dashboards de performance, croissance
+                marketplace et coordination de projets, et un intérêt constant pour les
+                décisions produit qui partent du comportement réel des consommateurs.
               </p>
               <p>
-                Avant d'ajouter du contenu, une campagne ou une fonctionnalité, il faut
-                savoir ce que la personne essaie de faire, de signaler, d'éviter ou de devenir.
+                Avant d'ajouter un projet, un outil, un dashboard ou une fonctionnalité,
+                il faut savoir ce que l'équipe doit décider et ce que les données rendent visible.
               </p>
             </div>
             <div className="profile-cards">
@@ -176,8 +176,8 @@ export default function Home() {
               </article>
               <article>
                 <span className="icon-dot" aria-hidden="true">◎</span>
-                <h3>Strategy</h3>
-                <p>Séparer le signal utile du bruit de catégorie.</p>
+                <h3>Innovation PMO</h3>
+                <p>Rendre les jalons, risques et prochaines étapes lisibles.</p>
               </article>
               <article>
                 <span className="icon-dot" aria-hidden="true">⌁</span>
@@ -191,26 +191,26 @@ export default function Home() {
         <section className="folder-panel" id="disponibilite" role="tabpanel" aria-labelledby="disponibilite">
           <div className="panel-heading">
             <p className="eyebrow">Disponibilité</p>
-            <h2>La prochaine recherche commence en mars 2027.</h2>
+            <h2>Stage dès mars 2027, alternance dès septembre 2027.</h2>
           </div>
           <div className="panel-body availability-grid">
             <div className="stamp-card">
               <p>Disponible à partir de</p>
               <strong>Mars 2027</strong>
-              <small>Stages PM, PMM, consumer strategy, brand/product strategy ou growth.</small>
+              <small>Stages PM, PMM, innovation, consumer strategy ou PMO. Alternance dès septembre 2027.</small>
             </div>
             <ol className="timeline">
               <li>
-                <span>Fin août 2026</span>
-                <p>Début d'un stage chez Danone, avec un contexte FMCG, catégorie et consommateur.</p>
+                <span>Sep 2026 - Fév 2027</span>
+                <p>Danone, Innovation & Productivity PM Intern sur des projets Dairy.</p>
               </li>
               <li>
                 <span>Mars 2027</span>
-                <p>Ouverture de la prochaine fenêtre de recherche de stage.</p>
+                <p>Recherche de stage en PM, PMM, innovation, project management ou consumer strategy.</p>
               </li>
               <li>
-                <span>Paris / France</span>
-                <p>Basé à Paris, ouvert aux équipes internationales et aux environnements bilingues.</p>
+                <span>Septembre 2027</span>
+                <p>Recherche d'alternance dans une équipe produit, innovation, performance ou PMO.</p>
               </li>
             </ol>
           </div>
@@ -219,16 +219,22 @@ export default function Home() {
         <section className="folder-panel" id="experience" role="tabpanel" aria-labelledby="experience">
           <div className="panel-heading">
             <p className="eyebrow">Expérience</p>
-            <h2>Une base commerciale, produit et opérationnelle.</h2>
+            <h2>Une base innovation, data et exécution opérationnelle.</h2>
           </div>
           <div className="panel-body experience-stack">
             <article className="experience-item primary">
               <div>
-                <span className="item-date">Août 2026</span>
-                <h3>Danone</h3>
-                <p>Stage à venir, FMCG, catégorie, consommateur et exécution commerciale.</p>
+                <span className="item-date">Sep 2026 - Fév 2027</span>
+                <h3>Danone, Innovation & Productivity PM Intern</h3>
+                <p>Dairy innovation, coordination projet, gouvernance, outils, Power BI et amélioration continue.</p>
+                <ul className="experience-highlights">
+                  <li>Coordination de projets innovation Dairy: nouveaux produits, recettes, formats et initiatives de productivité.</li>
+                  <li>Planning et suivi des jalons: validation concept, essais R&D, industrialisation et launch readiness.</li>
+                  <li>Data quality reviews, visibilité des risques et coordination R&D, Marketing, Supply, Quality et Regulatory.</li>
+                  <li>Support IPROview, Power BI, gouvernance innovation, KPIs et santé du portfolio.</li>
+                </ul>
               </div>
-              <strong>Incoming internship</strong>
+              <strong>Dairy innovation</strong>
             </article>
             <article className="experience-item">
               <div>
@@ -251,6 +257,17 @@ export default function Home() {
                 </p>
               </div>
               <a href="case-electric-mobility.html">E-mobility dossier</a>
+            </article>
+            <article className="experience-item">
+              <div>
+                <span className="item-date">Education</span>
+                <h3>ESCP Business School and Mechanical Engineering</h3>
+                <p>
+                  Master in Management, Grande Ecole, ESCP Paris, prévu avril 2027.
+                  B.E. Mechanical Engineering, Savitribai Phule Pune University, top 1%.
+                </p>
+              </div>
+              <strong>Paris / India</strong>
             </article>
           </div>
         </section>

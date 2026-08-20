@@ -62,8 +62,10 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /data-lang-button="fr"/);
   assert.match(indexHtml, /data-lang-button="en"/);
   assert.match(indexHtml, /rugved-naik-cv\.pdf/);
-  assert.match(indexHtml, /Disponible pour un stage à partir de mars 2027/);
-  assert.match(indexHtml, /Stage Danone, fin août 2026/);
+  assert.match(indexHtml, /Stage dès mars 2027 \/ alternance dès septembre 2027/);
+  assert.match(indexHtml, /Danone, Innovation & Productivity PM Intern/);
+  assert.match(indexHtml, /Sep 2026 - Fév 2027/);
+  assert.match(indexHtml, /IPROview, Power BI, innovation governance, KPIs and portfolio health/);
   assert.match(indexHtml, /BAJA SAE and e-mobility/);
   assert.match(indexHtml, /case-electric-mobility\.html/);
   assert.match(indexHtml, /case-box-is-the-proof\.html/);
@@ -73,7 +75,9 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(dossierJs, /setTab/);
   assert.match(dossierJs, /setLanguage/);
   assert.equal(portfolio.cases.length, 15);
-  assert.equal(portfolio.hiring.facts.find((item) => item.label === "Next search window")?.value, "March 2027");
+  assert.equal(portfolio.hiring.facts.find((item) => item.label === "Next search window")?.value, "March 2027 / September 2027");
+  assert.equal(portfolio.hiring.facts.find((item) => item.label === "Current anchor")?.value, "Danone Innovation & Productivity PM Intern");
+  assert.match(portfolio.background.lines.join(" "), /expected April 2027/);
   assert.equal(Boolean(portfolio.interests), false);
   assert.match(portfolio.lensClosing, /Traveling across India/);
   assert.doesNotMatch(indexHtml, /Site last touched/);

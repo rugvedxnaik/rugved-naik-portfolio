@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
       template: "%s",
     },
     description:
-      "A French HR-facing dossier portfolio by Rugved Naik for PM, PMM, consumer strategy, and product marketing internships.",
+      "A French HR-facing dossier portfolio by Rugved Naik for innovation PM, PMM, PMO, consumer strategy, and product marketing internships.",
     applicationName: "Le Dossier",
     keywords: [
       "consumer insight",
@@ -30,7 +30,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: "Le Dossier | Rugved Naik",
       description:
-        "A fast dossier for hiring teams: availability, experience, method, selected cases, and CV PDF.",
+        "A fast dossier for hiring teams: availability, Danone, experience, method, selected cases, and CV PDF.",
       type: "website",
       locale: "en_US",
       images: [{ url: `${origin}/og.png`, width: 1200, height: 630, alt: "Le Dossier | Rugved Naik" }],
@@ -39,7 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title: "Le Dossier | Rugved Naik",
       description:
-        "A fast dossier for hiring teams: availability, experience, method, selected cases, and CV PDF.",
+        "A fast dossier for hiring teams: availability, Danone, experience, method, selected cases, and CV PDF.",
       images: [`${origin}/og.png`],
     },
   };
