@@ -125,7 +125,7 @@ export default function Home() {
           <p className="cover-lede">
             Un portfolio rapide à lire pour les recruteurs en France: qui je suis,
             quand je suis disponible, ce que j'ai fait, comment je travaille, et les
-            dossiers à ouvrir si le fit est clair.
+            dossiers à ouvrir ensuite.
           </p>
           <div className="availability-stamp">Stage dès mars 2027 / alternance dès septembre 2027</div>
         </div>
@@ -379,7 +379,7 @@ export default function Home() {
         <section className="folder-panel" id="dossiers" role="tabpanel" aria-labelledby="dossiers">
           <div className="panel-heading">
             <p className="eyebrow">Dossiers</p>
-            <h2>Des preuves à ouvrir seulement si le premier fit est bon.</h2>
+            <h2>Des preuves à ouvrir quand un cas vous intéresse.</h2>
           </div>
           <div className="panel-body dossier-stack">
             <a className="dossier-recommendation" href="case-peora-availability-ranking.html">
@@ -410,15 +410,15 @@ export default function Home() {
         <section className="folder-panel" id="contact" role="tabpanel" aria-labelledby="contact">
           <div className="panel-heading">
             <p className="eyebrow">Contact</p>
-            <h2>Si le besoin demande de comprendre le consommateur avant de décider, envoyez-moi le problème.</h2>
+            <h2>Pour discuter d'un rôle, d'un stage ou d'un sujet à structurer, écrivez-moi simplement.</h2>
           </div>
           <div className="panel-body contact-grid">
             <div className="contact-card main-contact">
               <p>
-                Je peux répondre avec le dossier le plus pertinent, une courte note écrite
-                ou un appel de 20 minutes si le fit est clair.
+                Partagez quelques lignes de contexte. Je peux répondre avec un dossier utile,
+                une courte note ou un créneau d'échange si cela aide.
               </p>
-              <p className="response-note">Réponse habituelle sous 24-48 heures.</p>
+              <p className="response-note">Je réponds généralement sous 24-48 heures.</p>
               <div className="contact-actions">
                 <a href="mailto:rugved.naik@edu.escp.eu">Email</a>
                 <a href="https://www.linkedin.com/in/rugvednaik">LinkedIn</a>
@@ -426,13 +426,13 @@ export default function Home() {
                 <a href="rugved-naik-dossier.pdf" download>Download dossier PDF</a>
               </div>
             </div>
-            <div className="contact-card">
-              <span>What to send</span>
+            <div className="contact-card context-card">
+              <span>Contexte utile</span>
               <ul>
-                <li>Le rôle ou le stage concerné.</li>
-                <li>Le problème produit, marketing ou consommateur.</li>
-                <li>La date et le contexte de l'équipe.</li>
-                <li>La langue de travail souhaitée.</li>
+                <li>Le rôle, le stage ou l'équipe.</li>
+                <li>Ce que l'équipe essaie de décider.</li>
+                <li>Le calendrier et la langue de travail.</li>
+                <li>Un lien ou document utile, si disponible.</li>
               </ul>
             </div>
           </div>

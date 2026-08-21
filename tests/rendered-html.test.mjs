@@ -79,6 +79,9 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /This site is structured as a dossier, not a portfolio/);
   assert.match(indexHtml, /If you only open one dossier/);
   assert.match(indexHtml, /I usually reply within 24-48 hours/);
+  assert.match(indexHtml, /Share a few lines of context/);
+  assert.match(indexHtml, /Helpful context/);
+  assert.doesNotMatch(indexHtml, /most relevant dossier|if the fit is clear|send me the problem/i);
   assert.match(indexHtml, /application\/ld\+json/);
   assert.match(indexHtml, /"knowsLanguage": \["English C1", "French A2", "Hindi", "Marathi"\]/);
   assert.match(indexHtml, /lead-dossier/);
@@ -86,7 +89,7 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /case-electric-mobility\.html/);
   assert.match(indexHtml, /case-box-is-the-proof\.html/);
   assert.match(indexHtml, /Cultural & field research/);
-  assert.match(indexHtml, /The preferred working language/);
+  assert.match(indexHtml, /Timeline and working language/);
   assert.doesNotMatch(indexHtml, /Loading|data-signal-list|data-active-signal-card|sound-toggle|Switchboard/i);
   assert.match(pageTsx, /Le Dossier/);
   assert.match(pageTsx, /Download CV PDF/);

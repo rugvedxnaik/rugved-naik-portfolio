@@ -135,7 +135,7 @@ body[data-lang="en"] .lang-en {
 .item-date,
 .work-dossier span,
 .work-dossier small,
-.contact-card span,
+.contact-card > span,
 .dossier-footer {
   font-family: var(--mono);
   letter-spacing: 0.14em;
@@ -967,9 +967,10 @@ body[data-lang="en"] .lang-en {
 .main-contact p {
   color: var(--ink);
   font-family: var(--serif);
-  font-size: clamp(2rem, 4vw, 4rem);
-  letter-spacing: -0.05em;
-  line-height: 1.02;
+  font-size: clamp(1.5rem, 2.4vw, 2.55rem);
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  max-width: 620px;
 }
 
 .main-contact p.response-note {
@@ -1023,6 +1024,20 @@ body[data-lang="en"] .lang-en {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.context-card ul {
+  gap: 14px;
+  font-family: var(--sans);
+  font-size: clamp(0.98rem, 1.18vw, 1.16rem);
+  letter-spacing: 0;
+  line-height: 1.55;
+}
+
+.context-card li {
+  border-left: 1px solid rgba(34, 63, 99, 0.26);
+  color: var(--muted);
+  padding-left: 14px;
 }
 
 .dossier-footer {
