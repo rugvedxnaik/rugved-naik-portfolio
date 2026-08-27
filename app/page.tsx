@@ -1,9 +1,10 @@
 import Link from "next/link";
 import portfolioData from "../observations-site/data/portfolio.json";
 
-const dossierLinks = [
+const realDossierLinks = [
   {
-    label: "Start here / Applied in role",
+    engagement: "Real engagement, employment",
+    category: "Amazon marketplace growth",
     title: "Availability Is a Ranking Signal",
     text: "Peora, Amazon marketplace growth, stock-outs, rank loss, ad dependency and operating dashboards.",
     href: "case-peora-availability-ranking.html",
@@ -11,62 +12,72 @@ const dossierLinks = [
     lead: true,
   },
   {
-    label: "FMCG category",
-    title: "Claim Saturation",
-    text: "Danone, health claims, proof cues and what makes a familiar category claim believable.",
-    href: "case-danone-claim-saturation.html",
-    priority: true,
+    engagement: "Real engagement, employment",
+    category: "Amazon marketplace growth",
+    title: "Listing Conversion Systems",
+    text: "Amazon A+ content, product understanding, proof and trust as marketplace infrastructure.",
+    href: "case-amazon-conversion.html",
   },
   {
-    label: "Target house",
-    title: "What AI Can't Personalize",
-    text: "L'Oréal, adaptive discovery, brand memory and protected cues inside personalization.",
-    href: "case-loreal-ai-personalization.html",
+    engagement: "Real engagement, founder venture",
+    category: "Product adoption",
+    title: "Foldable Electric Mobility Product",
+    text: "Urban mobility, adoption conditions, public transport integration and commercialization logic.",
+    href: "case-electric-mobility.html",
   },
   {
-    label: "Luxury service",
-    title: "Shared Infrastructure, House-Specific Expression",
-    text: "LVMH, customer intelligence, house codes and where shared systems should stop.",
-    href: "case-lvmh-shared-infrastructure.html",
-  },
-  {
-    label: "Start here / Market reading",
+    engagement: "Real engagement, academic project",
+    category: "Market reading",
     title: "Collectibility Over Loyalty",
     text: "Miutine, 4,700+ reviews, collectibility, identity value and object value.",
     href: "case-miutine.html",
     lead: true,
   },
   {
-    label: "Start here / India luxury read",
-    title: "The Box Is the Proof",
-    text: "Luxury fragrance in India, saved gifts, social permission and the role of packaging.",
-    href: "case-box-is-the-proof.html",
-    lead: true,
-  },
-  {
-    label: "Start here / Competition validated",
+    engagement: "Real engagement, case competition",
+    category: "Brand & product architecture",
     title: "Face Architecture",
     text: "Givenchy Beauty, identity, face structure and a beauty territory built as architecture.",
     href: "case-givenchy.html",
     lead: true,
   },
+];
+
+const thinkingDossierLinks = [
   {
-    label: "Product adoption",
-    title: "Foldable Electric Mobility Product",
-    text: "Urban mobility, adoption conditions, public transport integration and commercialization logic.",
-    href: "case-electric-mobility.html",
+    engagement: "Independent analysis",
+    category: "FMCG category",
+    title: "Claim Saturation",
+    text: "Danone, health claims, proof cues and what makes a familiar category claim believable.",
+    href: "case-danone-claim-saturation.html",
   },
   {
-    label: "PMM category read",
+    engagement: "Independent analysis",
+    category: "Target house",
+    title: "What AI Can't Personalize",
+    text: "L'Oréal, adaptive discovery, brand memory and protected cues inside personalization.",
+    href: "case-loreal-ai-personalization.html",
+  },
+  {
+    engagement: "Independent analysis",
+    category: "Luxury service",
+    title: "Shared Infrastructure, House-Specific Expression",
+    text: "LVMH, customer intelligence, house codes and where shared systems should stop.",
+    href: "case-lvmh-shared-infrastructure.html",
+  },
+  {
+    engagement: "Independent analysis",
+    category: "India luxury read",
+    title: "The Box Is the Proof",
+    text: "Luxury fragrance in India, saved gifts, social permission and the role of packaging.",
+    href: "case-box-is-the-proof.html",
+  },
+  {
+    engagement: "Independent analysis",
+    category: "Category read",
     title: "Withings PMM Category Read",
     text: "Preventive health, connected measurement, premium positioning and category direction.",
     href: "case-withings.html",
-  },
-  {
-    label: "Conversion system",
-    title: "Listing Conversion Systems",
-    text: "Amazon A+ content, product understanding, proof and trust as marketplace infrastructure.",
-    href: "case-amazon-conversion.html",
   },
 ];
 
@@ -178,6 +189,11 @@ export default function Home() {
                 marketplace et coordination de projets, et un intérêt constant pour les
                 décisions produit qui partent du comportement réel des consommateurs.
               </p>
+              <p className="profile-throughline">
+                Ingénieur de formation, passé par la croissance et le marketing de
+                performance, aujourd'hui en formation product management via ESCP et
+                un stage PM chez Danone.
+              </p>
               <p>
                 Avant d'ajouter un projet, un outil, un dashboard ou une fonctionnalité,
                 il faut savoir ce que l'équipe doit décider et ce que les données rendent visible.
@@ -252,6 +268,10 @@ export default function Home() {
               <li>
                 <span>Sep 2026 - Fév 2027</span>
                 <p>Danone, Innovation & Productivity PM Intern sur des projets Dairy.</p>
+                <p className="timeline-bridge">
+                  Activement ouvert aux opportunités de mars 2027 pendant la fin de mon
+                  stage chez Danone, jusqu'à fin février 2027.
+                </p>
               </li>
               <li>
                 <span>Mars 2027</span>
@@ -345,7 +365,10 @@ export default function Home() {
             <article className="skill-card">
               <span>Languages</span>
               <h3>English C1, French A2 improving</h3>
-              <p>Marathi native, Hindi bilingual, English advanced C1, French A2 improving.</p>
+              <p>
+                Langue de travail quotidienne: anglais. Français A2, en progression
+                active via des cours réguliers. Marathi natif, hindi bilingue.
+              </p>
             </article>
             <article className="skill-card">
               <span>Certifications</span>
@@ -390,19 +413,53 @@ export default function Home() {
                 dashboards, disponibilité, exécution et décisions PM/PMO.
               </p>
             </a>
-            <div className="dossier-grid">
-              {dossierLinks.map((dossier) => (
-                <a
-                  className={`work-dossier${dossier.priority ? " priority" : ""}${dossier.lead ? " lead-dossier" : ""}`}
-                  href={dossier.href}
-                  key={dossier.href}
-                >
-                  <span>{dossier.label}</span>
-                  <h3>{dossier.title}</h3>
-                  <p>{dossier.text}</p>
-                  <small>Open dossier</small>
-                </a>
-              ))}
+            <div className="dossier-group dossier-group-real">
+              <div className="dossier-group-heading">
+                <span>Projets réels</span>
+              </div>
+              <div className="dossier-grid">
+                {realDossierLinks.map((dossier) => (
+                  <a
+                    className={`work-dossier${dossier.priority ? " priority" : ""}${dossier.lead ? " lead-dossier" : ""}`}
+                    href={dossier.href}
+                    key={dossier.href}
+                  >
+                    <span className="dossier-tag">
+                      <strong className="tag-kind tag-kind-real">{dossier.engagement}</strong>
+                      <em>{dossier.category}</em>
+                    </span>
+                    <h3>{dossier.title}</h3>
+                    <p>{dossier.text}</p>
+                    <small>Open dossier</small>
+                  </a>
+                ))}
+              </div>
+            </div>
+            <div className="dossier-group dossier-group-thinking">
+              <div className="dossier-group-heading">
+                <span>Exercices de réflexion</span>
+                <p>
+                  Analyses indépendantes menées pour tester la méthode sur des catégories
+                  que je n'ai pas eu la chance de travailler directement, pas des missions réelles.
+                </p>
+              </div>
+              <div className="dossier-grid">
+                {thinkingDossierLinks.map((dossier) => (
+                  <a
+                    className="work-dossier thinking-dossier"
+                    href={dossier.href}
+                    key={dossier.href}
+                  >
+                    <span className="dossier-tag">
+                      <strong className="tag-kind tag-kind-independent">{dossier.engagement}</strong>
+                      <em>{dossier.category}</em>
+                    </span>
+                    <h3>{dossier.title}</h3>
+                    <p>{dossier.text}</p>
+                    <small>Open dossier</small>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </section>
