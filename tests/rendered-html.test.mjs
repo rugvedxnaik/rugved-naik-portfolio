@@ -85,6 +85,9 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /Real projects/);
   assert.match(indexHtml, /Exercices de réflexion/);
   assert.match(indexHtml, /Thinking exercises/);
+  assert.match(indexHtml, /Real projects show contributed work, constraints, artifacts and decisions/);
+  assert.match(indexHtml, /Thinking exercises show how I structure categories/);
+  assert.match(pageTsx, /Les exercices de réflexion montrent comment\s+je structure/);
   assert.match(indexHtml, /Real engagement, employment/);
   assert.match(indexHtml, /Real engagement, founder venture/);
   assert.match(indexHtml, /Real engagement, academic project/);
@@ -221,6 +224,51 @@ test("v4 dossier pages share the standard section structure", async () => {
       assert.match(html, new RegExp(section), `${file} ${section}`);
     }
   }
+});
+
+test("dossier pages expose PM snapshots and validation plans", async () => {
+  const realProjectFiles = [
+    "../observations-site/case-peora-availability-ranking.html",
+    "../observations-site/case-amazon-conversion.html",
+    "../observations-site/case-electric-mobility.html",
+    "../observations-site/case-miutine.html",
+    "../observations-site/case-givenchy.html",
+  ];
+
+  const thinkingFiles = [
+    "../observations-site/case-danone-claim-saturation.html",
+    "../observations-site/case-loreal-ai-personalization.html",
+    "../observations-site/case-lvmh-shared-infrastructure.html",
+    "../observations-site/case-box-is-the-proof.html",
+    "../observations-site/case-withings.html",
+  ];
+
+  let pmSnapshotCount = 0;
+  for (const file of realProjectFiles) {
+    const html = await readFile(new URL(file, import.meta.url), "utf8");
+    assert.match(html, /aria-label="PM snapshot"/, file);
+    assert.match(html, /<span>Role<\/span>/, file);
+    assert.match(html, /<span>Problem<\/span>/, file);
+    assert.match(html, /<span>Evidence<\/span>/, file);
+    assert.match(html, /<span>Decision<\/span>/, file);
+    assert.match(html, /<span>Artifact<\/span>/, file);
+    assert.match(html, /<span>Outcome<\/span>/, file);
+    pmSnapshotCount += (html.match(/aria-label="PM snapshot"/g) ?? []).length;
+  }
+
+  let validationPlanCount = 0;
+  for (const file of thinkingFiles) {
+    const html = await readFile(new URL(file, import.meta.url), "utf8");
+    assert.match(html, /aria-label="Validation plan"/, file);
+    assert.match(html, /<span>Question<\/span>/, file);
+    assert.match(html, /<span>Evidence<\/span>/, file);
+    assert.match(html, /<span>Next validation<\/span>/, file);
+    assert.match(html, /<span>Decision test<\/span>/, file);
+    validationPlanCount += (html.match(/aria-label="Validation plan"/g) ?? []).length;
+  }
+
+  assert.equal(pmSnapshotCount, 5);
+  assert.equal(validationPlanCount, 5);
 });
 
 test("Danone dossier discloses independent public analysis", async () => {

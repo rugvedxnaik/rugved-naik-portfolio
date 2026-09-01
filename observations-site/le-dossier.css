@@ -922,6 +922,30 @@ body[data-lang="en"] .lang-en {
   padding: 24px;
 }
 
+.dossier-reader-note {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--blue);
+  color: var(--muted);
+  display: grid;
+  gap: 8px;
+  max-width: 860px;
+  padding: 18px 20px;
+}
+
+.dossier-reader-note span {
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.dossier-reader-note p {
+  line-height: 1.55;
+  margin: 0;
+  max-width: 740px;
+}
+
 .dossier-recommendation strong {
   color: var(--ink);
   display: block;

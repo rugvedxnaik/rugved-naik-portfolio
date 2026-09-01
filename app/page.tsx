@@ -405,6 +405,14 @@ export default function Home() {
             <h2>Des preuves à ouvrir quand un cas vous intéresse.</h2>
           </div>
           <div className="panel-body dossier-stack">
+            <div className="dossier-reader-note">
+              <span>Comment lire les dossiers</span>
+              <p>
+                Les projets réels montrent le travail contribué, les contraintes, les
+                artefacts et les décisions. Les exercices de réflexion montrent comment
+                je structure des catégories que je n'ai pas travaillées directement.
+              </p>
+            </div>
             <a className="dossier-recommendation" href="case-peora-availability-ranking.html">
               <span>Si vous n'ouvrez qu'un dossier</span>
               <strong>Availability Is a Ranking Signal</strong>

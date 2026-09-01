@@ -3535,6 +3535,46 @@ body[data-signal="seo"] .room-signal {
   color: var(--ink);
 }
 
+.pm-snapshot {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 1.4rem 0 0;
+  max-width: 820px;
+}
+
+.pm-snapshot article {
+  background: rgba(255, 255, 255, 0.24);
+  border: 1px solid var(--line);
+  padding: 0.9rem;
+}
+
+.pm-snapshot span {
+  color: var(--case-accent);
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.55rem;
+  text-transform: uppercase;
+}
+
+.pm-snapshot p {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.pm-snapshot-light {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.pm-snapshot-light article {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(138, 106, 63, 0.2);
+}
+
 .dossier-section {
   padding-top: clamp(1.4rem, 3vw, 2.15rem);
   border-top: 1px solid var(--line);
@@ -3738,6 +3778,8 @@ body[data-signal="seo"] .room-signal {
 
   .method-grid,
   .pillar-grid,
+  .pm-snapshot,
+  .pm-snapshot-light,
   .world-gallery,
   .three-up,
   .case-facts {
