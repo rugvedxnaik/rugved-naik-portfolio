@@ -74,12 +74,19 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /English C1, French A2 improving/);
   assert.match(indexHtml, /Day-to-day working language: English/);
   assert.match(indexHtml, /4 700\+/);
-  assert.match(indexHtml, /68K EUR/);
+  assert.match(indexHtml, /EUR 68K/);
   assert.match(indexHtml, /\+25%/);
   assert.match(indexHtml, /1,000\+/);
+  assert.match(indexHtml, /Ouvert aux stages produit, marketing et stratégie consommateur à partir de mars 2027\./);
+  assert.match(indexHtml, /Open to product, marketing and consumer-strategy internships from March 2027\./);
+  assert.match(indexHtml, /mailto:rugved\.naik@edu\.escp\.eu\?subject=Stage%20PM%2FPMM%2FPMO%2FConsumer%20Strategy%20-%20mars%202027/);
+  assert.match(indexHtml, /Product &amp; Consumer Strategy - PM, PMM, PMO, Consumer Insights, Market Intelligence/);
   assert.match(indexHtml, /An engineer by training who moved into growth and performance\s+marketing/);
   assert.match(indexHtml, /Actively open to March 2027 opportunities/);
-  assert.match(indexHtml, /This site is structured as a dossier, not a portfolio/);
+  assert.match(indexHtml, /Dossier format: scan, open useful proof, contact/);
+  assert.match(indexHtml, /assets\/dossiers\/freelance-ctr-lift\.svg/);
+  assert.match(indexHtml, /Indexed CTR: \+25% after structured creative testing/);
+  assert.match(indexHtml, /Method flow/);
   assert.match(indexHtml, /If you only open one dossier/);
   assert.match(indexHtml, /Projets réels/);
   assert.match(indexHtml, /Real projects/);
@@ -96,18 +103,28 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.equal((indexHtml.match(/class="tag-kind tag-kind-independent">Independent analysis/g) ?? []).length, 5);
   assert.doesNotMatch(indexHtml, /Start here \/ Applied in role|Start here \/ Market reading|Start here \/ India luxury read|Start here \/ Competition validated/i);
   assert.match(indexHtml, /I usually reply within 24-48 hours/);
-  assert.match(indexHtml, /Share a few lines of context/);
+  assert.match(indexHtml, /Send a few lines about the role, team or question/);
   assert.match(indexHtml, /Helpful context/);
-  assert.doesNotMatch(indexHtml, /most relevant dossier|if the fit is clear|send me the problem/i);
+  assert.doesNotMatch(indexHtml, /if the fit is clear|send me the problem/i);
   assert.match(indexHtml, /application\/ld\+json/);
   assert.match(indexHtml, /"knowsLanguage": \["English C1", "French A2", "Hindi", "Marathi"\]/);
-  assert.match(indexHtml, /lead-dossier/);
+  assert.equal((indexHtml.match(/lead-dossier/g) ?? []).length, 1);
+  assert.equal((pageTsx.match(/lead: true/g) ?? []).length, 1);
+  assert.match(indexHtml, /Recommended start/);
+  assert.match(indexHtml, /Real quote pending/);
+  assert.match(indexHtml, /references are available on request/);
   assert.match(indexHtml, /BAJA SAE and e-mobility/);
   assert.match(indexHtml, /case-electric-mobility\.html/);
   assert.match(indexHtml, /case-box-is-the-proof\.html/);
   assert.match(indexHtml, /Cultural & field research/);
+  assert.match(indexHtml, /Au-delà des dossiers/);
+  assert.match(indexHtml, /Beyond the dossiers/);
+  assert.match(indexHtml, /100\+ cities across India/);
+  assert.match(indexHtml, /Mallakhamb athlete for 12 years, then 5 years as a competitive coach/);
+  assert.match(indexHtml, /previous reader's notes and scribbles/);
   assert.match(indexHtml, /Timeline and working language/);
-  assert.doesNotMatch(indexHtml, /Loading|data-signal-list|data-active-signal-card|sound-toggle|Switchboard/i);
+  assert.match(indexHtml, /Personal site\. No tracking or data collection\./);
+  assert.doesNotMatch(indexHtml, />Loading<|Loading the|data-signal-list|data-active-signal-card|sound-toggle|Switchboard/i);
   assert.match(pageTsx, /Le Dossier/);
   assert.match(pageTsx, /Download CV PDF/);
   assert.match(pageTsx, /Download dossier PDF/);
@@ -118,7 +135,9 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.equal(portfolio.hiring.facts.find((item) => item.label === "Current anchor")?.value, "Danone Innovation & Productivity PM Intern");
   assert.match(portfolio.background.lines.join(" "), /expected April 2027/);
   assert.equal(Boolean(portfolio.interests), false);
-  assert.match(portfolio.lensClosing, /Traveling across India/);
+  assert.match(portfolio.lensClosing, /Traveled to 100\+ cities across India/);
+  assert.match(portfolio.lensClosing, /National-level Mallakhamb athlete for 12 years/);
+  assert.match(portfolio.lensClosing, /previous reader's notes and scribbles/);
   assert.doesNotMatch(indexHtml, /Site last touched/);
   assert.doesNotMatch(pageTsx, /Site last touched/);
 
@@ -161,6 +180,8 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   await assert.rejects(access(new URL("../observations-site/case-baja.html", import.meta.url)));
   await access(new URL("../observations-site/rugved-naik-cv.pdf", import.meta.url));
   await access(new URL("../observations-site/rugved-naik-dossier.pdf", import.meta.url));
+  await access(new URL("../observations-site/assets/dossiers/freelance-ctr-lift.svg", import.meta.url));
+  await access(new URL("../public/assets/dossiers/freelance-ctr-lift.svg", import.meta.url));
 });
 
 test("public portfolio copy avoids em and en dashes", async () => {
@@ -181,6 +202,9 @@ test("public portfolio copy avoids em and en dashes", async () => {
     "../observations-site/case-danone-claim-saturation.html",
     "../observations-site/case-lvmh-shared-infrastructure.html",
     "../observations-site/data/portfolio.json",
+    "../observations-site/assets/dossiers/peora-stockout-rank-pattern.svg",
+    "../observations-site/assets/dossiers/miutine-identity-object-quadrant.svg",
+    "../observations-site/assets/dossiers/freelance-ctr-lift.svg",
   ];
 
   const files = await Promise.all(
@@ -269,6 +293,23 @@ test("dossier pages expose PM snapshots and validation plans", async () => {
 
   assert.equal(pmSnapshotCount, 5);
   assert.equal(validationPlanCount, 5);
+});
+
+test("priority proof visuals are present and anonymized", async () => {
+  const [peoraHtml, miutineHtml] = await Promise.all([
+    readFile(new URL("../observations-site/case-peora-availability-ranking.html", import.meta.url), "utf8"),
+    readFile(new URL("../observations-site/case-miutine.html", import.meta.url), "utf8"),
+  ]);
+
+  assert.match(peoraHtml, /peora-stockout-rank-pattern\.svg/);
+  assert.match(peoraHtml, /Anonymized dashboard pattern/);
+  assert.match(miutineHtml, /miutine-identity-object-quadrant\.svg/);
+  assert.match(miutineHtml, /Framework visual/);
+  assert.doesNotMatch(peoraHtml, /confidential figures exposed/i);
+  assert.doesNotMatch(miutineHtml, /confidential figures exposed/i);
+
+  await access(new URL("../observations-site/assets/dossiers/peora-stockout-rank-pattern.svg", import.meta.url));
+  await access(new URL("../observations-site/assets/dossiers/miutine-identity-object-quadrant.svg", import.meta.url));
 });
 
 test("Danone dossier discloses independent public analysis", async () => {

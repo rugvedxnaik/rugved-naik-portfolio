@@ -83,8 +83,8 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(3.5rem, 9vw, 8.9rem);
-  max-width: 12ch;
+  font-size: clamp(3rem, 6.2vw, 6.1rem);
+  max-width: 13ch;
 }
 
 h2 {
@@ -243,7 +243,31 @@ body[data-lang="en"] .lang-en {
 .cover-lede {
   color: var(--muted);
   font-size: clamp(1rem, 1.35vw, 1.22rem);
+  margin-top: 20px;
   max-width: 760px;
+}
+
+.hero-cta-line {
+  align-items: center;
+  background: rgba(217, 226, 236, 0.46);
+  border: 1px solid rgba(34, 63, 99, 0.24);
+  color: var(--blue);
+  display: inline-flex;
+  font-family: var(--mono);
+  font-size: clamp(0.72rem, 1vw, 0.86rem);
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  margin-top: 22px;
+  padding: 13px 16px;
+  text-transform: uppercase;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.hero-cta-line:hover,
+.hero-cta-line:focus-visible {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(34, 63, 99, 0.42);
+  transform: translateY(-2px);
 }
 
 .availability-stamp {
@@ -478,6 +502,7 @@ body[data-lang="en"] .lang-en {
   border-left: 2px solid var(--gold);
   margin-top: 28px;
   padding-left: 18px;
+  opacity: 0.78;
 }
 
 .design-note > span,
@@ -518,6 +543,28 @@ body[data-lang="en"] .lang-en {
 .profile-cards article {
   min-height: 190px;
   padding: 24px;
+}
+
+.profile-cards .beyond-dossiers-card {
+  background:
+    linear-gradient(135deg, rgba(217, 226, 236, 0.34), rgba(246, 239, 227, 0.62));
+  grid-column: 1 / -1;
+  min-height: auto;
+}
+
+.beyond-dossiers-card h3 {
+  color: var(--blue);
+}
+
+.beyond-dossiers-card p {
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.58;
+  margin-top: 0.75rem;
+}
+
+.beyond-dossiers-card p:first-of-type {
+  color: var(--ink);
 }
 
 .icon-dot,
@@ -846,6 +893,50 @@ body[data-lang="en"] .lang-en {
   white-space: nowrap;
 }
 
+.experience-chart-card {
+  background: rgba(255, 255, 255, 0.26);
+  border: 1px solid var(--line);
+  margin: 18px 0 0;
+  max-width: 420px;
+  padding: 10px;
+}
+
+.experience-chart-card img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.experience-chart-card figcaption {
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.45;
+  margin: 8px 2px 0;
+}
+
+.experience-chart-card figcaption span {
+  display: inline;
+}
+
+.method-flow {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 0 0 16px;
+}
+
+.method-flow span {
+  background: rgba(217, 226, 236, 0.36);
+  border: 1px solid rgba(34, 63, 99, 0.18);
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.11em;
+  padding: 12px 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .method-grid {
   display: grid;
   gap: 14px;
@@ -1015,18 +1106,6 @@ body[data-lang="en"] .lang-en {
   box-shadow: inset 10px 0 22px rgba(168, 117, 62, 0.08);
 }
 
-.work-dossier.lead-dossier::before {
-  color: var(--blue);
-  content: "Recommended start";
-  font-family: var(--mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.12em;
-  position: absolute;
-  right: 24px;
-  text-transform: uppercase;
-  top: 24px;
-}
-
 .work-dossier span,
 .work-dossier small {
   display: block;
@@ -1044,7 +1123,6 @@ body[data-lang="en"] .lang-en {
   gap: 4px;
   line-height: 1.35;
   margin-bottom: 36px;
-  max-width: calc(100% - 128px);
 }
 
 .work-dossier .dossier-tag strong,
@@ -1068,6 +1146,26 @@ body[data-lang="en"] .lang-en {
 
 .work-dossier .tag-kind-independent {
   color: rgba(113, 102, 92, 0.82);
+}
+
+.work-dossier .start-badge {
+  background: rgba(168, 117, 62, 0.12);
+  border: 1px solid rgba(168, 117, 62, 0.28);
+  color: var(--blue);
+  display: inline-flex;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  margin: 0 0 18px;
+  padding: 8px 10px;
+  text-transform: uppercase;
+}
+
+.work-dossier .start-badge span {
+  color: inherit;
+  display: inline;
+  font-size: inherit;
+  margin: 0;
 }
 
 .work-dossier small {
@@ -1238,6 +1336,7 @@ body[data-lang="en"] .lang-en {
   .profile-cards,
   .dossier-grid,
   .skills-grid,
+  .method-flow,
   .method-grid {
     grid-template-columns: 1fr;
   }

@@ -31,7 +31,6 @@ const realDossierLinks = [
     title: "Collectibility Over Loyalty",
     text: "Miutine, 4,700+ reviews, collectibility, identity value and object value.",
     href: "case-miutine.html",
-    lead: true,
   },
   {
     engagement: "Real engagement, case competition",
@@ -39,7 +38,6 @@ const realDossierLinks = [
     title: "Face Architecture",
     text: "Givenchy Beauty, identity, face structure and a beauty territory built as architecture.",
     href: "case-givenchy.html",
-    lead: true,
   },
 ];
 
@@ -133,6 +131,12 @@ export default function Home() {
         <div className="cover-copy">
           <p className="eyebrow">Dossier de candidature</p>
           <h1 id="cover-title">Consumer understanding for product, marketing and PMM decisions.</h1>
+          <a
+            className="hero-cta-line"
+            href="mailto:rugved.naik@edu.escp.eu?subject=Stage%20PM%2FPMM%2FPMO%2FConsumer%20Strategy%20-%20mars%202027"
+          >
+            Ouvert aux stages produit, marketing et stratégie consommateur à partir de mars 2027.
+          </a>
           <p className="cover-lede">
             Un portfolio rapide à lire pour les recruteurs en France: qui je suis,
             quand je suis disponible, ce que j'ai fait, comment je travaille, et les
@@ -148,7 +152,7 @@ export default function Home() {
           </article>
           <article>
             <span>Target</span>
-            <strong>Innovation PM / PMM / PMO</strong>
+            <strong>Product & Consumer Strategy - PM, PMM, PMO, Consumer Insights, Market Intelligence</strong>
           </article>
           <article>
             <span>Proof base</span>
@@ -204,7 +208,7 @@ export default function Home() {
                   <span>avis analysés</span>
                 </article>
                 <article>
-                  <strong>68K EUR</strong>
+                  <strong>EUR 68K</strong>
                   <span>budget mensuel</span>
                 </article>
                 <article>
@@ -219,9 +223,7 @@ export default function Home() {
               <div className="design-note">
                 <span>Design note</span>
                 <p>
-                  Ce site est construit comme un dossier, pas comme un portfolio:
-                  le recruteur est l'utilisateur, d'abord scanner, puis ouvrir la
-                  preuve utile, puis contacter.
+                  Format dossier: scanner, ouvrir la preuve utile, contacter.
                 </p>
               </div>
             </div>
@@ -245,6 +247,16 @@ export default function Home() {
                 <span className="role-icon role-icon--field" aria-hidden="true" />
                 <h3>Recherche terrain & culturelle</h3>
                 <p>Observer les usages, les contextes et les différences culturelles avant de formaliser une hypothèse.</p>
+              </article>
+              <article className="beyond-dossiers-card">
+                <h3>Au-delà des dossiers</h3>
+                <p>
+                  Voyagé dans plus de 100 villes en Inde, en observant les tissus, les
+                  soies régionales, les cuisines et les fêtes locales, la même curiosité
+                  que celle qui alimente les dossiers, appliquée en dehors d'un brief.
+                </p>
+                <p>Athlète national de Mallakhamb pendant 12 ans, puis 5 ans en tant qu'entraîneur compétitif.</p>
+                <p>Aime les vieux livres, surtout ceux qui portent encore les notes et griffonnages de leur précédent lecteur.</p>
               </article>
             </div>
           </div>
@@ -313,6 +325,14 @@ export default function Home() {
                   10+ marques consumer, trois marchés, budget mensuel d'environ EUR 68K,
                   dashboards Excel et Power BI, +25% CTR, 1,000+ assets adaptés pour le Canada.
                 </p>
+                <figure className="experience-chart-card">
+                  <img
+                    src="assets/dossiers/freelance-ctr-lift.svg"
+                    alt="Indexed anonymized chart showing CTR improving from 100 to 125 after structured creative testing."
+                    loading="lazy"
+                  />
+                  <figcaption>CTR indexé: +25% après tests créatifs structurés. Données client non exposées.</figcaption>
+                </figure>
               </div>
               <a href="case-peora-availability-ranking.html">Peora dossier</a>
             </article>
@@ -377,8 +397,8 @@ export default function Home() {
             </article>
             <article className="skill-card quieter">
               <span>Reference</span>
-              <h3>Références disponibles sur demande</h3>
-              <p>I can share the most relevant reference depending on the role, project and hiring context.</p>
+              <h3>Citation réelle à ajouter</h3>
+              <p>En attendant une phrase approuvée, références disponibles sur demande.</p>
             </article>
           </div>
         </section>
@@ -387,6 +407,13 @@ export default function Home() {
           <div className="panel-heading">
             <p className="eyebrow">Méthode</p>
             <h2>Un processus court pour transformer l'observation en décision.</h2>
+          </div>
+          <div className="method-flow" aria-label="Method flow">
+            <span>Observe</span>
+            <span>Separate</span>
+            <span>Name</span>
+            <span>Translate</span>
+            <span>Make it usable</span>
           </div>
           <div className="panel-body method-grid">
             {method.map(([number, title, text]) => (
@@ -436,6 +463,7 @@ export default function Home() {
                       <strong className="tag-kind tag-kind-real">{dossier.engagement}</strong>
                       <em>{dossier.category}</em>
                     </span>
+                    {dossier.lead ? <span className="start-badge">Point de départ recommandé</span> : null}
                     <h3>{dossier.title}</h3>
                     <p>{dossier.text}</p>
                     <small>Open dossier</small>
@@ -480,8 +508,8 @@ export default function Home() {
           <div className="panel-body contact-grid">
             <div className="contact-card main-contact">
               <p>
-                Partagez quelques lignes de contexte. Je peux répondre avec un dossier utile,
-                une courte note ou un créneau d'échange si cela aide.
+                Envoyez quelques lignes sur le rôle, l'équipe ou le sujet. Je vous
+                répondrai avec ce qui aide le plus: CV, dossier, note courte ou échange.
               </p>
               <p className="response-note">Je réponds généralement sous 24-48 heures.</p>
               <div className="contact-actions">
@@ -503,6 +531,12 @@ export default function Home() {
           </div>
         </section>
       </section>
+      <footer className="dossier-footer">
+        <span>Rugved Naik</span>
+        <span>Le Dossier, updated 6 Sep 2026</span>
+        <span>Site personnel. Pas de tracking ni collecte de données.</span>
+        <a href="rugved-naik-cv.pdf" download>CV PDF</a>
+      </footer>
     </main>
   );
 }

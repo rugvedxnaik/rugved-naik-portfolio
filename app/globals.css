@@ -4549,8 +4549,8 @@ body:has(.dossier-app) {
 }
 
 .dossier-app h1 {
-  font-size: clamp(3.5rem, 9vw, 8.9rem);
-  max-width: 12ch;
+  font-size: clamp(3rem, 6.2vw, 6.1rem);
+  max-width: 13ch;
 }
 
 .dossier-app h2 {
@@ -4565,7 +4565,31 @@ body:has(.dossier-app) {
 .dossier-app .cover-lede {
   color: var(--muted);
   font-size: clamp(1rem, 1.35vw, 1.22rem);
+  margin-top: 20px;
   max-width: 760px;
+}
+
+.dossier-app .hero-cta-line {
+  align-items: center;
+  background: rgba(217, 226, 236, 0.46);
+  border: 1px solid rgba(34, 63, 99, 0.24);
+  color: var(--blue);
+  display: inline-flex;
+  font-family: var(--mono);
+  font-size: clamp(0.72rem, 1vw, 0.86rem);
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  margin-top: 22px;
+  padding: 13px 16px;
+  text-transform: uppercase;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.dossier-app .hero-cta-line:hover,
+.dossier-app .hero-cta-line:focus-visible {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(34, 63, 99, 0.42);
+  transform: translateY(-2px);
 }
 
 .dossier-app .availability-stamp {
@@ -4773,6 +4797,7 @@ body:has(.dossier-app) {
 .dossier-app .design-note {
   border-left: 2px solid var(--gold);
   margin-top: 28px;
+  opacity: 0.78;
   padding-left: 18px;
 }
 
@@ -4812,6 +4837,28 @@ body:has(.dossier-app) {
   background: rgba(246, 239, 227, 0.62);
   border: 1px solid var(--line);
   padding: 24px;
+}
+
+.dossier-app .profile-cards .beyond-dossiers-card {
+  background:
+    linear-gradient(135deg, rgba(217, 226, 236, 0.34), rgba(246, 239, 227, 0.62));
+  grid-column: 1 / -1;
+  min-height: auto;
+}
+
+.dossier-app .beyond-dossiers-card h3 {
+  color: var(--blue);
+}
+
+.dossier-app .beyond-dossiers-card p {
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.58;
+  margin-top: 0.75rem;
+}
+
+.dossier-app .beyond-dossiers-card p:first-of-type {
+  color: var(--ink);
 }
 
 .dossier-app .icon-dot,
@@ -5042,6 +5089,27 @@ body:has(.dossier-app) {
   white-space: nowrap;
 }
 
+.dossier-app .experience-chart-card {
+  background: rgba(255, 255, 255, 0.26);
+  border: 1px solid var(--line);
+  margin: 18px 0 0;
+  max-width: 420px;
+  padding: 10px;
+}
+
+.dossier-app .experience-chart-card img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.dossier-app .experience-chart-card figcaption {
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.45;
+  margin: 8px 2px 0;
+}
+
 .dossier-app .experience-highlights {
   display: grid;
   gap: 10px;
@@ -5095,6 +5163,25 @@ body:has(.dossier-app) {
   display: grid;
   gap: 14px;
   grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.dossier-app .method-flow {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 0 0 16px;
+}
+
+.dossier-app .method-flow span {
+  background: rgba(217, 226, 236, 0.36);
+  border: 1px solid rgba(34, 63, 99, 0.18);
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.11em;
+  padding: 12px 10px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .dossier-app .method-grid article {
@@ -5246,19 +5333,6 @@ body:has(.dossier-app) {
 .dossier-app .work-dossier.lead-dossier {
   border-left: 3px solid var(--gold);
   box-shadow: inset 10px 0 22px rgba(168, 117, 62, 0.08);
-  position: relative;
-}
-
-.dossier-app .work-dossier.lead-dossier::before {
-  color: var(--blue);
-  content: "Recommended start";
-  font-family: var(--mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.12em;
-  position: absolute;
-  right: 24px;
-  text-transform: uppercase;
-  top: 24px;
 }
 
 .dossier-app .work-dossier span,
@@ -5278,7 +5352,6 @@ body:has(.dossier-app) {
   gap: 4px;
   line-height: 1.35;
   margin-bottom: 36px;
-  max-width: calc(100% - 128px);
 }
 
 .dossier-app .work-dossier .dossier-tag strong,
@@ -5302,6 +5375,19 @@ body:has(.dossier-app) {
 
 .dossier-app .work-dossier .tag-kind-independent {
   color: rgba(113, 102, 92, 0.82);
+}
+
+.dossier-app .work-dossier .start-badge {
+  background: rgba(168, 117, 62, 0.12);
+  border: 1px solid rgba(168, 117, 62, 0.28);
+  color: var(--blue);
+  display: inline-flex;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  margin: 0 0 18px;
+  padding: 8px 10px;
+  text-transform: uppercase;
 }
 
 .dossier-app .work-dossier small {
@@ -5425,6 +5511,7 @@ body:has(.dossier-app) {
   .dossier-app .profile-cards,
   .dossier-app .dossier-grid,
   .dossier-app .skills-grid,
+  .dossier-app .method-flow,
   .dossier-app .method-grid {
     grid-template-columns: 1fr;
   }
