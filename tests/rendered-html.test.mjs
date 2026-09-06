@@ -133,7 +133,7 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.equal(portfolio.cases.length, 15);
   assert.equal(portfolio.hiring.facts.find((item) => item.label === "Next search window")?.value, "March 2027 / September 2027");
   assert.equal(portfolio.hiring.facts.find((item) => item.label === "Current anchor")?.value, "Danone Innovation & Productivity PM Intern");
-  assert.match(portfolio.background.lines.join(" "), /expected April 2027/);
+  assert.match(portfolio.background.lines.join(" "), /expected April 2028/);
   assert.equal(Boolean(portfolio.interests), false);
   assert.match(portfolio.lensClosing, /Traveled to 100\+ cities across India/);
   assert.match(portfolio.lensClosing, /National-level Mallakhamb athlete for 12 years/);
@@ -202,7 +202,6 @@ test("public portfolio copy avoids em and en dashes", async () => {
     "../observations-site/case-danone-claim-saturation.html",
     "../observations-site/case-lvmh-shared-infrastructure.html",
     "../observations-site/data/portfolio.json",
-    "../observations-site/assets/dossiers/peora-stockout-rank-pattern.svg",
     "../observations-site/assets/dossiers/miutine-identity-object-quadrant.svg",
     "../observations-site/assets/dossiers/freelance-ctr-lift.svg",
   ];
@@ -301,14 +300,13 @@ test("priority proof visuals are present and anonymized", async () => {
     readFile(new URL("../observations-site/case-miutine.html", import.meta.url), "utf8"),
   ]);
 
-  assert.match(peoraHtml, /peora-stockout-rank-pattern\.svg/);
-  assert.match(peoraHtml, /Anonymized dashboard pattern/);
+  assert.doesNotMatch(peoraHtml, /peora-stockout-rank-pattern\.svg/);
+  assert.doesNotMatch(peoraHtml, /Anonymized dashboard pattern/);
   assert.match(miutineHtml, /miutine-identity-object-quadrant\.svg/);
   assert.match(miutineHtml, /Framework visual/);
   assert.doesNotMatch(peoraHtml, /confidential figures exposed/i);
   assert.doesNotMatch(miutineHtml, /confidential figures exposed/i);
 
-  await access(new URL("../observations-site/assets/dossiers/peora-stockout-rank-pattern.svg", import.meta.url));
   await access(new URL("../observations-site/assets/dossiers/miutine-identity-object-quadrant.svg", import.meta.url));
 });
 

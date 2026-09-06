@@ -352,7 +352,7 @@ export default function Home() {
                 <span className="item-date">Education</span>
                 <h3>ESCP Business School and Mechanical Engineering</h3>
                 <p>
-                  Master in Management, Grande Ecole, ESCP Paris, prévu avril 2027.
+                  Master in Management, Grande Ecole, ESCP Paris, prévu avril 2028.
                   B.E. Mechanical Engineering, Savitribai Phule Pune University, top 1%.
                 </p>
               </div>
