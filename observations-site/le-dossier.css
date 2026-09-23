@@ -130,6 +130,7 @@ body[data-lang="en"] .lang-en {
 .eyebrow,
 .cover-index,
 .cover-meta span,
+.consumer-quote-card > span,
 .availability-stamp,
 .folder-tab,
 .item-date,
@@ -202,10 +203,10 @@ body[data-lang="en"] .lang-en {
 
 .cover-sheet {
   display: grid;
-  gap: clamp(24px, 4vw, 54px);
-  grid-template-columns: 118px minmax(0, 1.1fr) minmax(280px, 0.55fr);
+  gap: clamp(24px, 3.2vw, 48px);
+  grid-template-columns: 108px minmax(0, 1fr) minmax(360px, 0.68fr);
   margin: clamp(28px, 5vw, 78px) auto 0;
-  max-width: 1480px;
+  max-width: 1700px;
   min-height: calc(100vh - 120px);
   padding: 0 clamp(18px, 4vw, 58px) clamp(28px, 5vw, 70px);
 }
@@ -302,6 +303,48 @@ body[data-lang="en"] .lang-en {
 .consumer-thesis-card p + p {
   color: var(--ink);
   margin-top: 0.62rem;
+}
+
+.cover-side {
+  align-self: center;
+  display: grid;
+  gap: 18px;
+  padding-top: clamp(12px, 3vw, 42px);
+}
+
+.consumer-quote-card {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.54), rgba(251, 246, 236, 0.62)),
+    rgba(251, 246, 236, 0.76);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  margin: 0;
+  padding: clamp(24px, 2.4vw, 34px);
+}
+
+.consumer-quote-card > span {
+  color: var(--gold);
+  display: block;
+  font-size: 0.62rem;
+  margin-bottom: 22px;
+}
+
+.consumer-quote-card blockquote {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.2vw, 3.5rem);
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+  margin: 0;
+}
+
+.consumer-quote-card p {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: clamp(0.92rem, 1.05vw, 1.08rem);
+  line-height: 1.62;
+  margin: 24px 0 0;
+  padding-top: 18px;
 }
 
 .availability-stamp {
@@ -1292,6 +1335,10 @@ body[data-lang="en"] .lang-en {
     grid-column: 2;
   }
 
+  .cover-side {
+    grid-column: 2;
+  }
+
   .method-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1317,6 +1364,11 @@ body[data-lang="en"] .lang-en {
 
   .cover-meta {
     grid-column: auto;
+  }
+
+  .cover-side {
+    grid-column: auto;
+    padding-top: 0;
   }
 
   .folder {

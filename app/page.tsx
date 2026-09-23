@@ -158,23 +158,36 @@ export default function Home() {
           <div className="availability-stamp">Stage dès mars 2027 / alternance dès septembre 2027</div>
         </div>
 
-        <div className="cover-meta" aria-label="Quick facts">
-          <article>
-            <span>Current</span>
-            <strong>Danone, Innovation & Productivity PM Intern</strong>
-          </article>
-          <article>
-            <span>Target</span>
-            <strong>Product & Consumer Strategy - PM, PMM, PMO, Consumer Insights, Market Intelligence</strong>
-          </article>
-          <article>
-            <span>Proof base</span>
-            <strong>{casesCount} dossiers and signals</strong>
-          </article>
-          <article>
-            <span>Contact</span>
-            <strong>rugved.naik@edu.escp.eu</strong>
-          </article>
+        <div className="cover-side">
+          <figure className="consumer-quote-card" aria-label="Consumer principle">
+            <span>Principe consommateur</span>
+            <blockquote>
+              Le client n'arrive pas à la fin du plan. Il est la raison pour laquelle le plan existe.
+            </blockquote>
+            <p>
+              Le fil conducteur des dossiers: partir de ce que les personnes essaient de résoudre,
+              puis construire le produit, le message ou le système autour.
+            </p>
+          </figure>
+
+          <div className="cover-meta" aria-label="Quick facts">
+            <article>
+              <span>Current</span>
+              <strong>Danone, Innovation & Productivity PM Intern</strong>
+            </article>
+            <article>
+              <span>Target</span>
+              <strong>Product & Consumer Strategy - PM, PMM, PMO, Consumer Insights, Market Intelligence</strong>
+            </article>
+            <article>
+              <span>Proof base</span>
+              <strong>{casesCount} dossiers and signals</strong>
+            </article>
+            <article>
+              <span>Contact</span>
+              <strong>rugved.naik@edu.escp.eu</strong>
+            </article>
+          </div>
         </div>
       </section>
 

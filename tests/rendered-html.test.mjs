@@ -82,6 +82,9 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /mailto:rugved\.naik@edu\.escp\.eu\?subject=Stage%20PM%2FPMM%2FPMO%2FConsumer%20Strategy%20-%20mars%202027/);
   assert.match(indexHtml, /The decision before the decision/);
   assert.match(indexHtml, /La décision avant la décision/);
+  assert.match(indexHtml, /The customer does not arrive at the end of the plan/);
+  assert.match(indexHtml, /Le client n'arrive pas à la fin du plan/);
+  assert.match(indexHtml, /start with what people are trying to resolve/);
   assert.match(indexHtml, /what gives them permission to act/);
   assert.match(indexHtml, /product, marketing, launch, content or decision systems/);
   assert.match(indexHtml, /Product &amp; Consumer Strategy - PM, PMM, PMO, Consumer Insights, Market Intelligence/);
