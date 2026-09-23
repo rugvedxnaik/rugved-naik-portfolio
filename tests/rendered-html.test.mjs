@@ -80,12 +80,16 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /Ouvert aux stages produit, marketing et stratégie consommateur à partir de mars 2027\./);
   assert.match(indexHtml, /Open to product, marketing and consumer-strategy internships from March 2027\./);
   assert.match(indexHtml, /mailto:rugved\.naik@edu\.escp\.eu\?subject=Stage%20PM%2FPMM%2FPMO%2FConsumer%20Strategy%20-%20mars%202027/);
+  assert.match(indexHtml, /The decision before the decision/);
+  assert.match(indexHtml, /La décision avant la décision/);
+  assert.match(indexHtml, /what gives them permission to act/);
+  assert.match(indexHtml, /product, marketing, launch, content or decision systems/);
   assert.match(indexHtml, /Product &amp; Consumer Strategy - PM, PMM, PMO, Consumer Insights, Market Intelligence/);
   assert.match(indexHtml, /An engineer by training who moved into growth and performance\s+marketing/);
   assert.match(indexHtml, /Actively open to March 2027 opportunities/);
   assert.match(indexHtml, /Dossier format: scan, open useful proof, contact/);
-  assert.match(indexHtml, /assets\/dossiers\/freelance-ctr-lift\.svg/);
-  assert.match(indexHtml, /Indexed CTR: \+25% after structured creative testing/);
+  assert.doesNotMatch(indexHtml, /assets\/dossiers\/freelance-ctr-lift\.svg/);
+  assert.doesNotMatch(indexHtml, /Indexed CTR: \+25% after structured creative testing/);
   assert.match(indexHtml, /Method flow/);
   assert.match(indexHtml, /If you only open one dossier/);
   assert.match(indexHtml, /Projets réels/);
@@ -180,8 +184,8 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   await assert.rejects(access(new URL("../observations-site/case-baja.html", import.meta.url)));
   await access(new URL("../observations-site/rugved-naik-cv.pdf", import.meta.url));
   await access(new URL("../observations-site/rugved-naik-dossier.pdf", import.meta.url));
-  await access(new URL("../observations-site/assets/dossiers/freelance-ctr-lift.svg", import.meta.url));
-  await access(new URL("../public/assets/dossiers/freelance-ctr-lift.svg", import.meta.url));
+  await assert.rejects(access(new URL("../observations-site/assets/dossiers/freelance-ctr-lift.svg", import.meta.url)));
+  await assert.rejects(access(new URL("../public/assets/dossiers/freelance-ctr-lift.svg", import.meta.url)));
 });
 
 test("public portfolio copy avoids em and en dashes", async () => {
@@ -202,8 +206,6 @@ test("public portfolio copy avoids em and en dashes", async () => {
     "../observations-site/case-danone-claim-saturation.html",
     "../observations-site/case-lvmh-shared-infrastructure.html",
     "../observations-site/data/portfolio.json",
-    "../observations-site/assets/dossiers/miutine-identity-object-quadrant.svg",
-    "../observations-site/assets/dossiers/freelance-ctr-lift.svg",
   ];
 
   const files = await Promise.all(
@@ -294,7 +296,7 @@ test("dossier pages expose PM snapshots and validation plans", async () => {
   assert.equal(validationPlanCount, 5);
 });
 
-test("priority proof visuals are present and anonymized", async () => {
+test("generated proof visuals are removed until real artifacts are available", async () => {
   const [peoraHtml, miutineHtml] = await Promise.all([
     readFile(new URL("../observations-site/case-peora-availability-ranking.html", import.meta.url), "utf8"),
     readFile(new URL("../observations-site/case-miutine.html", import.meta.url), "utf8"),
@@ -302,12 +304,12 @@ test("priority proof visuals are present and anonymized", async () => {
 
   assert.doesNotMatch(peoraHtml, /peora-stockout-rank-pattern\.svg/);
   assert.doesNotMatch(peoraHtml, /Anonymized dashboard pattern/);
-  assert.match(miutineHtml, /miutine-identity-object-quadrant\.svg/);
-  assert.match(miutineHtml, /Framework visual/);
+  assert.doesNotMatch(miutineHtml, /miutine-identity-object-quadrant\.svg/);
+  assert.doesNotMatch(miutineHtml, /Framework visual/);
   assert.doesNotMatch(peoraHtml, /confidential figures exposed/i);
   assert.doesNotMatch(miutineHtml, /confidential figures exposed/i);
 
-  await access(new URL("../observations-site/assets/dossiers/miutine-identity-object-quadrant.svg", import.meta.url));
+  await assert.rejects(access(new URL("../observations-site/assets/dossiers/miutine-identity-object-quadrant.svg", import.meta.url)));
 });
 
 test("Danone dossier discloses independent public analysis", async () => {

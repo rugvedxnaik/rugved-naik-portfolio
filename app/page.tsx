@@ -137,6 +137,19 @@ export default function Home() {
           >
             Ouvert aux stages produit, marketing et stratégie consommateur à partir de mars 2027.
           </a>
+          <div className="consumer-thesis-card" aria-label="Consumer-centric thesis">
+            <span>La décision avant la décision</span>
+            <p>
+              Avant qu'une personne achète, clique, compare, recommande ou revienne,
+              quelque chose doit être résolu: ce qu'elle remarque, ce qu'elle croit,
+              ce qu'elle craint, ce qu'elle reconnaît, ou ce qui lui donne la permission
+              d'agir.
+            </p>
+            <p>
+              Mon travail part de là: comprendre ce moment, puis le traduire en produit,
+              marketing, lancement, contenu ou système de décision.
+            </p>
+          </div>
           <p className="cover-lede">
             Un portfolio rapide à lire pour les recruteurs en France: qui je suis,
             quand je suis disponible, ce que j'ai fait, comment je travaille, et les
@@ -325,14 +338,6 @@ export default function Home() {
                   10+ marques consumer, trois marchés, budget mensuel d'environ EUR 68K,
                   dashboards Excel et Power BI, +25% CTR, 1,000+ assets adaptés pour le Canada.
                 </p>
-                <figure className="experience-chart-card">
-                  <img
-                    src="assets/dossiers/freelance-ctr-lift.svg"
-                    alt="Indexed anonymized chart showing CTR improving from 100 to 125 after structured creative testing."
-                    loading="lazy"
-                  />
-                  <figcaption>CTR indexé: +25% après tests créatifs structurés. Données client non exposées.</figcaption>
-                </figure>
               </div>
               <a href="case-peora-availability-ranking.html">Peora dossier</a>
             </article>
