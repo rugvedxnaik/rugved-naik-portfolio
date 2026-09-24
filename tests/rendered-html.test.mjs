@@ -88,6 +88,13 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /what gives them permission to act/);
   assert.match(indexHtml, /product, marketing, launch, content or decision systems/);
   assert.match(indexHtml, /Product &amp; Consumer Strategy - PM, PMM, PMO, Consumer Insights, Market Intelligence/);
+  const heroCtaIndex = indexHtml.indexOf("Ouvert aux stages produit");
+  const heroFactsIndex = indexHtml.indexOf('aria-label="Quick facts"');
+  const heroQuoteIndex = indexHtml.indexOf('aria-label="Consumer principle"');
+  const heroThesisIndex = indexHtml.indexOf('aria-label="Consumer-centric thesis"');
+  assert.ok(heroCtaIndex > -1 && heroFactsIndex > heroCtaIndex, "hero facts should sit directly after the CTA");
+  assert.ok(heroQuoteIndex > heroFactsIndex, "consumer quote should follow the practical facts");
+  assert.ok(heroThesisIndex > heroQuoteIndex, "decision-before-decision thesis should follow the quote");
   assert.match(indexHtml, /An engineer by training who moved into growth and performance\s+marketing/);
   assert.match(indexHtml, /Actively open to March 2027 opportunities/);
   assert.match(indexHtml, /Dossier format: scan, open useful proof, contact/);

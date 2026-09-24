@@ -137,18 +137,23 @@ export default function Home() {
           >
             Ouvert aux stages produit, marketing et stratégie consommateur à partir de mars 2027.
           </a>
-          <div className="consumer-thesis-card" aria-label="Consumer-centric thesis">
-            <span>La décision avant la décision</span>
-            <p>
-              Avant qu'une personne achète, clique, compare, recommande ou revienne,
-              quelque chose doit être résolu: ce qu'elle remarque, ce qu'elle croit,
-              ce qu'elle craint, ce qu'elle reconnaît, ou ce qui lui donne la permission
-              d'agir.
-            </p>
-            <p>
-              Mon travail part de là: comprendre ce moment, puis le traduire en produit,
-              marketing, lancement, contenu ou système de décision.
-            </p>
+          <div className="cover-meta" aria-label="Quick facts">
+            <article>
+              <span>Current</span>
+              <strong>Danone, Innovation & Productivity PM Intern</strong>
+            </article>
+            <article>
+              <span>Target</span>
+              <strong>Product & Consumer Strategy - PM, PMM, PMO, Consumer Insights, Market Intelligence</strong>
+            </article>
+            <article>
+              <span>Proof base</span>
+              <strong>{casesCount} dossiers and signals</strong>
+            </article>
+            <article>
+              <span>Contact</span>
+              <strong>rugved.naik@edu.escp.eu</strong>
+            </article>
           </div>
           <p className="cover-lede">
             Un portfolio rapide à lire pour les recruteurs en France: qui je suis,
@@ -169,24 +174,18 @@ export default function Home() {
               puis construire le produit, le message ou le système autour.
             </p>
           </figure>
-
-          <div className="cover-meta" aria-label="Quick facts">
-            <article>
-              <span>Current</span>
-              <strong>Danone, Innovation & Productivity PM Intern</strong>
-            </article>
-            <article>
-              <span>Target</span>
-              <strong>Product & Consumer Strategy - PM, PMM, PMO, Consumer Insights, Market Intelligence</strong>
-            </article>
-            <article>
-              <span>Proof base</span>
-              <strong>{casesCount} dossiers and signals</strong>
-            </article>
-            <article>
-              <span>Contact</span>
-              <strong>rugved.naik@edu.escp.eu</strong>
-            </article>
+          <div className="consumer-thesis-card" aria-label="Consumer-centric thesis">
+            <span>La décision avant la décision</span>
+            <p>
+              Avant qu'une personne achète, clique, compare, recommande ou revienne,
+              quelque chose doit être résolu: ce qu'elle remarque, ce qu'elle croit,
+              ce qu'elle craint, ce qu'elle reconnaît, ou ce qui lui donne la permission
+              d'agir.
+            </p>
+            <p>
+              Mon travail part de là: comprendre ce moment, puis le traduire en produit,
+              marketing, lancement, contenu ou système de décision.
+            </p>
           </div>
         </div>
       </section>
