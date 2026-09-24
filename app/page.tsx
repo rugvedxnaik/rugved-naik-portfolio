@@ -254,6 +254,15 @@ export default function Home() {
               </div>
             </div>
             <div className="profile-cards">
+              <article className="profile-photo-card" aria-label="Rugved Naik portrait">
+                <img src="/assets/rugved-naik-headshot.jpg" alt="Rugved Naik" loading="lazy" decoding="async" />
+                <p>Rugved Naik / ESCP / Paris</p>
+              </article>
+              <article className="reading-card">
+                <span>Lecture en cours</span>
+                <h3>Ce que les personnes font avant de pouvoir expliquer ce qu'elles veulent.</h3>
+                <p>Avis clients, comportements en rayon et petits rituels du quotidien.</p>
+              </article>
               <article>
                 <span className="role-icon role-icon--pm" aria-hidden="true"><i /></span>
                 <h3>PM</h3>
@@ -515,6 +524,10 @@ export default function Home() {
                 ))}
               </div>
             </div>
+            <div className="dossier-closing-note">
+              <span>Fil conducteur</span>
+              <p>Chaque dossier part de la même question: qu'est-ce que cette personne essaie vraiment de résoudre?</p>
+            </div>
           </div>
         </section>
 
@@ -530,6 +543,9 @@ export default function Home() {
                 répondrai avec ce qui aide le plus: CV, dossier, note courte ou échange.
               </p>
               <p className="response-note">Je réponds généralement sous 24-48 heures.</p>
+              <p className="team-fit-note">
+                Je cherche une équipe où les décisions produit partent de preuves, pas seulement d'opinions.
+              </p>
               <div className="contact-actions">
                 <a href="mailto:rugved.naik@edu.escp.eu">Email</a>
                 <a href="https://www.linkedin.com/in/rugvednaik">LinkedIn</a>

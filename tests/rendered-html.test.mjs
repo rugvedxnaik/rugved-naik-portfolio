@@ -91,6 +91,10 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /An engineer by training who moved into growth and performance\s+marketing/);
   assert.match(indexHtml, /Actively open to March 2027 opportunities/);
   assert.match(indexHtml, /Dossier format: scan, open useful proof, contact/);
+  assert.match(indexHtml, /assets\/rugved-naik-headshot\.jpg/);
+  assert.match(indexHtml, /Currently reading/);
+  assert.match(indexHtml, /What people do before they can explain what they want/);
+  assert.match(indexHtml, /Customer reviews, shelf behavior and small everyday rituals/);
   assert.doesNotMatch(indexHtml, /assets\/dossiers\/freelance-ctr-lift\.svg/);
   assert.doesNotMatch(indexHtml, /Indexed CTR: \+25% after structured creative testing/);
   assert.match(indexHtml, /Method flow/);
@@ -111,7 +115,9 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.doesNotMatch(indexHtml, /Start here \/ Applied in role|Start here \/ Market reading|Start here \/ India luxury read|Start here \/ Competition validated/i);
   assert.match(indexHtml, /I usually reply within 24-48 hours/);
   assert.match(indexHtml, /Send a few lines about the role, team or question/);
+  assert.match(indexHtml, /I am looking for a team where product decisions start from evidence/);
   assert.match(indexHtml, /Helpful context/);
+  assert.match(indexHtml, /Every dossier starts with the same question/);
   assert.doesNotMatch(indexHtml, /if the fit is clear|send me the problem/i);
   assert.match(indexHtml, /application\/ld\+json/);
   assert.match(indexHtml, /"knowsLanguage": \["English C1", "French A2", "Hindi", "Marathi"\]/);
@@ -187,6 +193,8 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   await assert.rejects(access(new URL("../observations-site/case-baja.html", import.meta.url)));
   await access(new URL("../observations-site/rugved-naik-cv.pdf", import.meta.url));
   await access(new URL("../observations-site/rugved-naik-dossier.pdf", import.meta.url));
+  await access(new URL("../observations-site/assets/rugved-naik-headshot.jpg", import.meta.url));
+  await access(new URL("../public/assets/rugved-naik-headshot.jpg", import.meta.url));
   await assert.rejects(access(new URL("../observations-site/assets/dossiers/freelance-ctr-lift.svg", import.meta.url)));
   await assert.rejects(access(new URL("../public/assets/dossiers/freelance-ctr-lift.svg", import.meta.url)));
 });

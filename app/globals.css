@@ -4433,6 +4433,8 @@ body:has(.dossier-app) {
 .dossier-app .consumer-quote-card > span,
 .dossier-app .availability-stamp,
 .dossier-app .folder-tab,
+.dossier-app .reading-card > span,
+.dossier-app .dossier-closing-note > span,
 .dossier-app .format-note,
 .dossier-app .item-date,
 .dossier-app .work-dossier span,
@@ -4923,6 +4925,48 @@ body:has(.dossier-app) {
   min-height: auto;
 }
 
+.dossier-app .profile-photo-card {
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+}
+
+.dossier-app .profile-photo-card img {
+  aspect-ratio: 1 / 1.06;
+  border: 1px solid var(--line);
+  display: block;
+  height: auto;
+  object-fit: cover;
+  object-position: center 32%;
+  width: 100%;
+}
+
+.dossier-app .profile-photo-card p {
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.dossier-app .reading-card {
+  border-left-color: rgba(34, 63, 99, 0.62);
+}
+
+.dossier-app .reading-card > span {
+  color: var(--gold);
+  display: block;
+  font-size: 0.62rem;
+  margin-bottom: 14px;
+}
+
+.dossier-app .reading-card h3 {
+  color: var(--blue);
+  font-size: clamp(1.34rem, 1.9vw, 1.9rem);
+  line-height: 1;
+}
+
 .dossier-app .beyond-dossiers-card h3 {
   color: var(--blue);
 }
@@ -5291,6 +5335,31 @@ body:has(.dossier-app) {
   padding-top: 28px;
 }
 
+.dossier-app .dossier-closing-note {
+  background:
+    linear-gradient(135deg, rgba(34, 63, 99, 0.07), transparent 46%),
+    rgba(246, 239, 227, 0.62);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--blue);
+  padding: clamp(22px, 2.6vw, 34px);
+}
+
+.dossier-app .dossier-closing-note > span {
+  color: var(--gold);
+  display: block;
+  font-size: 0.62rem;
+  margin-bottom: 14px;
+}
+
+.dossier-app .dossier-closing-note p {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(1.55rem, 2.45vw, 2.55rem);
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+  margin: 0;
+}
+
 .dossier-app .dossier-recommendation {
   background:
     radial-gradient(circle at 8% 0%, rgba(168, 117, 62, 0.12), transparent 32%),
@@ -5472,6 +5541,17 @@ body:has(.dossier-app) {
   line-height: 1.55;
   margin-top: 22px;
   text-transform: uppercase;
+}
+
+.dossier-app .main-contact p.team-fit-note {
+  border-left: 2px solid var(--blue);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  margin-top: 18px;
+  padding-left: 16px;
 }
 
 .dossier-app .contact-actions {

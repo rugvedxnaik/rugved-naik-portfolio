@@ -133,6 +133,8 @@ body[data-lang="en"] .lang-en {
 .consumer-quote-card > span,
 .availability-stamp,
 .folder-tab,
+.reading-card > span,
+.dossier-closing-note > span,
 .item-date,
 .work-dossier span,
 .work-dossier small,
@@ -629,6 +631,48 @@ body[data-lang="en"] .lang-en {
   min-height: auto;
 }
 
+.profile-photo-card {
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+}
+
+.profile-photo-card img {
+  aspect-ratio: 1 / 1.06;
+  border: 1px solid var(--line);
+  display: block;
+  height: auto;
+  object-fit: cover;
+  object-position: center 32%;
+  width: 100%;
+}
+
+.profile-photo-card p {
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.reading-card {
+  border-left-color: rgba(34, 63, 99, 0.62);
+}
+
+.reading-card > span {
+  color: var(--gold);
+  display: block;
+  font-size: 0.62rem;
+  margin-bottom: 14px;
+}
+
+.reading-card h3 {
+  color: var(--blue);
+  font-size: clamp(1.34rem, 1.9vw, 1.9rem);
+  line-height: 1;
+}
+
 .beyond-dossiers-card h3 {
   color: var(--blue);
 }
@@ -765,6 +809,42 @@ body[data-lang="en"] .lang-en {
 .work-dossier p,
 .contact-card p {
   margin-bottom: 0;
+}
+
+.dossier-closing-note {
+  background:
+    linear-gradient(135deg, rgba(34, 63, 99, 0.07), transparent 46%),
+    rgba(246, 239, 227, 0.62);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--blue);
+  padding: clamp(22px, 2.6vw, 34px);
+}
+
+.dossier-closing-note > span {
+  color: var(--gold);
+  display: block;
+  font-size: 0.62rem;
+  margin-bottom: 14px;
+}
+
+.dossier-closing-note p {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(1.55rem, 2.45vw, 2.55rem);
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.team-fit-note {
+  border-left: 2px solid var(--blue);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  margin-top: 18px;
+  padding-left: 16px;
 }
 
 .experience-highlights {
@@ -1252,6 +1332,17 @@ body[data-lang="en"] .lang-en {
   line-height: 1.55;
   margin-top: 22px;
   text-transform: uppercase;
+}
+
+.main-contact p.team-fit-note {
+  border-left: 2px solid var(--blue);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  margin-top: 18px;
+  padding-left: 16px;
 }
 
 .contact-actions {
