@@ -5580,6 +5580,16 @@ body:has(.dossier-app) {
   padding-left: 16px;
 }
 
+.dossier-app .main-contact p.reference-note {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  line-height: 1.55;
+  margin-top: 18px;
+  text-transform: uppercase;
+}
+
 .dossier-app .contact-actions {
   display: flex;
   flex-wrap: wrap;

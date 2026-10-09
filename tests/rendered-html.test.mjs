@@ -131,8 +131,8 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.equal((indexHtml.match(/lead-dossier/g) ?? []).length, 1);
   assert.equal((pageTsx.match(/lead: true/g) ?? []).length, 1);
   assert.match(indexHtml, /Recommended start/);
-  assert.match(indexHtml, /Real quote pending/);
-  assert.match(indexHtml, /references are available on request/);
+  assert.doesNotMatch(indexHtml, /Real quote pending|Citation réelle à ajouter|Reference<\/span>/);
+  assert.match(indexHtml, /References available on request\./);
   assert.match(indexHtml, /BAJA SAE and e-mobility/);
   assert.match(indexHtml, /case-electric-mobility\.html/);
   assert.match(indexHtml, /case-box-is-the-proof\.html/);

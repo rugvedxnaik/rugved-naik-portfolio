@@ -421,11 +421,6 @@ export default function Home() {
               <h3>Google, McKinsey, Inside LVMH</h3>
               <p>Google Digital Marketing & E-Commerce 2025, McKinsey Forward 2025, Inside LVMH 2024.</p>
             </article>
-            <article className="skill-card quieter">
-              <span>Reference</span>
-              <h3>Citation réelle à ajouter</h3>
-              <p>En attendant une phrase approuvée, références disponibles sur demande.</p>
-            </article>
           </div>
         </section>
 
@@ -545,6 +540,7 @@ export default function Home() {
               <p className="team-fit-note">
                 Je cherche une équipe où les décisions produit partent de preuves, pas seulement d'opinions.
               </p>
+              <p className="reference-note">Références disponibles sur demande.</p>
               <div className="contact-actions">
                 <a href="mailto:rugved.naik@edu.escp.eu">Email</a>
                 <a href="https://www.linkedin.com/in/rugvednaik">LinkedIn</a>
