@@ -222,6 +222,20 @@ test("flagship cases expose dated evidence and leadership outcomes", async () =>
   assert.match(givenchy, /Gen Z beauty venture built from Givenchy's couture heritage/);
 });
 
+test("desktop dossier grids prevent orphan cards and contact overflow", async () => {
+  const [indexHtml, css] = await Promise.all([
+    readFile(new URL("../observations-site/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../observations-site/le-dossier.css", import.meta.url), "utf8"),
+  ]);
+
+  assert.match(css, /\.cover-copy \.cover-meta \{[\s\S]*?grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
+  assert.match(css, /\.cover-copy \.cover-meta strong \{[\s\S]*?overflow-wrap: anywhere/);
+  assert.match(css, /\.profile-cards \{[\s\S]*?grid-template-columns: repeat\(6, minmax\(0, 1fr\)\)/);
+  assert.match(css, /\.profile-cards > article:nth-child\(3\)[\s\S]*?grid-column: span 2/);
+  assert.match(indexHtml, /<span class="lang-en">Availability<\/span>/);
+  assert.match(indexHtml, /<span class="lang-en">Experience<\/span>/);
+});
+
 test("public portfolio copy avoids em and en dashes", async () => {
   const publicFiles = [
     "../observations-site/index.html",

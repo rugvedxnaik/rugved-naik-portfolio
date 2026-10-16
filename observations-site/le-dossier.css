@@ -411,7 +411,7 @@ body[data-lang="en"] .lang-en {
   align-self: stretch;
   box-shadow: none;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-top: 18px;
   max-width: 100%;
 }
@@ -426,11 +426,20 @@ body[data-lang="en"] .lang-en {
   border-right: 0;
 }
 
+.cover-copy .cover-meta article:nth-child(2) {
+  border-right: 0;
+}
+
+.cover-copy .cover-meta article:nth-child(-n + 2) {
+  border-bottom: 1px solid var(--line);
+}
+
 .cover-copy .cover-meta strong {
   font-family: var(--sans);
   font-size: clamp(0.86rem, 1.05vw, 1.12rem);
   letter-spacing: -0.01em;
   line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
 .folder {
@@ -468,11 +477,23 @@ body[data-lang="en"] .lang-en {
   transition: background 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
-.folder-tab span {
+.folder-tab > span:first-child {
   color: var(--gold);
   display: block;
   font-size: 0.58rem;
   margin-bottom: 4px;
+}
+
+.folder-tab > .lang-fr,
+.folder-tab > .lang-en {
+  color: inherit;
+  font-size: inherit;
+  margin: 0;
+}
+
+body[data-lang="fr"] .folder-tab > .lang-fr,
+body[data-lang="en"] .folder-tab > .lang-en {
+  display: inline;
 }
 
 .folder-tab.is-active {
@@ -633,7 +654,18 @@ body[data-lang="en"] .lang-en {
 .profile-cards {
   display: grid;
   gap: 14px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.profile-cards > article:nth-child(1),
+.profile-cards > article:nth-child(2) {
+  grid-column: span 3;
+}
+
+.profile-cards > article:nth-child(3),
+.profile-cards > article:nth-child(4),
+.profile-cards > article:nth-child(5) {
+  grid-column: span 2;
 }
 
 .profile-cards article,
@@ -1493,6 +1525,14 @@ body[data-lang="en"] .lang-en {
   .method-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .profile-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .profile-cards > article:nth-child(-n + 5) {
+    grid-column: auto;
+  }
 }
 
 @media (max-width: 760px) {
@@ -1566,6 +1606,10 @@ body[data-lang="en"] .lang-en {
   .method-flow,
   .method-grid {
     grid-template-columns: 1fr;
+  }
+
+  .profile-cards > article:nth-child(-n + 5) {
+    grid-column: auto;
   }
 
   .stat-strip {
