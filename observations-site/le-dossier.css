@@ -699,6 +699,18 @@ body[data-lang="en"] .lang-en {
   line-height: 1;
 }
 
+.reading-shelf h3 {
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  line-height: 1.15;
+  margin-top: 0.8rem;
+}
+
+.reading-shelf p {
+  font-size: 0.78rem;
+  line-height: 1.3;
+  margin-top: 0.18rem;
+}
+
 .beyond-dossiers-card h3 {
   color: var(--blue);
 }

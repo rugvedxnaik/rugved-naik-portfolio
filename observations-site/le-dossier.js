@@ -39,7 +39,10 @@ function setLanguage(nextLanguage) {
 }
 
 for (const button of tabButtons) {
-  button.addEventListener("click", () => setTab(button.dataset.tab));
+  button.addEventListener("click", () => {
+    setTab(button.dataset.tab);
+    window.history.replaceState(null, "", `#${button.dataset.tab}`);
+  });
   button.addEventListener("keydown", (event) => {
     const currentIndex = tabButtons.indexOf(button);
     if (currentIndex < 0) {
@@ -76,5 +79,7 @@ try {
   savedLanguage = null;
 }
 
-setTab("profil");
+const requestedPanel = window.location.hash.replace("#", "");
+const initialPanel = requestedPanel === "signals" ? "dossiers" : requestedPanel;
+setTab(tabButtons.some((button) => button.dataset.tab === initialPanel) ? initialPanel : "profil");
 setLanguage(urlLanguage || savedLanguage || "fr");

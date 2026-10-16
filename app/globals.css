@@ -4993,6 +4993,18 @@ body:has(.dossier-app) {
   line-height: 1;
 }
 
+.dossier-app .reading-shelf h3 {
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  line-height: 1.15;
+  margin-top: 0.8rem;
+}
+
+.dossier-app .reading-shelf p {
+  font-size: 0.78rem;
+  line-height: 1.3;
+  margin-top: 0.18rem;
+}
+
 .dossier-app .beyond-dossiers-card h3 {
   color: var(--blue);
 }

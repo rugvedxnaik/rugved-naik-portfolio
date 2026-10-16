@@ -3,13 +3,27 @@ import portfolioData from "../observations-site/data/portfolio.json";
 
 const realDossierLinks = [
   {
-    engagement: "Real engagement, employment",
-    category: "Amazon marketplace growth",
-    title: "Availability Is a Ranking Signal",
-    text: "Peora, Amazon marketplace growth, stock-outs, rank loss, ad dependency and operating dashboards.",
-    href: "case-peora-availability-ranking.html",
+    engagement: "Academic project, March 2026",
+    category: "Consumer research and market reading",
+    title: "Collectibility Over Loyalty",
+    text: "How 4,700+ reviews revealed identity value, object value and a reason to build the collection itself.",
+    href: "case-miutine.html",
     priority: true,
     lead: true,
+  },
+  {
+    engagement: "Team leadership, BAJA SAE India 2023",
+    category: "Product delivery under constraint",
+    title: "Building the Team Before Building the Vehicle",
+    text: "How a five-person group became a 25-person agile vehicle organization and delivered in four months.",
+    href: "case-baja.html",
+  },
+  {
+    engagement: "Real engagement, employment",
+    category: "Commercial delivery",
+    title: "Availability Is a Ranking Signal",
+    text: "Peora, stock-outs, rank loss, ad dependency and an executive operating dashboard.",
+    href: "case-peora-availability-ranking.html",
   },
   {
     engagement: "Real engagement, employment",
@@ -26,17 +40,10 @@ const realDossierLinks = [
     href: "case-electric-mobility.html",
   },
   {
-    engagement: "Real engagement, academic project",
-    category: "Market reading",
-    title: "Collectibility Over Loyalty",
-    text: "Miutine, 4,700+ reviews, collectibility, identity value and object value.",
-    href: "case-miutine.html",
-  },
-  {
     engagement: "Real engagement, case competition",
-    category: "Brand & product architecture",
+    category: "Gen Z brand innovation",
     title: "Face Architecture",
-    text: "Givenchy Beauty, identity, face structure and a beauty territory built as architecture.",
+    text: "A Gen Z beauty venture built from Givenchy's couture heritage.",
     href: "case-givenchy.html",
   },
 ];
@@ -55,27 +62,6 @@ const thinkingDossierLinks = [
     title: "What AI Can't Personalize",
     text: "L'Oréal, adaptive discovery, brand memory and protected cues inside personalization.",
     href: "case-loreal-ai-personalization.html",
-  },
-  {
-    engagement: "Independent analysis",
-    category: "Luxury service",
-    title: "Shared Infrastructure, House-Specific Expression",
-    text: "LVMH, customer intelligence, house codes and where shared systems should stop.",
-    href: "case-lvmh-shared-infrastructure.html",
-  },
-  {
-    engagement: "Independent analysis",
-    category: "India luxury read",
-    title: "The Box Is the Proof",
-    text: "Luxury fragrance in India, saved gifts, social permission and the role of packaging.",
-    href: "case-box-is-the-proof.html",
-  },
-  {
-    engagement: "Independent analysis",
-    category: "Category read",
-    title: "Withings PMM Category Read",
-    text: "Preventive health, connected measurement, premium positioning and category direction.",
-    href: "case-withings.html",
   },
 ];
 
@@ -130,7 +116,8 @@ export default function Home() {
 
         <div className="cover-copy">
           <p className="eyebrow">Dossier de candidature</p>
-          <h1 id="cover-title">Consumer understanding for product, marketing and PMM decisions.</h1>
+          <h1 id="cover-title">I turn consumer behaviour into product and marketing decisions.</h1>
+          <p className="cover-lede">Engineer by training, growth practitioner, and Innovation &amp; Productivity PM Intern at Danone. Currently completing the ESCP Master in Management in Paris.</p>
           <a
             className="hero-cta-line"
             href="mailto:rugved.naik@edu.escp.eu?subject=Stage%20PM%2FPMM%2FPMO%2FConsumer%20Strategy%20-%20mars%202027"
@@ -144,7 +131,7 @@ export default function Home() {
             </article>
             <article>
               <span>Target</span>
-              <strong>Product & Consumer Strategy - PM, PMM, PMO, Consumer Insights, Market Intelligence</strong>
+              <strong>Product Management, Product Marketing, Innovation PMO and Consumer Strategy</strong>
             </article>
             <article>
               <span>Proof base</span>
@@ -155,11 +142,6 @@ export default function Home() {
               <strong>rugved.naik@edu.escp.eu</strong>
             </article>
           </div>
-          <p className="cover-lede">
-            Un portfolio rapide à lire pour les recruteurs en France: qui je suis,
-            quand je suis disponible, ce que j'ai fait, comment je travaille, et les
-            dossiers à ouvrir ensuite.
-          </p>
           <div className="availability-stamp">Stage dès mars 2027 / alternance dès septembre 2027</div>
         </div>
 
@@ -167,26 +149,13 @@ export default function Home() {
           <figure className="consumer-quote-card" aria-label="Consumer principle">
             <span>Principe consommateur</span>
             <blockquote>
-              Le client n'arrive pas à la fin du plan. Il est la raison pour laquelle le plan existe.
+              Avant qu'une équipe décide quoi construire ou dire, je cherche ce que la personne essaie de résoudre.
             </blockquote>
             <p>
               Le fil conducteur des dossiers: partir de ce que les personnes essaient de résoudre,
               puis construire le produit, le message ou le système autour.
             </p>
           </figure>
-          <div className="consumer-thesis-card" aria-label="Consumer-centric thesis">
-            <span>La décision avant la décision</span>
-            <p>
-              Avant qu'une personne achète, clique, compare, recommande ou revienne,
-              quelque chose doit être résolu: ce qu'elle remarque, ce qu'elle croit,
-              ce qu'elle craint, ce qu'elle reconnaît, ou ce qui lui donne la permission
-              d'agir.
-            </p>
-            <p>
-              Mon travail part de là: comprendre ce moment, puis le traduire en produit,
-              marketing, lancement, contenu ou système de décision.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -257,10 +226,12 @@ export default function Home() {
                 <img src="/assets/rugved-naik-headshot.jpg" alt="Rugved Naik" loading="lazy" decoding="async" />
                 <p>Rugved Naik / ESCP / Paris</p>
               </article>
-              <article className="reading-card">
-                <span>Lecture en cours</span>
-                <h3>Ce que les personnes font avant de pouvoir expliquer ce qu'elles veulent.</h3>
-                <p>Avis clients, comportements en rayon et petits rituels du quotidien.</p>
+              <article className="reading-card reading-shelf">
+                <span>Sur l'étagère</span>
+                <h3>The Social Life of Things</h3><p>Arjun Appadurai</p>
+                <h3>Thinking in Systems</h3><p>Donella Meadows</p>
+                <h3>The Practice of Everyday Life</h3><p>Michel de Certeau</p>
+                <h3>The Choice Factory</h3><p>Richard Shotton</p>
               </article>
               <article>
                 <span className="role-icon role-icon--pm" aria-hidden="true"><i /></span>

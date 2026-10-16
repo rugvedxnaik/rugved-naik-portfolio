@@ -80,28 +80,24 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /Ouvert aux stages produit, marketing et stratégie consommateur à partir de mars 2027\./);
   assert.match(indexHtml, /Open to product, marketing and consumer-strategy internships from March 2027\./);
   assert.match(indexHtml, /mailto:rugved\.naik@edu\.escp\.eu\?subject=Stage%20PM%2FPMM%2FPMO%2FConsumer%20Strategy%20-%20mars%202027/);
-  assert.match(indexHtml, /The decision before the decision/);
-  assert.match(indexHtml, /La décision avant la décision/);
-  assert.match(indexHtml, /The customer does not arrive at the end of the plan/);
-  assert.match(indexHtml, /Le client n'arrive pas à la fin du plan/);
+  assert.match(indexHtml, /I turn consumer behaviour into product and marketing decisions/);
+  assert.match(indexHtml, /Je transforme les comportements consommateurs en décisions produit et marketing/);
+  assert.match(indexHtml, /Before a team decides what to build or say/);
+  assert.match(indexHtml, /Avant qu'une équipe décide quoi construire ou dire/);
   assert.match(indexHtml, /start with what people are trying to resolve/);
-  assert.match(indexHtml, /what gives them permission to act/);
-  assert.match(indexHtml, /product, marketing, launch, content or decision systems/);
-  assert.match(indexHtml, /Product &amp; Consumer Strategy - PM, PMM, PMO, Consumer Insights, Market Intelligence/);
+  assert.match(indexHtml, /Product Management, Product Marketing, Innovation PMO and Consumer Strategy/);
   const heroCtaIndex = indexHtml.indexOf("Ouvert aux stages produit");
   const heroFactsIndex = indexHtml.indexOf('aria-label="Quick facts"');
   const heroQuoteIndex = indexHtml.indexOf('aria-label="Consumer principle"');
-  const heroThesisIndex = indexHtml.indexOf('aria-label="Consumer-centric thesis"');
   assert.ok(heroCtaIndex > -1 && heroFactsIndex > heroCtaIndex, "hero facts should sit directly after the CTA");
   assert.ok(heroQuoteIndex > heroFactsIndex, "consumer quote should follow the practical facts");
-  assert.ok(heroThesisIndex > heroQuoteIndex, "decision-before-decision thesis should follow the quote");
-  assert.match(indexHtml, /An engineer by training who moved into growth and performance\s+marketing/);
+  assert.match(indexHtml, /Engineering taught me to break down systems/);
   assert.match(indexHtml, /Actively open to March 2027 opportunities/);
   assert.match(indexHtml, /Dossier format: scan, open useful proof, contact/);
   assert.match(indexHtml, /assets\/rugved-naik-headshot\.jpg/);
-  assert.match(indexHtml, /Currently reading/);
-  assert.match(indexHtml, /What people do before they can explain what they want/);
-  assert.match(indexHtml, /Customer reviews, shelf behavior and small everyday rituals/);
+  assert.match(indexHtml, /On the reading shelf/);
+  assert.match(indexHtml, /The Social Life of Things/);
+  assert.match(indexHtml, /Thinking in Systems/);
   assert.doesNotMatch(indexHtml, /assets\/dossiers\/freelance-ctr-lift\.svg/);
   assert.doesNotMatch(indexHtml, /Indexed CTR: \+25% after structured creative testing/);
   assert.match(indexHtml, /Method flow/);
@@ -114,11 +110,11 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /Thinking exercises show how I structure categories/);
   assert.match(pageTsx, /Les exercices de réflexion montrent comment\s+je structure/);
   assert.match(indexHtml, /Real engagement, employment/);
-  assert.match(indexHtml, /Real engagement, founder venture/);
-  assert.match(indexHtml, /Real engagement, academic project/);
+  assert.match(indexHtml, /Founder venture/);
+  assert.match(indexHtml, /Academic project, March 2026/);
   assert.match(indexHtml, /Real engagement, case competition/);
   assert.match(indexHtml, /Independent analyses used to test the method/);
-  assert.equal((indexHtml.match(/class="tag-kind tag-kind-independent">Independent analysis/g) ?? []).length, 5);
+  assert.equal((indexHtml.match(/class="tag-kind tag-kind-independent">Independent analysis/g) ?? []).length, 2);
   assert.doesNotMatch(indexHtml, /Start here \/ Applied in role|Start here \/ Market reading|Start here \/ India luxury read|Start here \/ Competition validated/i);
   assert.match(indexHtml, /I usually reply within 24-48 hours/);
   assert.match(indexHtml, /Send a few lines about the role, team or question/);
@@ -133,10 +129,13 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /Recommended start/);
   assert.doesNotMatch(indexHtml, /Real quote pending|Citation réelle à ajouter|Reference<\/span>/);
   assert.match(indexHtml, /References available on request\./);
-  assert.match(indexHtml, /BAJA SAE and e-mobility/);
+  assert.match(indexHtml, /Captain and Head of Engineering Design/);
+  assert.match(indexHtml, /case-baja\.html/);
+  assert.match(indexHtml, /Ranked top 10 in India/);
+  assert.match(indexHtml, /INR 17\.5 lakh budget and INR 8 lakh in sponsorships/);
+  assert.equal((indexHtml.match(/class="work-dossier(?: [^"]+)?"/g) ?? []).length, 8);
+  assert.doesNotMatch(indexHtml, /href="case-(?:lvmh-shared-infrastructure|box-is-the-proof|withings)\.html"/);
   assert.match(indexHtml, /case-electric-mobility\.html/);
-  assert.match(indexHtml, /case-box-is-the-proof\.html/);
-  assert.match(indexHtml, /Cultural & field research/);
   assert.match(indexHtml, /Au-delà des dossiers/);
   assert.match(indexHtml, /Beyond the dossiers/);
   assert.match(indexHtml, /100\+ cities across India/);
@@ -166,7 +165,6 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
     assert.doesNotMatch(file, /consumer insight product strategy brand meaning PMM framing editorial systems/i);
     assert.doesNotMatch(file, /PMM framing|emotional moats|insight synthesis/);
     assert.doesNotMatch(file, /#interests|Interests archive coming soon/);
-    assert.doesNotMatch(file, /case-baja/i);
     assert.doesNotMatch(file, /evidenceStrength|signal-strength/);
     assert.doesNotMatch(file, /Route:|Proof:|State:/);
     assert.doesNotMatch(file, /siara/i);
@@ -197,13 +195,31 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
     assert.equal(routedSignals.has(note.signal.trim().toLowerCase()), false, note.signal);
   }
 
-  await assert.rejects(access(new URL("../observations-site/case-baja.html", import.meta.url)));
+  await access(new URL("../observations-site/case-baja.html", import.meta.url));
   await access(new URL("../observations-site/rugved-naik-cv.pdf", import.meta.url));
   await access(new URL("../observations-site/rugved-naik-dossier.pdf", import.meta.url));
   await access(new URL("../observations-site/assets/rugved-naik-headshot.jpg", import.meta.url));
   await access(new URL("../public/assets/rugved-naik-headshot.jpg", import.meta.url));
   await assert.rejects(access(new URL("../observations-site/assets/dossiers/freelance-ctr-lift.svg", import.meta.url)));
   await assert.rejects(access(new URL("../public/assets/dossiers/freelance-ctr-lift.svg", import.meta.url)));
+});
+
+test("flagship cases expose dated evidence and leadership outcomes", async () => {
+  const [miutine, baja, givenchy] = await Promise.all([
+    readFile(new URL("../observations-site/case-miutine.html", import.meta.url), "utf8"),
+    readFile(new URL("../observations-site/case-baja.html", import.meta.url), "utf8"),
+    readFile(new URL("../observations-site/case-givenchy.html", import.meta.url), "utf8"),
+  ]);
+
+  assert.match(miutine, /completed March 2026/);
+  assert.match(miutine, /4,700\+ ratings and reviews/);
+  assert.match(miutine, /Miutine Intense/);
+  assert.match(miutine, /does not claim to have influenced Miu Miu's decisions/);
+  assert.match(baja, /Captain and Head of Engineering Design/);
+  assert.match(baja, /five-person engineering group into a 25-person agile vehicle organization/);
+  assert.match(baja, /INR 17\.5 lakh budget/);
+  assert.match(baja, /Top 10 in India and 1 of 3 teams/);
+  assert.match(givenchy, /Gen Z beauty venture built from Givenchy's couture heritage/);
 });
 
 test("public portfolio copy avoids em and en dashes", async () => {
@@ -219,6 +235,7 @@ test("public portfolio copy avoids em and en dashes", async () => {
     "../observations-site/case-withings.html",
     "../observations-site/case-amazon-conversion.html",
     "../observations-site/case-peora-availability-ranking.html",
+    "../observations-site/case-baja.html",
     "../observations-site/case-box-is-the-proof.html",
     "../observations-site/case-loreal-ai-personalization.html",
     "../observations-site/case-danone-claim-saturation.html",
@@ -259,7 +276,7 @@ test("v4 dossier pages share the standard section structure", async () => {
     const html = await readFile(new URL(file, import.meta.url), "utf8");
     assert.match(html, /<h1>[^<]+<\/h1>/, file);
     assert.match(html, /<h3>[^<]+<\/h3>/, file);
-    assert.match(html, /class="dossier-status"><em>Status:/, file);
+    assert.match(html, /class="dossier-status"><em>[^<]+<\/em>/, file);
     assert.match(html, /class="dossier-signal-quote"/, file);
     assert.match(html, /<strong>Product implication/, file);
     assert.match(html, /<strong>GTM implication/, file);
