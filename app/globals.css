@@ -5059,96 +5059,11 @@ body:has(.dossier-app) {
   width: 34px;
 }
 
-.dossier-app .role-icon i,
-.dossier-app .role-icon::before,
-.dossier-app .role-icon::after {
-  content: "";
+.dossier-app .role-icon img {
   display: block;
-  position: absolute;
-}
-
-.dossier-app .role-icon--pm i {
-  border: 1px solid var(--blue);
-  height: 12px;
-  right: 7px;
-  top: 10px;
-  width: 12px;
-}
-
-.dossier-app .role-icon--pm::before {
-  background: var(--blue);
-  height: 1px;
-  left: 7px;
-  top: 16px;
-  width: 15px;
-}
-
-.dossier-app .role-icon--pm::after {
-  border-right: 1px solid var(--blue);
-  border-top: 1px solid var(--blue);
-  height: 6px;
-  left: 16px;
-  top: 13px;
-  transform: rotate(45deg);
-  width: 6px;
-}
-
-.dossier-app .role-icon--pmm::before {
-  border: 1px solid var(--blue);
-  border-radius: 6px;
-  height: 13px;
-  left: 8px;
-  top: 9px;
-  width: 18px;
-}
-
-.dossier-app .role-icon--pmm::after {
-  border-bottom: 1px solid var(--blue);
-  border-left: 1px solid var(--blue);
-  bottom: 9px;
-  height: 5px;
-  left: 13px;
-  transform: skewX(-18deg);
-  width: 6px;
-}
-
-.dossier-app .role-icon--pmo i,
-.dossier-app .role-icon--pmo::before,
-.dossier-app .role-icon--pmo::after {
-  background: var(--blue);
-  height: 1px;
-  left: 12px;
-  width: 12px;
-}
-
-.dossier-app .role-icon--pmo i {
-  top: 11px;
-}
-
-.dossier-app .role-icon--pmo::before {
-  top: 16px;
-}
-
-.dossier-app .role-icon--pmo::after {
-  top: 21px;
-}
-
-.dossier-app .role-icon--field::before {
-  border: 1px solid var(--blue);
-  border-radius: 50%;
-  height: 18px;
-  left: 7px;
-  top: 7px;
-  width: 18px;
-}
-
-.dossier-app .role-icon--field::after {
-  background: var(--blue);
-  height: 15px;
-  left: 16px;
-  top: 9px;
-  transform: rotate(34deg);
-  width: 1px;
+  height: 17px;
+  opacity: 0.78;
+  width: 17px;
 }
 
 .dossier-app .stamp-card {
@@ -5458,6 +5373,72 @@ body:has(.dossier-app) {
   max-width: 740px;
 }
 
+.dossier-app .proof-index {
+  border: 1px solid var(--line);
+  display: grid;
+}
+
+.dossier-app .proof-index-heading {
+  align-items: end;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(180px, 0.28fr) minmax(0, 1fr);
+  padding: 20px;
+}
+
+.dossier-app .proof-index-heading > span,
+.dossier-app .proof-index-grid a > span {
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.dossier-app .proof-index-heading p {
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 760px;
+}
+
+.dossier-app .proof-index-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dossier-app .proof-index-grid a {
+  color: var(--muted);
+  display: grid;
+  min-height: 190px;
+  padding: 20px;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.dossier-app .proof-index-grid a + a {
+  border-left: 1px solid var(--line);
+}
+
+.dossier-app .proof-index-grid a:hover {
+  background: rgba(217, 226, 236, 0.34);
+}
+
+.dossier-app .proof-index-grid strong {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 2.6vw, 2.7rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 28px 0 12px;
+}
+
+.dossier-app .proof-index-grid p {
+  line-height: 1.5;
+  margin: 0;
+}
+
 .dossier-app .dossier-recommendation strong {
   color: var(--ink);
   display: block;
@@ -5723,6 +5704,7 @@ body:has(.dossier-app) {
   .dossier-app .profile-grid,
   .dossier-app .availability-grid,
   .dossier-app .contact-grid,
+  .dossier-app .proof-index-heading,
   .dossier-app .dossier-group-heading,
   .dossier-app .experience-item {
     grid-template-columns: 1fr;
@@ -5762,10 +5744,20 @@ body:has(.dossier-app) {
 
   .dossier-app .profile-cards,
   .dossier-app .dossier-grid,
+  .dossier-app .proof-index-grid,
   .dossier-app .skills-grid,
   .dossier-app .method-flow,
   .dossier-app .method-grid {
     grid-template-columns: 1fr;
+  }
+
+  .dossier-app .proof-index-grid a {
+    min-height: auto;
+  }
+
+  .dossier-app .proof-index-grid a + a {
+    border-left: 0;
+    border-top: 1px solid var(--line);
   }
 
   .dossier-app .profile-cards > article:nth-child(-n + 5) {

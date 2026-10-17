@@ -222,6 +222,38 @@ test("flagship cases expose dated evidence and leadership outcomes", async () =>
   assert.match(givenchy, /Gen Z beauty venture built from Givenchy's couture heritage/);
 });
 
+test("flagship proof is inspectable and uses real project artifacts", async () => {
+  const [indexHtml, miutine, baja, givenchy, styles] = await Promise.all([
+    readFile(new URL("../observations-site/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../observations-site/case-miutine.html", import.meta.url), "utf8"),
+    readFile(new URL("../observations-site/case-baja.html", import.meta.url), "utf8"),
+    readFile(new URL("../observations-site/case-givenchy.html", import.meta.url), "utf8"),
+    readFile(new URL("../observations-site/styles.css", import.meta.url), "utf8"),
+  ]);
+
+  assert.match(indexHtml, /Proof you can inspect/);
+  assert.match(indexHtml, /case-miutine\.html#evidence-trail/);
+  assert.match(indexHtml, /case-baja\.html#delivery-record/);
+  assert.match(indexHtml, /case-givenchy\.html#submitted-artifact/);
+  assert.match(miutine, /id="evidence-trail"/);
+  assert.match(miutine, /Later alignment, not causality/);
+  assert.match(baja, /id="delivery-record"/);
+  assert.match(baja, /9 months compressed to 4/);
+  assert.match(givenchy, /id="submitted-artifact"/);
+  assert.match(givenchy, /assets\/givenchy\/slide-01\.webp/);
+  assert.match(givenchy, /assets\/givenchy\/slide-05\.webp/);
+  assert.match(givenchy, /assets\/givenchy\/slide-07\.webp/);
+  assert.match(givenchy, /assets\/givenchy\/slide-10\.webp/);
+  assert.match(styles, /\.artifact-gallery/);
+
+  await Promise.all([
+    "slide-01.webp",
+    "slide-05.webp",
+    "slide-07.webp",
+    "slide-10.webp",
+  ].map((name) => access(new URL(`../observations-site/assets/givenchy/${name}`, import.meta.url))));
+});
+
 test("desktop dossier grids prevent orphan cards and contact overflow", async () => {
   const [indexHtml, css] = await Promise.all([
     readFile(new URL("../observations-site/index.html", import.meta.url), "utf8"),
@@ -234,6 +266,19 @@ test("desktop dossier grids prevent orphan cards and contact overflow", async ()
   assert.match(css, /\.profile-cards > article:nth-child\(3\)[\s\S]*?grid-column: span 2/);
   assert.match(indexHtml, /<span class="lang-en">Availability<\/span>/);
   assert.match(indexHtml, /<span class="lang-en">Experience<\/span>/);
+});
+
+test("role cards use stable library icons instead of CSS-drawn symbols", async () => {
+  const [indexHtml, css] = await Promise.all([
+    readFile(new URL("../observations-site/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../observations-site/le-dossier.css", import.meta.url), "utf8"),
+  ]);
+
+  assert.match(indexHtml, /bootstrap-icons@1\.11\.3\/icons\/signpost-split\.svg/);
+  assert.match(indexHtml, /bootstrap-icons@1\.11\.3\/icons\/megaphone\.svg/);
+  assert.match(indexHtml, /bootstrap-icons@1\.11\.3\/icons\/clipboard2-check\.svg/);
+  assert.doesNotMatch(css, /\.role-icon--(?:pm|pmm|pmo)/);
+  assert.doesNotMatch(css, /\.role-icon(?:::before|::after)/);
 });
 
 test("public portfolio copy avoids em and en dashes", async () => {

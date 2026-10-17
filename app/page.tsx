@@ -234,22 +234,30 @@ export default function Home() {
                 <h3>The Choice Factory</h3><p>Richard Shotton</p>
               </article>
               <article>
-                <span className="role-icon role-icon--pm" aria-hidden="true"><i /></span>
+                <span className="role-icon" aria-hidden="true">
+                  <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/signpost-split.svg" alt="" />
+                </span>
                 <h3>PM</h3>
                 <p>Transformer le besoin en priorité produit.</p>
               </article>
               <article>
-                <span className="role-icon role-icon--pmm" aria-hidden="true" />
+                <span className="role-icon" aria-hidden="true">
+                  <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/megaphone.svg" alt="" />
+                </span>
                 <h3>PMM</h3>
                 <p>Transformer l'usage en message mémorisable.</p>
               </article>
               <article>
-                <span className="role-icon role-icon--pmo" aria-hidden="true"><i /></span>
+                <span className="role-icon" aria-hidden="true">
+                  <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/clipboard2-check.svg" alt="" />
+                </span>
                 <h3>Innovation PMO</h3>
                 <p>Rendre les jalons, risques et prochaines étapes lisibles.</p>
               </article>
               <article>
-                <span className="role-icon role-icon--field" aria-hidden="true" />
+                <span className="role-icon" aria-hidden="true">
+                  <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/compass.svg" alt="" />
+                </span>
                 <h3>Recherche terrain & culturelle</h3>
                 <p>Observer les usages, les contextes et les différences culturelles avant de formaliser une hypothèse.</p>
               </article>
@@ -432,12 +440,35 @@ export default function Home() {
                 je structure des catégories que je n'ai pas travaillées directement.
               </p>
             </div>
-            <a className="dossier-recommendation" href="case-peora-availability-ranking.html">
+            <section className="proof-index" aria-labelledby="proof-index-title">
+              <div className="proof-index-heading">
+                <span id="proof-index-title">Preuves vérifiables</span>
+                <p>Trois types de preuves, présentés selon ce qui existe réellement: recherche datée, livraison sous contrainte et artefact présenté.</p>
+              </div>
+              <div className="proof-index-grid">
+                <a href="case-miutine.html#evidence-trail">
+                  <span>01 / Recherche</span>
+                  <strong>4 700+ avis</strong>
+                  <p>Analyse soumise en mars 2026, méthode détaillée et suivi public ultérieur.</p>
+                </a>
+                <a href="case-baja.html#delivery-record">
+                  <span>02 / Livraison</span>
+                  <strong>5 à 25 personnes</strong>
+                  <p>Responsabilité, contrainte de quatre mois, budget, arbitrage technique et résultat.</p>
+                </a>
+                <a href="case-givenchy.html#submitted-artifact">
+                  <span>03 / Artefact</span>
+                  <strong>4 extraits du deck</strong>
+                  <p>Le territoire, le système de positionnement et l'expérience présentés au jury.</p>
+                </a>
+              </div>
+            </section>
+            <a className="dossier-recommendation" href="case-miutine.html">
               <span>Si vous n'ouvrez qu'un dossier</span>
-              <strong>Availability Is a Ranking Signal</strong>
+              <strong>Collectibility Over Loyalty</strong>
               <p>
-                Commencez ici: c'est le lien le plus direct entre comportement marketplace,
-                dashboards, disponibilité, exécution et décisions PM/PMO.
+                Commencez ici pour voir comment 4 700+ avis, la netnographie et le social listening
+                sont devenus une recommandation que l'activité ultérieure de la marque a renforcée.
               </p>
             </a>
             <div className="dossier-group dossier-group-real">

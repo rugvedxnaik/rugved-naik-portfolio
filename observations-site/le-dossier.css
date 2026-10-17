@@ -773,96 +773,11 @@ body[data-lang="en"] .folder-tab > .lang-en {
   width: 34px;
 }
 
-.role-icon i,
-.role-icon::before,
-.role-icon::after {
-  content: "";
+.role-icon img {
   display: block;
-  position: absolute;
-}
-
-.role-icon--pm i {
-  border: 1px solid var(--blue);
-  height: 12px;
-  right: 7px;
-  top: 10px;
-  width: 12px;
-}
-
-.role-icon--pm::before {
-  background: var(--blue);
-  height: 1px;
-  left: 7px;
-  top: 16px;
-  width: 15px;
-}
-
-.role-icon--pm::after {
-  border-right: 1px solid var(--blue);
-  border-top: 1px solid var(--blue);
-  height: 6px;
-  left: 16px;
-  top: 13px;
-  transform: rotate(45deg);
-  width: 6px;
-}
-
-.role-icon--pmm::before {
-  border: 1px solid var(--blue);
-  border-radius: 6px;
-  height: 13px;
-  left: 8px;
-  top: 9px;
-  width: 18px;
-}
-
-.role-icon--pmm::after {
-  border-bottom: 1px solid var(--blue);
-  border-left: 1px solid var(--blue);
-  bottom: 9px;
-  height: 5px;
-  left: 13px;
-  transform: skewX(-18deg);
-  width: 6px;
-}
-
-.role-icon--pmo i,
-.role-icon--pmo::before,
-.role-icon--pmo::after {
-  background: var(--blue);
-  height: 1px;
-  left: 12px;
-  width: 12px;
-}
-
-.role-icon--pmo i {
-  top: 11px;
-}
-
-.role-icon--pmo::before {
-  top: 16px;
-}
-
-.role-icon--pmo::after {
-  top: 21px;
-}
-
-.role-icon--field::before {
-  border: 1px solid var(--blue);
-  border-radius: 50%;
-  height: 18px;
-  left: 7px;
-  top: 7px;
-  width: 18px;
-}
-
-.role-icon--field::after {
-  background: var(--blue);
-  height: 15px;
-  left: 16px;
-  top: 9px;
-  transform: rotate(34deg);
-  width: 1px;
+  height: 17px;
+  opacity: 0.78;
+  width: 17px;
 }
 
 .profile-cards h3,
@@ -1239,6 +1154,72 @@ body[data-lang="en"] .folder-tab > .lang-en {
   max-width: 740px;
 }
 
+.proof-index {
+  border: 1px solid var(--line);
+  display: grid;
+}
+
+.proof-index-heading {
+  align-items: end;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(180px, 0.28fr) minmax(0, 1fr);
+  padding: 20px;
+}
+
+.proof-index-heading > span,
+.proof-index-grid a > span {
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.proof-index-heading p {
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 760px;
+}
+
+.proof-index-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.proof-index-grid a {
+  color: var(--muted);
+  display: grid;
+  min-height: 190px;
+  padding: 20px;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.proof-index-grid a + a {
+  border-left: 1px solid var(--line);
+}
+
+.proof-index-grid a:hover {
+  background: rgba(217, 226, 236, 0.34);
+}
+
+.proof-index-grid strong {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 2.6vw, 2.7rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 28px 0 12px;
+}
+
+.proof-index-grid p {
+  line-height: 1.5;
+  margin: 0;
+}
+
 .dossier-recommendation strong {
   color: var(--ink);
   display: block;
@@ -1595,6 +1576,7 @@ body[data-lang="en"] .folder-tab > .lang-en {
   .profile-grid,
   .availability-grid,
   .contact-grid,
+  .proof-index-heading,
   .dossier-group-heading,
   .experience-item {
     grid-template-columns: 1fr;
@@ -1602,10 +1584,20 @@ body[data-lang="en"] .folder-tab > .lang-en {
 
   .profile-cards,
   .dossier-grid,
+  .proof-index-grid,
   .skills-grid,
   .method-flow,
   .method-grid {
     grid-template-columns: 1fr;
+  }
+
+  .proof-index-grid a {
+    min-height: auto;
+  }
+
+  .proof-index-grid a + a {
+    border-left: 0;
+    border-top: 1px solid var(--line);
   }
 
   .profile-cards > article:nth-child(-n + 5) {
