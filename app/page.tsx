@@ -3,7 +3,7 @@ import portfolioData from "../observations-site/data/portfolio.json";
 
 const realDossierLinks = [
   {
-    engagement: "Academic project, March 2026",
+    engagement: "Academic project",
     category: "Consumer research and market reading",
     title: "Collectibility Over Loyalty",
     text: "How 4,700+ reviews revealed identity value, object value and a reason to build the collection itself.",
@@ -12,35 +12,35 @@ const realDossierLinks = [
     lead: true,
   },
   {
-    engagement: "Team leadership, BAJA SAE India 2023",
+    engagement: "Team leadership",
     category: "Product delivery under constraint",
     title: "Building the Team Before Building the Vehicle",
     text: "How a five-person group became a 25-person agile vehicle organization and delivered in four months.",
     href: "case-baja.html",
   },
   {
-    engagement: "Real engagement, employment",
+    engagement: "Employment",
     category: "Commercial delivery",
     title: "Availability Is a Ranking Signal",
     text: "Peora, stock-outs, rank loss, ad dependency and an executive operating dashboard.",
     href: "case-peora-availability-ranking.html",
   },
   {
-    engagement: "Real engagement, employment",
+    engagement: "Employment",
     category: "Amazon marketplace growth",
     title: "Listing Conversion Systems",
     text: "Amazon A+ content, product understanding, proof and trust as marketplace infrastructure.",
     href: "case-amazon-conversion.html",
   },
   {
-    engagement: "Real engagement, founder venture",
+    engagement: "Founder venture",
     category: "Product adoption",
     title: "Foldable Electric Mobility Product",
     text: "Urban mobility, adoption conditions, public transport integration and commercialization logic.",
     href: "case-electric-mobility.html",
   },
   {
-    engagement: "Real engagement, case competition",
+    engagement: "Case competition",
     category: "Gen Z brand innovation",
     title: "Face Architecture",
     text: "A Gen Z beauty venture built from Givenchy's couture heritage.",
@@ -51,10 +51,10 @@ const realDossierLinks = [
 const thinkingDossierLinks = [
   {
     engagement: "Independent analysis",
-    category: "FMCG category",
-    title: "Claim Saturation",
-    text: "Danone, health claims, proof cues and what makes a familiar category claim believable.",
-    href: "case-danone-claim-saturation.html",
+    category: "Market intelligence and health tech",
+    title: "Premium Health Devices Need to Sell Interpretation",
+    text: "A 100-listing Amazon category read on premium positioning, portfolio laddering and trust.",
+    href: "case-withings.html",
   },
   {
     engagement: "Independent analysis",
@@ -116,7 +116,7 @@ export default function Home() {
 
         <div className="cover-copy">
           <p className="eyebrow">Dossier de candidature</p>
-          <h1 id="cover-title">I turn consumer behaviour into product and marketing decisions.</h1>
+          <h1 id="cover-title">I turn consumer behavior into product and marketing decisions.</h1>
           <p className="cover-lede">Engineer by training, growth practitioner, and Innovation &amp; Productivity PM Intern at Danone. Currently completing the ESCP Master in Management in Paris.</p>
           <a
             className="hero-cta-line"
@@ -131,7 +131,7 @@ export default function Home() {
             </article>
             <article>
               <span>Target</span>
-              <strong>Product Management, Product Marketing, Innovation PMO and Consumer Strategy</strong>
+              <strong>Product Management, Product Marketing, Innovation PMO, Consumer Strategy, Consumer Insights and Market Intelligence</strong>
             </article>
             <article>
               <span>Proof base</span>
@@ -325,7 +325,7 @@ export default function Home() {
                   <li>Coordination de projets innovation Dairy: nouveaux produits, recettes, formats et initiatives de productivité.</li>
                   <li>Planning et suivi des jalons: validation concept, essais R&D, industrialisation et launch readiness.</li>
                   <li>Data quality reviews, visibilité des risques et coordination R&D, Marketing, Supply, Quality et Regulatory.</li>
-                  <li>Support IPROview, Power BI, gouvernance innovation, KPIs et santé du portfolio.</li>
+                  <li>Support des outils de portfolio innovation, Power BI, gouvernance, KPIs et santé du portfolio.</li>
                 </ul>
               </div>
               <strong>Dairy innovation</strong>
@@ -468,7 +468,7 @@ export default function Home() {
               <strong>Collectibility Over Loyalty</strong>
               <p>
                 Commencez ici pour voir comment 4 700+ avis, la netnographie et le social listening
-                sont devenus une recommandation que l'activité ultérieure de la marque a renforcée.
+                sont devenus une recommandation avec laquelle l'activité publique ultérieure de la marque s'est alignée.
               </p>
             </a>
             <div className="dossier-group dossier-group-real">
@@ -564,7 +564,7 @@ export default function Home() {
       </section>
       <footer className="dossier-footer">
         <span>Rugved Naik</span>
-        <span>Le Dossier, updated 6 Sep 2026</span>
+        <span>Le Dossier, Paris</span>
         <span>Site personnel. Pas de tracking ni collecte de données.</span>
         <a href="rugved-naik-cv.pdf" download>CV PDF</a>
       </footer>

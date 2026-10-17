@@ -67,7 +67,7 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /Convention de stage ESCP obligatoire\. Durée flexible 4-6 mois\./);
   assert.match(indexHtml, /Danone, Innovation & Productivity PM Intern/);
   assert.match(indexHtml, /Sep 2026 - Fév 2027/);
-  assert.match(indexHtml, /IPROview, Power BI, innovation governance, KPIs and portfolio health/);
+  assert.match(indexHtml, /innovation portfolio tools, Power BI, governance, KPIs and portfolio health/);
   assert.match(indexHtml, /Compétences/);
   assert.match(indexHtml, /Excel, Power BI, SQL/);
   assert.match(indexHtml, /Amazon Seller Central \/ Ads/);
@@ -80,12 +80,12 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /Ouvert aux stages produit, marketing et stratégie consommateur à partir de mars 2027\./);
   assert.match(indexHtml, /Open to product, marketing and consumer-strategy internships from March 2027\./);
   assert.match(indexHtml, /mailto:rugved\.naik@edu\.escp\.eu\?subject=Stage%20PM%2FPMM%2FPMO%2FConsumer%20Strategy%20-%20mars%202027/);
-  assert.match(indexHtml, /I turn consumer behaviour into product and marketing decisions/);
+  assert.match(indexHtml, /I turn consumer behavior into product and marketing decisions/);
   assert.match(indexHtml, /Je transforme les comportements consommateurs en décisions produit et marketing/);
   assert.match(indexHtml, /Before a team decides what to build or say/);
   assert.match(indexHtml, /Avant qu'une équipe décide quoi construire ou dire/);
   assert.match(indexHtml, /start with what people are trying to resolve/);
-  assert.match(indexHtml, /Product Management, Product Marketing, Innovation PMO and Consumer Strategy/);
+  assert.match(indexHtml, /Product Management, Product Marketing, Innovation PMO, Consumer Strategy, Consumer Insights and Market Intelligence/);
   const heroCtaIndex = indexHtml.indexOf("Ouvert aux stages produit");
   const heroFactsIndex = indexHtml.indexOf('aria-label="Quick facts"');
   const heroQuoteIndex = indexHtml.indexOf('aria-label="Consumer principle"');
@@ -109,10 +109,10 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /Real projects show contributed work, constraints, artifacts and decisions/);
   assert.match(indexHtml, /Thinking exercises show how I structure categories/);
   assert.match(pageTsx, /Les exercices de réflexion montrent comment\s+je structure/);
-  assert.match(indexHtml, /Real engagement, employment/);
+  assert.match(indexHtml, /Employment/);
   assert.match(indexHtml, /Founder venture/);
-  assert.match(indexHtml, /Academic project, March 2026/);
-  assert.match(indexHtml, /Real engagement, case competition/);
+  assert.match(indexHtml, /Academic project/);
+  assert.match(indexHtml, /Case competition/);
   assert.match(indexHtml, /Independent analyses used to test the method/);
   assert.equal((indexHtml.match(/class="tag-kind tag-kind-independent">Independent analysis/g) ?? []).length, 2);
   assert.doesNotMatch(indexHtml, /Start here \/ Applied in role|Start here \/ Market reading|Start here \/ India luxury read|Start here \/ Competition validated/i);
@@ -134,7 +134,8 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /Ranked top 10 in India/);
   assert.match(indexHtml, /INR 17\.5 lakh budget and INR 8 lakh in sponsorships/);
   assert.equal((indexHtml.match(/class="work-dossier(?: [^"]+)?"/g) ?? []).length, 8);
-  assert.doesNotMatch(indexHtml, /href="case-(?:lvmh-shared-infrastructure|box-is-the-proof|withings)\.html"/);
+  assert.doesNotMatch(indexHtml, /href="case-(?:danone-claim-saturation|lvmh-shared-infrastructure|box-is-the-proof)\.html"/);
+  assert.match(indexHtml, /href="case-withings\.html"/);
   assert.match(indexHtml, /case-electric-mobility\.html/);
   assert.match(indexHtml, /Au-delà des dossiers/);
   assert.match(indexHtml, /Beyond the dossiers/);
