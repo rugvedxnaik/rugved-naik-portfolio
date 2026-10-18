@@ -94,7 +94,7 @@ def dossier_card(kind, title, description):
 story = []
 story += [section_label("Application dossier"), p("Rugved Naik", "TitleLarge")]
 story += [p("Consumer understanding for product, marketing and innovation decisions.", "SectionTitle")]
-story += [p("Engineer by training, growth practitioner, and Innovation & Productivity PM Intern at Danone. I use consumer evidence to clarify what a team should build, say or prioritize.")]
+story += [p("Engineer by training, growth practitioner, and EU Dairy Innovation & Productivity Project Management Intern at Danone. I use consumer evidence to clarify what a team should build, say or prioritize.")]
 
 facts = Table([
     [metric("MAR 2027", "Internships from March 2027"), metric("SEP 2027", "Apprenticeships from September 2027")],
@@ -116,7 +116,7 @@ story += [section_label("Target roles"), p("Product Management, Product Marketin
 story += [section_label("Evidence at a glance")]
 metrics = Table([[
     metric("4,700+", "Ratings and reviews analyzed"),
-    metric("EUR 68K", "Monthly portfolio budget"),
+    metric("EUR 68K", "Primary account across three markets"),
     metric("5 to 25", "BAJA team growth"),
     metric("4 months", "BAJA delivery window"),
 ]], colWidths=[43.5 * mm] * 4)
@@ -129,21 +129,21 @@ metrics.setStyle(TableStyle([
     ("TOPPADDING", (0, 0), (-1, -1), 7),
     ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
 ]))
-story += [metrics, Spacer(1, 5 * mm), section_label("Availability and format"), p("ESCP internship agreement required. Flexible 4 to 6 month duration. Day-to-day working language: English. French A2, actively improving through regular coursework.")]
+story += [metrics, Spacer(1, 5 * mm), section_label("Availability and format"), p("ESCP internship agreement required. Target duration: 6 months. Day-to-day working language: English. French A2, actively improving through regular coursework.")]
 
 story.append(PageBreak())
 story += [section_label("Proof to inspect"), p("Three evidence types, shown according to what actually exists.", "SectionTitle")]
 
 proof_rows = [
     ("DATED RESEARCH", "Collectibility Over Loyalty", "Academic project submitted in March 2026. I led the quantitative netnography and social-listening analysis across 4,700+ ratings and reviews. Later public Miu Miu Beauty activity aligned with the framework; no influence is claimed."),
-    ("DELIVERY UNDER CONSTRAINT", "Building the Team Before Building the Vehicle", "Captain and Head of Engineering Design. Grew a five-person group into a 25-person agile organization, managed an INR 17.5 lakh budget and INR 8 lakh in sponsorships, and delivered in four months. Top 10 in India and 1 of 3 teams selected for BAJA SAE Oregon 2023."),
-    ("PRESENTED ARTIFACT", "Face Architecture", "Winner of the ESCP x LVMH Case Challenge in a 100-student cohort. The team submission translated couture heritage into a Gen Z beauty venture, with deck excerpts available in the online dossier."),
+    ("DELIVERY UNDER CONSTRAINT", "Building the Team Before Building the Vehicle", "Captain and Head of Engineering Design. Grew a five-person group into a 25-person agile organization, managed an INR 1.75M budget, approximately EUR 19K at 2023 rates, secured INR 0.8M in sponsorships, and delivered in four months. Top 10 in India and 1 of 3 teams selected for BAJA SAE Oregon 2023."),
+    ("PRESENTED ARTIFACT", "Face Architecture", "Winner of the 2026 ESCP Case Challenge in a 100-student cohort. The team submission translated couture heritage into a Gen Z beauty venture, with deck excerpts available in the online dossier."),
 ]
 for kind, title, body in proof_rows:
     story += [KeepTogether([section_label(kind), p(title, "H2x"), p(body)]), Spacer(1, 3 * mm)]
 
 story += [section_label("Method"), p("Observe. Separate signal from noise. Name the tension. Translate it into product or go-to-market logic. Make the result usable for the next decision.")]
-story += [section_label("Current role"), p("Danone, Innovation & Productivity PM Intern, September 2026 to February 2027. Supporting European dairy innovation and productivity projects across milestones, cross-functional coordination, data quality, Power BI, governance and portfolio health.")]
+story += [section_label("Current role"), p("Danone, EU Dairy Innovation & Productivity Project Management Intern, September 2026 to February 2027. Supporting European dairy innovation and productivity projects across milestones, cross-functional coordination, data quality, Power BI, governance and portfolio health.")]
 
 story.append(PageBreak())
 story += [section_label("Dossier index"), p("Six real projects and two independent thinking exercises.", "SectionTitle")]

@@ -64,8 +64,8 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /rugved-naik-cv\.pdf/);
   assert.match(indexHtml, /rugved-naik-dossier\.pdf/);
   assert.match(indexHtml, /Stage dès mars 2027 \/ alternance dès septembre 2027/);
-  assert.match(indexHtml, /Convention de stage ESCP obligatoire\. Durée flexible 4-6 mois\./);
-  assert.match(indexHtml, /Danone, Innovation & Productivity PM Intern/);
+  assert.match(indexHtml, /Convention de stage ESCP obligatoire\. Durée recherchée: 6 mois\./);
+  assert.match(indexHtml, /Danone, EU Dairy Innovation & Productivity Project Management Intern/);
   assert.match(indexHtml, /Sep 2026 - Fév 2027/);
   assert.match(indexHtml, /Prepared data-quality reviews and Power BI views for portfolio health/);
   assert.match(indexHtml, /Coordinated R&D, Marketing, Supply, Quality and Regulatory inputs for decision forums/);
@@ -78,6 +78,11 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /EUR 68K/);
   assert.match(indexHtml, /\+25%/);
   assert.match(indexHtml, /1,000\+/);
+  assert.match(indexHtml, /E-commerce & Growth Consultant, Peora/);
+  assert.match(indexHtml, /Brand & Ecommerce Growth Consultant, self-employed/);
+  assert.match(indexHtml, /L'Oréal Brandstorm 2026/);
+  assert.match(indexHtml, /Consumer-Centric Marketing specialization/);
+  assert.match(indexHtml, /Google Project Management 2026/);
   assert.match(indexHtml, /Ouvert aux stages produit, marketing et stratégie consommateur à partir de mars 2027\./);
   assert.match(indexHtml, /Open to product, marketing and consumer-strategy internships from March 2027\./);
   assert.match(indexHtml, /mailto:rugved\.naik@edu\.escp\.eu\?subject=Stage%20PM%2FPMM%2FPMO%2FConsumer%20Strategy%20-%20mars%202027/);
@@ -137,7 +142,7 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /Captain and Head of Engineering Design/);
   assert.match(indexHtml, /case-baja\.html/);
   assert.match(indexHtml, /Ranked top 10 in India/);
-  assert.match(indexHtml, /INR 17\.5 lakh budget and INR 8 lakh in sponsorships/);
+  assert.match(indexHtml, /INR 1\.75M budget, approximately EUR 19K at 2023 rates, and INR 0\.8M in sponsorships/);
   assert.equal((indexHtml.match(/class="work-dossier(?: [^"]+)?"/g) ?? []).length, 8);
   assert.doesNotMatch(indexHtml, /href="case-(?:danone-claim-saturation|lvmh-shared-infrastructure|box-is-the-proof)\.html"/);
   assert.match(indexHtml, /href="case-withings\.html"/);
@@ -157,7 +162,7 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(dossierJs, /setLanguage/);
   assert.equal(portfolio.cases.length, 15);
   assert.equal(portfolio.hiring.facts.find((item) => item.label === "Next search window")?.value, "March 2027 / September 2027");
-  assert.equal(portfolio.hiring.facts.find((item) => item.label === "Current anchor")?.value, "Danone Innovation & Productivity PM Intern");
+  assert.equal(portfolio.hiring.facts.find((item) => item.label === "Current anchor")?.value, "Danone EU Dairy Innovation & Productivity Project Management Intern");
   assert.match(portfolio.background.lines.join(" "), /expected April 2028/);
   assert.equal(Boolean(portfolio.interests), false);
   assert.match(portfolio.lensClosing, /Traveled to 100\+ cities across India/);
@@ -223,7 +228,7 @@ test("flagship cases expose dated evidence and leadership outcomes", async () =>
   assert.match(miutine, /does not claim to have influenced Miu Miu's decisions/);
   assert.match(baja, /Captain and Head of Engineering Design/);
   assert.match(baja, /five-person engineering group into a 25-person agile vehicle organization/);
-  assert.match(baja, /INR 17\.5 lakh budget/);
+  assert.match(baja, /INR 1\.75M budget/);
   assert.match(baja, /Top 10 in India and 1 of 3 teams/);
   assert.match(givenchy, /Gen Z beauty venture built from Givenchy's couture heritage/);
 });
@@ -418,7 +423,7 @@ test("Danone dossier discloses independent public analysis", async () => {
     "utf8",
   );
 
-  assert.match(html, /This independent analysis was conducted before and outside my Danone Innovation & Productivity PM internship/);
+  assert.match(html, /This independent analysis was conducted before and outside my Danone EU Dairy Innovation & Productivity Project Management internship/);
   assert.match(html, /unrelated to internal Danone work/);
   assert.match(html, /Archived independent analysis/);
 });
@@ -446,5 +451,35 @@ test("indexed dossiers use honest labels, evidence boundaries and index-only nav
   assert.match(byName["case-peora-availability-ranking.html"], /did not isolate[\s\S]*ranking algorithm/);
   assert.match(byName["case-amazon-conversion.html"], /listing-level conversion lift was not isolated/);
   assert.match(byName["case-electric-mobility.html"], /10\.4273\/ijvss\.16\.1\.08/);
-  assert.match(byName["case-givenchy.html"], /Winner, ESCP x LVMH Case Challenge, 100-student cohort/);
+  assert.match(byName["case-givenchy.html"], /Winner, 2026 ESCP Case Challenge, 100-student cohort/);
+});
+
+test("retired dossiers are noindexed and clearly archived", async () => {
+  const files = [
+    "case-19h03.html",
+    "case-recognition-index.html",
+    "case-danone-claim-saturation.html",
+    "case-lvmh-shared-infrastructure.html",
+    "case-box-is-the-proof.html",
+  ];
+  for (const file of files) {
+    const html = await readFile(new URL(`../observations-site/${file}`, import.meta.url), "utf8");
+    assert.match(html, /<meta name="robots" content="noindex, follow" \/>/, file);
+    assert.match(html, /Archived/i, file);
+    assert.doesNotMatch(html, /index\.html#signals/, file);
+  }
+});
+
+test("canonical fact sheet protects high-risk public claims", async () => {
+  const [factsJson, indexHtml, dossierGenerator] = await Promise.all([
+    readFile(new URL("../observations-site/data/fact-sheet.json", import.meta.url), "utf8"),
+    readFile(new URL("../observations-site/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../scripts/generate-dossier-pdf.py", import.meta.url), "utf8"),
+  ]);
+  const facts = JSON.parse(factsJson);
+  assert.ok(indexHtml.includes(facts.currentRole.title));
+  assert.match(indexHtml, /primary account of around EUR 68K per month spanning India, the US and Canada/);
+  assert.match(indexHtml, /INR 1\.75M budget, approximately EUR 19K at 2023 rates/);
+  assert.match(dossierGenerator, /EU Dairy Innovation & Productivity Project Management Intern/);
+  assert.match(dossierGenerator, /Target duration: 6 months/);
 });

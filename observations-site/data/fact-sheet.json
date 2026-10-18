@@ -1,0 +1,54 @@
+{
+  "updated": "2026-10-18",
+  "purpose": "Canonical facts for the public portfolio and generated dossier. Update this file before changing public claims.",
+  "currentRole": {
+    "company": "Danone",
+    "title": "EU Dairy Innovation & Productivity Project Management Intern",
+    "start": "September 2026",
+    "end": "February 2027",
+    "source": "LinkedIn profile export supplied 18 October 2026"
+  },
+  "education": {
+    "school": "ESCP Business School",
+    "degree": "Master in Management, Grande Ecole",
+    "specialization": "Consumer-Centric Marketing",
+    "graduation": "April 2028",
+    "source": "Hosted CV supplied by Rugved Naik"
+  },
+  "availability": {
+    "internshipStart": "March 2027",
+    "internshipDuration": "6 months",
+    "apprenticeshipStart": "September 2027"
+  },
+  "peora": {
+    "title": "E-commerce & Growth Consultant",
+    "monthlyAccount": "approximately EUR 68K",
+    "markets": ["India", "United States", "Canada"],
+    "localization": "1,000+ localized listing elements",
+    "note": "The CV says keywords and LinkedIn says assets. Public copy uses listing elements until both documents are reconciled."
+  },
+  "independentFreelance": {
+    "title": "Brand & Ecommerce Growth Consultant",
+    "brands": "10+ consumer brands",
+    "source": "LinkedIn profile export supplied 18 October 2026"
+  },
+  "baja": {
+    "year": 2023,
+    "team": "5 to 25 people",
+    "budget": "INR 1.75M",
+    "sponsorships": "INR 0.8M",
+    "deliveryWindow": "4 months",
+    "result": "Top 10 in India and 1 of 3 teams selected to represent India at BAJA SAE Oregon 2023",
+    "source": "Facts confirmed directly by Rugved Naik"
+  },
+  "givenchy": {
+    "result": "Winner, 2026 ESCP Case Challenge, 100-student cohort",
+    "format": "Team submission",
+    "note": "Do not add a team size until it is confirmed."
+  },
+  "certifications": [
+    "Google Project Management 2026",
+    "Google Digital Marketing & E-Commerce 2025",
+    "Inside LVMH 2024"
+  ]
+}

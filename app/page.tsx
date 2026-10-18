@@ -43,7 +43,7 @@ const realDossierLinks = [
     engagement: "Case competition",
     category: "Gen Z brand innovation",
     title: "Face Architecture",
-    text: "Winner of the ESCP x LVMH Case Challenge in a 100-student cohort, with a Gen Z beauty venture built from Givenchy's couture heritage.",
+    text: "Winner of the 2026 ESCP Case Challenge in a 100-student cohort, with a Gen Z beauty venture built from Givenchy's couture heritage.",
     href: "case-givenchy.html",
   },
 ];
@@ -117,7 +117,7 @@ export default function Home() {
         <div className="cover-copy">
           <p className="eyebrow">Dossier de candidature</p>
           <h1 id="cover-title">I turn consumer behavior into product and marketing decisions.</h1>
-          <p className="cover-lede">Engineer by training, growth practitioner, and Innovation &amp; Productivity PM Intern at Danone. Currently completing the ESCP Master in Management in Paris.</p>
+          <p className="cover-lede">Engineer by training, growth practitioner, and EU Dairy Innovation &amp; Productivity Project Management Intern at Danone. Currently completing the ESCP Master in Management in Paris.</p>
           <a
             className="hero-cta-line"
             href="mailto:rugved.naik@edu.escp.eu?subject=Stage%20PM%2FPMM%2FPMO%2FConsumer%20Strategy%20-%20mars%202027"
@@ -127,7 +127,7 @@ export default function Home() {
           <div className="cover-meta" aria-label="Quick facts">
             <article>
               <span>Current</span>
-              <strong>Danone, Innovation & Productivity PM Intern</strong>
+              <strong>Danone, EU Dairy Innovation & Productivity Project Management Intern</strong>
             </article>
             <article>
               <span>Target</span>
@@ -186,7 +186,7 @@ export default function Home() {
               <p className="profile-throughline">
                 Ingénieur de formation, passé par la croissance et le marketing de
                 performance, aujourd'hui en formation product management via ESCP et
-                un stage PM chez Danone.
+                un stage en project management d'innovation chez Danone.
               </p>
               <p>
                 Avant d'ajouter un projet, un outil, un dashboard ou une fonctionnalité,
@@ -199,7 +199,7 @@ export default function Home() {
                 </article>
                 <article>
                   <strong>EUR 68K</strong>
-                  <span>budget mensuel</span>
+                  <span>compte principal, 3 marchés</span>
                 </article>
                 <article>
                   <strong>+25%</strong>
@@ -207,7 +207,7 @@ export default function Home() {
                 </article>
                 <article>
                   <strong>1,000+</strong>
-                  <span>assets adaptés</span>
+                  <span>éléments marketplace localisés</span>
                 </article>
               </div>
               <div className="design-note">
@@ -283,12 +283,12 @@ export default function Home() {
               <small>Stages PM, PMM, innovation, consumer strategy ou PMO. Alternance dès septembre 2027.</small>
             </div>
             <div className="format-note">
-              Convention de stage ESCP obligatoire. Durée flexible 4-6 mois.
+              Convention de stage ESCP obligatoire. Durée recherchée: 6 mois.
             </div>
             <ol className="timeline">
               <li>
                 <span>Sep 2026 - Fév 2027</span>
-                <p>Danone, Innovation & Productivity PM Intern sur des projets Dairy.</p>
+                <p>Danone, EU Dairy Innovation & Productivity Project Management Intern.</p>
                 <p className="timeline-bridge">
                   Activement ouvert aux opportunités de mars 2027 pendant la fin de mon
                   stage chez Danone, jusqu'à fin février 2027.
@@ -315,7 +315,7 @@ export default function Home() {
             <article className="experience-item primary">
               <div>
                 <span className="item-date">Sep 2026 - Fév 2027</span>
-                <h3>Danone, Innovation & Productivity PM Intern</h3>
+                <h3>Danone, EU Dairy Innovation & Productivity Project Management Intern</h3>
                 <p>Dairy innovation, coordination projet, gouvernance, outils, Power BI et amélioration continue.</p>
                 <ul className="experience-highlights">
                   <li>Maintien d'une vue jalons-risques-actions, de la validation concept au launch readiness.</li>
@@ -329,16 +329,24 @@ export default function Home() {
             <article className="experience-item">
               <div>
                 <span className="item-date">Jul 2023 - Jun 2025</span>
-                <h3>Freelance Growth & Performance Marketing Consultant</h3>
+                <h3>E-commerce & Growth Consultant, Peora</h3>
                 <p>Conseil freelance en croissance, marketplace et performance sur trois marchés.</p>
                 <ul className="experience-highlights">
-                  <li>Pilotage d'environ EUR 68K de budget mensuel pour plus de 10 marques consumer.</li>
+                  <li>Analyse d'un compte principal d'environ EUR 68K par mois couvrant l'Inde, les États-Unis et le Canada.</li>
                   <li>Construction de dashboards Excel et Power BI reliant ventes, publicité, stock et visibilité organique.</li>
                   <li>Tests créatifs et de ciblage contribuant à +25% de CTR et -18% d'ACoS.</li>
-                  <li>Adaptation de plus de 1 000 assets pour le lancement au Canada.</li>
+                  <li>Localisation de plus de 1 000 éléments marketplace pour l'expansion au Canada.</li>
                 </ul>
               </div>
               <a href="case-peora-availability-ranking.html">Peora dossier</a>
+            </article>
+            <article className="experience-item">
+              <div>
+                <span className="item-date">Apr 2023 - Jun 2025</span>
+                <h3>Brand & Ecommerce Growth Consultant, self-employed</h3>
+                <p>Accompagnement de plus de 10 marques consumer sur le positionnement, le contenu, l'e-commerce et la performance.</p>
+              </div>
+              <strong>10+ brands</strong>
             </article>
             <article className="experience-item">
               <div>
@@ -353,10 +361,18 @@ export default function Home() {
             </article>
             <article className="experience-item">
               <div>
+                <span className="item-date">L'Oréal Brandstorm 2026</span>
+                <h3>Prada Olfactive Skin</h3>
+                <p>Concept d'innovation parfum fondé sur une recherche Gen Z, traduit en activation 360° retail, mode et expérientielle.</p>
+              </div>
+              <strong>Beauty innovation</strong>
+            </article>
+            <article className="experience-item">
+              <div>
                 <span className="item-date">Education</span>
                 <h3>ESCP Business School and Mechanical Engineering</h3>
                 <p>
-                  Master in Management, Grande Ecole, ESCP Paris, prévu avril 2028.
+                  Master in Management, Grande Ecole, ESCP Paris, spécialisation Consumer-Centric Marketing, prévu avril 2028.
                   B.E. Mechanical Engineering, Savitribai Phule Pune University, top 1%.
                 </p>
               </div>
@@ -396,8 +412,8 @@ export default function Home() {
             </article>
             <article className="skill-card">
               <span>Certifications</span>
-              <h3>Google, McKinsey, Inside LVMH</h3>
-              <p>Google Digital Marketing & E-Commerce 2025, McKinsey Forward 2025, Inside LVMH 2024.</p>
+              <h3>Google Project Management, Google Marketing, Inside LVMH</h3>
+              <p>Google Project Management 2026, Google Digital Marketing & E-Commerce 2025, Inside LVMH 2024.</p>
             </article>
           </div>
         </section>
