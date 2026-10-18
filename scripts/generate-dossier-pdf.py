@@ -137,7 +137,7 @@ story += [section_label("Proof to inspect"), p("Three evidence types, shown acco
 proof_rows = [
     ("DATED RESEARCH", "Collectibility Over Loyalty", "Academic project submitted in March 2026. I led the quantitative netnography and social-listening analysis across 4,700+ ratings and reviews. Later public Miu Miu Beauty activity aligned with the framework; no influence is claimed."),
     ("DELIVERY UNDER CONSTRAINT", "Building the Team Before Building the Vehicle", "Captain and Head of Engineering Design. Grew a five-person group into a 25-person agile organization, managed an INR 17.5 lakh budget and INR 8 lakh in sponsorships, and delivered in four months. Top 10 in India and 1 of 3 teams selected for BAJA SAE Oregon 2023."),
-    ("PRESENTED ARTIFACT", "Face Architecture", "Givenchy case competition work that translated couture heritage into a Gen Z beauty venture, with the submitted deck excerpts available in the online dossier."),
+    ("PRESENTED ARTIFACT", "Face Architecture", "Winner of the ESCP x LVMH Case Challenge in a 100-student cohort. The team submission translated couture heritage into a Gen Z beauty venture, with deck excerpts available in the online dossier."),
 ]
 for kind, title, body in proof_rows:
     story += [KeepTogether([section_label(kind), p(title, "H2x"), p(body)]), Spacer(1, 3 * mm)]
@@ -151,9 +151,9 @@ story += [section_label("Dossier index"), p("Six real projects and two independe
 cards = [
     dossier_card("Academic project", "Collectibility Over Loyalty", "Consumer research, market reading and a dated evidence trail."),
     dossier_card("Team leadership", "Building the Team Before Building the Vehicle", "Product delivery, organization design and technical trade-offs under constraint."),
-    dossier_card("Employment", "Availability Is a Ranking Signal", "Inventory, organic rank, advertising dependency and commercial response."),
-    dossier_card("Employment", "Listing Conversion Systems", "Customer doubt, marketplace proof and conversion infrastructure."),
-    dossier_card("Founder venture", "Foldable Electric Mobility Product", "Urban adoption, storage, transit and commercialization logic."),
+    dossier_card("Freelance client work", "Availability Is a Ranking Signal", "Inventory, organic rank, advertising dependency and commercial response."),
+    dossier_card("Freelance client work", "Listing Conversion Systems", "Customer doubt, marketplace proof and conversion infrastructure."),
+    dossier_card("Founder venture", "Foldable Electric Mobility Product", "Patent-linked research and a 2024 peer-reviewed paper, DOI 10.4273/ijvss.16.1.08."),
     dossier_card("Case competition", "Face Architecture", "A Gen Z beauty venture grounded in Givenchy couture heritage."),
     dossier_card("Independent analysis", "Premium Health Devices Need to Sell Interpretation", "A 100-listing Amazon category read on Withings, premium value and trust."),
     dossier_card("Independent analysis", "What AI Can't Personalize", "Adaptive discovery, brand memory and protected cues inside personalization."),

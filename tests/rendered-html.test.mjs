@@ -67,7 +67,8 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /Convention de stage ESCP obligatoire\. Durée flexible 4-6 mois\./);
   assert.match(indexHtml, /Danone, Innovation & Productivity PM Intern/);
   assert.match(indexHtml, /Sep 2026 - Fév 2027/);
-  assert.match(indexHtml, /innovation portfolio tools, Power BI, governance, KPIs and portfolio health/);
+  assert.match(indexHtml, /Prepared data-quality reviews and Power BI views for portfolio health/);
+  assert.match(indexHtml, /Coordinated R&D, Marketing, Supply, Quality and Regulatory inputs for decision forums/);
   assert.match(indexHtml, /Compétences/);
   assert.match(indexHtml, /Excel, Power BI, SQL/);
   assert.match(indexHtml, /Amazon Seller Central \/ Ads/);
@@ -84,7 +85,11 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /Je transforme les comportements consommateurs en décisions produit et marketing/);
   assert.match(indexHtml, /Before a team decides what to build or say/);
   assert.match(indexHtml, /Avant qu'une équipe décide quoi construire ou dire/);
-  assert.match(indexHtml, /start with what people are trying to resolve/);
+  assert.equal(
+    (indexHtml.match(/Before a team decides what to build or say/g) ?? []).length,
+    1,
+    "the consumer principle should be memorable without being repeated",
+  );
   assert.match(indexHtml, /Product Management, Product Marketing, Innovation PMO, Consumer Strategy, Consumer Insights and Market Intelligence/);
   const heroCtaIndex = indexHtml.indexOf("Ouvert aux stages produit");
   const heroFactsIndex = indexHtml.indexOf('aria-label="Quick facts"');
@@ -109,7 +114,7 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /Real projects show contributed work, constraints, artifacts and decisions/);
   assert.match(indexHtml, /Thinking exercises show how I structure categories/);
   assert.match(pageTsx, /Les exercices de réflexion montrent comment\s+je structure/);
-  assert.match(indexHtml, /Employment/);
+  assert.match(indexHtml, /Freelance client work/);
   assert.match(indexHtml, /Founder venture/);
   assert.match(indexHtml, /Academic project/);
   assert.match(indexHtml, /Case competition/);
@@ -143,7 +148,7 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /Mallakhamb athlete for 12 years, then 5 years as a competitive coach/);
   assert.match(indexHtml, /previous reader's notes and scribbles/);
   assert.match(indexHtml, /Timeline and working language/);
-  assert.match(indexHtml, /Personal site\. No tracking or data collection\./);
+  assert.match(indexHtml, /Personal site\. No analytics or cookies\./);
   assert.doesNotMatch(indexHtml, />Loading<|Loading the|data-signal-list|data-active-signal-card|sound-toggle|Switchboard/i);
   assert.match(pageTsx, /Le Dossier/);
   assert.match(pageTsx, /Download CV PDF/);
@@ -372,7 +377,7 @@ test("dossier pages expose PM snapshots and validation plans", async () => {
     assert.match(html, /<span>Evidence<\/span>/, file);
     assert.match(html, /<span>Decision<\/span>/, file);
     assert.match(html, /<span>Artifact<\/span>/, file);
-    assert.match(html, /<span>Outcome<\/span>/, file);
+    assert.match(html, /<span>(?:Outcome|Measurement boundary)<\/span>/, file);
     pmSnapshotCount += (html.match(/aria-label="PM snapshot"/g) ?? []).length;
   }
 
@@ -415,4 +420,31 @@ test("Danone dossier discloses independent public analysis", async () => {
 
   assert.match(html, /This independent analysis was conducted before and outside my Danone Innovation & Productivity PM internship/);
   assert.match(html, /unrelated to internal Danone work/);
+  assert.match(html, /Archived independent analysis/);
+});
+
+test("indexed dossiers use honest labels, evidence boundaries and index-only navigation", async () => {
+  const files = [
+    "case-miutine.html",
+    "case-baja.html",
+    "case-peora-availability-ranking.html",
+    "case-givenchy.html",
+    "case-amazon-conversion.html",
+    "case-electric-mobility.html",
+    "case-withings.html",
+    "case-loreal-ai-personalization.html",
+  ];
+  const pages = await Promise.all(files.map(async (file) => [file, await readFile(new URL(`../observations-site/${file}`, import.meta.url), "utf8")]));
+
+  for (const [file, html] of pages) {
+    assert.match(html, /class="case-fr-summary"/, file);
+    assert.doesNotMatch(html, /case-(?:19h03|recognition-index|danone-claim-saturation|lvmh-shared-infrastructure|box-is-the-proof)\.html/, file);
+  }
+
+  const byName = Object.fromEntries(pages);
+  assert.match(byName["case-peora-availability-ranking.html"], /Freelance client work/);
+  assert.match(byName["case-peora-availability-ranking.html"], /did not isolate[\s\S]*ranking algorithm/);
+  assert.match(byName["case-amazon-conversion.html"], /listing-level conversion lift was not isolated/);
+  assert.match(byName["case-electric-mobility.html"], /10\.4273\/ijvss\.16\.1\.08/);
+  assert.match(byName["case-givenchy.html"], /Winner, ESCP x LVMH Case Challenge, 100-student cohort/);
 });

@@ -19,14 +19,14 @@ const realDossierLinks = [
     href: "case-baja.html",
   },
   {
-    engagement: "Employment",
+    engagement: "Freelance client work",
     category: "Commercial delivery",
     title: "Availability Is a Ranking Signal",
     text: "Peora, stock-outs, rank loss, ad dependency and an executive operating dashboard.",
     href: "case-peora-availability-ranking.html",
   },
   {
-    engagement: "Employment",
+    engagement: "Freelance client work",
     category: "Amazon marketplace growth",
     title: "Listing Conversion Systems",
     text: "Amazon A+ content, product understanding, proof and trust as marketplace infrastructure.",
@@ -36,14 +36,14 @@ const realDossierLinks = [
     engagement: "Founder venture",
     category: "Product adoption",
     title: "Foldable Electric Mobility Product",
-    text: "Urban mobility, adoption conditions, public transport integration and commercialization logic.",
+    text: "Patent-linked product research and a 2024 peer-reviewed paper on foldable electric mobility, DOI 10.4273/ijvss.16.1.08.",
     href: "case-electric-mobility.html",
   },
   {
     engagement: "Case competition",
     category: "Gen Z brand innovation",
     title: "Face Architecture",
-    text: "A Gen Z beauty venture built from Givenchy's couture heritage.",
+    text: "Winner of the ESCP x LVMH Case Challenge in a 100-student cohort, with a Gen Z beauty venture built from Givenchy's couture heritage.",
     href: "case-givenchy.html",
   },
 ];
@@ -151,10 +151,6 @@ export default function Home() {
             <blockquote>
               Avant qu'une équipe décide quoi construire ou dire, je cherche ce que la personne essaie de résoudre.
             </blockquote>
-            <p>
-              Le fil conducteur des dossiers: partir de ce que les personnes essaient de résoudre,
-              puis construire le produit, le message ou le système autour.
-            </p>
           </figure>
         </div>
       </section>
@@ -322,10 +318,10 @@ export default function Home() {
                 <h3>Danone, Innovation & Productivity PM Intern</h3>
                 <p>Dairy innovation, coordination projet, gouvernance, outils, Power BI et amélioration continue.</p>
                 <ul className="experience-highlights">
-                  <li>Coordination de projets innovation Dairy: nouveaux produits, recettes, formats et initiatives de productivité.</li>
-                  <li>Planning et suivi des jalons: validation concept, essais R&D, industrialisation et launch readiness.</li>
-                  <li>Data quality reviews, visibilité des risques et coordination R&D, Marketing, Supply, Quality et Regulatory.</li>
-                  <li>Support des outils de portfolio innovation, Power BI, gouvernance, KPIs et santé du portfolio.</li>
+                  <li>Maintien d'une vue jalons-risques-actions, de la validation concept au launch readiness.</li>
+                  <li>Préparation de revues de qualité des données et de vues Power BI pour la santé du portfolio.</li>
+                  <li>Coordination des contributions R&D, Marketing, Supply, Quality et Regulatory pour les forums de décision.</li>
+                  <li>Clarification du statut, des risques et des prochaines étapes pour les équipes globales et locales.</li>
                 </ul>
               </div>
               <strong>Dairy innovation</strong>
@@ -334,10 +330,13 @@ export default function Home() {
               <div>
                 <span className="item-date">Jul 2023 - Jun 2025</span>
                 <h3>Freelance Growth & Performance Marketing Consultant</h3>
-                <p>
-                  10+ marques consumer, trois marchés, budget mensuel d'environ EUR 68K,
-                  dashboards Excel et Power BI, +25% CTR, 1,000+ assets adaptés pour le Canada.
-                </p>
+                <p>Conseil freelance en croissance, marketplace et performance sur trois marchés.</p>
+                <ul className="experience-highlights">
+                  <li>Pilotage d'environ EUR 68K de budget mensuel pour plus de 10 marques consumer.</li>
+                  <li>Construction de dashboards Excel et Power BI reliant ventes, publicité, stock et visibilité organique.</li>
+                  <li>Tests créatifs et de ciblage contribuant à +25% de CTR et -18% d'ACoS.</li>
+                  <li>Adaptation de plus de 1 000 assets pour le lancement au Canada.</li>
+                </ul>
               </div>
               <a href="case-peora-availability-ranking.html">Peora dossier</a>
             </article>
@@ -565,7 +564,7 @@ export default function Home() {
       <footer className="dossier-footer">
         <span>Rugved Naik</span>
         <span>Le Dossier, Paris</span>
-        <span>Site personnel. Pas de tracking ni collecte de données.</span>
+        <span>Site personnel. Aucun analytics ni cookie.</span>
         <a href="rugved-naik-cv.pdf" download>CV PDF</a>
       </footer>
     </main>
