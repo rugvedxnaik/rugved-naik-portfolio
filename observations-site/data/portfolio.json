@@ -35,7 +35,7 @@
   "hiring": {
     "eyebrow": "For HRs and hiring teams",
     "title": "Fast read before the deep read.",
-    "intro": "This portfolio is built for PM, PMM, consumer strategy, and brand/product strategy roles where evidence has to shape roadmap, positioning, launch, or growth decisions.",
+    "intro": "This portfolio is built for product marketing, consumer insights, and innovation project roles where evidence has to shape product, launch, positioning, or growth decisions.",
     "facts": [
       {
         "label": "Next search window",
@@ -49,8 +49,8 @@
       },
       {
         "label": "Best-fit roles",
-        "value": "Innovation PM / PMM / PMO",
-        "note": "Especially where project execution, dashboards, governance, product, category, and consumer behavior meet."
+        "value": "Product Marketing / Consumer Insights / Innovation Project Management",
+        "note": "Especially where research, product decisions, launch choices, dashboards, governance, and consumer behavior meet."
       },
       {
         "label": "Proof base",
@@ -72,9 +72,9 @@
   },
   "experience": {
     "eyebrow": "Experience",
-    "title": "E-commerce & Growth Consultant, Peora",
+    "title": "Brand & E-commerce Growth Consultant",
     "meta": "Jul 2023 - Jun 2025 · Mumbai, India (Remote)",
-    "intro": "Contributed to digital marketing, content, and marketplace growth across 10+ consumer brands, with a primary long-term engagement scaling an international e-commerce business across India, the US, and Canada.",
+    "intro": "Independent consulting practice across 10+ consumer brands, with Peora as the principal long-term engagement spanning marketplace growth across India, the US, and Canada.",
     "bullets": [
       "Analyzed a primary account of around EUR 68K per month spanning India, the US and Canada",
       "Built Excel and Power BI dashboards consolidating sales, advertising, and conversion metrics for executive decision-making",

@@ -93,7 +93,7 @@ def dossier_card(kind, title, description):
 
 story = []
 story += [section_label("Application dossier"), p("Rugved Naik", "TitleLarge")]
-story += [p("Consumer understanding for product, marketing and innovation decisions.", "SectionTitle")]
+story += [p("Consumer evidence for product, launch and innovation decisions.", "SectionTitle")]
 story += [p("Engineer by training, growth practitioner, and EU Dairy Innovation & Productivity Project Management Intern at Danone. I use consumer evidence to clarify what a team should build, say or prioritize.")]
 
 facts = Table([
@@ -112,13 +112,13 @@ facts.setStyle(TableStyle([
 ]))
 story += [Spacer(1, 4 * mm), facts, Spacer(1, 6 * mm)]
 
-story += [section_label("Target roles"), p("Product Management, Product Marketing, Innovation PMO, Consumer Strategy, Consumer Insights and Market Intelligence.")]
+story += [section_label("Target roles"), p("Product Marketing, Consumer Insights and Innovation Project Management.")]
 story += [section_label("Evidence at a glance")]
 metrics = Table([[
-    metric("4,700+", "Ratings and reviews analyzed"),
-    metric("EUR 68K", "Primary account across three markets"),
-    metric("5 to 25", "BAJA team growth"),
-    metric("4 months", "BAJA delivery window"),
+    metric("4,700+", "Academic reviews analyzed"),
+    metric("EUR 68K/mo", "Primary account across three markets"),
+    metric("-18%", "ACoS through experimentation"),
+    metric("12 years", "National-level Mallakhamb athlete"),
 ]], colWidths=[43.5 * mm] * 4)
 metrics.setStyle(TableStyle([
     ("VALIGN", (0, 0), (-1, -1), "TOP"),
@@ -135,15 +135,15 @@ story.append(PageBreak())
 story += [section_label("Proof to inspect"), p("Three evidence types, shown according to what actually exists.", "SectionTitle")]
 
 proof_rows = [
-    ("DATED RESEARCH", "Collectibility Over Loyalty", "Academic project submitted in March 2026. I led the quantitative netnography and social-listening analysis across 4,700+ ratings and reviews. Later public Miu Miu Beauty activity aligned with the framework; no influence is claimed."),
+    ("DATED RESEARCH", "Collectibility Over Loyalty", "Academic project submitted in March 2026. I led quantitative review analysis within a mixed-method netnography across 4,700+ ratings and reviews. The public dossier shows the coding lens, research boundaries and strategic translation without claiming population-level precision."),
     ("DELIVERY UNDER CONSTRAINT", "Building the Team Before Building the Vehicle", "Captain and Head of Engineering Design. Grew a five-person group into a 25-person agile organization, managed an INR 1.75M budget, approximately EUR 19K at 2023 rates, secured INR 0.8M in sponsorships, and delivered in four months. Top 10 in India and 1 of 3 teams selected for BAJA SAE Oregon 2023."),
     ("PRESENTED ARTIFACT", "Face Architecture", "Winner of the 2026 ESCP Case Challenge in a 100-student cohort. The team submission translated couture heritage into a Gen Z beauty venture, with deck excerpts available in the online dossier."),
 ]
 for kind, title, body in proof_rows:
     story += [KeepTogether([section_label(kind), p(title, "H2x"), p(body)]), Spacer(1, 3 * mm)]
 
-story += [section_label("Method"), p("Observe. Separate signal from noise. Name the tension. Translate it into product or go-to-market logic. Make the result usable for the next decision.")]
-story += [section_label("Current role"), p("Danone, EU Dairy Innovation & Productivity Project Management Intern, September 2026 to February 2027. Supporting European dairy innovation and productivity projects across milestones, cross-functional coordination, data quality, Power BI, governance and portfolio health.")]
+story += [section_label("Method in practice"), p("Miutine: observe 4,700+ ratings and reviews; separate object signals from identity signals; name the distinction between Object Value and Identity Value; translate it into collection logic; state that review data overrepresents purchase, unboxing and early ownership.")]
+story += [section_label("Current role"), p("Danone, EU Dairy Innovation & Productivity. Project Management Intern, September 2026 to February 2027. Supporting European dairy innovation and productivity projects across milestones, cross-functional coordination, data quality, Power BI, governance and portfolio health.")]
 
 story.append(PageBreak())
 story += [section_label("Dossier index"), p("Six real projects and two independent thinking exercises.", "SectionTitle")]

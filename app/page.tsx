@@ -66,11 +66,11 @@ const thinkingDossierLinks = [
 ];
 
 const method = [
-  ["01", "Observer", "Read reviews, routines, searches, constraints and moments of choice."],
-  ["02", "Separate", "Separate useful signal from noise, trend and repeated claims."],
-  ["03", "Name", "Find a sentence the team can remember, debate and use."],
-  ["04", "Translate", "Turn the signal into product, positioning, CRM or content logic."],
-  ["05", "Make it usable", "Create a dossier, rule or framework that helps the next decision."],
+  ["01", "Observe", "4,700+ ratings and reviews, supported by social listening and competitive benchmarking."],
+  ["02", "Separate", "Separate bottle, packaging and display signals from identity, confidence and signature signals."],
+  ["03", "Name", "Object Value is not Identity Value."],
+  ["04", "Translate", "Move from one-scent loyalty logic to a collection-building system."],
+  ["05", "Bound", "Reviews overrepresent purchase, unboxing and early ownership. The result is directional, not longitudinal."],
 ];
 
 const tabs = [
@@ -127,11 +127,12 @@ export default function Home() {
           <div className="cover-meta" aria-label="Quick facts">
             <article>
               <span>Current</span>
-              <strong>Danone, EU Dairy Innovation & Productivity Project Management Intern</strong>
+              <strong>Danone · EU Dairy Innovation &amp; Productivity</strong>
+              <small>Project Management Intern</small>
             </article>
             <article>
               <span>Target</span>
-              <strong>Product Management, Product Marketing, Innovation PMO, Consumer Strategy, Consumer Insights and Market Intelligence</strong>
+              <strong>Product Marketing · Consumer Insights · Innovation Project Management</strong>
             </article>
             <article>
               <span>Proof base</span>
@@ -195,26 +196,20 @@ export default function Home() {
               <div className="stat-strip" aria-label="At-a-glance proof points">
                 <article>
                   <strong>4 700+</strong>
-                  <span>avis analysés</span>
+                  <span>avis analysés, projet académique</span>
                 </article>
                 <article>
-                  <strong>EUR 68K</strong>
+                  <strong>EUR 68K/mois</strong>
                   <span>compte principal, 3 marchés</span>
                 </article>
                 <article>
-                  <strong>+25%</strong>
-                  <span>CTR amélioré</span>
+                  <strong>-18%</strong>
+                  <span>ACoS</span>
                 </article>
                 <article>
-                  <strong>1,000+</strong>
-                  <span>éléments marketplace localisés</span>
+                  <strong>12 ans</strong>
+                  <span>athlète national de Mallakhamb</span>
                 </article>
-              </div>
-              <div className="design-note">
-                <span>Design note</span>
-                <p>
-                  Format dossier: scanner, ouvrir la preuve utile, contacter.
-                </p>
               </div>
             </div>
             <div className="profile-cards">
@@ -315,13 +310,13 @@ export default function Home() {
             <article className="experience-item primary">
               <div>
                 <span className="item-date">Sep 2026 - Fév 2027</span>
-                <h3>Danone, EU Dairy Innovation & Productivity Project Management Intern</h3>
-                <p>Dairy innovation, coordination projet, gouvernance, outils, Power BI et amélioration continue.</p>
+                <h3>Danone, EU Dairy Innovation &amp; Productivity</h3>
+                <p>Project Management Intern · innovation Dairy, gouvernance, Power BI et amélioration continue.</p>
                 <ul className="experience-highlights">
-                  <li>Maintien d'une vue jalons-risques-actions, de la validation concept au launch readiness.</li>
-                  <li>Préparation de revues de qualité des données et de vues Power BI pour la santé du portfolio.</li>
-                  <li>Coordination des contributions R&D, Marketing, Supply, Quality et Regulatory pour les forums de décision.</li>
-                  <li>Clarification du statut, des risques et des prochaines étapes pour les équipes globales et locales.</li>
+                  <li>Transformation des données de jalons, risques et actions en une vue projet partagée, de la validation concept au launch readiness.</li>
+                  <li>Préparation de revues de qualité des données et de vues Power BI pour soutenir les décisions de gouvernance.</li>
+                  <li>Rassemblement des contributions R&amp;D, Marketing, Supply, Quality et Regulatory pour les forums de décision.</li>
+                  <li>Mise en évidence du statut, des risques et des prochaines étapes pour les équipes globales et locales.</li>
                 </ul>
               </div>
               <strong>Dairy innovation</strong>
@@ -329,24 +324,17 @@ export default function Home() {
             <article className="experience-item">
               <div>
                 <span className="item-date">Jul 2023 - Jun 2025</span>
-                <h3>E-commerce & Growth Consultant, Peora</h3>
-                <p>Conseil freelance en croissance, marketplace et performance sur trois marchés.</p>
+                <h3>Brand &amp; E-commerce Growth Consultant</h3>
+                <p><strong>Mission principale: Peora.</strong> Croissance marketplace, analytics et expansion internationale sur trois marchés.</p>
                 <ul className="experience-highlights">
                   <li>Analyse d'un compte principal d'environ EUR 68K par mois couvrant l'Inde, les États-Unis et le Canada.</li>
                   <li>Construction de dashboards Excel et Power BI reliant ventes, publicité, stock et visibilité organique.</li>
                   <li>Tests créatifs et de ciblage contribuant à +25% de CTR et -18% d'ACoS.</li>
                   <li>Localisation de plus de 1 000 éléments marketplace pour l'expansion au Canada.</li>
+                  <li>Pratique plus large auprès de plus de 10 marques consumer en positionnement, contenu, e-commerce et performance.</li>
                 </ul>
               </div>
               <a href="case-peora-availability-ranking.html">Peora dossier</a>
-            </article>
-            <article className="experience-item">
-              <div>
-                <span className="item-date">Apr 2023 - Jun 2025</span>
-                <h3>Brand & Ecommerce Growth Consultant, self-employed</h3>
-                <p>Accompagnement de plus de 10 marques consumer sur le positionnement, le contenu, l'e-commerce et la performance.</p>
-              </div>
-              <strong>10+ brands</strong>
             </article>
             <article className="experience-item">
               <div>
@@ -421,15 +409,16 @@ export default function Home() {
         <section className="folder-panel" id="methode" role="tabpanel" aria-labelledby="methode">
           <div className="panel-heading">
             <p className="eyebrow">Méthode</p>
-            <h2>Un processus court pour transformer l'observation en décision.</h2>
+            <h2>Une méthode, montrée sur Miutine.</h2>
           </div>
           <div className="method-flow" aria-label="Method flow">
             <span>Observe</span>
             <span>Separate</span>
             <span>Name</span>
             <span>Translate</span>
-            <span>Make it usable</span>
+            <span>Bound</span>
           </div>
+          <a className="method-case-link" href="case-miutine.html#research-method">Voir la méthode et ses limites dans le dossier Miutine</a>
           <div className="panel-body method-grid">
             {method.map(([number, title, text]) => (
               <article key={number}>
@@ -447,24 +436,15 @@ export default function Home() {
             <h2>Des preuves à ouvrir quand un cas vous intéresse.</h2>
           </div>
           <div className="panel-body dossier-stack">
-            <div className="dossier-reader-note">
-              <span>Comment lire les dossiers</span>
-              <p>
-                Les projets réels montrent le travail contribué, les contraintes, les
-                artefacts et les décisions. Les exercices de réflexion montrent comment
-                je structure des catégories que je n'ai pas travaillées directement.
-              </p>
-            </div>
             <section className="proof-index" aria-labelledby="proof-index-title">
               <div className="proof-index-heading">
-                <span id="proof-index-title">Preuves vérifiables</span>
-                <p>Trois types de preuves, présentés selon ce qui existe réellement: recherche datée, livraison sous contrainte et artefact présenté.</p>
+                <span id="proof-index-title">Preuves sélectionnées</span>
               </div>
               <div className="proof-index-grid">
                 <a href="case-miutine.html#evidence-trail">
                   <span>01 / Recherche</span>
                   <strong>4 700+ avis</strong>
-                  <p>Analyse soumise en mars 2026, méthode détaillée et suivi public ultérieur.</p>
+                  <p>Analyse soumise en mars 2026, méthode, limites et traduction stratégique.</p>
                 </a>
                 <a href="case-baja.html#delivery-record">
                   <span>02 / Livraison</span>
@@ -478,14 +458,6 @@ export default function Home() {
                 </a>
               </div>
             </section>
-            <a className="dossier-recommendation" href="case-miutine.html">
-              <span>Si vous n'ouvrez qu'un dossier</span>
-              <strong>Collectibility Over Loyalty</strong>
-              <p>
-                Commencez ici pour voir comment 4 700+ avis, la netnographie et le social listening
-                sont devenus une recommandation avec laquelle l'activité publique ultérieure de la marque s'est alignée.
-              </p>
-            </a>
             <div className="dossier-group dossier-group-real">
               <div className="dossier-group-heading">
                 <span>Projets réels</span>

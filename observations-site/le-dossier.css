@@ -407,6 +407,26 @@ body[data-lang="en"] .lang-en {
   line-height: 1.05;
 }
 
+.cover-meta strong > .lang-fr,
+.cover-meta strong > .lang-en {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  margin: 0;
+}
+
+.cover-meta article small {
+  color: var(--muted);
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  margin-top: 8px;
+  text-transform: uppercase;
+}
+
 .cover-copy .cover-meta {
   align-self: stretch;
   box-shadow: none;
@@ -1072,6 +1092,18 @@ body[data-lang="en"] .folder-tab > .lang-en {
   font-size: 0.7rem;
   letter-spacing: 0.14em;
   margin-bottom: 72px;
+}
+
+.method-case-link {
+  border-bottom: 1px solid var(--navy);
+  color: var(--navy);
+  display: inline-flex;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  margin-top: 20px;
+  padding-bottom: 4px;
+  text-transform: uppercase;
 }
 
 .dossier-grid {

@@ -65,10 +65,11 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /rugved-naik-dossier\.pdf/);
   assert.match(indexHtml, /Stage dès mars 2027 \/ alternance dès septembre 2027/);
   assert.match(indexHtml, /Convention de stage ESCP obligatoire\. Durée recherchée: 6 mois\./);
-  assert.match(indexHtml, /Danone, EU Dairy Innovation & Productivity Project Management Intern/);
+  assert.match(indexHtml, /Danone · EU Dairy Innovation &amp; Productivity/);
+  assert.match(indexHtml, /Project Management Intern/);
   assert.match(indexHtml, /Sep 2026 - Fév 2027/);
-  assert.match(indexHtml, /Prepared data-quality reviews and Power BI views for portfolio health/);
-  assert.match(indexHtml, /Coordinated R&D, Marketing, Supply, Quality and Regulatory inputs for decision forums/);
+  assert.match(indexHtml, /Prepared data-quality reviews and Power BI portfolio views to support governance decisions/);
+  assert.match(indexHtml, /Brought R&amp;D, Marketing, Supply, Quality and Regulatory inputs into decision forums/);
   assert.match(indexHtml, /Compétences/);
   assert.match(indexHtml, /Excel, Power BI, SQL/);
   assert.match(indexHtml, /Amazon Seller Central \/ Ads/);
@@ -76,10 +77,10 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /Day-to-day working language: English/);
   assert.match(indexHtml, /4 700\+/);
   assert.match(indexHtml, /EUR 68K/);
-  assert.match(indexHtml, /\+25%/);
-  assert.match(indexHtml, /1,000\+/);
-  assert.match(indexHtml, /E-commerce & Growth Consultant, Peora/);
-  assert.match(indexHtml, /Brand & Ecommerce Growth Consultant, self-employed/);
+  assert.match(indexHtml, /-18%/);
+  assert.match(indexHtml, /12 ans/);
+  assert.match(indexHtml, /Mission principale: Peora/);
+  assert.doesNotMatch(indexHtml, /Brand & Ecommerce Growth Consultant, self-employed/);
   assert.match(indexHtml, /L'Oréal Brandstorm 2026/);
   assert.match(indexHtml, /Consumer-Centric Marketing specialization/);
   assert.match(indexHtml, /Google Project Management 2026/);
@@ -95,7 +96,8 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
     1,
     "the consumer principle should be memorable without being repeated",
   );
-  assert.match(indexHtml, /Product Management, Product Marketing, Innovation PMO, Consumer Strategy, Consumer Insights and Market Intelligence/);
+  assert.match(indexHtml, /Marketing produit · Études consommateurs · Gestion de projets innovation/);
+  assert.match(indexHtml, /Product Marketing · Consumer Insights · Innovation Project Management/);
   const heroCtaIndex = indexHtml.indexOf("Ouvert aux stages produit");
   const heroFactsIndex = indexHtml.indexOf('aria-label="Quick facts"');
   const heroQuoteIndex = indexHtml.indexOf('aria-label="Consumer principle"');
@@ -103,7 +105,7 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.ok(heroQuoteIndex > heroFactsIndex, "consumer quote should follow the practical facts");
   assert.match(indexHtml, /Engineering taught me to break down systems/);
   assert.match(indexHtml, /Actively open to March 2027 opportunities/);
-  assert.match(indexHtml, /Dossier format: scan, open useful proof, contact/);
+  assert.doesNotMatch(indexHtml, /Dossier format: scan, open useful proof, contact/);
   assert.match(indexHtml, /assets\/rugved-naik-headshot\.jpg/);
   assert.match(indexHtml, /On the reading shelf/);
   assert.match(indexHtml, /The Social Life of Things/);
@@ -111,14 +113,15 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.doesNotMatch(indexHtml, /assets\/dossiers\/freelance-ctr-lift\.svg/);
   assert.doesNotMatch(indexHtml, /Indexed CTR: \+25% after structured creative testing/);
   assert.match(indexHtml, /Method flow/);
-  assert.match(indexHtml, /If you only open one dossier/);
+  assert.match(indexHtml, /Selected evidence/);
+  assert.doesNotMatch(indexHtml, /If you only open one dossier/);
   assert.match(indexHtml, /Projets réels/);
   assert.match(indexHtml, /Real projects/);
   assert.match(indexHtml, /Exercices de réflexion/);
   assert.match(indexHtml, /Thinking exercises/);
-  assert.match(indexHtml, /Real projects show contributed work, constraints, artifacts and decisions/);
-  assert.match(indexHtml, /Thinking exercises show how I structure categories/);
-  assert.match(pageTsx, /Les exercices de réflexion montrent comment\s+je structure/);
+  assert.match(indexHtml, /One method, shown through Miutine/);
+  assert.match(indexHtml, /Reviews overrepresent purchase, unboxing and early ownership/);
+  assert.match(pageTsx, /Une méthode, montrée sur Miutine/);
   assert.match(indexHtml, /Freelance client work/);
   assert.match(indexHtml, /Founder venture/);
   assert.match(indexHtml, /Academic project/);
@@ -225,7 +228,9 @@ test("flagship cases expose dated evidence and leadership outcomes", async () =>
   assert.match(miutine, /completed March 2026/);
   assert.match(miutine, /4,700\+ ratings and reviews/);
   assert.match(miutine, /Miutine Intense/);
-  assert.match(miutine, /does not claim to have influenced Miu Miu's decisions/);
+  assert.match(miutine, /do not establish causality, validate the analysis or imply influence on Miu Miu's decisions/);
+  assert.match(miutine, /Composite signal synthesized from recurring review and social-listening language/);
+  assert.match(miutine, /The archived source did not preserve a publishable platform split/);
   assert.match(baja, /Captain and Head of Engineering Design/);
   assert.match(baja, /five-person engineering group into a 25-person agile vehicle organization/);
   assert.match(baja, /INR 1\.75M budget/);
@@ -242,12 +247,12 @@ test("flagship proof is inspectable and uses real project artifacts", async () =
     readFile(new URL("../observations-site/styles.css", import.meta.url), "utf8"),
   ]);
 
-  assert.match(indexHtml, /Proof you can inspect/);
+  assert.match(indexHtml, /Selected evidence/);
   assert.match(indexHtml, /case-miutine\.html#evidence-trail/);
   assert.match(indexHtml, /case-baja\.html#delivery-record/);
   assert.match(indexHtml, /case-givenchy\.html#submitted-artifact/);
   assert.match(miutine, /id="evidence-trail"/);
-  assert.match(miutine, /Later alignment, not causality/);
+  assert.match(miutine, /Directional, not a population estimate/);
   assert.match(baja, /id="delivery-record"/);
   assert.match(baja, /9 months compressed to 4/);
   assert.match(givenchy, /id="submitted-artifact"/);
