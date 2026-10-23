@@ -360,7 +360,7 @@ test("v4 dossier pages share the standard section structure", async () => {
   const expectedSections = [
     "The signal|Operating hypothesis|Strategic proposition",
     "Output|Operating response",
-    "What it shows|Measurement boundary|Competition verification",
+    "What it shows|Measurement boundary|Competition verification|Evidence boundary and transferability|Decision contribution|Consumer problem and evidence boundary|Current evidence boundary",
   ];
 
   for (const file of dossierFiles) {
