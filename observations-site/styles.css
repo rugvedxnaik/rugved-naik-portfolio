@@ -3649,8 +3649,90 @@ body[data-signal="seo"] .room-signal {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.research-foundation {
+  background: rgba(37, 76, 122, 0.06);
+  border-left: 3px solid var(--navy);
+  margin-top: 1.5rem;
+  max-width: 760px;
+  padding: 1.1rem 1.25rem;
+}
+
+.research-foundation > strong {
+  color: var(--navy);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.research-foundation p {
+  font-size: 0.93rem;
+  margin-top: 0.65rem;
+}
+
+.brand-source-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 1.4rem;
+  max-width: 900px;
+}
+
+.brand-source-card {
+  background: rgba(251, 247, 239, 0.8);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  display: grid;
+  gap: 0.65rem;
+  min-height: 210px;
+  padding: 1.25rem;
+  text-decoration: none;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.brand-source-card:hover,
+.brand-source-card:focus-visible {
+  border-color: var(--brass);
+  transform: translateY(-2px);
+}
+
+.brand-source-card span,
+.brand-source-card small {
+  color: var(--ink-soft);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+.brand-source-card span {
+  color: var(--brass);
+  text-transform: uppercase;
+}
+
+.brand-source-card strong {
+  font-family: var(--font-serif-display);
+  font-size: 1.65rem;
+  font-weight: 500;
+}
+
+.brand-source-card b {
+  align-self: end;
+  color: var(--case-accent);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-top: auto;
+  text-transform: uppercase;
+}
+
 @media (max-width: 720px) {
   .research-boundary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-source-grid {
     grid-template-columns: 1fr;
   }
 }

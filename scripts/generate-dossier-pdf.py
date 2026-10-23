@@ -112,7 +112,7 @@ facts.setStyle(TableStyle([
 ]))
 story += [Spacer(1, 4 * mm), facts, Spacer(1, 6 * mm)]
 
-story += [section_label("Target roles"), p("Product Marketing, Consumer Insights and Innovation Project Management.")]
+story += [section_label("Target roles"), p("Product Marketing, Consumer Insights, Innovation and Digital Marketing Project Management.")]
 story += [section_label("Evidence at a glance")]
 metrics = Table([[
     metric("4,700+", "Academic reviews analyzed"),
@@ -142,7 +142,7 @@ proof_rows = [
 for kind, title, body in proof_rows:
     story += [KeepTogether([section_label(kind), p(title, "H2x"), p(body)]), Spacer(1, 3 * mm)]
 
-story += [section_label("Method in practice"), p("Miutine: observe 4,700+ ratings and reviews; separate object signals from identity signals; name the distinction between Object Value and Identity Value; translate it into collection logic; state that review data overrepresents purchase, unboxing and early ownership.")]
+story += [section_label("Method in practice"), p("Miutine: observe 4,700+ ratings and reviews; separate object signals from identity signals; name the distinction between Object Value and Identity Value; translate it into collection logic; state that review data overrepresents purchase, unboxing and early ownership. The framework applies Belk's extended-self research and Appadurai's work on the social life of things to a practical launch decision.")]
 story += [section_label("Current role"), p("Danone, EU Dairy Innovation & Productivity. Project Management Intern, September 2026 to February 2027. Supporting European dairy innovation and productivity projects across milestones, cross-functional coordination, data quality, Power BI, governance and portfolio health.")]
 
 story.append(PageBreak())
@@ -155,7 +155,7 @@ cards = [
     dossier_card("Freelance client work", "Listing Conversion Systems", "Customer doubt, marketplace proof and conversion infrastructure."),
     dossier_card("Founder venture", "Foldable Electric Mobility Product", "Patent-linked research and a 2024 peer-reviewed paper, DOI 10.4273/ijvss.16.1.08."),
     dossier_card("Case competition", "Face Architecture", "A Gen Z beauty venture grounded in Givenchy couture heritage."),
-    dossier_card("Independent analysis", "Premium Health Devices Need to Sell Interpretation", "A 100-listing Amazon category read on Withings, premium value and trust."),
+    dossier_card("Independent method test", "Testing Premium Value Through Marketplace Evidence", "A 100-listing Amazon analysis of interpretation, premium value and trust."),
     dossier_card("Independent analysis", "What AI Can't Personalize", "Adaptive discovery, brand memory and protected cues inside personalization."),
 ]
 for index in range(0, len(cards), 2):

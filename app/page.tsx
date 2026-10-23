@@ -51,9 +51,9 @@ const realDossierLinks = [
 const thinkingDossierLinks = [
   {
     engagement: "Independent analysis",
-    category: "Market intelligence and health tech",
-    title: "Premium Health Devices Need to Sell Interpretation",
-    text: "A 100-listing Amazon category read on premium positioning, portfolio laddering and trust.",
+    category: "Category-agnostic method test",
+    title: "Testing Premium Value Through Marketplace Evidence",
+    text: "A 100-listing Amazon analysis testing how interpretation, portfolio laddering and trust defend premium value.",
     href: "case-withings.html",
   },
   {
@@ -124,6 +124,10 @@ export default function Home() {
           >
             Ouvert aux stages produit, marketing et stratégie consommateur à partir de mars 2027.
           </a>
+          <div className="hero-proof-links" aria-label="Priority links">
+            <a href="case-miutine.html">Ouvrir le dossier principal</a>
+            <a href="rugved-naik-cv.pdf" download>CV PDF</a>
+          </div>
           <div className="cover-meta" aria-label="Quick facts">
             <article>
               <span>Current</span>
@@ -132,7 +136,7 @@ export default function Home() {
             </article>
             <article>
               <span>Target</span>
-              <strong>Product Marketing · Consumer Insights · Innovation Project Management</strong>
+              <strong>Product Marketing · Consumer Insights · Innovation and Digital Marketing Project Management</strong>
             </article>
             <article>
               <span>Proof base</span>
@@ -193,6 +197,10 @@ export default function Home() {
                 Avant d'ajouter un projet, un outil, un dashboard ou une fonctionnalité,
                 il faut savoir ce que l'équipe doit décider et ce que les données rendent visible.
               </p>
+              <aside className="category-bridge">
+                <strong>Une méthode, plusieurs catégories.</strong>
+                <p>Danone apporte l'exécution et la gouvernance FMCG. Les cas beauty montrent la lecture de catégorie et la conception de propositions. Le travail marketplace apporte l'exécution commerciale digitale.</p>
+              </aside>
               <div className="stat-strip" aria-label="At-a-glance proof points">
                 <article>
                   <strong>4 700+</strong>
@@ -214,7 +222,7 @@ export default function Home() {
             </div>
             <div className="profile-cards">
               <article className="profile-photo-card" aria-label="Rugved Naik portrait">
-                <img src="/assets/rugved-naik-headshot.jpg" alt="Rugved Naik" loading="lazy" decoding="async" />
+                <img src="/assets/rugved-naik-headshot.jpg" alt="Rugved Naik" loading="eager" decoding="async" />
                 <p>Rugved Naik / ESCP / Paris</p>
               </article>
               <article className="reading-card reading-shelf">
@@ -275,7 +283,7 @@ export default function Home() {
             <div className="stamp-card">
               <p>Disponible à partir de</p>
               <strong>Mars 2027</strong>
-              <small>Stages PM, PMM, innovation, consumer strategy ou PMO. Alternance dès septembre 2027.</small>
+              <small>Stages en marketing produit, études consommateurs, innovation ou gestion de projets marketing digital. Alternance dès septembre 2027.</small>
             </div>
             <div className="format-note">
               Convention de stage ESCP obligatoire. Durée recherchée: 6 mois.
@@ -283,7 +291,7 @@ export default function Home() {
             <ol className="timeline">
               <li>
                 <span>Sep 2026 - Fév 2027</span>
-                <p>Danone, EU Dairy Innovation & Productivity Project Management Intern.</p>
+                <p>Stage actuel chez Danone, jusqu'à fin février 2027.</p>
                 <p className="timeline-bridge">
                   Activement ouvert aux opportunités de mars 2027 pendant la fin de mon
                   stage chez Danone, jusqu'à fin février 2027.
@@ -291,7 +299,7 @@ export default function Home() {
               </li>
               <li>
                 <span>Mars 2027</span>
-                <p>Recherche de stage en PM, PMM, innovation, project management ou consumer strategy.</p>
+                <p>Recherche de stage en marketing produit, études consommateurs, innovation ou gestion de projets marketing digital.</p>
               </li>
               <li>
                 <span>Septembre 2027</span>
@@ -484,10 +492,7 @@ export default function Home() {
             <div className="dossier-group dossier-group-thinking">
               <div className="dossier-group-heading">
                 <span>Exercices de réflexion</span>
-                <p>
-                  Analyses indépendantes menées pour tester la méthode sur des catégories
-                  que je n'ai pas eu la chance de travailler directement, pas des missions réelles.
-                </p>
+                <p>Tests indépendants et clairement identifiés d'une méthode transférable entre catégories.</p>
               </div>
               <div className="dossier-grid">
                 {thinkingDossierLinks.map((dossier) => (

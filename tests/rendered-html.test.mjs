@@ -97,7 +97,13 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
     "the consumer principle should be memorable without being repeated",
   );
   assert.match(indexHtml, /Marketing produit · Études consommateurs · Gestion de projets innovation/);
-  assert.match(indexHtml, /Product Marketing · Consumer Insights · Innovation Project Management/);
+  assert.match(indexHtml, /Product Marketing · Consumer Insights · Innovation and Digital Marketing Project Management/);
+  assert.match(indexHtml, /Ouvrir le dossier principal/);
+  assert.match(indexHtml, /Open the flagship case/);
+  assert.match(indexHtml, /case-miutine\.html/);
+  assert.match(indexHtml, /category-bridge/);
+  assert.match(indexHtml, /FMCG execution and governance/);
+  assert.match(indexHtml, /digital commercial execution/);
   const heroCtaIndex = indexHtml.indexOf("Ouvert aux stages produit");
   const heroFactsIndex = indexHtml.indexOf('aria-label="Quick facts"');
   const heroQuoteIndex = indexHtml.indexOf('aria-label="Consumer principle"');
@@ -126,7 +132,9 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /Founder venture/);
   assert.match(indexHtml, /Academic project/);
   assert.match(indexHtml, /Case competition/);
-  assert.match(indexHtml, /Independent analyses used to test the method/);
+  assert.match(indexHtml, /independent tests of a method designed to transfer across categories/i);
+  assert.match(indexHtml, /Testing Premium Value Through Marketplace Evidence/);
+  assert.match(indexHtml, /Category-agnostic method test/);
   assert.equal((indexHtml.match(/class="tag-kind tag-kind-independent">Independent analysis/g) ?? []).length, 2);
   assert.doesNotMatch(indexHtml, /Start here \/ Applied in role|Start here \/ Market reading|Start here \/ India luxury read|Start here \/ Competition validated/i);
   assert.match(indexHtml, /I usually reply within 24-48 hours/);
@@ -228,7 +236,11 @@ test("flagship cases expose dated evidence and leadership outcomes", async () =>
   assert.match(miutine, /completed March 2026/);
   assert.match(miutine, /4,700\+ ratings and reviews/);
   assert.match(miutine, /Miutine Intense/);
-  assert.match(miutine, /do not establish causality, validate the analysis or imply influence on Miu Miu's decisions/);
+  assert.match(miutine, /subsequent brand activity, not as proof of causality or influence/);
+  assert.match(miutine, /possessions and the extended self/i);
+  assert.match(miutine, /social life and circulation of things/i);
+  assert.match(miutine, /miumiu\.com\/ww\/en\/p\/miu-miu-miutine-intense/);
+  assert.match(miutine, /miumiu\.com\/fr\/fr\/p\/miu-miu-fleur-de-lait/);
   assert.match(miutine, /Composite signal synthesized from recurring review and social-listening language/);
   assert.match(miutine, /The archived source did not preserve a publishable platform split/);
   assert.match(baja, /Captain and Head of Engineering Design/);
@@ -280,8 +292,9 @@ test("desktop dossier grids prevent orphan cards and contact overflow", async ()
   assert.match(css, /\.cover-copy \.cover-meta strong \{[\s\S]*?overflow-wrap: anywhere/);
   assert.match(css, /\.profile-cards \{[\s\S]*?grid-template-columns: repeat\(6, minmax\(0, 1fr\)\)/);
   assert.match(css, /\.profile-cards > article:nth-child\(3\)[\s\S]*?grid-column: span 2/);
-  assert.match(indexHtml, /<span class="lang-en">Availability<\/span>/);
-  assert.match(indexHtml, /<span class="lang-en">Experience<\/span>/);
+  assert.match(indexHtml, /<span class="lang-en" lang="en">Availability<\/span>/);
+  assert.match(indexHtml, /<span class="lang-en" lang="en">Experience<\/span>/);
+  assert.match(indexHtml, /<span class="lang-fr" lang="fr">/);
 });
 
 test("role cards use stable library icons instead of CSS-drawn symbols", async () => {
@@ -482,7 +495,7 @@ test("canonical fact sheet protects high-risk public claims", async () => {
     readFile(new URL("../scripts/generate-dossier-pdf.py", import.meta.url), "utf8"),
   ]);
   const facts = JSON.parse(factsJson);
-  assert.ok(indexHtml.includes(facts.currentRole.title));
+  assert.ok(indexHtml.includes(facts.currentRole.title.replace("&", "&amp;")));
   assert.match(indexHtml, /primary account of around EUR 68K per month spanning India, the US and Canada/);
   assert.match(indexHtml, /INR 1\.75M budget, approximately EUR 19K at 2023 rates/);
   assert.match(dossierGenerator, /EU Dairy Innovation & Productivity Project Management Intern/);
