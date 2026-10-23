@@ -136,8 +136,8 @@ story += [section_label("Proof to inspect"), p("Three evidence types, shown acco
 
 proof_rows = [
     ("DATED RESEARCH", "Collectibility Over Loyalty", "Academic project submitted in March 2026. I led quantitative review analysis within a mixed-method netnography across 4,700+ ratings and reviews. The public dossier shows the coding lens, research boundaries and strategic translation without claiming population-level precision."),
-    ("DELIVERY UNDER CONSTRAINT", "Building the Team Before Building the Vehicle", "Captain and Head of Engineering Design. Grew a five-person group into a 25-person agile organization, managed an INR 1.75M budget, approximately EUR 19K at 2023 rates, secured INR 0.8M in sponsorships, and delivered in four months. Top 10 in India and 1 of 3 teams selected for BAJA SAE Oregon 2023."),
-    ("PRESENTED ARTIFACT", "Face Architecture", "Winner of the 2026 ESCP Case Challenge in a 100-student cohort. The team submission translated couture heritage into a Gen Z beauty venture, with deck excerpts available in the online dossier."),
+    ("DELIVERY UNDER CONSTRAINT", "Building the Team Before Building the Vehicle", "Captain and Head of Engineering Design for Team Abhedya. Grew a five-person group into 24 members plus me, managed an INR 1.75M budget, approximately EUR 19K at 2023 rates, secured INR 0.8M in sponsorships, and delivered in four months. Ranked 15th overall at BAJA SAEINDIA 2023 and 4th overall at ATVC 2023."),
+    ("DEVELOPED ARTIFACT", "Face Architecture", "Winning team among 20 teams in the 2026 ESCP x LVMH Fragrance Brands Case Challenge. The team won with the core concept; the online dossier shows how I later extended it into a fuller product, visual and experience system."),
 ]
 for kind, title, body in proof_rows:
     story += [KeepTogether([section_label(kind), p(title, "H2x"), p(body)]), Spacer(1, 3 * mm)]
@@ -151,7 +151,7 @@ story += [section_label("Dossier index"), p("Six real projects and two independe
 cards = [
     dossier_card("Academic project", "Collectibility Over Loyalty", "Consumer research, market reading and a dated evidence trail."),
     dossier_card("Team leadership", "Building the Team Before Building the Vehicle", "Product delivery, organization design and technical trade-offs under constraint."),
-    dossier_card("Freelance client work", "Availability Is a Ranking Signal", "Inventory, organic rank, advertising dependency and commercial response."),
+    dossier_card("Freelance client work", "Making Availability Visible", "Amazon advertising, inventory, organic visibility and commercial response."),
     dossier_card("Freelance client work", "Listing Conversion Systems", "Customer doubt, marketplace proof and conversion infrastructure."),
     dossier_card("Founder venture", "Foldable Electric Mobility Product", "Patent-linked research and a 2024 peer-reviewed paper, DOI 10.4273/ijvss.16.1.08."),
     dossier_card("Case competition", "Face Architecture", "A Gen Z beauty venture grounded in Givenchy couture heritage."),

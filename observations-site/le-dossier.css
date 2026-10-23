@@ -832,11 +832,16 @@ body[data-lang="en"] .folder-tab > .lang-en {
   width: 34px;
 }
 
-.role-icon img {
+.role-icon img,
+.role-icon svg {
   display: block;
   height: 17px;
   opacity: 0.78;
   width: 17px;
+}
+
+.role-icon svg {
+  fill: currentColor;
 }
 
 .profile-cards h3,

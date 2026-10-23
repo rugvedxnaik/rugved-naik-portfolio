@@ -21,8 +21,8 @@ const realDossierLinks = [
   {
     engagement: "Freelance client work",
     category: "Commercial delivery",
-    title: "Availability Is a Ranking Signal",
-    text: "Peora, stock-outs, rank loss, ad dependency and an executive operating dashboard.",
+    title: "Making Availability Visible",
+    text: "Peora, Amazon advertising operations, e-commerce performance, stock-outs, organic visibility and an executive operating dashboard.",
     href: "case-peora-availability-ranking.html",
   },
   {
@@ -43,7 +43,7 @@ const realDossierLinks = [
     engagement: "Case competition",
     category: "Gen Z brand innovation",
     title: "Face Architecture",
-    text: "Winner of the 2026 ESCP Case Challenge in a 100-student cohort, with a Gen Z beauty venture built from Givenchy's couture heritage.",
+    text: "Winning team among 20 teams in the 2026 ESCP x LVMH Fragrance Brands Case Challenge.",
     href: "case-givenchy.html",
   },
 ];
@@ -234,28 +234,28 @@ export default function Home() {
               </article>
               <article>
                 <span className="role-icon" aria-hidden="true">
-                  <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/signpost-split.svg" alt="" />
+                  <svg viewBox="0 0 16 16" focusable="false"><path d="M7 7V1.414a1 1 0 0 1 2 0V2h5a1 1 0 0 1 .8.4l.975 1.3a.5.5 0 0 1 0 .6L14.8 5.6a1 1 0 0 1-.8.4H9v10H7v-5H2a1 1 0 0 1-.8-.4L.225 9.3a.5.5 0 0 1 0-.6L1.2 7.4A1 1 0 0 1 2 7zm1 3V8H2l-.75 1L2 10zm0-5h6l.75-1L14 3H8z"/></svg>
                 </span>
                 <h3>PM</h3>
                 <p>Transformer le besoin en priorité produit.</p>
               </article>
               <article>
                 <span className="role-icon" aria-hidden="true">
-                  <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/megaphone.svg" alt="" />
+                  <svg viewBox="0 0 16 16" focusable="false"><path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-.214c-2.162-1.241-4.49-1.843-6.912-2.083l.405 2.712A1 1 0 0 1 5.51 15.1h-.548a1 1 0 0 1-.916-.599l-1.85-3.49-.202-.003A2.014 2.014 0 0 1 0 9V7a2.02 2.02 0 0 1 1.992-2.013 75 75 0 0 0 2.483-.075c3.043-.154 6.148-.849 8.525-2.199zm1 0v11a.5.5 0 0 0 1 0v-11a.5.5 0 0 0-1 0m-1 1.35c-2.344 1.205-5.209 1.842-8 2.033v4.233q.27.015.537.036c2.568.189 5.093.744 7.463 1.993zm-9 6.215v-4.13a95 95 0 0 1-1.992.052A1.02 1.02 0 0 0 1 7v2c0 .55.448 1.002 1.006 1.009A61 61 0 0 1 4 10.065m-.657.975 1.609 3.037.01.024h.548l-.002-.014-.443-2.966a68 68 0 0 0-1.722-.082z"/></svg>
                 </span>
                 <h3>PMM</h3>
                 <p>Transformer l'usage en message mémorisable.</p>
               </article>
               <article>
                 <span className="role-icon" aria-hidden="true">
-                  <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/clipboard2-check.svg" alt="" />
+                  <svg viewBox="0 0 16 16" focusable="false"><path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5z"/><path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5z"/><path d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z"/></svg>
                 </span>
                 <h3>Innovation PMO</h3>
                 <p>Rendre les jalons, risques et prochaines étapes lisibles.</p>
               </article>
               <article>
                 <span className="role-icon" aria-hidden="true">
-                  <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/compass.svg" alt="" />
+                  <svg viewBox="0 0 16 16" focusable="false"><path d="M8 16.016a7.5 7.5 0 0 0 1.962-14.74A1 1 0 0 0 9 0H7a1 1 0 0 0-.962 1.276A7.5 7.5 0 0 0 8 16.016m6.5-7.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0"/><path d="m6.94 7.44 4.95-2.83-2.83 4.95-4.949 2.83 2.828-4.95z"/></svg>
                 </span>
                 <h3>Recherche terrain & culturelle</h3>
                 <p>Observer les usages, les contextes et les différences culturelles avant de formaliser une hypothèse.</p>
@@ -303,7 +303,7 @@ export default function Home() {
               </li>
               <li>
                 <span>Septembre 2027</span>
-                <p>Recherche d'alternance dans une équipe produit, innovation, performance ou PMO.</p>
+                <p>Cibles: marketing produit, études consommateurs et gestion de projets innovation ou marketing digital.</p>
               </li>
             </ol>
           </div>
@@ -333,7 +333,7 @@ export default function Home() {
               <div>
                 <span className="item-date">Jul 2023 - Jun 2025</span>
                 <h3>Brand &amp; E-commerce Growth Consultant</h3>
-                <p><strong>Mission principale: Peora.</strong> Croissance marketplace, analytics et expansion internationale sur trois marchés.</p>
+                <p><strong>Mission principale: Peora.</strong> Gestion de la plateforme publicitaire Amazon, performance e-commerce, analytics et expansion internationale sur trois marchés.</p>
                 <ul className="experience-highlights">
                   <li>Analyse d'un compte principal d'environ EUR 68K par mois couvrant l'Inde, les États-Unis et le Canada.</li>
                   <li>Construction de dashboards Excel et Power BI reliant ventes, publicité, stock et visibilité organique.</li>
@@ -347,10 +347,10 @@ export default function Home() {
             <article className="experience-item">
               <div>
                 <span className="item-date">Engineering base</span>
-                <h3>BAJA SAE and e-mobility</h3>
+                <h3>Team Abhedya, BAJA SAE and e-mobility</h3>
                 <p>
-                  Conduite d'une équipe de 25 personnes en BAJA SAE India et travail de
-                  produit sur un concept de mobilité électrique pliable.
+                  Équipe développée de 5 personnes à 24 membres plus moi. 15e au classement
+                  général BAJA SAEINDIA 2023 et 4e au classement général ATVC 2023.
                 </p>
               </div>
               <a href="case-electric-mobility.html">E-mobility dossier</a>
@@ -394,7 +394,7 @@ export default function Home() {
               <p>Acquisition, conversion, advertising, inventory, A+ content and marketplace performance tracking.</p>
             </article>
             <article className="skill-card">
-              <span>Project & PMO</span>
+              <span>Project delivery tools</span>
               <h3>Milestones, governance, stakeholders</h3>
               <p>Project coordination, risk tracking, decision forum preparation and continuous improvement.</p>
             </article>
@@ -459,7 +459,7 @@ export default function Home() {
                   <strong>5 à 25 personnes</strong>
                   <p>Responsabilité, contrainte de quatre mois, budget, arbitrage technique et résultat.</p>
                 </a>
-                <a href="case-givenchy.html#submitted-artifact">
+                <a href="case-givenchy.html#developed-artifact">
                   <span>03 / Artefact</span>
                   <strong>4 extraits du deck</strong>
                   <p>Le territoire, le système de positionnement et l'expérience présentés au jury.</p>

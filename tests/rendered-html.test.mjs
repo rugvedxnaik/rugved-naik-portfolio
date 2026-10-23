@@ -152,7 +152,7 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /References available on request\./);
   assert.match(indexHtml, /Captain and Head of Engineering Design/);
   assert.match(indexHtml, /case-baja\.html/);
-  assert.match(indexHtml, /Ranked top 10 in India/);
+  assert.match(indexHtml, /Ranked 15th overall at BAJA SAEINDIA 2023 and 4th overall at ATVC 2023/);
   assert.match(indexHtml, /INR 1\.75M budget, approximately EUR 19K at 2023 rates, and INR 0\.8M in sponsorships/);
   assert.equal((indexHtml.match(/class="work-dossier(?: [^"]+)?"/g) ?? []).length, 8);
   assert.doesNotMatch(indexHtml, /href="case-(?:danone-claim-saturation|lvmh-shared-infrastructure|box-is-the-proof)\.html"/);
@@ -246,7 +246,11 @@ test("flagship cases expose dated evidence and leadership outcomes", async () =>
   assert.match(baja, /Captain and Head of Engineering Design/);
   assert.match(baja, /five-person engineering group into a 25-person agile vehicle organization/);
   assert.match(baja, /INR 1\.75M budget/);
-  assert.match(baja, /Top 10 in India and 1 of 3 teams/);
+  assert.match(baja, /Team Abhedya ranked 15th overall at BAJA SAEINDIA 2023 and 4th overall at ATVC 2023/);
+  assert.match(baja, /team ID 23060/);
+  assert.match(baja, /property="og:url"/);
+  assert.match(baja, /name="twitter:card"/);
+  assert.doesNotMatch(baja, /Oregon|Top 10/i);
   assert.match(givenchy, /Gen Z beauty venture built from Givenchy's couture heritage/);
 });
 
@@ -262,12 +266,12 @@ test("flagship proof is inspectable and uses real project artifacts", async () =
   assert.match(indexHtml, /Selected evidence/);
   assert.match(indexHtml, /case-miutine\.html#evidence-trail/);
   assert.match(indexHtml, /case-baja\.html#delivery-record/);
-  assert.match(indexHtml, /case-givenchy\.html#submitted-artifact/);
+  assert.match(indexHtml, /case-givenchy\.html#developed-artifact/);
   assert.match(miutine, /id="evidence-trail"/);
   assert.match(miutine, /Directional, not a population estimate/);
   assert.match(baja, /id="delivery-record"/);
   assert.match(baja, /9 months compressed to 4/);
-  assert.match(givenchy, /id="submitted-artifact"/);
+  assert.match(givenchy, /id="developed-artifact"/);
   assert.match(givenchy, /assets\/givenchy\/slide-01\.webp/);
   assert.match(givenchy, /assets\/givenchy\/slide-05\.webp/);
   assert.match(givenchy, /assets\/givenchy\/slide-07\.webp/);
@@ -303,9 +307,8 @@ test("role cards use stable library icons instead of CSS-drawn symbols", async (
     readFile(new URL("../observations-site/le-dossier.css", import.meta.url), "utf8"),
   ]);
 
-  assert.match(indexHtml, /bootstrap-icons@1\.11\.3\/icons\/signpost-split\.svg/);
-  assert.match(indexHtml, /bootstrap-icons@1\.11\.3\/icons\/megaphone\.svg/);
-  assert.match(indexHtml, /bootstrap-icons@1\.11\.3\/icons\/clipboard2-check\.svg/);
+  assert.doesNotMatch(indexHtml, /cdn\.jsdelivr\.net|bootstrap-icons@/);
+  assert.match(indexHtml, /<span class="role-icon" aria-hidden="true">[\s\S]*?<svg viewBox="0 0 16 16"/);
   assert.doesNotMatch(css, /\.role-icon--(?:pm|pmm|pmo)/);
   assert.doesNotMatch(css, /\.role-icon(?:::before|::after)/);
 });
@@ -355,9 +358,9 @@ test("v4 dossier pages share the standard section structure", async () => {
   ];
 
   const expectedSections = [
-    "The signal",
-    "Output",
-    "What it shows",
+    "The signal|Operating hypothesis|Strategic proposition",
+    "Output|Operating response",
+    "What it shows|Measurement boundary|Competition verification",
   ];
 
   for (const file of dossierFiles) {
@@ -366,8 +369,8 @@ test("v4 dossier pages share the standard section structure", async () => {
     assert.match(html, /<h3>[^<]+<\/h3>/, file);
     assert.match(html, /class="dossier-status"><em>[^<]+<\/em>/, file);
     assert.match(html, /class="dossier-signal-quote"/, file);
-    assert.match(html, /<strong>Product implication/, file);
-    assert.match(html, /<strong>GTM implication/, file);
+    assert.match(html, /<strong>(?:Product implication|Commercial monitoring)/, file);
+    assert.match(html, /<strong>(?:GTM implication|Advertising decision)/, file);
     for (const section of expectedSections) {
       assert.match(html, new RegExp(section), `${file} ${section}`);
     }
@@ -397,10 +400,10 @@ test("dossier pages expose PM snapshots and validation plans", async () => {
     assert.match(html, /aria-label="PM snapshot"/, file);
     assert.match(html, /<span>Role<\/span>/, file);
     assert.match(html, /<span>Problem<\/span>/, file);
-    assert.match(html, /<span>Evidence<\/span>/, file);
+    assert.match(html, /<span>(?:Evidence|Strategic inputs)<\/span>/, file);
     assert.match(html, /<span>Decision<\/span>/, file);
     assert.match(html, /<span>Artifact<\/span>/, file);
-    assert.match(html, /<span>(?:Outcome|Measurement boundary)<\/span>/, file);
+    assert.match(html, /<span>(?:Outcome|Result|Operational change|Measurement boundary)<\/span>/, file);
     pmSnapshotCount += (html.match(/aria-label="PM snapshot"/g) ?? []).length;
   }
 
@@ -467,9 +470,16 @@ test("indexed dossiers use honest labels, evidence boundaries and index-only nav
   const byName = Object.fromEntries(pages);
   assert.match(byName["case-peora-availability-ranking.html"], /Freelance client work/);
   assert.match(byName["case-peora-availability-ranking.html"], /did not isolate[\s\S]*ranking algorithm/);
+  assert.match(byName["case-peora-availability-ranking.html"], /Managed Amazon advertising and e-commerce performance/);
+  assert.match(byName["case-peora-availability-ranking.html"], /Strategic paraphrase/);
+  assert.doesNotMatch(byName["case-peora-availability-ranking.html"], /actionable, and wrong/);
   assert.match(byName["case-amazon-conversion.html"], /listing-level conversion lift was not isolated/);
   assert.match(byName["case-electric-mobility.html"], /10\.4273\/ijvss\.16\.1\.08/);
-  assert.match(byName["case-givenchy.html"], /Winner, 2026 ESCP Case Challenge, 100-student cohort/);
+  assert.match(byName["case-givenchy.html"], /Twenty teams and 50 ESCP students participated/);
+  assert.match(byName["case-givenchy.html"], /LVMH Fragrance Brands' public post/);
+  assert.match(byName["case-givenchy.html"], /No primary Gen Z consumer study was conducted/);
+  assert.match(byName["case-givenchy.html"], /Concept developed after the competition/);
+  assert.doesNotMatch(byName["case-givenchy.html"], /id="submitted-artifact"/);
 });
 
 test("retired dossiers are noindexed and clearly archived", async () => {
