@@ -296,6 +296,8 @@ test("desktop dossier grids prevent orphan cards and contact overflow", async ()
   assert.match(css, /\.cover-copy \.cover-meta strong \{[\s\S]*?overflow-wrap: anywhere/);
   assert.match(css, /\.profile-cards \{[\s\S]*?grid-template-columns: repeat\(6, minmax\(0, 1fr\)\)/);
   assert.match(css, /\.profile-cards > article:nth-child\(3\)[\s\S]*?grid-column: span 2/);
+  assert.match(css, /\.category-bridge p \{[\s\S]*?font-family: var\(--sans\);[\s\S]*?letter-spacing: 0;/);
+  assert.match(css, /\.category-bridge p > \.lang-fr,[\s\S]*?\.category-bridge p > \.lang-en \{[\s\S]*?font-family: inherit;/);
   assert.match(indexHtml, /<span class="lang-en" lang="en">Availability<\/span>/);
   assert.match(indexHtml, /<span class="lang-en" lang="en">Experience<\/span>/);
   assert.match(indexHtml, /<span class="lang-fr" lang="fr">/);

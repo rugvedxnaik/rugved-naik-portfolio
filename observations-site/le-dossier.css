@@ -648,9 +648,19 @@ body[data-lang="en"] .folder-tab > .lang-en {
 
 .category-bridge p {
   color: var(--muted);
+  font-family: var(--sans);
   font-size: 0.88rem;
+  letter-spacing: 0;
   line-height: 1.55;
   margin-top: 8px;
+}
+
+.category-bridge p > .lang-fr,
+.category-bridge p > .lang-en {
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
 }
 
 .stat-strip article {
