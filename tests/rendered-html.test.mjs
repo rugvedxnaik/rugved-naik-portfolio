@@ -56,23 +56,22 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   ]);
   const portfolio = JSON.parse(portfolioJson);
 
-  assert.match(indexHtml, /<title>Le Dossier \| Rugved Naik<\/title>/);
+  assert.match(indexHtml, /<title>Rugved Naik \| Product Marketing and Innovation Project Management<\/title>/);
   assert.match(indexHtml, /role="tablist"/);
-  assert.equal((indexHtml.match(/class="folder-tab(?: is-active)?"/g) ?? []).length, 7);
+  assert.equal((indexHtml.match(/class="folder-tab(?: is-active)?"/g) ?? []).length, 6);
   assert.match(indexHtml, /data-lang-button="fr"/);
   assert.match(indexHtml, /data-lang-button="en"/);
   assert.match(indexHtml, /rugved-naik-cv\.pdf/);
-  assert.match(indexHtml, /rugved-naik-dossier\.pdf/);
   assert.match(indexHtml, /Stage dès mars 2027 \/ alternance dès septembre 2027/);
   assert.match(indexHtml, /Convention de stage ESCP obligatoire\. Durée recherchée: 6 mois\./);
-  assert.match(indexHtml, /Danone · EU Dairy Innovation &amp; Productivity/);
-  assert.match(indexHtml, /Project Management Intern/);
+  assert.match(indexHtml, /EU Dairy Innovation &amp; Productivity Project Management Intern/);
   assert.match(indexHtml, /Sep 2026 - Fév 2027/);
   assert.match(indexHtml, /Prepared data-quality reviews and Power BI portfolio views to support governance decisions/);
   assert.match(indexHtml, /Brought R&amp;D, Marketing, Supply, Quality and Regulatory inputs into decision forums/);
   assert.match(indexHtml, /Compétences/);
-  assert.match(indexHtml, /Excel, Power BI, SQL/);
-  assert.match(indexHtml, /Amazon Seller Central \/ Ads/);
+  assert.match(indexHtml, /Excel, Power BI/);
+  assert.doesNotMatch(indexHtml, /Excel, Power BI, SQL/);
+  assert.match(indexHtml, /Seller Central and Helium 10/);
   assert.match(indexHtml, /English C1, French A2 improving/);
   assert.match(indexHtml, /Day-to-day working language: English/);
   assert.match(indexHtml, /4 700\+/);
@@ -84,11 +83,11 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /L'Oréal Brandstorm 2026/);
   assert.match(indexHtml, /Consumer-Centric Marketing specialization/);
   assert.match(indexHtml, /Google Project Management 2026/);
-  assert.match(indexHtml, /Ouvert aux stages produit, marketing et stratégie consommateur à partir de mars 2027\./);
-  assert.match(indexHtml, /Open to product, marketing and consumer-strategy internships from March 2027\./);
+  assert.match(indexHtml, /Ouvert aux stages en marketing produit et en gestion de projets ou de produits innovation dès mars 2027/);
+  assert.match(indexHtml, /Open to product marketing and innovation project or product management internships from March 2027/);
   assert.match(indexHtml, /mailto:rugved\.naik@edu\.escp\.eu\?subject=Stage%20PM%2FPMM%2FPMO%2FConsumer%20Strategy%20-%20mars%202027/);
-  assert.match(indexHtml, /I turn consumer behavior into product and marketing decisions/);
-  assert.match(indexHtml, /Je transforme les comportements consommateurs en décisions produit et marketing/);
+  assert.match(indexHtml, /Product marketing built on customer understanding/);
+  assert.match(indexHtml, /From what people are solving, to the message, to a launch teams can execute/);
   assert.match(indexHtml, /Before a team decides what to build or say/);
   assert.match(indexHtml, /Avant qu'une équipe décide quoi construire ou dire/);
   assert.equal(
@@ -96,21 +95,21 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
     1,
     "the consumer principle should be memorable without being repeated",
   );
-  assert.match(indexHtml, /Marketing produit · Études consommateurs · Gestion de projets innovation/);
-  assert.match(indexHtml, /Product Marketing · Consumer Insights · Innovation and Digital Marketing Project Management/);
-  assert.match(indexHtml, /Ouvrir le dossier principal/);
-  assert.match(indexHtml, /Open the flagship case/);
+  assert.match(indexHtml, /Marketing produit · Gestion de projets et de produits innovation/);
+  assert.match(indexHtml, /Product Marketing · Innovation Project and Product Management/);
+  assert.match(indexHtml, /Ouvrir le dossier positionnement/);
+  assert.match(indexHtml, /Open the positioning case/);
+  assert.match(indexHtml, /case-withings\.html/);
   assert.match(indexHtml, /case-miutine\.html/);
   assert.match(indexHtml, /category-bridge/);
-  assert.match(indexHtml, /FMCG execution and governance/);
-  assert.match(indexHtml, /digital commercial execution/);
-  const heroCtaIndex = indexHtml.indexOf("Ouvert aux stages produit");
+  assert.match(indexHtml, /One argument, three proof types/);
+  assert.match(indexHtml, /What people are solving: Miutine and electric mobility/);
+  const heroCtaIndex = indexHtml.indexOf("Ouvert aux stages en marketing produit");
   const heroFactsIndex = indexHtml.indexOf('aria-label="Quick facts"');
   const heroQuoteIndex = indexHtml.indexOf('aria-label="Consumer principle"');
   assert.ok(heroCtaIndex > -1 && heroFactsIndex > heroCtaIndex, "hero facts should sit directly after the CTA");
   assert.ok(heroQuoteIndex > heroFactsIndex, "consumer quote should follow the practical facts");
-  assert.match(indexHtml, /Engineering taught me to break down systems/);
-  assert.match(indexHtml, /Actively open to March 2027 opportunities/);
+  assert.match(indexHtml, /Engineering taught me to break systems into parts/);
   assert.doesNotMatch(indexHtml, /Dossier format: scan, open useful proof, contact/);
   assert.match(indexHtml, /assets\/rugved-naik-headshot\.jpg/);
   assert.match(indexHtml, /On the reading shelf/);
@@ -121,39 +120,36 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.match(indexHtml, /Method flow/);
   assert.match(indexHtml, /Selected evidence/);
   assert.doesNotMatch(indexHtml, /If you only open one dossier/);
-  assert.match(indexHtml, /Projets réels/);
-  assert.match(indexHtml, /Real projects/);
-  assert.match(indexHtml, /Exercices de réflexion/);
-  assert.match(indexHtml, /Thinking exercises/);
+  assert.match(indexHtml, /Ce que les gens cherchent à résoudre/);
+  assert.match(indexHtml, /What people are solving/);
+  assert.match(indexHtml, /The message/);
+  assert.match(indexHtml, /A launch teams can execute/);
   assert.match(indexHtml, /One method, shown through Miutine/);
   assert.match(indexHtml, /Reviews overrepresent purchase, unboxing and early ownership/);
-  assert.match(pageTsx, /Une méthode, montrée sur Miutine/);
+  assert.match(indexHtml, /Une méthode, montrée sur Miutine/);
   assert.match(indexHtml, /Freelance client work/);
-  assert.match(indexHtml, /Founder venture/);
+  assert.match(indexHtml, /Independent venture/);
+  assert.doesNotMatch(indexHtml, /Founder venture/);
   assert.match(indexHtml, /Academic project/);
   assert.match(indexHtml, /Case competition/);
-  assert.match(indexHtml, /independent tests of a method designed to transfer across categories/i);
-  assert.match(indexHtml, /Testing Premium Value Through Marketplace Evidence/);
-  assert.match(indexHtml, /Category-agnostic method test/);
-  assert.equal((indexHtml.match(/class="tag-kind tag-kind-independent">Independent analysis/g) ?? []).length, 2);
+  assert.match(indexHtml, /In progress/);
   assert.doesNotMatch(indexHtml, /Start here \/ Applied in role|Start here \/ Market reading|Start here \/ India luxury read|Start here \/ Competition validated/i);
   assert.match(indexHtml, /I usually reply within 24-48 hours/);
   assert.match(indexHtml, /Send a few lines about the role, team or question/);
   assert.match(indexHtml, /I am looking for a team where product decisions start from evidence/);
   assert.match(indexHtml, /Helpful context/);
-  assert.match(indexHtml, /Every dossier starts with the same question/);
+  assert.match(indexHtml, /Dossiers are in English, with a French summary at the top of every page/);
   assert.doesNotMatch(indexHtml, /if the fit is clear|send me the problem/i);
   assert.match(indexHtml, /application\/ld\+json/);
   assert.match(indexHtml, /"knowsLanguage": \["English C1", "French A2", "Hindi", "Marathi"\]/);
   assert.equal((indexHtml.match(/lead-dossier/g) ?? []).length, 1);
-  assert.equal((pageTsx.match(/lead: true/g) ?? []).length, 1);
-  assert.match(indexHtml, /Recommended start/);
+  assert.match(indexHtml, /Positioning case/);
   assert.doesNotMatch(indexHtml, /Real quote pending|Citation réelle à ajouter|Reference<\/span>/);
   assert.match(indexHtml, /References available on request\./);
   assert.match(indexHtml, /Captain and Head of Engineering Design/);
   assert.match(indexHtml, /case-baja\.html/);
-  assert.match(indexHtml, /Ranked 15th overall at BAJA SAEINDIA 2023 and 4th overall at ATVC 2023/);
-  assert.match(indexHtml, /INR 1\.75M budget, approximately EUR 19K at 2023 rates, and INR 0\.8M in sponsorships/);
+  assert.match(indexHtml, /Result: 15th overall at BAJA SAEINDIA 2023 and 4th overall at ATVC 2023/);
+  assert.match(indexHtml, /Managed an INR 1\.75M budget, approximately EUR 19K at 2023 rates, including INR 0\.8M secured in sponsorships/);
   assert.equal((indexHtml.match(/class="work-dossier(?: [^"]+)?"/g) ?? []).length, 8);
   assert.doesNotMatch(indexHtml, /href="case-(?:danone-claim-saturation|lvmh-shared-infrastructure|box-is-the-proof)\.html"/);
   assert.match(indexHtml, /href="case-withings\.html"/);
@@ -168,7 +164,7 @@ test("Le Dossier homepage follows the HR portfolio rules", async () => {
   assert.doesNotMatch(indexHtml, />Loading<|Loading the|data-signal-list|data-active-signal-card|sound-toggle|Switchboard/i);
   assert.match(pageTsx, /Le Dossier/);
   assert.match(pageTsx, /Download CV PDF/);
-  assert.match(pageTsx, /Download dossier PDF/);
+  assert.match(pageTsx, /Download CV PDF/);
   assert.match(dossierJs, /setTab/);
   assert.match(dossierJs, /setLanguage/);
   assert.equal(portfolio.cases.length, 15);
@@ -298,7 +294,7 @@ test("desktop dossier grids prevent orphan cards and contact overflow", async ()
   assert.match(css, /\.profile-cards > article:nth-child\(3\)[\s\S]*?grid-column: span 2/);
   assert.match(css, /\.category-bridge p \{[\s\S]*?font-family: var\(--sans\);[\s\S]*?letter-spacing: 0;/);
   assert.match(css, /\.category-bridge p > \.lang-fr,[\s\S]*?\.category-bridge p > \.lang-en \{[\s\S]*?font-family: inherit;/);
-  assert.match(indexHtml, /<span class="lang-en" lang="en">Availability<\/span>/);
+  assert.doesNotMatch(indexHtml, /data-panel="disponibilite"/);
   assert.match(indexHtml, /<span class="lang-en" lang="en">Experience<\/span>/);
   assert.match(indexHtml, /<span class="lang-fr" lang="fr">/);
 });
@@ -360,9 +356,9 @@ test("v4 dossier pages share the standard section structure", async () => {
   ];
 
   const expectedSections = [
-    "The signal|Operating hypothesis|Strategic proposition",
+    "The signal|Signal<|Operating hypothesis|Strategic proposition",
     "Output|Operating response",
-    "What it shows|Measurement boundary|Competition verification|Evidence boundary and transferability|Decision contribution|Consumer problem and evidence boundary|Current evidence boundary",
+    "What it shows|What this does not show|Measurement boundary|Competition verification|Evidence boundary and transferability|Decision contribution|Consumer problem and evidence boundary|Current evidence boundary",
   ];
 
   for (const file of dossierFiles) {
@@ -370,7 +366,7 @@ test("v4 dossier pages share the standard section structure", async () => {
     assert.match(html, /<h1>[^<]+<\/h1>/, file);
     assert.match(html, /<h3>[^<]+<\/h3>/, file);
     assert.match(html, /class="dossier-status"><em>[^<]+<\/em>/, file);
-    assert.match(html, /class="dossier-signal-quote"/, file);
+    assert.match(html, /class="dossier-signal-quote"|text-card-label">Signal/, file);
     assert.match(html, /<strong>(?:Product implication|Commercial monitoring)/, file);
     assert.match(html, /<strong>(?:GTM implication|Advertising decision)/, file);
     for (const section of expectedSections) {
@@ -405,7 +401,7 @@ test("dossier pages expose PM snapshots and validation plans", async () => {
     assert.match(html, /<span>(?:Evidence|Strategic inputs)<\/span>/, file);
     assert.match(html, /<span>Decision<\/span>/, file);
     assert.match(html, /<span>Artifact<\/span>/, file);
-    assert.match(html, /<span>(?:Outcome|Result|Operational change|Measurement boundary)<\/span>/, file);
+    assert.match(html, /<span>(?:Outcome|Result|Operational change|Measurement boundary|Status)<\/span>/, file);
     pmSnapshotCount += (html.match(/aria-label="PM snapshot"/g) ?? []).length;
   }
 

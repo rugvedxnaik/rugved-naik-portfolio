@@ -49,7 +49,7 @@ doc = BaseDocTemplate(
     bottomMargin=19 * mm,
     title="Rugved Naik - Le Dossier",
     author="Rugved Naik",
-    subject="Consumer-centric product, marketing and innovation portfolio",
+    subject="Product marketing and innovation portfolio built on customer understanding",
 )
 frame = Frame(doc.leftMargin, doc.bottomMargin, doc.width, doc.height, id="body")
 doc.addPageTemplates([PageTemplate(id="page", frames=[frame], onPage=footer)])
@@ -93,8 +93,8 @@ def dossier_card(kind, title, description):
 
 story = []
 story += [section_label("Application dossier"), p("Rugved Naik", "TitleLarge")]
-story += [p("Consumer evidence for product, launch and innovation decisions.", "SectionTitle")]
-story += [p("Engineer by training, growth practitioner, and EU Dairy Innovation & Productivity Project Management Intern at Danone. I use consumer evidence to clarify what a team should build, say or prioritize.")]
+story += [p("Product marketing built on customer understanding.", "SectionTitle")]
+story += [p("From what people are solving, to the message, to a launch teams can execute. Engineer by training, with growth and marketplace experience, and now an EU Dairy Innovation & Productivity Project Management Intern at Danone.")]
 
 facts = Table([
     [metric("MAR 2027", "Internships from March 2027"), metric("SEP 2027", "Apprenticeships from September 2027")],
@@ -112,13 +112,13 @@ facts.setStyle(TableStyle([
 ]))
 story += [Spacer(1, 4 * mm), facts, Spacer(1, 6 * mm)]
 
-story += [section_label("Target roles"), p("Product Marketing, Consumer Insights, Innovation and Digital Marketing Project Management.")]
+story += [section_label("Target roles"), p("Product Marketing, Innovation Project Management and Innovation Product Management.")]
 story += [section_label("Evidence at a glance")]
 metrics = Table([[
     metric("4,700+", "Academic reviews analyzed"),
     metric("EUR 68K/mo", "Primary account across three markets"),
     metric("-18%", "ACoS through experimentation"),
-    metric("12 years", "National-level Mallakhamb athlete"),
+    metric("1,000+", "Canada listing elements localized"),
 ]], colWidths=[43.5 * mm] * 4)
 metrics.setStyle(TableStyle([
     ("VALIGN", (0, 0), (-1, -1), "TOP"),
@@ -132,31 +132,31 @@ metrics.setStyle(TableStyle([
 story += [metrics, Spacer(1, 5 * mm), section_label("Availability and format"), p("ESCP internship agreement required. Target duration: 6 months. Day-to-day working language: English. French A2, actively improving through regular coursework.")]
 
 story.append(PageBreak())
-story += [section_label("Proof to inspect"), p("Three evidence types, shown according to what actually exists.", "SectionTitle")]
+story += [section_label("Proof to inspect"), p("Three decisions, each supported by the evidence that actually exists.", "SectionTitle")]
 
 proof_rows = [
-    ("DATED RESEARCH", "Collectibility Over Loyalty", "Academic project submitted in March 2026. I led quantitative review analysis within a mixed-method netnography across 4,700+ ratings and reviews. The public dossier shows the coding lens, research boundaries and strategic translation without claiming population-level precision."),
-    ("DELIVERY UNDER CONSTRAINT", "Building the Team Before Building the Vehicle", "Captain and Head of Engineering Design for Team Abhedya. Grew a five-person group into 24 members plus me, managed an INR 1.75M budget, approximately EUR 19K at 2023 rates, secured INR 0.8M in sponsorships, and delivered in four months. Ranked 15th overall at BAJA SAEINDIA 2023 and 4th overall at ATVC 2023."),
-    ("DEVELOPED ARTIFACT", "Face Architecture", "Winning team among 20 teams in the 2026 ESCP x LVMH Fragrance Brands Case Challenge. The team won with the core concept; the online dossier shows how I later extended it into a fuller product, visual and experience system."),
+    ("POSITIONING CASE", "Testing Premium Value Through Marketplace Evidence", "An independent analysis of 100 Amazon US listings using Helium 10 estimates. It turns category evidence into a target audience, job to be done, core claim, proof points, objection handling and message test, while stating the data boundary plainly."),
+    ("CUSTOMER INSIGHT", "Collectibility Over Loyalty", "Academic project submitted in March 2026. I led quantitative review analysis within a mixed-method netnography across 4,700+ ratings and reviews. The public dossier shows the coding lens, research boundaries, decision test and strategic translation without claiming population-level precision."),
+    ("LAUNCH DELIVERY", "Building the Team Before Building the Vehicle", "Captain and Head of Engineering Design for Team Abhedya. Grew a five-person group into 24 members plus me, managed an INR 1.75M budget, approximately EUR 19K at 2023 rates, secured INR 0.8M in sponsorships, and delivered in four months. Ranked 15th overall at BAJA SAEINDIA 2023 and 4th overall at ATVC 2023."),
 ]
 for kind, title, body in proof_rows:
     story += [KeepTogether([section_label(kind), p(title, "H2x"), p(body)]), Spacer(1, 3 * mm)]
 
-story += [section_label("Method in practice"), p("Miutine: observe 4,700+ ratings and reviews; separate object signals from identity signals; name the distinction between Object Value and Identity Value; translate it into collection logic; state that review data overrepresents purchase, unboxing and early ownership. The framework applies Belk's extended-self research and Appadurai's work on the social life of things to a practical launch decision.")]
-story += [section_label("Current role"), p("Danone, EU Dairy Innovation & Productivity. Project Management Intern, September 2026 to February 2027. Supporting European dairy innovation and productivity projects across milestones, cross-functional coordination, data quality, Power BI, governance and portfolio health.")]
+story += [section_label("Method in practice"), p("Miutine: observe 4,700+ ratings and reviews; separate object signals from identity signals; name the distinction between Object Value and Identity Value; translate it into collection logic; test a collection-led proposition against a conventional signature-scent proposition; bound the claim by stating that review data overrepresents purchase, unboxing and early ownership.")]
+story += [section_label("Current role"), p("Danone, EU Dairy Innovation & Productivity Project Management Intern, September 2026 to February 2027. Supporting European dairy innovation and productivity projects across milestones, cross-functional coordination, data quality, Power BI, governance and portfolio health.")]
 
 story.append(PageBreak())
-story += [section_label("Dossier index"), p("Six real projects and two independent thinking exercises.", "SectionTitle")]
+story += [section_label("Dossier index"), p("One argument, three proof types.", "SectionTitle")]
 
 cards = [
     dossier_card("Academic project", "Collectibility Over Loyalty", "Consumer research, market reading and a dated evidence trail."),
+    dossier_card("Independent venture", "Foldable Electric Mobility Product", "Patent-linked research and a 2024 peer-reviewed paper, DOI 10.4273/ijvss.16.1.08."),
+    dossier_card("Independent analysis", "Testing Premium Value Through Marketplace Evidence", "A 100-listing Amazon analysis translated into a positioning and launch brief."),
+    dossier_card("Case competition", "Face Architecture", "A Gen Z beauty venture grounded in Givenchy couture heritage."),
+    dossier_card("Freelance client work", "Listing Conversion Systems", "Customer doubt, marketplace proof and conversion infrastructure."),
     dossier_card("Team leadership", "Building the Team Before Building the Vehicle", "Product delivery, organization design and technical trade-offs under constraint."),
     dossier_card("Freelance client work", "Making Availability Visible", "Amazon advertising, inventory, organic visibility and commercial response."),
-    dossier_card("Freelance client work", "Listing Conversion Systems", "Customer doubt, marketplace proof and conversion infrastructure."),
-    dossier_card("Founder venture", "Foldable Electric Mobility Product", "Patent-linked research and a 2024 peer-reviewed paper, DOI 10.4273/ijvss.16.1.08."),
-    dossier_card("Case competition", "Face Architecture", "A Gen Z beauty venture grounded in Givenchy couture heritage."),
-    dossier_card("Independent method test", "Testing Premium Value Through Marketplace Evidence", "A 100-listing Amazon analysis of interpretation, premium value and trust."),
-    dossier_card("Independent analysis", "What AI Can't Personalize", "Adaptive discovery, brand memory and protected cues inside personalization."),
+    dossier_card("In progress", "What AI Can't Personalize", "An explicitly unfinished analysis of adaptive discovery, brand memory and protected cues."),
 ]
 for index in range(0, len(cards), 2):
     row = Table([[cards[index], cards[index + 1]]], colWidths=[87 * mm, 87 * mm])

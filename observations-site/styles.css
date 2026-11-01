@@ -88,6 +88,56 @@ body.consumer-switchboard-home[data-signal="1903"] {
   --active-accent-strong: #12423d;
 }
 
+/* Evidence-led dossier components */
+
+.launch-brief-grid {
+  background: var(--line);
+  border: 1px solid var(--line);
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 1.5rem;
+}
+
+.launch-brief-grid article {
+  background: var(--paper-soft);
+  padding: 1.1rem;
+}
+
+.launch-brief-grid article p {
+  margin: 0.5rem 0 0;
+}
+
+.framework-sequence {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.framework-sequence li {
+  border: 1px solid var(--line);
+  display: grid;
+  gap: 0.45rem;
+  padding: 1rem;
+}
+
+.framework-sequence span {
+  color: var(--bronze);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 700px) {
+  .launch-brief-grid,
+  .framework-sequence {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Final clean archive pass */
 
 body.signal-archive-home {
